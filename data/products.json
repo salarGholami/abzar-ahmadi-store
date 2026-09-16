@@ -315,11 +315,11 @@
     "category": "برش و سایش",
     "price": 5177000,
     "discount": 10,
-    "stock": 31,
+    "stock": 30,
     "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=900&q=80",
     "purchaseCost": 3835000,
     "createdAt": "2026-08-24T03:42:28.451629Z",
-    "updatedAt": "2026-09-13T03:42:28.451629Z"
+    "updatedAt": "2026-09-16T16:01:18.058Z"
   },
   {
     "id": "p24",
