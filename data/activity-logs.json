@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "id": "7c431c78-dc40-4ccb-9014-b3f469b24271",
+    "action": "SALE_CREATED",
+    "entityId": "0042edb8-ece0-48ff-91ea-e5cf813c08fc",
+    "createdAt": "2026-09-16T03:52:06.530Z"
+  }
+]
