@@ -22,5 +22,11 @@
     "productId": "p6",
     "quantity": 1,
     "updatedAt": "2026-09-16T03:54:10.375Z"
+  },
+  {
+    "id": "7c0ee920-7e10-48f4-97dc-8311868910a3",
+    "productId": "p3",
+    "quantity": -1,
+    "updatedAt": "2026-09-16T04:39:15.103Z"
   }
 ]
