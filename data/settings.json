@@ -1,10 +1,11 @@
 [
   {
     "id": "store",
-    "storeName": "ابزارینو",
+    "storeName": "ابزار ساختمانی احمدی",
     "storePhone": "021-00000000",
-    "cardNumber": "",
-    "cardHolderName": "",
-    "lowStockThreshold": 5
+    "cardNumber": "6219111122223333",
+    "cardHolderName": "جواد اجمدی",
+    "lowStockThreshold": 5,
+    "updatedAt": "2026-09-16T03:58:08.256Z"
   }
 ]
