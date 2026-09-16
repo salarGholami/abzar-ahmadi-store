@@ -16,5 +16,14 @@
     "unitPrice": 8188000,
     "purchaseCost": 0,
     "total": 8188000
+  },
+  {
+    "id": "f7afe5a6-f44e-4092-9ddf-59c93566482c",
+    "saleId": "dadb1de9-136d-4822-bbe0-619e72d4f0cd",
+    "productId": "p5",
+    "quantity": 1,
+    "unitPrice": 8131000,
+    "purchaseCost": 0,
+    "total": 8131000
   }
 ]
