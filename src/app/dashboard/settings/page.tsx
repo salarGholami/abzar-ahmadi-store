@@ -75,16 +75,12 @@ export default function SettingsPage() {
         fields={[
           { key: "name", label: "نام کاربر", required: true },
           { key: "phone", label: "شماره موبایل", required: true },
-          { key: "role", label: "نقش", type: "select", required: true, options: [
-            { value: "ADMIN", label: "مدیر سیستم" }, { value: "SELLER", label: "فروشنده" },
-            { value: "ACCOUNTANT", label: "حسابدار" }, { value: "WAREHOUSE", label: "انباردار" }
-          ]},
           { key: "password", label: "رمز عبور (برای تغییر پر کنید)", type: "password" }
         ]}
         columns={[
           { key: "name", label: "نام" },
           { key: "phone", label: "موبایل" },
-          { key: "role", label: "نقش" }
+          { key: "role", label: "دسترسی", render: (user) => <span className="badge bg-[var(--primary)]/10 text-[var(--primary)]">مدیر سیستم</span> }
         ]}
       />
     </div>

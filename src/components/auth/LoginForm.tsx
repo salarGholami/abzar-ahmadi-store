@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -11,24 +12,25 @@ export default function LoginForm() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
-  async function submit(e: React.FormEvent) {
-    e.preventDefault();
+  async function submit(event: React.FormEvent) {
+    event.preventDefault();
     setError(null);
     setLoading(true);
+
     try {
-      const r = await fetch("/api/auth/login", {
+      const response = await fetch("/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ phone, password })
       });
-      const j = await r.json();
-      if (!r.ok || !j.success) {
-        setError(j.error?.message || "ورود ناموفق بود");
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        setError(result.error?.message || "ورود ناموفق بود");
         return;
       }
-      const next = params.get("next");
-      const staffRoles = ["ADMIN", "SELLER", "ACCOUNTANT", "WAREHOUSE"];
-      router.push(next || (staffRoles.includes(j.data.role) ? "/dashboard" : "/"));
+
+      router.push(params.get("next") || (result.data.role === "ADMIN" ? "/dashboard" : "/"));
       router.refresh();
     } catch {
       setError("خطا در ارتباط با سرور");

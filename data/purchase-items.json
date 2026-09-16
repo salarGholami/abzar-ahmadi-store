@@ -1,26 +1,146 @@
 [
   {
-    "id": "8d7bca5e-33fa-470c-b03f-183d95a8659c",
-    "purchaseId": "8c43019c-a484-4404-8ae1-44d94e41aa5c",
+    "id": "pi-001",
+    "purchaseId": "pur-001",
+    "productId": "p3",
+    "quantity": 6,
+    "unitCost": 935000,
+    "total": 5610000
+  },
+  {
+    "id": "pi-002",
+    "purchaseId": "pur-002",
+    "productId": "p5",
+    "quantity": 7,
+    "unitCost": 1225000,
+    "total": 8575000
+  },
+  {
+    "id": "pi-003",
+    "purchaseId": "pur-003",
+    "productId": "p7",
+    "quantity": 8,
+    "unitCost": 1515000,
+    "total": 12120000
+  },
+  {
+    "id": "pi-004",
+    "purchaseId": "pur-004",
+    "productId": "p9",
+    "quantity": 9,
+    "unitCost": 1805000,
+    "total": 16245000
+  },
+  {
+    "id": "pi-005",
+    "purchaseId": "pur-005",
+    "productId": "p11",
+    "quantity": 10,
+    "unitCost": 2095000,
+    "total": 20950000
+  },
+  {
+    "id": "pi-006",
+    "purchaseId": "pur-006",
+    "productId": "p13",
+    "quantity": 11,
+    "unitCost": 2385000,
+    "total": 26235000
+  },
+  {
+    "id": "pi-007",
+    "purchaseId": "pur-007",
+    "productId": "p15",
+    "quantity": 12,
+    "unitCost": 2675000,
+    "total": 32100000
+  },
+  {
+    "id": "pi-008",
+    "purchaseId": "pur-008",
+    "productId": "p17",
+    "quantity": 5,
+    "unitCost": 2965000,
+    "total": 14825000
+  },
+  {
+    "id": "pi-009",
+    "purchaseId": "pur-009",
+    "productId": "p19",
+    "quantity": 6,
+    "unitCost": 3255000,
+    "total": 19530000
+  },
+  {
+    "id": "pi-010",
+    "purchaseId": "pur-010",
+    "productId": "p21",
+    "quantity": 7,
+    "unitCost": 3545000,
+    "total": 24815000
+  },
+  {
+    "id": "pi-011",
+    "purchaseId": "pur-011",
+    "productId": "p23",
+    "quantity": 8,
+    "unitCost": 3835000,
+    "total": 30680000
+  },
+  {
+    "id": "pi-012",
+    "purchaseId": "pur-012",
+    "productId": "p25",
+    "quantity": 9,
+    "unitCost": 4125000,
+    "total": 37125000
+  },
+  {
+    "id": "pi-013",
+    "purchaseId": "pur-013",
+    "productId": "p27",
+    "quantity": 10,
+    "unitCost": 4415000,
+    "total": 44150000
+  },
+  {
+    "id": "pi-014",
+    "purchaseId": "pur-014",
+    "productId": "p29",
+    "quantity": 11,
+    "unitCost": 4705000,
+    "total": 51755000
+  },
+  {
+    "id": "pi-015",
+    "purchaseId": "pur-015",
     "productId": "p1",
-    "quantity": 4,
-    "unitCost": 5,
-    "total": 20
+    "quantity": 12,
+    "unitCost": 645000,
+    "total": 7740000
   },
   {
-    "id": "d1783132-be37-42e4-9c40-b9f57fffd0dc",
-    "purchaseId": "8c43019c-a484-4404-8ae1-44d94e41aa5c",
-    "productId": "p4",
-    "quantity": 1,
-    "unitCost": 0,
-    "total": 0
+    "id": "pi-016",
+    "purchaseId": "pur-016",
+    "productId": "p3",
+    "quantity": 5,
+    "unitCost": 935000,
+    "total": 4675000
   },
   {
-    "id": "17244699-9e75-4517-a634-5c98e5173c2b",
-    "purchaseId": "8c43019c-a484-4404-8ae1-44d94e41aa5c",
-    "productId": "p6",
-    "quantity": 1,
-    "unitCost": 0,
-    "total": 0
+    "id": "pi-017",
+    "purchaseId": "pur-017",
+    "productId": "p5",
+    "quantity": 6,
+    "unitCost": 1225000,
+    "total": 7350000
+  },
+  {
+    "id": "pi-018",
+    "purchaseId": "pur-018",
+    "productId": "p7",
+    "quantity": 7,
+    "unitCost": 1515000,
+    "total": 10605000
   }
 ]

@@ -1,30 +1,625 @@
 [
   {
-    "id": "dc043c29-df3d-41c9-ae16-483390ac0350",
+    "id": "fin-s-001",
     "type": "SALE",
-    "referenceId": "0042edb8-ece0-48ff-91ea-e5cf813c08fc",
-    "amount": 16319000,
-    "createdAt": "2026-09-16T03:52:06.530Z"
+    "referenceId": "sale-001",
+    "amount": 2540419,
+    "description": "دریافت فروش فاکتور 001",
+    "createdAt": "2026-09-15T03:42:28.451629Z"
   },
   {
-    "id": "2b872b25-e14a-4c19-8007-e4e5de278c8b",
+    "id": "fin-s-002",
+    "type": "SALE",
+    "referenceId": "sale-002",
+    "amount": 5531316,
+    "description": "دریافت فروش فاکتور 002",
+    "createdAt": "2026-09-14T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-003",
+    "type": "SALE",
+    "referenceId": "sale-003",
+    "amount": 10212160,
+    "description": "دریافت فروش فاکتور 003",
+    "createdAt": "2026-09-13T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-004",
+    "type": "SALE",
+    "referenceId": "sale-004",
+    "amount": 2782080,
+    "description": "دریافت فروش فاکتور 004",
+    "createdAt": "2026-09-12T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-005",
+    "type": "SALE",
+    "referenceId": "sale-005",
+    "amount": 6871635,
+    "description": "دریافت فروش فاکتور 005",
+    "createdAt": "2026-09-11T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-006",
+    "type": "SALE",
+    "referenceId": "sale-006",
+    "amount": 10904150,
+    "description": "دریافت فروش فاکتور 006",
+    "createdAt": "2026-09-10T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-007",
+    "type": "SALE",
+    "referenceId": "sale-007",
+    "amount": 18333760,
+    "description": "دریافت فروش فاکتور 007",
+    "createdAt": "2026-09-09T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-008",
+    "type": "SALE",
+    "referenceId": "sale-008",
+    "amount": 5513310,
+    "description": "دریافت فروش فاکتور 008",
+    "createdAt": "2026-09-08T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-009",
+    "type": "SALE",
+    "referenceId": "sale-009",
+    "amount": 10859184,
+    "description": "دریافت فروش فاکتور 009",
+    "createdAt": "2026-09-07T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-010",
+    "type": "SALE",
+    "referenceId": "sale-010",
+    "amount": 2407880,
+    "description": "دریافت فروش فاکتور 010",
+    "createdAt": "2026-09-06T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-011",
+    "type": "SALE",
+    "referenceId": "sale-011",
+    "amount": 4926874,
+    "description": "دریافت فروش فاکتور 011",
+    "createdAt": "2026-09-05T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-012",
+    "type": "SALE",
+    "referenceId": "sale-012",
+    "amount": 1787330,
+    "description": "دریافت فروش فاکتور 012",
+    "createdAt": "2026-09-04T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-013",
+    "type": "SALE",
+    "referenceId": "sale-013",
+    "amount": 4948160,
+    "description": "دریافت فروش فاکتور 013",
+    "createdAt": "2026-09-03T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-014",
+    "type": "SALE",
+    "referenceId": "sale-014",
+    "amount": 8694000,
+    "description": "دریافت فروش فاکتور 014",
+    "createdAt": "2026-09-02T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-015",
+    "type": "SALE",
+    "referenceId": "sale-015",
+    "amount": 14321934,
+    "description": "دریافت فروش فاکتور 015",
+    "createdAt": "2026-09-01T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-016",
+    "type": "SALE",
+    "referenceId": "sale-016",
+    "amount": 3789386,
+    "description": "دریافت فروش فاکتور 016",
+    "createdAt": "2026-08-31T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-017",
+    "type": "SALE",
+    "referenceId": "sale-017",
+    "amount": 8891874,
+    "description": "دریافت فروش فاکتور 017",
+    "createdAt": "2026-08-30T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-018",
+    "type": "SALE",
+    "referenceId": "sale-018",
+    "amount": 16038720,
+    "description": "دریافت فروش فاکتور 018",
+    "createdAt": "2026-08-29T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-019",
+    "type": "SALE",
+    "referenceId": "sale-019",
+    "amount": 21053520,
+    "description": "دریافت فروش فاکتور 019",
+    "createdAt": "2026-08-28T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-020",
+    "type": "SALE",
+    "referenceId": "sale-020",
+    "amount": 777803,
+    "description": "دریافت فروش فاکتور 020",
+    "createdAt": "2026-08-27T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-021",
+    "type": "SALE",
+    "referenceId": "sale-021",
+    "amount": 2566080,
+    "description": "دریافت فروش فاکتور 021",
+    "createdAt": "2026-08-26T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-022",
+    "type": "SALE",
+    "referenceId": "sale-022",
+    "amount": 5587758,
+    "description": "دریافت فروش فاکتور 022",
+    "createdAt": "2026-08-25T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-023",
+    "type": "SALE",
+    "referenceId": "sale-023",
+    "amount": 10317440,
+    "description": "دریافت فروش فاکتور 023",
+    "createdAt": "2026-08-24T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-024",
+    "type": "SALE",
+    "referenceId": "sale-024",
+    "amount": 2811060,
+    "description": "دریافت فروش فاکتور 024",
+    "createdAt": "2026-08-23T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-025",
+    "type": "SALE",
+    "referenceId": "sale-025",
+    "amount": 6943968,
+    "description": "دریافت فروش فاکتور 025",
+    "createdAt": "2026-08-22T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-026",
+    "type": "SALE",
+    "referenceId": "sale-026",
+    "amount": 11020152,
+    "description": "دریافت فروش فاکتور 026",
+    "createdAt": "2026-08-21T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-027",
+    "type": "SALE",
+    "referenceId": "sale-027",
+    "amount": 17233734,
+    "description": "دریافت فروش فاکتور 027",
+    "createdAt": "2026-08-20T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-028",
+    "type": "SALE",
+    "referenceId": "sale-028",
+    "amount": 5569000,
+    "description": "دریافت فروش فاکتور 028",
+    "createdAt": "2026-08-19T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-029",
+    "type": "SALE",
+    "referenceId": "sale-029",
+    "amount": 10969992,
+    "description": "دریافت فروش فاکتور 029",
+    "createdAt": "2026-08-18T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-030",
+    "type": "SALE",
+    "referenceId": "sale-030",
+    "amount": 2432703,
+    "description": "دریافت فروش فاکتور 030",
+    "createdAt": "2026-09-16T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-031",
+    "type": "SALE",
+    "referenceId": "sale-031",
+    "amount": 4978195,
+    "description": "دریافت فروش فاکتور 031",
+    "createdAt": "2026-09-15T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-032",
+    "type": "SALE",
+    "referenceId": "sale-032",
+    "amount": 1806144,
+    "description": "دریافت فروش فاکتور 032",
+    "createdAt": "2026-09-14T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-033",
+    "type": "SALE",
+    "referenceId": "sale-033",
+    "amount": 5000800,
+    "description": "دریافت فروش فاکتور 033",
+    "createdAt": "2026-09-13T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-034",
+    "type": "SALE",
+    "referenceId": "sale-034",
+    "amount": 8172360,
+    "description": "دریافت فروش فاکتور 034",
+    "createdAt": "2026-09-12T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-035",
+    "type": "SALE",
+    "referenceId": "sale-035",
+    "amount": 14466600,
+    "description": "دریافت فروش فاکتور 035",
+    "createdAt": "2026-09-11T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-036",
+    "type": "SALE",
+    "referenceId": "sale-036",
+    "amount": 3828053,
+    "description": "دریافت فروش فاکتور 036",
+    "createdAt": "2026-09-10T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-037",
+    "type": "SALE",
+    "referenceId": "sale-037",
+    "amount": 8983542,
+    "description": "دریافت فروش فاکتور 037",
+    "createdAt": "2026-09-09T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-038",
+    "type": "SALE",
+    "referenceId": "sale-038",
+    "amount": 16205790,
+    "description": "دریافت فروش فاکتور 038",
+    "createdAt": "2026-09-08T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-039",
+    "type": "SALE",
+    "referenceId": "sale-039",
+    "amount": 21275136,
+    "description": "دریافت فروش فاکتور 039",
+    "createdAt": "2026-09-07T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-040",
+    "type": "SALE",
+    "referenceId": "sale-040",
+    "amount": 786078,
+    "description": "دریافت فروش فاکتور 040",
+    "createdAt": "2026-09-06T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-041",
+    "type": "SALE",
+    "referenceId": "sale-041",
+    "amount": 2412115,
+    "description": "دریافت فروش فاکتور 041",
+    "createdAt": "2026-09-05T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-042",
+    "type": "SALE",
+    "referenceId": "sale-042",
+    "amount": 5644200,
+    "description": "دریافت فروش فاکتور 042",
+    "createdAt": "2026-09-04T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-043",
+    "type": "SALE",
+    "referenceId": "sale-043",
+    "amount": 10422720,
+    "description": "دریافت فروش فاکتور 043",
+    "createdAt": "2026-09-03T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-044",
+    "type": "SALE",
+    "referenceId": "sale-044",
+    "amount": 2840040,
+    "description": "دریافت فروش فاکتور 044",
+    "createdAt": "2026-09-02T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-s-045",
+    "type": "SALE",
+    "referenceId": "sale-045",
+    "amount": 7016301,
+    "description": "دریافت فروش فاکتور 045",
+    "createdAt": "2026-09-01T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-p-001",
     "type": "PURCHASE",
-    "referenceId": "8c43019c-a484-4404-8ae1-44d94e41aa5c",
-    "amount": 20,
-    "createdAt": "2026-09-16T03:54:10.375Z"
+    "referenceId": "pur-001",
+    "amount": 5610000,
+    "description": "پرداخت خرید 001",
+    "createdAt": "2026-09-14T03:42:28.451629Z"
   },
   {
-    "id": "3b500969-009a-4244-83cc-3fb6deb35350",
-    "type": "SALE",
-    "referenceId": "dadb1de9-136d-4822-bbe0-619e72d4f0cd",
-    "amount": 8131000,
-    "createdAt": "2026-09-16T04:34:19.105Z"
+    "id": "fin-p-002",
+    "type": "PURCHASE",
+    "referenceId": "pur-002",
+    "amount": 8575000,
+    "description": "پرداخت خرید 002",
+    "createdAt": "2026-09-12T03:42:28.451629Z"
   },
   {
-    "id": "1df69046-a514-493f-bbfc-31ee855a45ee",
-    "type": "SALE",
-    "referenceId": "437dfa7a-4dba-4c23-8620-225a55e9a0a1",
-    "amount": 2992000,
-    "createdAt": "2026-09-16T04:39:15.103Z"
+    "id": "fin-p-003",
+    "type": "PURCHASE",
+    "referenceId": "pur-003",
+    "amount": 12120000,
+    "description": "پرداخت خرید 003",
+    "createdAt": "2026-09-10T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-p-004",
+    "type": "PURCHASE",
+    "referenceId": "pur-004",
+    "amount": 16245000,
+    "description": "پرداخت خرید 004",
+    "createdAt": "2026-09-08T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-p-005",
+    "type": "PURCHASE",
+    "referenceId": "pur-005",
+    "amount": 20950000,
+    "description": "پرداخت خرید 005",
+    "createdAt": "2026-09-06T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-p-006",
+    "type": "PURCHASE",
+    "referenceId": "pur-006",
+    "amount": 26235000,
+    "description": "پرداخت خرید 006",
+    "createdAt": "2026-09-04T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-p-007",
+    "type": "PURCHASE",
+    "referenceId": "pur-007",
+    "amount": 32100000,
+    "description": "پرداخت خرید 007",
+    "createdAt": "2026-09-02T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-p-008",
+    "type": "PURCHASE",
+    "referenceId": "pur-008",
+    "amount": 14825000,
+    "description": "پرداخت خرید 008",
+    "createdAt": "2026-08-31T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-p-009",
+    "type": "PURCHASE",
+    "referenceId": "pur-009",
+    "amount": 19530000,
+    "description": "پرداخت خرید 009",
+    "createdAt": "2026-08-29T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-p-010",
+    "type": "PURCHASE",
+    "referenceId": "pur-010",
+    "amount": 24815000,
+    "description": "پرداخت خرید 010",
+    "createdAt": "2026-08-27T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-p-011",
+    "type": "PURCHASE",
+    "referenceId": "pur-011",
+    "amount": 30680000,
+    "description": "پرداخت خرید 011",
+    "createdAt": "2026-08-25T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-p-012",
+    "type": "PURCHASE",
+    "referenceId": "pur-012",
+    "amount": 37125000,
+    "description": "پرداخت خرید 012",
+    "createdAt": "2026-08-23T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-p-013",
+    "type": "PURCHASE",
+    "referenceId": "pur-013",
+    "amount": 44150000,
+    "description": "پرداخت خرید 013",
+    "createdAt": "2026-08-21T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-p-014",
+    "type": "PURCHASE",
+    "referenceId": "pur-014",
+    "amount": 51755000,
+    "description": "پرداخت خرید 014",
+    "createdAt": "2026-08-19T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-p-015",
+    "type": "PURCHASE",
+    "referenceId": "pur-015",
+    "amount": 7740000,
+    "description": "پرداخت خرید 015",
+    "createdAt": "2026-08-17T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-p-016",
+    "type": "PURCHASE",
+    "referenceId": "pur-016",
+    "amount": 4675000,
+    "description": "پرداخت خرید 016",
+    "createdAt": "2026-08-15T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-p-017",
+    "type": "PURCHASE",
+    "referenceId": "pur-017",
+    "amount": 7350000,
+    "description": "پرداخت خرید 017",
+    "createdAt": "2026-08-13T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-p-018",
+    "type": "PURCHASE",
+    "referenceId": "pur-018",
+    "amount": 10605000,
+    "description": "پرداخت خرید 018",
+    "createdAt": "2026-08-11T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-o-001",
+    "type": "OTHER_EXPENSE",
+    "amount": 525000,
+    "description": "هزینه جاری فروشگاه",
+    "createdAt": "2026-09-15T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-o-002",
+    "type": "OTHER_INCOME",
+    "amount": 700000,
+    "description": "درآمد متفرقه",
+    "createdAt": "2026-09-14T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-o-003",
+    "type": "OTHER_EXPENSE",
+    "amount": 875000,
+    "description": "هزینه جاری فروشگاه",
+    "createdAt": "2026-09-13T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-o-004",
+    "type": "OTHER_INCOME",
+    "amount": 1050000,
+    "description": "درآمد متفرقه",
+    "createdAt": "2026-09-12T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-o-005",
+    "type": "OTHER_EXPENSE",
+    "amount": 1225000,
+    "description": "هزینه جاری فروشگاه",
+    "createdAt": "2026-09-11T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-o-006",
+    "type": "OTHER_INCOME",
+    "amount": 1400000,
+    "description": "درآمد متفرقه",
+    "createdAt": "2026-09-10T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-o-007",
+    "type": "OTHER_EXPENSE",
+    "amount": 1575000,
+    "description": "هزینه جاری فروشگاه",
+    "createdAt": "2026-09-09T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-o-008",
+    "type": "OTHER_INCOME",
+    "amount": 1750000,
+    "description": "درآمد متفرقه",
+    "createdAt": "2026-09-08T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-o-009",
+    "type": "OTHER_EXPENSE",
+    "amount": 1925000,
+    "description": "هزینه جاری فروشگاه",
+    "createdAt": "2026-09-07T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-o-010",
+    "type": "OTHER_INCOME",
+    "amount": 2100000,
+    "description": "درآمد متفرقه",
+    "createdAt": "2026-09-06T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-o-011",
+    "type": "OTHER_EXPENSE",
+    "amount": 2275000,
+    "description": "هزینه جاری فروشگاه",
+    "createdAt": "2026-09-05T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-o-012",
+    "type": "OTHER_INCOME",
+    "amount": 2450000,
+    "description": "درآمد متفرقه",
+    "createdAt": "2026-09-04T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-o-013",
+    "type": "OTHER_EXPENSE",
+    "amount": 2625000,
+    "description": "هزینه جاری فروشگاه",
+    "createdAt": "2026-09-03T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-o-014",
+    "type": "OTHER_INCOME",
+    "amount": 2800000,
+    "description": "درآمد متفرقه",
+    "createdAt": "2026-09-02T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-o-015",
+    "type": "OTHER_EXPENSE",
+    "amount": 2975000,
+    "description": "هزینه جاری فروشگاه",
+    "createdAt": "2026-09-01T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-o-016",
+    "type": "OTHER_INCOME",
+    "amount": 3150000,
+    "description": "درآمد متفرقه",
+    "createdAt": "2026-08-31T03:42:28.451629Z"
+  },
+  {
+    "id": "fin-o-017",
+    "type": "OTHER_EXPENSE",
+    "amount": 3325000,
+    "description": "هزینه جاری فروشگاه",
+    "createdAt": "2026-08-30T03:42:28.451629Z"
   }
 ]

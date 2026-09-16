@@ -1,10 +1,56 @@
 "use client";
-import { useEffect, useState } from "react";
-import { Plus, Trash2, RefreshCw } from "lucide-react";
+
+import { useEffect, useMemo, useState } from "react";
+import { Plus, Trash2, RefreshCw, Search, PackageCheck, X, ChevronDown } from "lucide-react";
 import Modal from "@/components/ui/Modal";
 import type { Product, Supplier, Purchase } from "@/lib/types";
 
-type Line = { productId: string; title: string; quantity: number; unitCost: number };
+type Line = { productId: string; title: string; sku: string; image: string; quantity: number; unitCost: number };
+type ProductPickerProps = { products: Product[]; selectedId: string; onSelect: (id: string) => void };
+
+function ProductPicker({ products, selectedId, onSelect }: ProductPickerProps) {
+  const [open, setOpen] = useState(false);
+  const [query, setQuery] = useState("");
+
+  const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return products.filter((p) => !q || `${p.title} ${p.brand} ${p.sku} ${p.category}`.toLowerCase().includes(q)).slice(0, 12);
+  }, [products, query]);
+
+  const selected = products.find((p) => p.id === selectedId);
+
+  return (
+    <div className="relative flex-1">
+      <button type="button" onClick={() => setOpen((value) => !value)} className="input flex min-h-[48px] items-center gap-3 text-right">
+        {selected ? (
+          <>
+            <div className="size-9 shrink-0 overflow-hidden rounded-lg bg-[var(--surface-2)]">{selected.image && <img src={selected.image} alt="" className="size-full object-cover" />}</div>
+            <div className="min-w-0 flex-1"><div className="truncate text-sm font-black">{selected.title}</div><div className="mt-0.5 text-[10px] text-[var(--muted)]">{selected.sku} · {selected.category}</div></div>
+          </>
+        ) : <span className="flex-1 text-sm text-[var(--muted)]">محصول را جستجو و انتخاب کنید...</span>}
+        <ChevronDown size={17} className="shrink-0 text-[var(--muted)]" />
+      </button>
+
+      {open && (
+        <div className="absolute right-0 top-[calc(100%+8px)] z-50 w-full overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--surface)] shadow-2xl">
+          <div className="border-b border-[var(--border)] p-3">
+            <div className="relative"><Search className="absolute right-3 top-3 text-[var(--muted)]" size={16} /><input autoFocus className="input pr-9" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="نام محصول، برند یا SKU..." /></div>
+          </div>
+          <div className="max-h-72 overflow-auto p-2">
+            {filtered.map((product) => (
+              <button key={product.id} type="button" onClick={() => { onSelect(product.id); setOpen(false); setQuery(""); }} className="flex w-full items-center gap-3 rounded-xl p-2.5 text-right hover:bg-[var(--surface-2)]">
+                <div className="size-11 shrink-0 overflow-hidden rounded-xl bg-[var(--surface-2)]">{product.image && <img src={product.image} alt="" className="size-full object-cover" />}</div>
+                <div className="min-w-0 flex-1"><div className="truncate text-sm font-black">{product.title}</div><div className="mt-1 text-[10px] text-[var(--muted)]">{product.brand || "بدون برند"} · {product.sku}</div></div>
+                <span className="text-[10px] font-bold text-[var(--muted)]">{product.stock} موجود</span>
+              </button>
+            ))}
+            {!filtered.length && <div className="p-6 text-center text-xs text-[var(--muted)]">محصولی پیدا نشد.</div>}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function PurchasesPage() {
   const [rows, setRows] = useState<Purchase[]>([]);
@@ -38,41 +84,75 @@ export default function PurchasesPage() {
       setLoading(false);
     }
   }
+
   useEffect(() => { load(); }, []);
 
-  function supplierName(id?: string | null) { return suppliers.find((s) => s.id === id)?.name || "-"; }
+  function supplierName(id?: string | null) {
+    return suppliers.find((s) => s.id === id)?.name || "-";
+  }
 
   function openModal() {
-    setSupplierId(""); setLines([]); setPickProduct(""); setPaymentMethod("CASH");
-    setCheckNumber(""); setCheckBank(""); setCheckDue(""); setError(null); setModalOpen(true);
+    setSupplierId("");
+    setLines([]);
+    setPickProduct("");
+    setPaymentMethod("CASH");
+    setCheckNumber("");
+    setCheckBank("");
+    setCheckDue("");
+    setError(null);
+    setModalOpen(true);
   }
 
   function addLine() {
-    const p = products.find((x) => x.id === pickProduct);
-    if (!p) return;
-    if (lines.some((l) => l.productId === p.id)) return;
-    setLines((prev) => [...prev, { productId: p.id, title: p.title, quantity: 1, unitCost: p.purchaseCost || 0 }]);
+    const product = products.find((item) => item.id === pickProduct);
+    if (!product) return;
+    if (lines.some((line) => line.productId === product.id)) {
+      setError("این محصول قبلاً به خرید اضافه شده است.");
+      return;
+    }
+    setLines((previous) => [...previous, {
+      productId: product.id,
+      title: product.title,
+      sku: product.sku,
+      image: product.image,
+      quantity: 1,
+      unitCost: product.purchaseCost || 0
+    }]);
     setPickProduct("");
+    setError(null);
   }
 
-  const total = lines.reduce((s, l) => s + l.quantity * l.unitCost, 0);
+  const total = lines.reduce((sum, line) => sum + line.quantity * line.unitCost, 0);
 
   async function submit() {
-    if (!lines.length) { setError("حداقل یک قلم کالا اضافه کنید"); return; }
-    setSaving(true); setError(null);
+    if (!lines.length) { setError("حداقل یک محصول انتخاب کنید."); return; }
+    if (paymentMethod === "CHECK" && (!checkNumber || !checkBank || !checkDue)) {
+      setError("اطلاعات چک را کامل کنید.");
+      return;
+    }
+
+    setSaving(true);
+    setError(null);
+
     try {
-      const r = await fetch("/api/purchases/create", {
-        method: "POST", headers: { "Content-Type": "application/json" },
+      const response = await fetch("/api/purchases/create", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           supplierId: supplierId || null,
           supplierName: supplierName(supplierId) !== "-" ? supplierName(supplierId) : "",
-          items: lines.map((l) => ({ productId: l.productId, quantity: l.quantity, unitCost: l.unitCost })),
+          items: lines.map((line) => ({ productId: line.productId, quantity: line.quantity, unitCost: line.unitCost })),
           paymentMethod,
           check: paymentMethod === "CHECK" ? { number: checkNumber, bank: checkBank, dueDate: checkDue } : undefined
         })
       });
-      const j = await r.json();
-      if (!r.ok || !j.success) { setError(j.error?.message || "خطا در ثبت خرید"); return; }
+
+      const result = await response.json();
+      if (!response.ok || !result.success) {
+        setError(result.error?.message || "خطا در ثبت خرید");
+        return;
+      }
+
       setModalOpen(false);
       load();
     } catch {
@@ -83,11 +163,12 @@ export default function PurchasesPage() {
   }
 
   return (
-    <div className="mx-auto max-w-[1400px]">
-      <div className="flex flex-wrap items-end justify-between gap-3">
+    <div className="mx-auto max-w-[1500px]">
+      <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <div className="text-sm font-bold text-[var(--primary)]">مدیریت فروشگاه</div>
-          <h1 className="mt-1 text-3xl font-black">خریدها</h1>
+          <div className="text-xs font-black text-[var(--primary)]">خرید و تأمین کالا</div>
+          <h1 className="mt-1 text-3xl font-black tracking-tight">خرید از تأمین‌کننده</h1>
+          <p className="mt-2 text-sm text-[var(--muted)]">ثبت خرید مستقیماً موجودی محصول را به‌روزرسانی می‌کند.</p>
         </div>
         <div className="flex gap-2">
           <button type="button" onClick={load} className="btn btn-secondary"><RefreshCw size={17} />بروزرسانی</button>
@@ -95,74 +176,100 @@ export default function PurchasesPage() {
         </div>
       </div>
 
-      <div className="card mt-6 overflow-hidden">
+      <div className="mt-6 grid gap-4 sm:grid-cols-3">
+        <div className="card p-5"><div className="text-xs font-bold text-[var(--muted)]">تعداد خریدها</div><div className="mt-2 text-2xl font-black">{rows.length}</div></div>
+        <div className="card p-5"><div className="text-xs font-bold text-[var(--muted)]">ارزش خریدها</div><div className="mt-2 text-2xl font-black">{rows.reduce((sum, row) => sum + Number(row.subtotal || 0), 0).toLocaleString("fa-IR")} <span className="text-xs">تومان</span></div></div>
+        <div className="card p-5"><div className="text-xs font-bold text-[var(--muted)]">تأمین‌کنندگان فعال</div><div className="mt-2 text-2xl font-black">{suppliers.length}</div></div>
+      </div>
+
+      <div className="card mt-5 overflow-hidden">
         {loading ? (
-          <div className="p-10 text-center text-[var(--muted)]">در حال دریافت از GitHub...</div>
+          <div className="p-12 text-center text-sm text-[var(--muted)]">در حال دریافت اطلاعات...</div>
         ) : !rows.length ? (
-          <div className="p-10 text-center text-[var(--muted)]">هنوز خریدی ثبت نشده</div>
+          <div className="p-14 text-center">
+            <PackageCheck className="mx-auto text-[var(--muted)]" size={34} />
+            <div className="mt-3 font-black">هنوز خریدی ثبت نشده است</div>
+            <p className="mt-1 text-sm text-[var(--muted)]">با ثبت اولین خرید، سابقه تأمین کالا اینجا نمایش داده می‌شود.</p>
+          </div>
         ) : (
-          <table className="w-full text-right text-sm">
-            <thead className="bg-[var(--surface-2)] text-xs text-[var(--muted)]"><tr><th className="p-4">تأمین‌کننده</th><th className="p-4">مبلغ</th><th className="p-4">پرداخت</th><th className="p-4">تاریخ</th></tr></thead>
-            <tbody>
-              {rows.map((r) => (
-                <tr key={r.id} className="border-t border-[var(--border)]">
-                  <td className="p-4 font-bold">{r.supplierName || supplierName(r.supplierId)}</td>
-                  <td className="p-4 font-black">{Number(r.subtotal || 0).toLocaleString("fa-IR")} تومان</td>
-                  <td className="p-4">{r.paymentMethod === "CHECK" ? "چکی" : "نقدی"}</td>
-                  <td className="p-4 text-[var(--muted)]">{new Date(r.createdAt).toLocaleString("fa-IR")}</td>
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[760px] text-right text-sm">
+              <thead className="bg-[var(--surface-2)] text-xs text-[var(--muted)]"><tr><th className="p-4">تأمین‌کننده</th><th className="p-4">مبلغ</th><th className="p-4">پرداخت</th><th className="p-4">تاریخ</th></tr></thead>
+              <tbody>{rows.map((row) => (
+                <tr key={row.id} className="border-t border-[var(--border)] hover:bg-[var(--surface-2)]">
+                  <td className="p-4 font-black">{row.supplierName || supplierName(row.supplierId)}</td>
+                  <td className="p-4 font-black">{Number(row.subtotal || 0).toLocaleString("fa-IR")} تومان</td>
+                  <td className="p-4"><span className="badge bg-[var(--primary)]/10 text-[var(--primary)]">{row.paymentMethod === "CHECK" ? "چکی" : "نقدی"}</span></td>
+                  <td className="p-4 text-[var(--muted)]">{new Date(row.createdAt).toLocaleString("fa-IR")}</td>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              ))}</tbody>
+            </table>
+          </div>
         )}
       </div>
 
       {modalOpen && (
         <Modal title="ثبت خرید جدید" onClose={() => setModalOpen(false)}>
-          <div className="space-y-3">
+          <div className="space-y-4">
             {error && <div className="rounded-xl bg-red-50 p-3 text-sm text-red-700 dark:bg-red-950/40 dark:text-red-300">{error}</div>}
+
             <div>
-              <label className="mb-1 block text-xs font-bold text-[var(--muted)]">تأمین‌کننده</label>
+              <label className="field-label">تأمین‌کننده</label>
               <select className="input" value={supplierId} onChange={(e) => setSupplierId(e.target.value)}>
                 <option value="">بدون تأمین‌کننده مشخص</option>
-                {suppliers.map((s) => <option key={s.id} value={s.id}>{s.name}</option>)}
+                {suppliers.map((supplier) => <option key={supplier.id} value={supplier.id}>{supplier.name}</option>)}
               </select>
             </div>
-            <div className="flex gap-2">
-              <select className="input" value={pickProduct} onChange={(e) => setPickProduct(e.target.value)}>
-                <option value="">انتخاب محصول...</option>
-                {products.map((p) => <option key={p.id} value={p.id}>{p.title}</option>)}
-              </select>
-              <button type="button" onClick={addLine} className="btn btn-secondary shrink-0">افزودن</button>
+
+            <div>
+              <label className="field-label">افزودن محصول</label>
+              <div className="flex gap-2">
+                <ProductPicker products={products} selectedId={pickProduct} onSelect={setPickProduct} />
+                <button type="button" onClick={addLine} className="btn btn-secondary shrink-0">افزودن</button>
+              </div>
             </div>
+
             {lines.length > 0 && (
-              <div className="space-y-2 rounded-xl border border-[var(--border)] p-3">
-                {lines.map((l, idx) => (
-                  <div key={l.productId} className="flex items-center gap-2 text-sm">
-                    <span className="flex-1 truncate font-bold">{l.title}</span>
-                    <input type="number" min={1} className="input w-20 !py-1.5" value={l.quantity} onChange={(e) => setLines((prev) => prev.map((x, i) => (i === idx ? { ...x, quantity: Number(e.target.value) || 1 } : x)))} />
-                    <input type="number" min={0} className="input w-28 !py-1.5" value={l.unitCost} onChange={(e) => setLines((prev) => prev.map((x, i) => (i === idx ? { ...x, unitCost: Number(e.target.value) || 0 } : x)))} placeholder="قیمت واحد" />
-                    <button type="button" onClick={() => setLines((prev) => prev.filter((_, i) => i !== idx))} className="text-red-500"><Trash2 size={16} /></button>
-                  </div>
-                ))}
-                <div className="border-t border-[var(--border)] pt-2 text-left text-sm font-black">جمع: {total.toLocaleString("fa-IR")} تومان</div>
+              <div className="overflow-hidden rounded-2xl border border-[var(--border)]">
+                <div className="border-b border-[var(--border)] bg-[var(--surface-2)] px-4 py-3 text-xs font-black">اقلام خرید · {lines.length} محصول</div>
+                <div className="divide-y divide-[var(--border)]">
+                  {lines.map((line, index) => (
+                    <div key={line.productId} className="flex items-center gap-3 p-3">
+                      <div className="size-12 shrink-0 overflow-hidden rounded-xl bg-[var(--surface-2)]">{line.image && <img src={line.image} alt="" className="size-full object-cover" />}</div>
+                      <div className="min-w-0 flex-1">
+                        <div className="truncate text-sm font-black">{line.title}</div>
+                        <div className="mt-1 text-[10px] text-[var(--muted)]">{line.sku}</div>
+                      </div>
+                      <input aria-label={`تعداد ${line.title}`} type="number" min={1} className="input w-20 !py-2" value={line.quantity} onChange={(e) => setLines((previous) => previous.map((item, i) => i === index ? { ...item, quantity: Math.max(1, Number(e.target.value) || 1) } : item))} />
+                      <input aria-label={`قیمت ${line.title}`} type="number" min={0} className="input w-32 !py-2" value={line.unitCost} onChange={(e) => setLines((previous) => previous.map((item, i) => i === index ? { ...item, unitCost: Math.max(0, Number(e.target.value) || 0) } : item))} />
+                      <button type="button" onClick={() => setLines((previous) => previous.filter((_, i) => i !== index))} className="text-red-500" aria-label="حذف محصول"><Trash2 size={17} /></button>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex items-center justify-between border-t border-[var(--border)] bg-[var(--surface-2)] px-4 py-4">
+                  <span className="text-xs font-bold text-[var(--muted)]">جمع خرید</span>
+                  <strong className="text-lg">{total.toLocaleString("fa-IR")} تومان</strong>
+                </div>
               </div>
             )}
+
             <div>
-              <label className="mb-1 block text-xs font-bold text-[var(--muted)]">روش پرداخت</label>
-              <div className="flex gap-2">
-                <button type="button" onClick={() => setPaymentMethod("CASH")} className={`btn flex-1 ${paymentMethod === "CASH" ? "btn-primary" : "btn-secondary"}`}>نقدی</button>
-                <button type="button" onClick={() => setPaymentMethod("CHECK")} className={`btn flex-1 ${paymentMethod === "CHECK" ? "btn-primary" : "btn-secondary"}`}>چکی</button>
+              <label className="field-label">روش پرداخت</label>
+              <div className="grid grid-cols-2 gap-2">
+                <button type="button" onClick={() => setPaymentMethod("CASH")} className={`btn ${paymentMethod === "CASH" ? "btn-primary" : "btn-secondary"}`}>نقدی</button>
+                <button type="button" onClick={() => setPaymentMethod("CHECK")} className={`btn ${paymentMethod === "CHECK" ? "btn-primary" : "btn-secondary"}`}>چکی</button>
               </div>
             </div>
+
             {paymentMethod === "CHECK" && (
-              <div className="space-y-2 rounded-xl border border-[var(--border)] p-3">
+              <div className="grid gap-2 rounded-2xl border border-[var(--border)] p-3 sm:grid-cols-2">
                 <input className="input" placeholder="شماره چک" value={checkNumber} onChange={(e) => setCheckNumber(e.target.value)} />
                 <input className="input" placeholder="نام بانک" value={checkBank} onChange={(e) => setCheckBank(e.target.value)} />
-                <input className="input" type="date" value={checkDue} onChange={(e) => setCheckDue(e.target.value)} />
+                <input className="input sm:col-span-2" type="date" value={checkDue} onChange={(e) => setCheckDue(e.target.value)} />
               </div>
             )}
-            <button type="button" disabled={saving} onClick={submit} className="btn btn-primary w-full disabled:opacity-60">{saving ? "در حال ثبت..." : "ثبت خرید"}</button>
+
+            <button type="button" disabled={saving} onClick={submit} className="btn btn-primary w-full disabled:opacity-60">{saving ? "در حال ثبت خرید..." : "ثبت خرید و افزایش موجودی"}</button>
           </div>
         </Modal>
       )}

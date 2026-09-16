@@ -13,6 +13,16 @@ export type Product = {
   updatedAt?: string;
 };
 
+export type Category = {
+  id: string;
+  name: string;
+  slug: string;
+  description?: string;
+  active?: boolean;
+  createdAt?: string;
+  updatedAt?: string;
+};
+
 export type Customer = {
   id: string;
   name: string;
@@ -121,7 +131,7 @@ export type InventoryMovement = {
   updatedAt: string;
 };
 
-export type Role = "ADMIN" | "SELLER" | "ACCOUNTANT" | "WAREHOUSE" | "CUSTOMER";
+export type Role = "ADMIN" | "CUSTOMER";
 
 export type AppUser = {
   id: string;

@@ -4,39 +4,9 @@
     "name": "مدیر فروشگاه",
     "phone": "09120000000",
     "role": "ADMIN",
-    "passwordHash": "scrypt:d1634f526d76db7536b57b379ec107dd:9f52e714a7ab9c50bee9043c06d425ac1c988d6f7aed7a4ae26c535e20b674a87332da90423fd9dadb5629c9610f27c238ab1d1f38d262c282394f164beb1487",
+    "passwordHash": "scrypt:68b523e73a35d6597860d4e6529fe3b0:fc3f3aeed083212f5a036c2e52a264f77c800edb5da65d4c16d27c353f8c1c123e24220c650723090ac8e0cfff828d0365412bb89ebd33549a98cea689f4efcb",
     "permissions": [
       "*"
-    ],
-    "updatedAt": "2026-09-16T04:40:49.556Z"
-  },
-  {
-    "id": "u-seller",
-    "name": "فروشنده",
-    "phone": "09121111111",
-    "role": "SELLER",
-    "passwordHash": "scrypt:dev-seller-salt:cb6535b17fa232ffc9fff0c379b9ad05ade5a4b25ef0c28d4a8cf33954ad0ec38c3b381c12a03dc380105afaa13497e1848262be58944cd5f3c97f690fab05e7",
-    "permissions": [
-      "products.read",
-      "customers.read",
-      "sales.read",
-      "sales.create",
-      "inventory.read"
     ]
-  },
-  {
-    "id": "4fa88c77-cb23-400b-b3e0-cb16bce5707b",
-    "name": "سالار غلامی",
-    "phone": "09389525194",
-    "role": "CUSTOMER",
-    "permissions": [
-      "products.read",
-      "sales.read",
-      "sales.create",
-      "quotations.create"
-    ],
-    "passwordHash": "scrypt:cebd097fa621d6b603484c89e9381db3:95cc3ab0d64a8c0f9d83c129b692b58e5fa6175e68006ce68b51045fd6903aaf4bca3fb0c4bfd6904e5f9d3f441942c3cec4927d4b0d93b58d73ed85d8a1a6d7",
-    "createdAt": "2026-09-16T04:39:00.732Z",
-    "updatedAt": "2026-09-16T04:39:00.732Z"
   }
 ]

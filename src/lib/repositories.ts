@@ -1,11 +1,12 @@
 import { JsonRepository } from "./repository";
 import type {
   Product, Customer, Supplier, Sale, SaleItem, Purchase, PurchaseItem,
-  FinanceEntry, CheckRecord, InventoryMovement, AppUser
+  FinanceEntry, CheckRecord, InventoryMovement, AppUser, Category
 } from "./types";
 import seedProducts from "@/data/seed/products.json";
 
 export const productRepo = new JsonRepository<Product>("products.json", seedProducts as Product[]);
+export const categoryRepo = new JsonRepository<Category>("categories.json");
 export const customerRepo = new JsonRepository<Customer>("customers.json");
 export const supplierRepo = new JsonRepository<Supplier>("suppliers.json");
 export const saleRepo = new JsonRepository<Sale>("sales.json");

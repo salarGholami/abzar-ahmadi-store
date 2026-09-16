@@ -1,5 +1,5 @@
 import { requirePermission } from "@/lib/permissions";
-import { getJson,batchCommit } from "@/lib/github";
+import { getJson, batchCommit } from "@/lib/github";
 import { ok,fail } from "@/lib/http";
 export async function POST(req:Request){
  try{

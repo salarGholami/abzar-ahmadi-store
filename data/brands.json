@@ -1,1 +1,42 @@
-[]
+[
+  {
+    "id": "b1",
+    "name": "Bosch",
+    "productsCount": 4
+  },
+  {
+    "id": "b2",
+    "name": "Makita",
+    "productsCount": 4
+  },
+  {
+    "id": "b3",
+    "name": "Ronix",
+    "productsCount": 4
+  },
+  {
+    "id": "b4",
+    "name": "Arva",
+    "productsCount": 4
+  },
+  {
+    "id": "b5",
+    "name": "Stanley",
+    "productsCount": 4
+  },
+  {
+    "id": "b6",
+    "name": "Hyundai",
+    "productsCount": 4
+  },
+  {
+    "id": "b7",
+    "name": "Ingco",
+    "productsCount": 3
+  },
+  {
+    "id": "b8",
+    "name": "DeWalt",
+    "productsCount": 3
+  }
+]

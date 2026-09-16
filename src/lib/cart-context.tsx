@@ -54,7 +54,11 @@ export function CartProvider({ children }: { children: ReactNode }) {
     });
   }
   function setQty(productId: string, qty: number) {
-    setLines((prev) => prev.map((l) => (l.productId === productId ? { ...l, qty: Math.max(1, Math.min(l.stock, qty)) } : l)));
+    setLines((prev) => prev.flatMap((l) => {
+      if (l.productId !== productId) return [l];
+      if (qty <= 0) return [];
+      return [{ ...l, qty: Math.min(l.stock, qty) }];
+    }));
   }
   function remove(productId: string) {
     setLines((prev) => prev.filter((l) => l.productId !== productId));

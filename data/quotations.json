@@ -1,1 +1,58 @@
-[]
+[
+  {
+    "id": "q-001",
+    "customerName": "علی رضایی",
+    "status": "SENT",
+    "total": 10750000,
+    "createdAt": "2026-09-14T03:42:28.451629Z"
+  },
+  {
+    "id": "q-002",
+    "customerName": "محمد کریمی",
+    "status": "APPROVED",
+    "total": 12900000,
+    "createdAt": "2026-09-12T03:42:28.451629Z"
+  },
+  {
+    "id": "q-003",
+    "customerName": "پروژه مسکن نوین",
+    "status": "REJECTED",
+    "total": 15050000,
+    "createdAt": "2026-09-10T03:42:28.451629Z"
+  },
+  {
+    "id": "q-004",
+    "customerName": "حسین احمدی",
+    "status": "DRAFT",
+    "total": 17200000,
+    "createdAt": "2026-09-08T03:42:28.451629Z"
+  },
+  {
+    "id": "q-005",
+    "customerName": "فروشگاه ابزار مرکزی",
+    "status": "SENT",
+    "total": 19350000,
+    "createdAt": "2026-09-06T03:42:28.451629Z"
+  },
+  {
+    "id": "q-006",
+    "customerName": "رضا اکبری",
+    "status": "APPROVED",
+    "total": 21500000,
+    "createdAt": "2026-09-04T03:42:28.451629Z"
+  },
+  {
+    "id": "q-007",
+    "customerName": "پیمانکاران غرب",
+    "status": "REJECTED",
+    "total": 23650000,
+    "createdAt": "2026-09-02T03:42:28.451629Z"
+  },
+  {
+    "id": "q-008",
+    "customerName": "سعید مرادی",
+    "status": "DRAFT",
+    "total": 25800000,
+    "createdAt": "2026-08-31T03:42:28.451629Z"
+  }
+]
