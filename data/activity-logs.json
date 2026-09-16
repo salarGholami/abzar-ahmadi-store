@@ -178,5 +178,11 @@
     "action": "تغییر تنظیمات",
     "entityId": "p7",
     "createdAt": "2026-09-10T03:42:28.451629Z"
+  },
+  {
+    "id": "0ca7e9d0-3375-44c7-b6fe-87b14b755e1a",
+    "action": "SALE_CREATED",
+    "entityId": "d2393182-32cd-4458-acef-2943630038d7",
+    "createdAt": "2026-09-16T16:01:18.058Z"
   }
 ]
