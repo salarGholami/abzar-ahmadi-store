@@ -1,0 +1,820 @@
+@import "tailwindcss";
+@import "swiper/css";
+
+/* Class-based dark mode: keeps `dark:` utilities in sync with the ThemeToggle (html.dark). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* =========================================================
+   ابزار احمدی
+   GLOBAL DESIGN SYSTEM
+   =========================================================
+
+   Primary  : #00ADB5
+   Dark     : #222831
+   Charcoal : #393E46
+   Light    : #EEEEEE
+
+   Default Theme: DARK
+   ========================================================= */
+
+
+/* =========================================================
+   SWIPER
+   ========================================================= */
+
+.swiper {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  overflow: hidden;
+  list-style: none;
+  z-index: 1;
+}
+
+.swiper-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  display: flex !important;
+
+  box-sizing: content-box;
+  z-index: 1;
+
+  transition-property: transform;
+}
+
+.swiper-slide {
+  position: relative;
+
+  display: block;
+
+  flex-shrink: 0 !important;
+
+  width: auto;
+  height: 100%;
+}
+
+.swiper-slide > * {
+  min-width: 0;
+}
+
+.swiper-rtl .swiper-wrapper {
+  direction: rtl;
+}
+
+
+/* =========================================================
+   TAILWIND THEME
+   ========================================================= */
+
+@theme {
+  /* =======================================================
+     PRIMARY
+     #00ADB5
+     ======================================================= */
+
+  --color-primary-50: #e6fafb;
+  --color-primary-100: #ccf5f7;
+  --color-primary-200: #99ebef;
+  --color-primary-300: #66e0e7;
+  --color-primary-400: #33d6df;
+  --color-primary-500: #00adb5;
+  --color-primary-600: #009ba3;
+  --color-primary-700: #00838a;
+  --color-primary-800: #006b71;
+  --color-primary-900: #004f54;
+
+  /* =======================================================
+     DARK
+     #222831
+     ======================================================= */
+
+  --color-dark-50: #f1f2f3;
+  --color-dark-100: #dde0e3;
+  --color-dark-200: #bcc1c7;
+  --color-dark-300: #9aa1a9;
+  --color-dark-400: #6f7882;
+  --color-dark-500: #222831;
+  --color-dark-600: #1f252d;
+  --color-dark-700: #1a1f26;
+  --color-dark-800: #14181e;
+  --color-dark-900: #0c0f13;
+
+  /* =======================================================
+     CHARCOAL
+     #393E46
+     ======================================================= */
+
+  --color-charcoal-50: #f4f5f6;
+  --color-charcoal-100: #e5e7e9;
+  --color-charcoal-200: #cbced2;
+  --color-charcoal-300: #b1b5ba;
+  --color-charcoal-400: #777d85;
+  --color-charcoal-500: #393e46;
+  --color-charcoal-600: #33383f;
+  --color-charcoal-700: #2c3037;
+  --color-charcoal-800: #23272d;
+  --color-charcoal-900: #191c21;
+
+  /* =======================================================
+     LIGHT
+     #EEEEEE
+     ======================================================= */
+
+  --color-light-50: #ffffff;
+  --color-light-100: #fafafa;
+  --color-light-200: #f6f6f6;
+  --color-light-300: #f2f2f2;
+  --color-light-400: #eeeeee;
+  --color-light-500: #e5e5e5;
+  --color-light-600: #d6d6d6;
+  --color-light-700: #c2c2c2;
+  --color-light-800: #a8a8a8;
+  --color-light-900: #8e8e8e;
+}
+
+
+/* =========================================================
+   LIGHT THEME VARIABLES
+   ========================================================= */
+
+:root {
+  --primary: #00838a;
+  --primary-2: #006b71;
+  --primary-light: #e6fafb;
+  --primary-dark: #004f54;
+
+  --bg: #f6f6f6;
+  --bg-secondary: #eeeeee;
+  --bg-secondary-100: #ccf5f7;
+
+  --surface: #ffffff;
+  --surface-2: #fafafa;
+
+  --border: #e5e5e5;
+
+  --text: #222831;
+  --muted: #6f7882;
+
+  --success: #16a34a;
+  --warning: #d97706;
+  --danger: #dc2626;
+
+  --radius: 16px;
+
+  --font-vazirmatn: "Vazirmatn", system-ui, sans-serif;
+}
+
+
+/* =========================================================
+   DARK THEME
+   ========================================================= */
+
+html.dark,
+.dark {
+  --primary: #00adb5;
+  --primary-2: #009ba3;
+  --primary-light: #004f54;
+  --primary-dark: #33d6df;
+
+  --bg: #0c0f13;
+  --bg-secondary: #14181e;
+  --bg-secondary-100: #006b71;
+
+  --surface: #1a1f26;
+  --surface-2: #222831;
+
+  --border: #2c3037;
+
+  --text: #f2f2f2;
+  --muted: #9aa1a9;
+
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+}
+
+
+/* =========================================================
+   LIGHT THEME
+   ========================================================= */
+
+html.light {
+  color-scheme: light;
+}
+
+
+/* =========================================================
+   DARK COLOR SCHEME
+   ========================================================= */
+
+html.dark {
+  color-scheme: dark;
+}
+
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HTML
+   ========================================================= */
+
+html {
+  direction: rtl;
+  scroll-behavior: smooth;
+  background: var(--bg);
+}
+
+
+/* =========================================================
+   BODY
+   ========================================================= */
+
+body {
+  margin: 0;
+  min-width: 320px;
+
+  background: var(--bg);
+  color: var(--text);
+
+  font-family: var(--font-vazirmatn), Tahoma, sans-serif;
+
+  text-rendering: optimizeLegibility;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+
+/* =========================================================
+   FORM ELEMENTS
+   ========================================================= */
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+::selection {
+  background: color-mix(in srgb, var(--primary) 25%, transparent);
+}
+
+
+/* =========================================================
+   SECONDARY BACKGROUND
+   ========================================================= */
+
+.bg-secondary-100 {
+  background-color: var(--bg-secondary-100);
+}
+
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.card {
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius);
+
+  box-shadow: 0 10px 35px rgba(34, 40, 49, 0.045);
+
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+html.dark .card,
+.dark .card {
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   INPUT
+   ========================================================= */
+
+.input {
+  width: 100%;
+
+  border: 1px solid var(--border);
+
+  background: var(--surface);
+  color: var(--text);
+
+  border-radius: 14px;
+
+  padding: 11px 13px;
+
+  outline: none;
+
+  transition:
+    border-color 0.16s ease,
+    background-color 0.16s ease,
+    color 0.16s ease,
+    box-shadow 0.16s ease;
+}
+
+.input:hover {
+  border-color: color-mix(
+    in srgb,
+    var(--muted) 35%,
+    var(--border)
+  );
+}
+
+.input:focus {
+  border-color: var(--primary);
+
+  box-shadow:
+    0 0 0 4px
+    color-mix(
+      in srgb,
+      var(--primary) 14%,
+      transparent
+    );
+}
+
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.btn {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  border-radius: 14px;
+
+  padding: 10px 15px;
+
+  border: 1px solid transparent;
+
+  font-weight: 800;
+
+  transition:
+    transform 0.16s ease,
+    background 0.16s ease,
+    border-color 0.16s ease,
+    box-shadow 0.16s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+   ========================================================= */
+
+.btn-primary {
+  background: var(--primary);
+  color: #ffffff;
+
+  border-color: var(--primary);
+}
+
+.btn-primary:hover {
+  background: var(--primary-2);
+  border-color: var(--primary-2);
+}
+
+
+/* =========================================================
+   SECONDARY BUTTON
+   ========================================================= */
+
+.btn-secondary {
+  background: var(--surface);
+
+  border-color: var(--border);
+
+  color: var(--text);
+}
+
+.btn-secondary:hover {
+  background: var(--surface-2);
+
+  border-color:
+    color-mix(
+      in srgb,
+      var(--primary) 30%,
+      var(--border)
+    );
+}
+
+
+/* =========================================================
+   DANGER BUTTON
+   ========================================================= */
+
+.btn-danger {
+  background: #fff1f0;
+
+  color: var(--danger);
+
+  border-color: #ffd6d2;
+}
+
+html.dark .btn-danger,
+.dark .btn-danger {
+  background: #3f1515;
+
+  border-color: #5c2020;
+
+  color: #fca5a5;
+}
+
+
+/* =========================================================
+   BADGE
+   ========================================================= */
+
+.badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  border-radius: 999px;
+
+  padding: 5px 9px;
+
+  font-size: 11px;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   LABEL
+   ========================================================= */
+
+.field-label {
+  display: block;
+
+  margin-bottom: 0.375rem;
+
+  font-size: 0.75rem;
+
+  font-weight: 800;
+
+  color: var(--muted);
+}
+
+
+/* =========================================================
+   SCROLLBAR NONE
+   ========================================================= */
+
+.scrollbar-none {
+  scrollbar-width: none;
+
+  -ms-overflow-style: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* =========================================================
+   SAFE AREA
+   ========================================================= */
+
+.safe-area-pb {
+  padding-bottom: env(
+    safe-area-inset-bottom,
+    0px
+  );
+}
+
+
+/* =========================================================
+   CUSTOM SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(
+    --charcoal-scrollbar,
+    #393e46
+  );
+
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 0;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* =========================================================
+   PRINT
+   ========================================================= */
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+}
+
+
+/* =========================================================
+   BRAND TICKER
+   ========================================================= */
+
+@keyframes brand-ticker {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.brand-ticker-track {
+  animation:
+    brand-ticker 220s linear infinite;
+
+  will-change: transform;
+}
+
+.brand-ticker-track:hover {
+  animation-play-state: paused;
+}
+
+@media (max-width: 640px) {
+  .brand-ticker-track {
+    animation-duration: 60s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-ticker-track {
+    animation: none;
+  }
+}
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+@keyframes mobileMenuIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   COMMERCE MVP POLISH
+   ========================================================= */
+
+.input {
+  width: 100%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 14px;
+  padding: 0.75rem 0.9rem;
+  outline: none;
+  transition: 0.2s;
+}
+
+.input:focus {
+  border-color: var(--primary);
+
+  box-shadow:
+    0 0 0 3px
+    color-mix(
+      in srgb,
+      var(--primary) 14%,
+      transparent
+    );
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 12px;
+  padding: 0.7rem 1rem;
+  font-weight: 800;
+  transition: 0.2s;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-secondary {
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.card {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.035);
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+@keyframes loadingSlide {
+  0% {
+    transform: translateX(220%);
+    opacity: 0.35;
+  }
+
+  45% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-220%);
+    opacity: 0.35;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =========================================================
+   DASHBOARD DESIGN CONTRACT
+   ========================================================= */
+
+[data-dashboard="true"] {
+  width: 100%;
+  min-width: 0;
+}
+
+.dashboard-panel {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.dashboard-control {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.dashboard-table {
+  width: 100%;
+  min-width: 920px;
+  border-collapse: collapse;
+}
+
+.dashboard-table thead {
+  background: var(--surface-2);
+  color: var(--muted);
+}
+
+.dashboard-table th,
+.dashboard-table td {
+  padding: 0.875rem 1rem;
+  text-align: right;
+}
+
+.dashboard-table tbody tr {
+  border-top: 1px solid var(--border);
+  transition: background-color 160ms ease;
+}
+
+.dashboard-table tbody tr:hover {
+  background: color-mix(in srgb, var(--surface-2) 65%, transparent);
+}
+
+@media (max-width: 1023px) {
+  [data-dashboard="true"] {
+    overflow-x: clip;
+  }
+
+  [data-dashboard="true"] main {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 639px) {
+  .btn {
+    min-height: 42px;
+  }
+
+  .input {
+    min-height: 44px;
+  }
+}
