@@ -1,8 +1,70 @@
 [
-  {"id":"p1","title":"دریل چکشی ۱۳ میلی‌متر","brand":"Bosch","sku":"BSH-13-001","category":"دریل و پیچ‌گوشتی","price":8900000,"discount":8,"stock":14,"image":"https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80"},
-  {"id":"p2","title":"مینی فرز ۷۵۰ وات","brand":"Makita","sku":"MKT-750-002","category":"فرز و پولیش","price":7250000,"discount":5,"stock":8,"image":"https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=800&q=80"},
-  {"id":"p3","title":"متر لیزری ۵۰ متری","brand":"Stanley","sku":"STN-50-003","category":"اندازه‌گیری","price":3400000,"discount":12,"stock":21,"image":"https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80"},
-  {"id":"p4","title":"جعبه ابزار حرفه‌ای ۱۲۱ پارچه","brand":"Ronix","sku":"RNX-121-004","category":"ابزار دستی","price":11900000,"discount":10,"stock":5,"image":"https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=800&q=80"},
-  {"id":"p5","title":"دستگاه جوش اینورتر ۲۰۰ آمپر","brand":"Arva","sku":"ARV-200-005","category":"جوشکاری","price":8650000,"discount":6,"stock":3,"image":"https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80"},
-  {"id":"p6","title":"کمپرسور باد ۵۰ لیتری","brand":"Hyundai","sku":"HYU-50-006","category":"تجهیزات کارگاهی","price":15400000,"discount":7,"stock":6,"image":"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80"}
+  {
+    "id": "p1",
+    "title": "دریل چکشی ۱۳ میلی‌متر",
+    "brand": "Bosch",
+    "sku": "BSH-13-001",
+    "category": "دریل و پیچ‌گوشتی",
+    "price": 8900000,
+    "discount": 8,
+    "stock": 13,
+    "image": "https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80",
+    "updatedAt": "2026-09-16T03:52:06.530Z"
+  },
+  {
+    "id": "p2",
+    "title": "مینی فرز ۷۵۰ وات",
+    "brand": "Makita",
+    "sku": "MKT-750-002",
+    "category": "فرز و پولیش",
+    "price": 7250000,
+    "discount": 5,
+    "stock": 8,
+    "image": "https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "p3",
+    "title": "متر لیزری ۵۰ متری",
+    "brand": "Stanley",
+    "sku": "STN-50-003",
+    "category": "اندازه‌گیری",
+    "price": 3400000,
+    "discount": 12,
+    "stock": 21,
+    "image": "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "p4",
+    "title": "جعبه ابزار حرفه‌ای ۱۲۱ پارچه",
+    "brand": "Ronix",
+    "sku": "RNX-121-004",
+    "category": "ابزار دستی",
+    "price": 11900000,
+    "discount": 10,
+    "stock": 5,
+    "image": "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "p5",
+    "title": "دستگاه جوش اینورتر ۲۰۰ آمپر",
+    "brand": "Arva",
+    "sku": "ARV-200-005",
+    "category": "جوشکاری",
+    "price": 8650000,
+    "discount": 6,
+    "stock": 2,
+    "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80",
+    "updatedAt": "2026-09-16T03:52:06.530Z"
+  },
+  {
+    "id": "p6",
+    "title": "کمپرسور باد ۵۰ لیتری",
+    "brand": "Hyundai",
+    "sku": "HYU-50-006",
+    "category": "تجهیزات کارگاهی",
+    "price": 15400000,
+    "discount": 7,
+    "stock": 6,
+    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80"
+  }
 ]
