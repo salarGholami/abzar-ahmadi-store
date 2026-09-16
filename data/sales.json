@@ -40,10 +40,11 @@
     "netAmount": 2992000,
     "cogs": 0,
     "grossProfit": 2992000,
-    "paymentStatus": "PENDING_TRANSFER",
+    "paymentStatus": "PAID",
     "receiptImage": null,
     "channel": "ONLINE",
     "createdAt": "2026-09-16T04:39:15.103Z",
-    "idempotencyKey": "437dfa7a-4dba-4c23-8620-225a55e9a0a1"
+    "idempotencyKey": "437dfa7a-4dba-4c23-8620-225a55e9a0a1",
+    "updatedAt": "2026-09-16T04:41:41.609Z"
   }
 ]
