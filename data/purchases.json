@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "id": "8c43019c-a484-4404-8ae1-44d94e41aa5c",
+    "supplierId": null,
+    "supplierName": "",
+    "subtotal": 20,
+    "paymentMethod": "CHECK",
+    "checkId": "e1b60e8d-e159-4f9b-8116-daf440e8d2d7",
+    "createdAt": "2026-09-16T03:54:10.375Z"
+  }
+]
