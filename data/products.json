@@ -31,8 +31,9 @@
     "category": "اندازه‌گیری",
     "price": 3400000,
     "discount": 12,
-    "stock": 21,
-    "image": "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80"
+    "stock": 20,
+    "image": "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80",
+    "updatedAt": "2026-09-16T04:39:15.103Z"
   },
   {
     "id": "p4",
