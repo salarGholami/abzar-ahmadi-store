@@ -1,0 +1,10 @@
+[
+  {
+    "id": "store",
+    "storeName": "ابزارینو",
+    "storePhone": "021-00000000",
+    "cardNumber": "",
+    "cardHolderName": "",
+    "lowStockThreshold": 5
+  }
+]
