@@ -8,7 +8,19 @@
   {
     "id": "d48537a4-cf23-4c8a-afd0-935d4a4fd1f5",
     "productId": "p1",
-    "quantity": -1,
-    "updatedAt": "2026-09-16T03:52:06.530Z"
+    "quantity": 3,
+    "updatedAt": "2026-09-16T03:54:10.375Z"
+  },
+  {
+    "id": "ade3e601-cc09-4a87-b933-941c5020fa33",
+    "productId": "p4",
+    "quantity": 1,
+    "updatedAt": "2026-09-16T03:54:10.375Z"
+  },
+  {
+    "id": "65fdfb25-e95d-4d8d-847e-afe49be2fa12",
+    "productId": "p6",
+    "quantity": 1,
+    "updatedAt": "2026-09-16T03:54:10.375Z"
   }
 ]
