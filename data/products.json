@@ -49,11 +49,11 @@
     "category": "ابزار دستی",
     "price": 1458000,
     "discount": 12,
-    "stock": 24,
+    "stock": 23,
     "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=80",
     "purchaseCost": 1080000,
     "createdAt": "2026-09-12T03:42:28.451629Z",
-    "updatedAt": "2026-09-12T03:42:28.451629Z"
+    "updatedAt": "2026-09-16T16:03:14.834Z"
   },
   {
     "id": "p5",
