@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "id": "e1b60e8d-e159-4f9b-8116-daf440e8d2d7",
+    "number": " 432235423",
+    "bank": "صادرات",
+    "dueDate": "2026-09-24",
+    "amount": 20,
+    "direction": "ISSUED",
+    "status": "PENDING",
+    "relatedName": "",
+    "purchaseId": "8c43019c-a484-4404-8ae1-44d94e41aa5c",
+    "description": "بابت خرید 8c43019c-a484-4404-8ae1-44d94e41aa5c",
+    "createdAt": "2026-09-16T03:54:10.375Z",
+    "updatedAt": "2026-09-16T03:54:10.375Z"
+  }
+]
