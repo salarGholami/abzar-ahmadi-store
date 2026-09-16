@@ -1,1 +1,26 @@
-[]
+[
+  {
+    "id": "8d7bca5e-33fa-470c-b03f-183d95a8659c",
+    "purchaseId": "8c43019c-a484-4404-8ae1-44d94e41aa5c",
+    "productId": "p1",
+    "quantity": 4,
+    "unitCost": 5,
+    "total": 20
+  },
+  {
+    "id": "d1783132-be37-42e4-9c40-b9f57fffd0dc",
+    "purchaseId": "8c43019c-a484-4404-8ae1-44d94e41aa5c",
+    "productId": "p4",
+    "quantity": 1,
+    "unitCost": 0,
+    "total": 0
+  },
+  {
+    "id": "17244699-9e75-4517-a634-5c98e5173c2b",
+    "purchaseId": "8c43019c-a484-4404-8ae1-44d94e41aa5c",
+    "productId": "p6",
+    "quantity": 1,
+    "unitCost": 0,
+    "total": 0
+  }
+]
