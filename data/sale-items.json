@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "id": "825a9ca3-854b-489d-998a-407905437088",
+    "saleId": "0042edb8-ece0-48ff-91ea-e5cf813c08fc",
+    "productId": "p5",
+    "quantity": 1,
+    "unitPrice": 8131000,
+    "purchaseCost": 0,
+    "total": 8131000
+  },
+  {
+    "id": "76ee37be-7745-4bf7-bd8b-c906cc0522f2",
+    "saleId": "0042edb8-ece0-48ff-91ea-e5cf813c08fc",
+    "productId": "p1",
+    "quantity": 1,
+    "unitPrice": 8188000,
+    "purchaseCost": 0,
+    "total": 8188000
+  }
+]
