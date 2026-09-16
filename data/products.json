@@ -7,9 +7,10 @@
     "category": "دریل و پیچ‌گوشتی",
     "price": 8900000,
     "discount": 8,
-    "stock": 13,
+    "stock": 17,
     "image": "https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80",
-    "updatedAt": "2026-09-16T03:52:06.530Z"
+    "updatedAt": "2026-09-16T03:54:10.375Z",
+    "purchaseCost": 5
   },
   {
     "id": "p2",
@@ -41,8 +42,10 @@
     "category": "ابزار دستی",
     "price": 11900000,
     "discount": 10,
-    "stock": 5,
-    "image": "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=800&q=80"
+    "stock": 6,
+    "image": "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=800&q=80",
+    "purchaseCost": 0,
+    "updatedAt": "2026-09-16T03:54:10.375Z"
   },
   {
     "id": "p5",
@@ -64,7 +67,9 @@
     "category": "تجهیزات کارگاهی",
     "price": 15400000,
     "discount": 7,
-    "stock": 6,
-    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80"
+    "stock": 7,
+    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+    "purchaseCost": 0,
+    "updatedAt": "2026-09-16T03:54:10.375Z"
   }
 ]
