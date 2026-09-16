@@ -154,5 +154,19 @@
     "description": "چک ثبت‌شده در سیستم",
     "createdAt": "2026-09-04T03:42:28.451629Z",
     "updatedAt": "2026-09-04T03:42:28.451629Z"
+  },
+  {
+    "id": "647cac95-4d42-4c84-b512-77899a922fab",
+    "number": "ابیییت",
+    "bank": "اللل",
+    "dueDate": "2026-09-18",
+    "amount": 790000,
+    "direction": "ISSUED",
+    "status": "PENDING",
+    "relatedName": "",
+    "purchaseId": "94695420-c49b-4aac-8e20-65c01ce00510",
+    "description": "بابت خرید 94695420-c49b-4aac-8e20-65c01ce00510",
+    "createdAt": "2026-09-16T17:53:34.327Z",
+    "updatedAt": "2026-09-16T17:53:34.327Z"
   }
 ]
