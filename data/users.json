@@ -4,10 +4,11 @@
     "name": "مدیر فروشگاه",
     "phone": "09120000000",
     "role": "ADMIN",
-    "passwordHash": "scrypt:68b523e73a35d6597860d4e6529fe3b0:fc3f3aeed083212f5a036c2e52a264f77c800edb5da65d4c16d27c353f8c1c123e24220c650723090ac8e0cfff828d0365412bb89ebd33549a98cea689f4efcb",
+    "passwordHash": "scrypt:d1634f526d76db7536b57b379ec107dd:9f52e714a7ab9c50bee9043c06d425ac1c988d6f7aed7a4ae26c535e20b674a87332da90423fd9dadb5629c9610f27c238ab1d1f38d262c282394f164beb1487",
     "permissions": [
       "*"
-    ]
+    ],
+    "updatedAt": "2026-09-16T04:40:49.556Z"
   },
   {
     "id": "u-seller",
