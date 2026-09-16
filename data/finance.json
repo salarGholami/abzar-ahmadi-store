@@ -635,5 +635,12 @@
     "referenceId": "c8408954-0c2e-4912-a570-56ff174928ae",
     "amount": 1283040,
     "createdAt": "2026-09-16T16:03:14.834Z"
+  },
+  {
+    "id": "495dd9f3-b5f9-464d-b708-9e25603e5483",
+    "type": "PURCHASE",
+    "referenceId": "94695420-c49b-4aac-8e20-65c01ce00510",
+    "amount": 790000,
+    "createdAt": "2026-09-16T17:53:34.327Z"
   }
 ]
