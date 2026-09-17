@@ -1,0 +1,8 @@
+{
+  "id": "store",
+  "storeName": "ابزار احمدی",
+  "storePhone": "021-88776655",
+  "cardNumber": "6037997512345678",
+  "cardHolderName": "فروشگاه ابزار احمدی",
+  "lowStockThreshold": 5
+}

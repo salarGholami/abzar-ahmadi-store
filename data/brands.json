@@ -1,0 +1,82 @@
+[
+  {
+    "id": "b1",
+    "name": "Bosch",
+    "productsCount": 9
+  },
+  {
+    "id": "b2",
+    "name": "Makita",
+    "productsCount": 10
+  },
+  {
+    "id": "b3",
+    "name": "Ronix",
+    "productsCount": 10
+  },
+  {
+    "id": "b4",
+    "name": "Arva",
+    "productsCount": 10
+  },
+  {
+    "id": "b5",
+    "name": "Stanley",
+    "productsCount": 9
+  },
+  {
+    "id": "b6",
+    "name": "Hyundai",
+    "productsCount": 13
+  },
+  {
+    "id": "b7",
+    "name": "Ingco",
+    "productsCount": 6
+  },
+  {
+    "id": "b8",
+    "name": "DeWalt",
+    "productsCount": 7
+  },
+  {
+    "id": "b9",
+    "name": "Metabo",
+    "productsCount": 6
+  },
+  {
+    "id": "b10",
+    "name": "Milwaukee",
+    "productsCount": 5
+  },
+  {
+    "id": "b11",
+    "name": "Total",
+    "productsCount": 2
+  },
+  {
+    "id": "b12",
+    "name": "Hitachi",
+    "productsCount": 10
+  },
+  {
+    "id": "b13",
+    "name": "IRWIN",
+    "productsCount": 1
+  },
+  {
+    "id": "b14",
+    "name": "Black+Decker",
+    "productsCount": 3
+  },
+  {
+    "id": "b15",
+    "name": "Karcher",
+    "productsCount": 7
+  },
+  {
+    "id": "b16",
+    "name": "Persia Tools",
+    "productsCount": 12
+  }
+]
