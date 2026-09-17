@@ -31,14 +31,21 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
   try {
     await requirePermission("products.update");
     const { id } = await params;
-    const body = await req.json() as { imageId?: string };
+    const body = await req.json() as { imageId?: string; makePrimary?: boolean; alt?: string };
     if (!body.imageId) throw new Error("IMAGE_ID_REQUIRED");
     const products = await getJson<Product[]>("products.json", []);
     const product = products.data.find((item) => item.id === id);
     if (!product) throw new Error("NOT_FOUND");
     const current = product.images || [];
     if (!current.some((image) => image.id === body.imageId)) throw new Error("IMAGE_NOT_FOUND");
-    const images = [current.find((image) => image.id === body.imageId)!, ...current.filter((image) => image.id !== body.imageId)].map((image, position) => ({ ...image, position }));
+    let images = current;
+    if (body.makePrimary) {
+      images = [current.find((image) => image.id === body.imageId)!, ...current.filter((image) => image.id !== body.imageId)];
+    }
+    if (typeof body.alt === "string") {
+      images = images.map((image) => image.id === body.imageId ? { ...image, alt: body.alt!.trim() } : image);
+    }
+    images = images.map((image, position) => ({ ...image, position }));
     const next = products.data.map((item) => item.id === id ? { ...item, image: images[0]?.url || "", images, updatedAt: new Date().toISOString() } : item);
     await writeJson("products.json", next, `Set primary product image ${id}/${body.imageId}`, products.sha || undefined);
     return ok(images);
@@ -57,7 +64,6 @@ export async function DELETE(req: Request, { params }: { params: Promise<{ id: s
     const current = product.images || [];
     const target = current.find((image) => image.id === body.imageId);
     if (!target) throw new Error("IMAGE_NOT_FOUND");
-    if (current.length <= 1) throw new Error("آخرین تصویر محصول قابل حذف نیست.");
     const images = current.filter((image) => image.id !== body.imageId).map((image, position) => ({ ...image, position }));
     const next = products.data.map((item) => item.id === id ? { ...item, image: images[0]?.url || "", images, updatedAt: new Date().toISOString() } : item);
     await writeJson("products.json", next, `Delete product image ${id}/${body.imageId}`, products.sha || undefined);

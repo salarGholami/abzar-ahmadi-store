@@ -14,9 +14,7 @@ export default async function Home() {
     getJson<Category[]>("categories.json", [])
   ]);
   const categories = categoryFile.data.filter((category) => category.active !== false).slice(0, 8);
-  const daySeed = new Date().toISOString().slice(0, 10);
-  const hash = (value: string) => { let h = 2166136261; for (const char of value) { h ^= char.charCodeAt(0); h = Math.imul(h, 16777619); } return h >>> 0; };
-  const heroProducts = products.filter((p) => p.stock > 0).slice().sort((a, b) => hash(`${daySeed}:${a.id}`) - hash(`${daySeed}:${b.id}`)).slice(0, 6);
+  const heroProducts = products.filter((p) => p.stock > 0).slice().sort(() => Math.random() - 0.5).slice(0, 6);
 
   return (
     <>

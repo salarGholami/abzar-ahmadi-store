@@ -7,7 +7,9 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { Product } from "@/lib/types";
 
 function productImages(p: Product): string[] {
-  if (p.images && p.images.length > 0) return p.images.filter(Boolean);
+  if (p.images && p.images.length > 0) {
+    return p.images.map((img) => img.url).filter(Boolean);
+  }
   return p.image ? [p.image] : [];
 }
 
@@ -35,22 +37,32 @@ export default function HeroSlider({ products }: { products: Product[] }) {
 
         <div className="relative z-10 grid min-h-[320px] items-center gap-6 px-7 py-10 md:grid-cols-2 md:px-12 md:py-14">
           <div>
-            <span className="badge bg-white/10 text-indigo-200">محصولات منتخب</span>
-            <h1 className="mt-4 text-3xl font-black leading-[1.2] md:text-5xl line-clamp-2">{p.title}</h1>
+            <span className="badge bg-white/10 text-indigo-200">
+              محصولات منتخب
+            </span>
+            <h1 className="mt-4 line-clamp-2 text-3xl font-black leading-[1.2] md:text-5xl">
+              {p.title}
+            </h1>
             <p className="mt-3 text-sm text-slate-300">
               {p.brand} · {p.category}
               {p.discount > 0 && (
-                <span className="mr-2 rounded bg-red-500/90 px-2 py-0.5 text-xs">٪{p.discount} تخفیف</span>
+                <span className="mr-2 rounded bg-red-500/90 px-2 py-0.5 text-xs">
+                  ٪{p.discount} تخفیف
+                </span>
               )}
             </p>
             <div className="mt-5 text-2xl font-black">
-              {final.toLocaleString("fa-IR")} <span className="text-sm font-normal">تومان</span>
+              {final.toLocaleString("fa-IR")}{" "}
+              <span className="text-sm font-normal">تومان</span>
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link href={`/products/${p.id}`} className="btn btn-primary px-6">
                 مشاهده محصول
               </Link>
-              <Link href="/products" className="btn border border-white/15 bg-white/10 px-6 text-white hover:bg-white/15">
+              <Link
+                href="/products"
+                className="btn border border-white/15 bg-white/10 px-6 text-white hover:bg-white/15"
+              >
                 همه محصولات
               </Link>
             </div>
@@ -58,7 +70,13 @@ export default function HeroSlider({ products }: { products: Product[] }) {
 
           <div className="relative mx-auto aspect-[4/3] w-full max-w-md overflow-hidden rounded-2xl bg-white/5">
             {img && (
-              <Image src={img} alt={p.title} fill unoptimized className="object-cover" />
+              <Image
+                src={img}
+                alt={p.title}
+                fill
+                unoptimized
+                className="object-cover"
+              />
             )}
           </div>
         </div>
@@ -67,7 +85,9 @@ export default function HeroSlider({ products }: { products: Product[] }) {
           <>
             <button
               type="button"
-              onClick={() => setIndex((i) => (i - 1 + items.length) % items.length)}
+              onClick={() =>
+                setIndex((i) => (i - 1 + items.length) % items.length)
+              }
               className="absolute right-3 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white/10 p-2 hover:bg-white/20 md:right-5"
               aria-label="قبلی"
             >
@@ -87,7 +107,9 @@ export default function HeroSlider({ products }: { products: Product[] }) {
                   key={i}
                   type="button"
                   onClick={() => setIndex(i)}
-                  className={`h-1.5 rounded-full transition-all ${i === index ? "w-6 bg-white" : "w-1.5 bg-white/40"}`}
+                  className={`h-1.5 rounded-full transition-all ${
+                    i === index ? "w-6 bg-white" : "w-1.5 bg-white/40"
+                  }`}
                   aria-label={`اسلاید ${i + 1}`}
                 />
               ))}

@@ -14,25 +14,16 @@ export default function DashboardShell({
   user: Pick<Session, "id" | "name" | "role" | "permissions">;
 }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
-
-  function toggleSidebar() {
-    if (window.matchMedia("(min-width: 1024px)").matches) {
-      setSidebarCollapsed((value) => !value);
-      return;
-    }
-    setSidebarOpen((value) => !value);
-  }
 
   return (
     <div className="min-h-screen bg-[var(--bg)]">
       <Sidebar
         open={sidebarOpen}
-        collapsed={sidebarCollapsed}
         onClose={() => setSidebarOpen(false)}
         user={user}
       />
 
+      {/* اورلی فقط موبایل */}
       {sidebarOpen && (
         <button
           type="button"
@@ -42,16 +33,16 @@ export default function DashboardShell({
         />
       )}
 
-      <div
-        className={`min-w-0 transition-[margin] duration-200 ${sidebarCollapsed ? "lg:mr-[88px]" : "lg:mr-[292px]"}`}
-      >
+      <div className="min-w-0 transition-[margin] duration-200 lg:mr-[292px]">
         <header className="sticky top-0 z-30 border-b border-[var(--border)] bg-[color-mix(in_srgb,var(--surface)_90%,transparent)] backdrop-blur-xl">
           <div className="flex min-h-[72px] items-center gap-3 px-4 lg:px-7">
+            {/* همبرگر فقط موبایل — روی دسکتاپ کاملاً مخفی */}
             <button
               type="button"
-              onClick={toggleSidebar}
-              className="btn btn-secondary !size-11 !p-0"
+              onClick={() => setSidebarOpen((value) => !value)}
+              className="inline-flex size-11 shrink-0 items-center justify-center rounded-[14px] border border-[var(--border)] bg-[var(--surface)] text-[var(--text)] lg:!hidden"
               aria-label="باز و بسته کردن منوی کناری"
+              aria-expanded={sidebarOpen}
             >
               <Menu size={20} />
             </button>
@@ -65,12 +56,18 @@ export default function DashboardShell({
             </div>
 
             <div className="mr-auto flex items-center gap-2">
-              <button className="btn btn-secondary relative !size-11 !p-0" type="button" aria-label="اعلان‌ها">
+              <button
+                className="btn btn-secondary relative !size-11 !p-0"
+                type="button"
+                aria-label="اعلان‌ها"
+              >
                 <Bell size={18} />
                 <span className="absolute right-2 top-2 size-1.5 rounded-full bg-[var(--danger)]" />
               </button>
               <ThemeToggle />
-              <div className="hidden size-10 place-items-center rounded-xl bg-[var(--primary)] text-sm font-black text-white sm:grid">م</div>
+              <div className="hidden size-10 place-items-center rounded-xl bg-[var(--primary)] text-sm font-black text-white sm:grid">
+                {user.name?.charAt(0) || "م"}
+              </div>
             </div>
           </div>
         </header>

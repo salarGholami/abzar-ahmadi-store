@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ImagePlus, Loader2, Star, Trash2, UploadCloud } from "lucide-react";
+import { Check, ImagePlus, Loader2, Pencil, Star, Trash2, UploadCloud, X } from "lucide-react";
 import { useRef, useState } from "react";
 import type { ProductImage } from "@/lib/types";
 
@@ -12,6 +12,8 @@ export default function ProductImageManager({ productId, images, onChange, onPen
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState("");
   const [previews, setPreviews] = useState<string[]>([]);
+  const [editingAlt, setEditingAlt] = useState<string | null>(null);
+  const [altValue, setAltValue] = useState("");
 
   async function upload(files: File[]) {
     if (!files.length) return;
@@ -33,13 +35,25 @@ export default function ProductImageManager({ productId, images, onChange, onPen
     finally { setUploading(false); }
   }
 
-  async function setPrimary(imageId: string) {
+  async function patchImage(imageId: string, patch: { makePrimary?: boolean; alt?: string }) {
+    if (!productId) return;
     try {
-      const response = await fetch(`/api/admin/products/${productId}/images`, { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ imageId }) });
+      const response = await fetch(`/api/admin/products/${productId}/images`, { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ imageId, ...patch }) });
       const result = await response.json();
-      if (!response.ok || !result.success) throw new Error(result.error?.message || "تغییر تصویر اصلی انجام نشد.");
+      if (!response.ok || !result.success) throw new Error(result.error?.message || "ویرایش تصویر انجام نشد.");
       onChange(result.data);
-    } catch (e) { setError(e instanceof Error ? e.message : "خطا در تغییر تصویر اصلی."); }
+      setEditingAlt(null);
+    } catch (e) { setError(e instanceof Error ? e.message : "خطا در ویرایش تصویر."); }
+  }
+
+  async function setPrimary(imageId: string) {
+    await patchImage(imageId, { makePrimary: true });
+  }
+
+  function startAltEdit(image: ProductImage) {
+    setEditingAlt(image.id);
+    setAltValue(image.alt || "");
+    setError("");
   }
 
   async function remove(imageId: string) {
@@ -69,8 +83,19 @@ export default function ProductImageManager({ productId, images, onChange, onPen
               <Image src={url} alt="" fill unoptimized className="object-cover" />
               <div className="absolute inset-x-2 top-2 flex items-center justify-between">
                 {index === 0 && <span className="badge bg-black/70 text-white"><Star size={12} /> اصلی</span>}
-                {productId && image && images.length > 1 && <div className="flex gap-1 opacity-0 transition group-hover:opacity-100"><button type="button" onClick={() => void setPrimary(image.id)} className="grid size-8 place-items-center rounded-full bg-black/70 text-white" aria-label="تصویر اصلی"><Star size={14} /></button><button type="button" onClick={() => void remove(image.id)} className="grid size-8 place-items-center rounded-full bg-black/70 text-white" aria-label="حذف تصویر"><Trash2 size={14} /></button></div>}
+                {productId && image && <div className="flex gap-1 opacity-0 transition group-hover:opacity-100">
+                  {index !== 0 && <button type="button" onClick={() => void setPrimary(image.id)} className="grid size-8 place-items-center rounded-full bg-black/70 text-white" aria-label="تصویر اصلی"><Star size={14} /></button>}
+                  <button type="button" onClick={() => startAltEdit(image)} className="grid size-8 place-items-center rounded-full bg-black/70 text-white" aria-label="ویرایش توضیح تصویر"><Pencil size={14} /></button>
+                  <button type="button" onClick={() => void remove(image.id)} className="grid size-8 place-items-center rounded-full bg-black/70 text-white" aria-label="حذف تصویر"><Trash2 size={14} /></button>
+                </div>}
               </div>
+              {editingAlt === image?.id && <div className="absolute inset-x-2 bottom-2 z-10 rounded-xl bg-black/85 p-2" onClick={(e) => e.stopPropagation()}>
+                <input autoFocus value={altValue} onChange={(e) => setAltValue(e.target.value)} className="w-full rounded-lg bg-white px-2 py-1.5 text-xs text-black outline-none" placeholder="توضیح تصویر" />
+                <div className="mt-1.5 flex gap-1">
+                  <button type="button" onClick={() => void patchImage(image.id, { alt: altValue.trim() })} className="grid size-7 place-items-center rounded-lg bg-emerald-500 text-white" aria-label="ذخیره"><Check size={14} /></button>
+                  <button type="button" onClick={() => setEditingAlt(null)} className="grid size-7 place-items-center rounded-lg bg-white/20 text-white" aria-label="لغو"><X size={14} /></button>
+                </div>
+              </div>}
               {index === 1 && <div className="absolute bottom-2 right-2 badge bg-black/70 text-white">Hover</div>}
             </div>;
           })}
