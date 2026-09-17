@@ -29,7 +29,8 @@ export default function ProductCard({ p }: { p: Product }) {
     <article className="group card overflow-hidden transition duration-200 hover:-translate-y-0.5 hover:shadow-xl">
       <Link href={`/products/${p.id}`} className="block">
         <div className="relative aspect-[1.12] overflow-hidden bg-[var(--surface-2)]">
-          <Image src={p.image} alt={p.title} fill unoptimized className="object-cover transition duration-500 group-hover:scale-105" />
+          <Image src={p.images?.[0]?.url || p.image || "/placeholder-product.svg"} alt={p.title} fill unoptimized className="object-cover transition duration-500 group-hover:scale-105" />
+          <Image src={p.images?.[1]?.url || p.images?.[0]?.url || p.image || "/placeholder-product.svg"} alt="" fill unoptimized className="object-cover opacity-0 transition duration-500 group-hover:opacity-100 group-hover:scale-105" aria-hidden="true" />
           {p.discount > 0 && <span className="badge absolute right-3 top-3 bg-red-500 text-white">٪{p.discount} تخفیف</span>}
         </div>
       </Link>

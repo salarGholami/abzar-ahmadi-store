@@ -3,6 +3,7 @@ import { ArrowLeft, ShieldCheck, Truck, Headphones, CreditCard, Sparkles, Tags }
 import StoreHeader from "@/components/layout/StoreHeader";
 import StoreFooter from "@/components/commerce/StoreFooter";
 import ProductCard from "@/components/commerce/ProductCard";
+import ProductHeroSlider from "@/components/commerce/ProductHeroSlider";
 import { getProducts } from "@/lib/data";
 import { getJson } from "@/lib/github";
 import type { Category } from "@/lib/types";
@@ -13,26 +14,16 @@ export default async function Home() {
     getJson<Category[]>("categories.json", [])
   ]);
   const categories = categoryFile.data.filter((category) => category.active !== false).slice(0, 8);
+  const daySeed = new Date().toISOString().slice(0, 10);
+  const hash = (value: string) => { let h = 2166136261; for (const char of value) { h ^= char.charCodeAt(0); h = Math.imul(h, 16777619); } return h >>> 0; };
+  const heroProducts = products.filter((p) => p.stock > 0).slice().sort((a, b) => hash(`${daySeed}:${a.id}`) - hash(`${daySeed}:${b.id}`)).slice(0, 6);
 
   return (
     <>
       <StoreHeader />
       <main>
         <section className="mx-auto max-w-[1500px] px-4 pt-5 lg:px-6">
-          <div className="relative overflow-hidden rounded-[32px] bg-[#0b1020] px-7 py-12 text-white md:px-12 md:py-20">
-            <div className="absolute -left-20 -top-28 size-96 rounded-full bg-indigo-600/25 blur-3xl" />
-            <div className="absolute -bottom-40 right-20 size-80 rounded-full bg-cyan-500/10 blur-3xl" />
-            <div className="relative z-10 max-w-2xl">
-              <span className="badge bg-white/10 text-indigo-200"><Sparkles size={14} /> انتخاب حرفه‌ای‌ها</span>
-              <h1 className="mt-5 text-4xl font-black leading-[1.18] md:text-6xl">ابزار درست،<br /><span className="text-indigo-300">پروژه بهتر.</span></h1>
-              <p className="mt-5 max-w-xl text-sm leading-7 text-slate-300 md:text-base">کاتالوگ حرفه‌ای ابزار ساختمانی و کارگاهی با دسته‌بندی، جستجو و فیلتر سریع برای انتخاب دقیق‌تر.</p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link href="/products" className="btn btn-primary px-6">مشاهده محصولات <ArrowLeft size={18} /></Link>
-                <Link href="/account" className="btn border border-white/15 bg-white/10 px-6 text-white hover:bg-white/15">حساب کاربری</Link>
-              </div>
-            </div>
-            <div className="absolute bottom-0 left-0 hidden text-[180px] font-black leading-none text-white/[.025] lg:block">TOOLS</div>
-          </div>
+          <ProductHeroSlider products={heroProducts} />
         </section>
 
         <section className="mx-auto max-w-[1500px] px-4 py-14 lg:px-6">

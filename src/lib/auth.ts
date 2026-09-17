@@ -33,7 +33,7 @@ export function verifySession(token: string): Session | null {
     if (sig.length !== expected.length) return null;
     if (!timingSafeEqual(Buffer.from(sig), Buffer.from(expected))) return null;
     const s = JSON.parse(unb64(body)) as Session;
-    return s.exp > Date.now() ? s : null;
+    return s.exp > Date.now() ? { ...s, permissions: Array.isArray(s.permissions) ? s.permissions : [] } as Session : null;
   } catch {
     return null;
   }

@@ -9,7 +9,7 @@ export const permissions = {
 export async function requirePermission(permission: string) {
   const session = await getSession();
   if (!session) throw new Error("UNAUTHENTICATED");
-  if (session.role === "ADMIN" || session.permissions.includes("*") || session.permissions.includes(permission)) {
+  if (session.role === "ADMIN" || (session.permissions ?? []).includes("*") || (session.permissions ?? []).includes(permission)) {
     return session;
   }
   throw new Error("FORBIDDEN");

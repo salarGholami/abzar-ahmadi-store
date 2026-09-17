@@ -2,6 +2,7 @@ import "server-only";
 import { getJson, batchCommit } from "./github";
 import { requirePermission } from "./permissions";
 import type { Product, Purchase, PurchaseItem, FinanceEntry, CheckRecord, InventoryMovement } from "./types";
+import { normalizeJalali } from "./dates";
 
 type CreatePurchaseInput = {
   purchaseId?: string;
@@ -28,8 +29,8 @@ export async function createPurchase(input: CreatePurchaseInput) {
 
   if (purchasesF.data.some((p) => p.id === purchaseId)) return purchasesF.data.find((p) => p.id === purchaseId);
   if (!Array.isArray(input.items) || !input.items.length) throw new Error("اقلام خرید نمی‌تواند خالی باشد");
-  if (input.paymentMethod === "CHECK" && (!input.check?.number || !input.check?.bank || !input.check?.dueDate)) {
-    throw new Error("اطلاعات چک ناقص است");
+  if (input.paymentMethod === "CHECK" && (!input.check?.number || !input.check?.bank || !input.check?.dueDate || !normalizeJalali(input.check.dueDate))) {
+    throw new Error("اطلاعات چک یا تاریخ جلالی ناقص است");
   }
 
   const items: PurchaseItem[] = [];
@@ -51,7 +52,7 @@ export async function createPurchase(input: CreatePurchaseInput) {
   if (input.paymentMethod === "CHECK" && input.check) {
     checkId = crypto.randomUUID();
     checks = [...checks, {
-      id: checkId, number: input.check.number, bank: input.check.bank, dueDate: input.check.dueDate,
+      id: checkId, number: input.check.number, bank: input.check.bank, dueDate: normalizeJalali(input.check.dueDate)!,
       amount: subtotal, direction: "ISSUED", status: "PENDING",
       relatedName: input.supplierName || "", purchaseId, description: `بابت خرید ${purchaseId}`,
       createdAt: new Date().toISOString(), updatedAt: new Date().toISOString()

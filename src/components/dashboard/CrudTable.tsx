@@ -2,11 +2,12 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { Plus, Pencil, Trash2, RefreshCw, Search } from "lucide-react";
 import Modal from "../ui/Modal";
+import { isoToJalali, normalizeJalali } from "@/lib/dates";
 
 export type FieldConfig = {
   key: string;
   label: string;
-  type?: "text" | "number" | "date" | "select" | "textarea" | "password";
+  type?: "text" | "number" | "date" | "jalali-date" | "select" | "textarea" | "password";
   options?: { value: string; label: string }[];
   required?: boolean;
   placeholder?: string;
@@ -72,7 +73,7 @@ export default function CrudTable<T extends Row>({
     setModalOpen(true);
   }
   function openEdit(row: T) {
-    setForm({ ...row });
+    setForm(Object.fromEntries(fields.map((f) => [f.key, f.type === "jalali-date" ? (normalizeJalali(String(row[f.key] || "")) || isoToJalali(String(row[f.key] || ""))) : row[f.key]])));
     setEditing(row);
     setError(null);
     setModalOpen(true);
@@ -82,7 +83,7 @@ export default function CrudTable<T extends Row>({
     setError(null);
     try {
       const payload: Record<string, any> = {};
-      fields.forEach((f) => { payload[f.key] = f.type === "number" ? Number(form[f.key] || 0) : (form[f.key] ?? ""); });
+      fields.forEach((f) => { if (f.type === "number") payload[f.key] = Number(form[f.key] || 0); else if (f.type === "jalali-date") payload[f.key] = normalizeJalali(String(form[f.key] || "")) || ""; else payload[f.key] = form[f.key] ?? ""; });
       const r = editing
         ? await fetch(`/api/admin/${collection}/${editing.id}`, { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) })
         : await fetch(`/api/admin/${collection}`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
@@ -177,11 +178,13 @@ export default function CrudTable<T extends Row>({
                 ) : (
                   <input
                     className="input"
+                    dir={f.type === "jalali-date" ? "ltr" : undefined}
+                    inputMode={f.type === "jalali-date" ? "numeric" : undefined}
                     type={f.type === "number" ? "number" : f.type === "date" ? "date" : f.type === "password" ? "password" : "text"}
                     autoComplete={f.type === "password" ? "new-password" : "off"}
                     value={form[f.key] ?? ""}
                     onChange={(e) => setForm({ ...form, [f.key]: e.target.value })}
-                    placeholder={f.placeholder}
+                    placeholder={f.type === "jalali-date" ? "۱۴۰۵/۰۷/۱۵" : f.placeholder}
                     required={f.required}
                   />
                 )}

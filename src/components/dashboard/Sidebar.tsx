@@ -6,7 +6,7 @@ import { useState } from "react";
 import {
   LayoutDashboard, ShoppingCart, Package, Users, Truck, Boxes, ReceiptText,
   WalletCards, ClipboardCheck, BarChart3, Settings, LogOut, Store, X,
-  Tags, ChevronLeft, type LucideIcon,
+  Tags, ChevronLeft, Database, UserCog, Receipt, ArrowDownCircle, ArrowUpCircle, ScrollText, type LucideIcon,
 } from "lucide-react";
 import type { Session } from "@/lib/auth";
 
@@ -39,6 +39,13 @@ const groups: NavGroup[] = [
       { label: "مالی", href: "/dashboard/finance", icon: WalletCards },
       { label: "چک‌ها", href: "/dashboard/checks", icon: ClipboardCheck },
       { label: "گزارش‌ها", href: "/dashboard/reports", icon: BarChart3 },
+      { label: "درآمدهای متفرقه", href: "/dashboard/incomes", icon: ArrowUpCircle },
+      { label: "هزینه‌ها", href: "/dashboard/expenses", icon: ArrowDownCircle },
+      { label: "پیش‌فاکتورها", href: "/dashboard/quotations", icon: Receipt },
+      { label: "برندها", href: "/dashboard/brands", icon: Tags },
+      { label: "لاگ فعالیت‌ها", href: "/dashboard/activity", icon: ScrollText },
+      { label: "کاربران مدیر", href: "/dashboard/users", icon: UserCog },
+      { label: "مرکز داده‌ها", href: "/dashboard/data", icon: Database },
       { label: "تنظیمات", href: "/dashboard/settings", icon: Settings },
     ],
   },

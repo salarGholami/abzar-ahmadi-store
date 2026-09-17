@@ -1,69 +1,32 @@
 import { notFound } from "next/navigation";
 import { getJson } from "@/lib/github";
 import { requirePermission } from "@/lib/permissions";
-import type { Sale, SaleItem, Product, StoreSettings } from "@/lib/types";
+import type { Product, Sale, SaleItem } from "@/lib/types";
 import PrintButton from "@/components/dashboard/PrintButton";
 
-export default async function PrintInvoice({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
+export default async function SalePrintPage({ params }: { params: Promise<{ id: string }> }) {
   await requirePermission("sales.read");
-
-  const [salesF, itemsF, productsF, settingsF] = await Promise.all([
+  const { id } = await params;
+  const [sales, items, products] = await Promise.all([
     getJson<Sale[]>("sales.json", []),
     getJson<SaleItem[]>("sale-items.json", []),
     getJson<Product[]>("products.json", []),
-    getJson<StoreSettings[]>("settings.json", [{ id: "store", storeName: "ابزارینو", storePhone: "", cardNumber: "", cardHolderName: "", lowStockThreshold: 5 }])
   ]);
-
-  const sale = salesF.data.find((s) => s.id === id);
+  const sale = sales.data.find((item) => item.id === id);
   if (!sale) notFound();
-  const items = itemsF.data.filter((i) => i.saleId === id);
-  const settings = settingsF.data[0];
-  const isProforma = sale.paymentStatus !== "PAID";
+  const saleItems = items.data.filter((item) => item.saleId === sale.id);
 
-  return (
-    <div className="mx-auto max-w-2xl p-8 text-sm">
-      <div className="no-print mb-4 flex justify-end"><PrintButton /></div>
-      <div className="rounded-2xl border border-[var(--border)] p-8">
-        <div className="flex items-center justify-between border-b border-[var(--border)] pb-5">
-          <div>
-            <div className="text-xl font-black">{settings.storeName}</div>
-            <div className="text-xs text-[var(--muted)]">{settings.storePhone}</div>
-          </div>
-          <div className="text-left">
-            <div className="text-lg font-black">{isProforma ? "پیش‌فاکتور فروش" : "فاکتور فروش"}</div>
-            <div className="text-xs text-[var(--muted)]">شماره: {sale.id.slice(0, 8)}</div>
-            <div className="text-xs text-[var(--muted)]">تاریخ: {new Date(sale.createdAt).toLocaleDateString("fa-IR")}</div>
-          </div>
-        </div>
-        <div className="mt-5 flex justify-between text-xs text-[var(--muted)]">
-          <div>خریدار: <b className="text-[var(--text)]">{sale.buyerName || "فروش حضوری"}</b></div>
-          {sale.buyerPhone && <div>موبایل: <b className="text-[var(--text)]">{sale.buyerPhone}</b></div>}
-        </div>
-        <table className="mt-6 w-full text-right text-xs">
-          <thead className="border-b border-[var(--border)] text-[var(--muted)]"><tr><th className="py-2">ردیف</th><th className="py-2">شرح کالا</th><th className="py-2">تعداد</th><th className="py-2">قیمت واحد</th><th className="py-2">جمع</th></tr></thead>
-          <tbody>
-            {items.map((it, idx) => {
-              const p = productsF.data.find((x) => x.id === it.productId);
-              return (
-                <tr key={it.id} className="border-b border-[var(--border)]">
-                  <td className="py-2">{idx + 1}</td>
-                  <td className="py-2 font-bold">{p?.title || it.productId}</td>
-                  <td className="py-2">{it.quantity}</td>
-                  <td className="py-2">{it.unitPrice.toLocaleString("fa-IR")}</td>
-                  <td className="py-2">{it.total.toLocaleString("fa-IR")}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-        <div className="mt-6 space-y-1 text-left">
-          <div className="flex justify-between text-xs"><span className="text-[var(--muted)]">جمع کل</span><span>{sale.subtotal.toLocaleString("fa-IR")} تومان</span></div>
-          {sale.discount > 0 && <div className="flex justify-between text-xs"><span className="text-[var(--muted)]">تخفیف</span><span>{sale.discount.toLocaleString("fa-IR")} تومان</span></div>}
-          <div className="flex justify-between text-base font-black"><span>مبلغ قابل پرداخت</span><span>{sale.netAmount.toLocaleString("fa-IR")} تومان</span></div>
-        </div>
-        {isProforma && <div className="mt-6 rounded-xl bg-[var(--surface-2)] p-3 text-[11px] text-[var(--muted)]">این سند پیش‌فاکتور است و پس از تایید پرداخت توسط فروشگاه، فاکتور نهایی صادر خواهد شد.</div>}
-      </div>
-    </div>
-  );
+  return <main dir="rtl" className="min-h-screen bg-white p-6 text-slate-900 print:p-0">
+    <div className="no-print mb-4 flex justify-end"><PrintButton /></div>
+    <article className="mx-auto max-w-3xl rounded-2xl border border-slate-200 p-7 print:max-w-none print:border-0">
+      <header className="flex items-start justify-between gap-6 border-b border-slate-200 pb-5">
+        <div><h1 className="text-2xl font-black">فاکتور فروش</h1><p className="mt-1 text-sm text-slate-500">آچارستان</p></div>
+        <div className="text-left text-sm"><div>شماره: <b>{sale.id}</b></div><div className="mt-1">تاریخ: <b>{new Date(sale.createdAt).toLocaleString("fa-IR")}</b></div></div>
+      </header>
+      <div className="grid gap-3 py-5 text-sm sm:grid-cols-2"><div>خریدار: <b>{sale.buyerName || "فروش حضوری"}</b></div>{sale.buyerPhone&&<div>موبایل: <b>{sale.buyerPhone}</b></div>}</div>
+      <table className="w-full text-right text-sm"><thead><tr className="border-y border-slate-200 bg-slate-50"><th className="p-3">محصول</th><th className="p-3">تعداد</th><th className="p-3">قیمت واحد</th><th className="p-3">جمع</th></tr></thead><tbody>{saleItems.map(item=><tr key={item.id} className="border-b border-slate-100"><td className="p-3">{products.data.find(p=>p.id===item.productId)?.title||item.productId}</td><td className="p-3">{item.quantity}</td><td className="p-3">{item.unitPrice.toLocaleString("fa-IR")}</td><td className="p-3 font-bold">{item.total.toLocaleString("fa-IR")}</td></tr>)}</tbody></table>
+      <div className="mt-6 ml-auto max-w-xs space-y-2 text-sm"><div className="flex justify-between"><span>جمع کالاها</span><b>{sale.subtotal.toLocaleString("fa-IR")} تومان</b></div><div className="flex justify-between"><span>تخفیف</span><b>{sale.discount.toLocaleString("fa-IR")} تومان</b></div><div className="flex justify-between border-t border-slate-200 pt-3 text-base"><span>مبلغ نهایی</span><b>{sale.netAmount.toLocaleString("fa-IR")} تومان</b></div></div>
+      {sale.receiptImage&&<div className="mt-7 border-t border-slate-200 pt-5"><div className="mb-2 text-xs font-bold">رسید پرداخت</div><img src={sale.receiptImage} alt="رسید پرداخت" className="max-h-72 w-full object-contain"/></div>}
+    </article>
+  </main>;
 }

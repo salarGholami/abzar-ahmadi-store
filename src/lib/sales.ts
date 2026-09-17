@@ -10,6 +10,7 @@ type CreateSaleInput = {
   customerId?: string | null;
   paymentStatus?: string;
   receiptImage?: string | null;
+  receipt?: { id: string; url: string; fileName: string; uploadedAt: string } | null;
   channel?: "POS" | "ONLINE";
   idempotencyKey?: string;
 };
@@ -52,6 +53,7 @@ export async function createSale(input: CreateSaleInput) {
 
   const discount = isCustomer ? 0 : Number(input.discount || 0);
   const net = Math.max(0, subtotal - discount);
+  if (isCustomer && !input.receiptImage) throw new Error("RECEIPT_REQUIRED");
   const paymentStatus = isCustomer ? "PENDING_TRANSFER" : (input.paymentStatus || "PAID");
 
   const sale: Sale = {
@@ -63,6 +65,7 @@ export async function createSale(input: CreateSaleInput) {
     subtotal, discount, netAmount: net, cogs, grossProfit: net - cogs,
     paymentStatus,
     receiptImage: input.receiptImage || null,
+    receipt: input.receipt || null,
     channel: isCustomer ? "ONLINE" : (input.channel || "POS"),
     createdAt: new Date().toISOString(),
     idempotencyKey: input.idempotencyKey || saleId
@@ -78,7 +81,9 @@ export async function createSale(input: CreateSaleInput) {
     const i = items.find((x) => x.productId === p.id);
     return i ? { ...p, stock: Number(p.stock) - i.quantity, updatedAt: new Date().toISOString() } : p;
   });
-  const finance = [...finF.data, { id: crypto.randomUUID(), type: "SALE" as const, referenceId: saleId, amount: net, createdAt: new Date().toISOString() }];
+  const finance = paymentStatus === "PAID"
+    ? [...finF.data, { id: crypto.randomUUID(), type: "SALE" as const, referenceId: saleId, amount: net, createdAt: new Date().toISOString() }]
+    : finF.data;
   let customers = customersF.data;
   if (sale.customerId && paymentStatus !== "PAID") {
     customers = customers.map((c) => (c.id === sale.customerId ? { ...c, balance: Number(c.balance || 0) + net } : c));
