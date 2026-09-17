@@ -142,5 +142,13 @@
     "quantity": 7,
     "unitCost": 1515000,
     "total": 10605000
+  },
+  {
+    "id": "cffce768-d602-4aba-a65a-20b936d1f02c",
+    "purchaseId": "94695420-c49b-4aac-8e20-65c01ce00510",
+    "productId": "p2",
+    "quantity": 1,
+    "unitCost": 790000,
+    "total": 790000
   }
 ]

@@ -21,11 +21,11 @@
     "category": "فرز و پولیش",
     "price": 1066000,
     "discount": 8,
-    "stock": 12,
+    "stock": 13,
     "image": "https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=900&q=80",
     "purchaseCost": 790000,
     "createdAt": "2026-09-14T03:42:28.451629Z",
-    "updatedAt": "2026-09-14T03:42:28.451629Z"
+    "updatedAt": "2026-09-16T17:53:34.327Z"
   },
   {
     "id": "p3",
@@ -49,11 +49,11 @@
     "category": "ابزار دستی",
     "price": 1458000,
     "discount": 12,
-    "stock": 24,
+    "stock": 23,
     "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=80",
     "purchaseCost": 1080000,
     "createdAt": "2026-09-12T03:42:28.451629Z",
-    "updatedAt": "2026-09-12T03:42:28.451629Z"
+    "updatedAt": "2026-09-16T16:03:14.834Z"
   },
   {
     "id": "p5",
@@ -315,11 +315,11 @@
     "category": "برش و سایش",
     "price": 5177000,
     "discount": 10,
-    "stock": 31,
+    "stock": 30,
     "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=900&q=80",
     "purchaseCost": 3835000,
     "createdAt": "2026-08-24T03:42:28.451629Z",
-    "updatedAt": "2026-09-13T03:42:28.451629Z"
+    "updatedAt": "2026-09-16T16:01:18.058Z"
   },
   {
     "id": "p24",

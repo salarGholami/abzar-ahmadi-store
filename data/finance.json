@@ -621,5 +621,26 @@
     "amount": 3325000,
     "description": "هزینه جاری فروشگاه",
     "createdAt": "2026-08-30T03:42:28.451629Z"
+  },
+  {
+    "id": "2a3130a7-af3a-46c3-ae9d-aaa01ef7f38e",
+    "type": "SALE",
+    "referenceId": "d2393182-32cd-4458-acef-2943630038d7",
+    "amount": 4659300,
+    "createdAt": "2026-09-16T16:01:18.058Z"
+  },
+  {
+    "id": "2df6a5fc-e76f-493f-b056-3db41dea61ca",
+    "type": "SALE",
+    "referenceId": "c8408954-0c2e-4912-a570-56ff174928ae",
+    "amount": 1283040,
+    "createdAt": "2026-09-16T16:03:14.834Z"
+  },
+  {
+    "id": "495dd9f3-b5f9-464d-b708-9e25603e5483",
+    "type": "PURCHASE",
+    "referenceId": "94695420-c49b-4aac-8e20-65c01ce00510",
+    "amount": 790000,
+    "createdAt": "2026-09-16T17:53:34.327Z"
   }
 ]

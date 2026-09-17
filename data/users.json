@@ -4,9 +4,10 @@
     "name": "مدیر فروشگاه",
     "phone": "09120000000",
     "role": "ADMIN",
-    "passwordHash": "scrypt:68b523e73a35d6597860d4e6529fe3b0:fc3f3aeed083212f5a036c2e52a264f77c800edb5da65d4c16d27c353f8c1c123e24220c650723090ac8e0cfff828d0365412bb89ebd33549a98cea689f4efcb",
+    "passwordHash": "scrypt:71a3335ba361af6f97397bd50285e97f:fd622a0448a0057b13bd7f13aeed12bc1cc2947fe3365ffd24bee5e491d921429e0e4d548d7b65c32b3d901458de40f1a4f60b1c09f13dd4078c94c0445dc55a",
     "permissions": [
       "*"
-    ]
+    ],
+    "updatedAt": "2026-09-16T05:23:56.672Z"
   }
 ]

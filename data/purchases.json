@@ -160,5 +160,14 @@
     "paymentMethod": "CHECK",
     "checkId": null,
     "createdAt": "2026-08-11T03:42:28.451629Z"
+  },
+  {
+    "id": "94695420-c49b-4aac-8e20-65c01ce00510",
+    "supplierId": null,
+    "supplierName": "",
+    "subtotal": 790000,
+    "paymentMethod": "CHECK",
+    "checkId": "647cac95-4d42-4c84-b512-77899a922fab",
+    "createdAt": "2026-09-16T17:53:34.327Z"
   }
 ]
