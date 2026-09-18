@@ -1,0 +1,8 @@
+{
+  "id": "store",
+  "storeName": "ابزارینو",
+  "storePhone": "021-88776655",
+  "cardNumber": "6037997512345678",
+  "cardHolderName": "فروشگاه ابزارینو",
+  "lowStockThreshold": 5
+}

@@ -1,0 +1,28 @@
+[
+  {
+    "id": "u-admin",
+    "name": "مدیر فروشگاه",
+    "phone": "09120000000",
+    "role": "ADMIN",
+    "passwordHash": "scrypt:71a3335ba361af6f97397bd50285e97f:fd622a0448a0057b13bd7f13aeed12bc1cc2947fe3365ffd24bee5e491d921429e0e4d548d7b65c32b3d901458de40f1a4f60b1c09f13dd4078c94c0445dc55a",
+    "permissions": [
+      "*"
+    ],
+    "updatedAt": "2026-09-16T05:23:56.672Z"
+  },
+  {
+    "id": "6bf1eb21-01fb-4ccc-b6ab-6ea8765e6450",
+    "name": "سالار غلامی",
+    "phone": "09389525193",
+    "role": "CUSTOMER",
+    "permissions": [
+      "products.read",
+      "sales.read",
+      "sales.create",
+      "quotations.create"
+    ],
+    "passwordHash": "scrypt:2a4d5fc32341754ed4bc859e7e9eae80:4cbf069a44859d8a075c6953e4a58831073b91f13270571b5b5547dcfe47c4b971e6b9d66cb5021d2dbf8eac9fb62a97718b4cba64238bf59a8905ab0a33c761",
+    "createdAt": "2026-09-17T21:01:56.666Z",
+    "updatedAt": "2026-09-17T21:01:56.666Z"
+  }
+]

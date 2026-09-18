@@ -1,0 +1,5 @@
+"use client";
+import CrudTable from "@/components/dashboard/CrudTable";
+type Quotation={id:string;customerName:string;status:string;total:number;createdAt?:string};
+const labels:Record<string,string>={DRAFT:"پیش‌نویس",SENT:"ارسال‌شده",APPROVED:"تأییدشده",REJECTED:"ردشده"};
+export default function QuotationsPage(){return <CrudTable<Quotation> collection="quotations" title="پیش‌فاکتورها" searchKeys={["customerName","status"]} fields={[{key:"customerName",label:"نام مشتری",required:true},{key:"status",label:"وضعیت",type:"select",options:Object.entries(labels).map(([value,label])=>({value,label})),required:true},{key:"total",label:"مبلغ کل (تومان)",type:"number",required:true}]} columns={[{key:"customerName",label:"مشتری"},{key:"status",label:"وضعیت",render:r=>labels[r.status]||r.status},{key:"total",label:"مبلغ",render:r=><b>{Number(r.total||0).toLocaleString("fa-IR")} تومان</b>},{key:"createdAt",label:"تاریخ",render:r=>r.createdAt?new Date(r.createdAt).toLocaleDateString("fa-IR"):"—"}]}/>}

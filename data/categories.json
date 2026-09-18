@@ -1,0 +1,100 @@
+[
+  {
+    "id": "cat-1",
+    "name": "ابزار دستی",
+    "slug": "cat-1",
+    "description": "محصولات دسته ابزار دستی",
+    "active": true
+  },
+  {
+    "id": "cat-2",
+    "name": "اندازه‌گیری",
+    "slug": "cat-2",
+    "description": "محصولات دسته اندازه‌گیری",
+    "active": true
+  },
+  {
+    "id": "cat-3",
+    "name": "برش و سایش",
+    "slug": "cat-3",
+    "description": "محصولات دسته برش و سایش",
+    "active": true
+  },
+  {
+    "id": "cat-4",
+    "name": "تجهیزات کارگاهی",
+    "slug": "cat-4",
+    "description": "محصولات دسته تجهیزات کارگاهی",
+    "active": true
+  },
+  {
+    "id": "cat-5",
+    "name": "جوشکاری",
+    "slug": "cat-5",
+    "description": "محصولات دسته جوشکاری",
+    "active": true
+  },
+  {
+    "id": "cat-6",
+    "name": "دریل و پیچ‌گوشتی",
+    "slug": "cat-6",
+    "description": "محصولات دسته دریل و پیچ‌گوشتی",
+    "active": true
+  },
+  {
+    "id": "cat-7",
+    "name": "فرز و پولیش",
+    "slug": "cat-7",
+    "description": "محصولات دسته فرز و پولیش",
+    "active": true
+  },
+  {
+    "id": "cat-8",
+    "name": "لوازم ایمنی",
+    "slug": "cat-8",
+    "description": "محصولات دسته لوازم ایمنی",
+    "active": true
+  },
+  {
+    "id": "cat-9",
+    "name": "پیچ و مهره و اتصالات",
+    "slug": "cat-9",
+    "description": "محصولات دسته پیچ و مهره و اتصالات",
+    "active": true
+  },
+  {
+    "id": "cat-10",
+    "name": "رنگ و پوشش",
+    "slug": "cat-10",
+    "description": "محصولات دسته رنگ و پوشش",
+    "active": true
+  },
+  {
+    "id": "cat-11",
+    "name": "لوله‌کشی و شیرآلات",
+    "slug": "cat-11",
+    "description": "محصولات دسته لوله‌کشی و شیرآلات",
+    "active": true
+  },
+  {
+    "id": "cat-12",
+    "name": "برق و روشنایی",
+    "slug": "cat-12",
+    "description": "محصولات دسته برق و روشنایی",
+    "active": true
+  },
+  {
+    "id": "cat-13",
+    "name": "نردبان و داربست",
+    "slug": "cat-13",
+    "description": "محصولات دسته نردبان و داربست",
+    "active": true
+  },
+  {
+    "id": "cat-14",
+    "name": "موتور برق و کمپرسور",
+    "slug": "cat-14",
+    "description": "محصولات دسته موتور برق و کمپرسور",
+    "active": true
+  }
+]

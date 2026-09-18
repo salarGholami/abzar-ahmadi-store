@@ -1,0 +1,16 @@
+import Link from "next/link";
+import { ArrowLeft, Plus, ShoppingBag } from "lucide-react";
+import { getJson } from "@/lib/github";
+import type { Purchase, Supplier } from "@/lib/types";
+
+export default async function PurchasesPage() {
+  const [purchasesFile, suppliersFile] = await Promise.all([getJson<Purchase[]>("purchases.json", []), getJson<Supplier[]>("suppliers.json", [])]);
+  const suppliers = new Map(suppliersFile.data.map((supplier) => [supplier.id, supplier.name]));
+  const rows = [...purchasesFile.data].reverse();
+  const total = rows.reduce((sum, row) => sum + Number(row.subtotal || 0), 0);
+  return <div className="mx-auto max-w-[1500px]">
+    <div className="flex flex-wrap items-end justify-between gap-4"><div><div className="text-xs font-black text-[var(--primary)]">خرید و تأمین کالا</div><h1 className="mt-1 text-3xl font-black tracking-tight">خرید از تأمین‌کننده</h1><p className="mt-2 text-sm text-[var(--muted)]">هر خرید در یک Route مستقل ثبت و سابقه آن نگهداری می‌شود.</p></div><Link href="/dashboard/purchases/new" className="btn btn-primary"><Plus size={17}/>ثبت خرید جدید</Link></div>
+    <div className="mt-6 grid gap-4 sm:grid-cols-3"><div className="card p-5"><div className="text-xs font-bold text-[var(--muted)]">تعداد خریدها</div><div className="mt-2 text-2xl font-black">{rows.length.toLocaleString("fa-IR")}</div></div><div className="card p-5"><div className="text-xs font-bold text-[var(--muted)]">ارزش خریدها</div><div className="mt-2 text-2xl font-black">{total.toLocaleString("fa-IR")} <span className="text-xs">تومان</span></div></div><div className="card p-5"><div className="text-xs font-bold text-[var(--muted)]">تأمین‌کنندگان</div><div className="mt-2 text-2xl font-black">{suppliers.size.toLocaleString("fa-IR")}</div></div></div>
+    <div className="card mt-5 overflow-hidden">{!rows.length?<div className="p-16 text-center"><ShoppingBag className="mx-auto text-[var(--muted)]" size={34}/><div className="mt-3 font-black">هنوز خریدی ثبت نشده است</div></div>:<div className="overflow-x-auto"><table className="w-full min-w-[760px] text-right text-sm"><thead className="bg-[var(--surface-2)] text-xs text-[var(--muted)]"><tr><th className="p-4">شناسه</th><th className="p-4">تأمین‌کننده</th><th className="p-4">مبلغ</th><th className="p-4">پرداخت</th><th className="p-4">تاریخ</th><th className="p-4"></th></tr></thead><tbody>{rows.map(row=><tr key={row.id} className="border-t border-[var(--border)] hover:bg-[var(--surface-2)]"><td className="p-4 font-mono text-xs">{row.id.slice(0,8)}</td><td className="p-4 font-black">{row.supplierName||suppliers.get(row.supplierId||"")||"بدون تأمین‌کننده"}</td><td className="p-4 font-black">{Number(row.subtotal).toLocaleString("fa-IR")} تومان</td><td className="p-4"><span className="badge bg-[var(--primary)]/10 text-[var(--primary)]">{row.paymentMethod==="CHECK"?"چکی":"نقدی"}</span></td><td className="p-4 text-[var(--muted)]">{new Intl.DateTimeFormat("fa-IR-u-ca-persian",{dateStyle:"medium",timeZone:"Asia/Tehran"}).format(new Date(row.createdAt))}</td><td className="p-4"><Link href={`/dashboard/purchases/${row.id}`} className="btn btn-secondary !p-2" aria-label="جزئیات"><ArrowLeft size={15}/></Link></td></tr>)}</tbody></table></div>}</div>
+  </div>;
+}
