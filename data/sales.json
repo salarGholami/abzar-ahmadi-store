@@ -703,5 +703,51 @@
     "channel": "POS",
     "createdAt": "2026-09-16T16:03:14.833Z",
     "idempotencyKey": "c8408954-0c2e-4912-a570-56ff174928ae"
+  },
+  {
+    "id": "8ca14675-a6fd-4ddd-a444-86c411892d0c",
+    "customerId": null,
+    "customerUserId": "256d6164-bc8e-49cc-817a-fd5a8ee1a9ea",
+    "buyerName": "سالار غلامی",
+    "buyerPhone": "09389525194",
+    "subtotal": 7299100,
+    "discount": 0,
+    "netAmount": 7299100,
+    "cogs": 5835000,
+    "grossProfit": 1464100,
+    "paymentStatus": "PENDING_TRANSFER",
+    "receiptImage": "https://raw.githubusercontent.com/salarGholami/abzar-ahmadi-store/main/data/media/receipts/256d6164-bc8e-49cc-817a-fd5a8ee1a9ea/5404b2ed-4975-4d8c-b2de-827a9c55a405.jpg",
+    "receipt": {
+      "id": "68f9496f-a6fa-4df2-a775-b34045cb1647",
+      "url": "https://raw.githubusercontent.com/salarGholami/abzar-ahmadi-store/main/data/media/receipts/256d6164-bc8e-49cc-817a-fd5a8ee1a9ea/5404b2ed-4975-4d8c-b2de-827a9c55a405.jpg",
+      "fileName": "IMG_۲۰۲۲۰۷۱۳_۰۲۳۶۲۴.jpg",
+      "uploadedAt": "2026-09-18T04:48:36.415Z"
+    },
+    "channel": "ONLINE",
+    "createdAt": "2026-09-18T04:48:47.596Z",
+    "idempotencyKey": "8ca14675-a6fd-4ddd-a444-86c411892d0c"
+  },
+  {
+    "id": "733b09a7-4a9a-4679-b485-89f862a7b1f4",
+    "customerId": null,
+    "customerUserId": "256d6164-bc8e-49cc-817a-fd5a8ee1a9ea",
+    "buyerName": "سالار غلامی",
+    "buyerPhone": "09389525194",
+    "subtotal": 6752600,
+    "discount": 0,
+    "netAmount": 6752600,
+    "cogs": 5036000,
+    "grossProfit": 1716600,
+    "paymentStatus": "PENDING_TRANSFER",
+    "receiptImage": "https://raw.githubusercontent.com/salarGholami/abzar-ahmadi-store/main/data/media/receipts/256d6164-bc8e-49cc-817a-fd5a8ee1a9ea/77174c99-d189-4312-9b40-5317018b17ef.jpg",
+    "receipt": {
+      "id": "909005c9-1688-4b36-a356-e84c7c8ea5d9",
+      "url": "https://raw.githubusercontent.com/salarGholami/abzar-ahmadi-store/main/data/media/receipts/256d6164-bc8e-49cc-817a-fd5a8ee1a9ea/77174c99-d189-4312-9b40-5317018b17ef.jpg",
+      "fileName": "IMG_۲۰۲۲۰۷۱۳_۰۲۳۳۴۰.jpg",
+      "uploadedAt": "2026-09-18T04:55:50.299Z"
+    },
+    "channel": "ONLINE",
+    "createdAt": "2026-09-18T04:55:56.653Z",
+    "idempotencyKey": "733b09a7-4a9a-4679-b485-89f862a7b1f4"
   }
 ]

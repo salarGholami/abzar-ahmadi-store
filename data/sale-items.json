@@ -421,5 +421,41 @@
     "unitPrice": 1283040,
     "purchaseCost": 1080000,
     "total": 1283040
+  },
+  {
+    "id": "6a328e66-0002-43f7-8a2e-9e2caf602ed7",
+    "saleId": "8ca14675-a6fd-4ddd-a444-86c411892d0c",
+    "productId": "p7",
+    "quantity": 3,
+    "unitPrice": 1881400,
+    "purchaseCost": 1515000,
+    "total": 5644200
+  },
+  {
+    "id": "f91e43d1-326f-4a41-b93a-4167fb45cadd",
+    "saleId": "8ca14675-a6fd-4ddd-a444-86c411892d0c",
+    "productId": "p1",
+    "quantity": 2,
+    "unitPrice": 827450,
+    "purchaseCost": 645000,
+    "total": 1654900
+  },
+  {
+    "id": "8fec35a5-53d2-4f85-8e40-30a83e10cf7e",
+    "saleId": "733b09a7-4a9a-4679-b485-89f862a7b1f4",
+    "productId": "p10",
+    "quantity": 2,
+    "unitPrice": 2632000,
+    "purchaseCost": 1950000,
+    "total": 5264000
+  },
+  {
+    "id": "fc21ef0d-e393-4a7e-9ce2-4383a479b782",
+    "saleId": "733b09a7-4a9a-4679-b485-89f862a7b1f4",
+    "productId": "p72",
+    "quantity": 2,
+    "unitPrice": 744300,
+    "purchaseCost": 568000,
+    "total": 1488600
   }
 ]
