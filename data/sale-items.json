@@ -421,5 +421,23 @@
     "unitPrice": 1283040,
     "purchaseCost": 1080000,
     "total": 1283040
+  },
+  {
+    "id": "6a328e66-0002-43f7-8a2e-9e2caf602ed7",
+    "saleId": "8ca14675-a6fd-4ddd-a444-86c411892d0c",
+    "productId": "p7",
+    "quantity": 3,
+    "unitPrice": 1881400,
+    "purchaseCost": 1515000,
+    "total": 5644200
+  },
+  {
+    "id": "f91e43d1-326f-4a41-b93a-4167fb45cadd",
+    "saleId": "8ca14675-a6fd-4ddd-a444-86c411892d0c",
+    "productId": "p1",
+    "quantity": 2,
+    "unitPrice": 827450,
+    "purchaseCost": 645000,
+    "total": 1654900
   }
 ]

@@ -2,9 +2,9 @@
   {
     "id": "inv-001",
     "productId": "p1",
-    "quantity": 2,
+    "quantity": 0,
     "reason": "ورود اولیه/اصلاح موجودی",
-    "updatedAt": "2026-09-15T03:42:28.451629Z"
+    "updatedAt": "2026-09-18T04:48:47.596Z"
   },
   {
     "id": "inv-002",
@@ -44,9 +44,9 @@
   {
     "id": "inv-007",
     "productId": "p7",
-    "quantity": 8,
+    "quantity": 5,
     "reason": "ورود اولیه/اصلاح موجودی",
-    "updatedAt": "2026-09-09T03:42:28.451629Z"
+    "updatedAt": "2026-09-18T04:48:47.596Z"
   },
   {
     "id": "inv-008",
