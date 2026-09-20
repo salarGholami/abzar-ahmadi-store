@@ -23,9 +23,9 @@
   {
     "id": "inv-004",
     "productId": "p4",
-    "quantity": 4,
+    "quantity": 2,
     "reason": "ورود اولیه/اصلاح موجودی",
-    "updatedAt": "2026-09-16T16:03:14.833Z"
+    "updatedAt": "2026-09-20T17:47:57.324Z"
   },
   {
     "id": "inv-005",
@@ -79,9 +79,9 @@
   {
     "id": "inv-012",
     "productId": "p12",
-    "quantity": 4,
+    "quantity": 3,
     "reason": "ورود اولیه/اصلاح موجودی",
-    "updatedAt": "2026-09-04T03:42:28.451629Z"
+    "updatedAt": "2026-09-20T17:47:57.324Z"
   },
   {
     "id": "inv-013",
@@ -135,9 +135,9 @@
   {
     "id": "inv-020",
     "productId": "p20",
-    "quantity": 3,
+    "quantity": 2,
     "reason": "ورود اولیه/اصلاح موجودی",
-    "updatedAt": "2026-09-16T03:42:28.451629Z"
+    "updatedAt": "2026-09-20T17:47:57.324Z"
   },
   {
     "id": "inv-021",
@@ -214,5 +214,11 @@
     "productId": "p72",
     "quantity": -2,
     "updatedAt": "2026-09-18T04:55:56.654Z"
+  },
+  {
+    "id": "0c67debe-7099-4cee-9c91-773ee4562362",
+    "productId": "p32",
+    "quantity": -1,
+    "updatedAt": "2026-09-20T17:47:57.324Z"
   }
 ]

@@ -214,5 +214,11 @@
     "action": "SALE_CREATED",
     "entityId": "51e702d5-bcf7-44dd-88f5-a4621aa04a39",
     "createdAt": "2026-09-20T17:19:08.586Z"
+  },
+  {
+    "id": "7650070a-6ed3-4aa0-85c6-2435870f2e7a",
+    "action": "SALE_CREATED",
+    "entityId": "5a9b3c70-5896-4280-863a-2efc2889117a",
+    "createdAt": "2026-09-20T17:47:57.325Z"
   }
 ]
