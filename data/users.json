@@ -39,5 +39,20 @@
     "passwordHash": "scrypt:84b2696e7e77d7047e63c1f3aa75d604:40fe9ceaa367f4bf95339df156d6dd6637912de544a8bfd7a672530ffcbc8b01186c3fb216e9bc182881a9a174f3cd606eccd67836b2012c2554264f40d09202",
     "createdAt": "2026-09-18T04:47:45.995Z",
     "updatedAt": "2026-09-18T04:47:45.995Z"
+  },
+  {
+    "id": "9f9d3861-c4cc-48f6-b28a-94aade5ada6d",
+    "name": "مصی احمدی",
+    "phone": "09121234567",
+    "role": "CUSTOMER",
+    "permissions": [
+      "products.read",
+      "sales.read",
+      "sales.create",
+      "quotations.create"
+    ],
+    "passwordHash": "scrypt:da4891f518d6c40916c74a14bff3baed:cfdb4728394d6079e79371326cdf0c3619c31d38c920dce690f5c4c6f152edf1b027b11bea9bb5f8e98d74e86174357f5b07662211baec68fd0f253b56a288f5",
+    "createdAt": "2026-09-20T17:46:06.673Z",
+    "updatedAt": "2026-09-20T17:46:06.673Z"
   }
 ]
