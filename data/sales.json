@@ -762,7 +762,7 @@
     "netAmount": 4583440,
     "cogs": 3690000,
     "grossProfit": 893440,
-    "paymentStatus": "PENDING_TRANSFER",
+    "paymentStatus": "PAID",
     "receiptImage": "https://raw.githubusercontent.com/salarGholami/abzar-ahmadi-store/main/data/media/receipts/256d6164-bc8e-49cc-817a-fd5a8ee1a9ea/aaa6a5f6-7b2f-4ef6-acfc-6e5061220442.jpg",
     "receipt": {
       "id": "adc3df88-a0a0-4d0e-af3a-017d39b8b6a0",
@@ -772,6 +772,7 @@
     },
     "channel": "ONLINE",
     "createdAt": "2026-09-20T17:19:08.586Z",
-    "idempotencyKey": "51e702d5-bcf7-44dd-88f5-a4621aa04a39"
+    "idempotencyKey": "51e702d5-bcf7-44dd-88f5-a4621aa04a39",
+    "updatedAt": "2026-09-20T17:21:37.400Z"
   }
 ]
