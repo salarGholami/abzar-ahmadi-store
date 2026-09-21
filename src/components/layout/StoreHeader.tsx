@@ -64,6 +64,12 @@ export default function StoreHeader() {
       className="sticky top-0 z-50 border-b border-[var(--border)] bg-[color-mix(in_srgb,var(--surface)_96%,transparent)] backdrop-blur-xl"
       onMouseLeave={closeMegaMenu}
     >
+      <div className="flex justify-center items-center btn-primary w-full">
+        <span className="py-2 text-xs">
+          {" "}
+          با عضویت در ابزار احمدی اولین ارسال را مهمان ما باش :)
+        </span>
+      </div>
       <div className="mx-auto flex h-[76px] max-w-[1500px] items-center gap-3 px-4 lg:px-6">
         {/* همبرگر فقط موبایل — روی دسکتاپ کاملاً مخفی */}
         <button
