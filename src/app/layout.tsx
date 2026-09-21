@@ -55,8 +55,7 @@ export const metadata: Metadata = {
   description: "فروشگاه ابزار ساختمانی",
 };
 
-const themeInitScript = `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})();`;
-
+const themeInitScript = `(function(){try{var t=localStorage.getItem('theme');if(t!=='light'){document.documentElement.classList.add('dark')}}catch(e){}})();`;
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
