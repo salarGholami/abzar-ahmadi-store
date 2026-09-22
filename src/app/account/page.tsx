@@ -30,25 +30,25 @@ export default async function Account() {
             {/* لایه مشکی همیشه روشن */}
             <div className="absolute inset-0 bg-black/50" />
 
-            {/* متن روی لایه مشکی (اختیاری) */}
+            {/* متن روی لایه مشکی */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="flex flex-col justify-center items-center gap-4">
-                <span className="text-4xl text-white">ابزار احمدی</span>
+              <div className="flex flex-col items-center justify-center gap-4">
+                <span className="text-4xl font-bold text-white">
+                  ابزار احمدی
+                </span>
                 <Link
                   href="/"
-                  className="text-white px-5 py-2.5 text-sm font-bold flex justify-center items-center gap-2"
+                  className="flex items-center gap-2 rounded-full bg-white/10 px-5 py-2.5 text-sm font-bold text-white backdrop-blur-sm transition hover:bg-white/20"
                 >
-                  <span className="text-white">
-                    <HomeIcon />
-                  </span>
-                  <span className="text-white" > بازگشت به صفحه اصلی</span>
+                  <HomeIcon className="h-4 w-4" />
+                  <span>بازگشت به صفحه اصلی</span>
                 </Link>
               </div>
             </div>
           </div>
 
           {/* ===== سمت راست: فرم ===== */}
-          <div className="mx-auto w-full max-w-md ">
+          <div className="mx-auto w-full max-w-md">
             <div className="card p-7">
               {session ? (
                 <AccountOverview session={session} />
