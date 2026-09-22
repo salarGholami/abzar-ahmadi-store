@@ -257,3 +257,15 @@ a {
 .scrollbar-none::-webkit-scrollbar {
   display: none;
 }
+
+/* Safe area for sticky mobile bottom nav (iOS home indicator) */
+.safe-area-pb {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Smooth page padding when mobile nav is present */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 0;
+  }
+}

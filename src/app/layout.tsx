@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Providers from "./providers";
+import StoreChrome from "@/components/layout/StoreChrome";
 
 const vazirmatn = localFont({
   src: [
@@ -71,7 +72,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="font-vazirmatn antialiased">
-        <Providers>{children}</Providers>
+        <Providers>{children}<StoreChrome /></Providers>
       </body>
     </html>
   );

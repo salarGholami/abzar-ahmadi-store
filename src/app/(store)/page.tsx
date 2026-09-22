@@ -10,8 +10,6 @@ import {
   Trophy,
 } from "lucide-react";
 
-import StoreHeader from "@/components/layout/StoreHeader";
-import StoreFooter from "@/components/commerce/StoreFooter";
 import ProductHeroSlider from "@/components/commerce/ProductHeroSlider";
 import CategoryStrip from "@/components/commerce/CategoryStrip";
 import FlashSale from "@/components/commerce/FlashSale";
@@ -67,12 +65,7 @@ export default async function Home() {
   const brands = topBrandsFromProducts(products, 10);
 
   return (
-    <div className="flex min-h-screen flex-col bg-[var(--bg)] text-[var(--text)]">
-      {/* Header */}
-      <StoreHeader />
-
-      {/* Main content */}
-      <main className="flex-1">
+    <>
         {/* Hero */}
         <section className="mx-auto max-w-[1500px] px-4 pt-5 lg:px-6">
           <ProductHeroSlider products={heroProducts} />
@@ -227,10 +220,6 @@ export default async function Home() {
             </div>
           ))}
         </section>
-      </main>
-
-      {/* Mobile footer */}
-      <StoreFooter />
-    </div>
+    </>
   );
 }

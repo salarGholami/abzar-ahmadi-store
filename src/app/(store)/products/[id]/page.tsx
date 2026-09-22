@@ -1,7 +1,5 @@
 import Link from "next/link";
 import { ArrowRight, PackageCheck, ShieldCheck } from "lucide-react";
-import StoreHeader from "@/components/layout/StoreHeader";
-import StoreFooter from "@/components/commerce/StoreFooter";
 import ProductActions from "@/components/commerce/ProductActions";
 import ProductGallery from "@/components/commerce/ProductGallery";
 import ProductTabs from "@/components/commerce/ProductTabs";
@@ -13,10 +11,10 @@ export default async function ProductDetail({params}:{params:Promise<{id:string}
  const {id}=await params;
  const products = await getProducts();
  const p = products.find(x=>x.id===id);
- if(!p) return <><StoreHeader/><main className="mx-auto max-w-5xl px-6 py-24 text-center"><h1 className="text-3xl font-black">محصول پیدا نشد</h1><Link className="mt-5 inline-flex btn btn-primary" href="/products">بازگشت</Link></main></>;
+ if(!p) return <><main className="mx-auto max-w-5xl px-6 py-24 text-center"><h1 className="text-3xl font-black">محصول پیدا نشد</h1><Link className="mt-5 inline-flex btn btn-primary" href="/products">بازگشت</Link></main></>;
  const final=Math.round(p.price*(1-p.discount/100));
  const related = products.filter((item) => item.category === p.category && item.id !== p.id && item.stock > 0).slice(0, 8);
- return <><StoreHeader/><main className="mx-auto max-w-[1200px] px-4 py-8 lg:px-6">
+ return <><main className="mx-auto max-w-[1200px] px-4 py-8 lg:px-6">
   <Link href="/products" className="mb-6 inline-flex items-center gap-2 text-sm text-[var(--muted)]"><ArrowRight size={16}/>بازگشت به محصولات</Link>
   <div className="grid gap-8 lg:grid-cols-2">
    <ProductGallery title={p.title} images={p.images?.length ? p.images : [{ id: `legacy-${p.id}`, url: p.image, alt: p.title, position: 0, createdAt: "" }]} />
@@ -33,5 +31,5 @@ export default async function ProductDetail({params}:{params:Promise<{id:string}
   <ProductTabs description={p.description} specs={p.specs} />
  </main>
  <ProductRow title="محصولات مشابه" subtitle={p.category} products={related} viewAllHref={`/products?category=${encodeURIComponent(p.category)}`} />
- <StoreFooter/></>
+ </>
 }

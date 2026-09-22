@@ -10,23 +10,18 @@ import {
   Phone,
   ShieldCheck,
   Truck,
+  CreditCard,
+  Headphones,
 } from "lucide-react";
 import { useState } from "react";
 
 const footerLinks = {
   quick: [
     { label: "فروشگاه", href: "/products" },
-    { label: "دسته‌بندی محصولات", href: "/categories" },
-    {
-      label: "پرفروش‌ترین‌ها",
-      href: "/products?sort=popular",
-    },
-    {
-      label: "محصولات جدید",
-      href: "/products?sort=newest",
-    },
+    { label: "دسته‌بندی محصولات", href: "/products" },
+    { label: "پرفروش‌ترین‌ها", href: "/products?sort=popular" },
+    { label: "محصولات جدید", href: "/products?sort=newest" },
   ],
-
   support: [
     { label: "تماس با ما", href: "/contact" },
     { label: "درباره ما", href: "/about" },
@@ -47,31 +42,30 @@ function FooterSection({
   const [open, setOpen] = useState(defaultOpen);
 
   return (
-    <div className="border-b border-[var(--border)] last:border-b-0">
+    <div className="border-b border-[var(--border)] last:border-b-0 md:border-b-0">
       <button
         type="button"
-        onClick={() => setOpen((value) => !value)}
+        onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className="flex w-full items-center justify-between py-4 text-right"
+        className="flex w-full items-center justify-between py-4 text-right md:pointer-events-none md:cursor-default"
       >
-        <span className="text-sm font-bold text-[var(--text)]">{title}</span>
-
+        <span className="text-sm font-black text-[var(--text)]">{title}</span>
         <ChevronDown
           size={18}
           strokeWidth={2}
-          className={`text-[var(--muted)] transition-transform duration-200 ${
+          className={`text-[var(--muted)] transition-transform duration-200 md:hidden ${
             open ? "rotate-180" : ""
           }`}
         />
       </button>
 
       <div
-        className={`grid transition-[grid-template-rows,opacity] duration-200 ${
+        className={`grid transition-[grid-template-rows,opacity] duration-200 md:!grid-rows-[1fr] md:!opacity-100 ${
           open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
         }`}
       >
         <div className="overflow-hidden">
-          <div className="pb-4">{children}</div>
+          <div className="pb-4 md:pb-0">{children}</div>
         </div>
       </div>
     </div>
@@ -80,205 +74,182 @@ function FooterSection({
 
 export default function StoreFooter() {
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
-    <footer
-      className="
-        mt-auto
-        border-t
-        border-[var(--border)]
-        bg-[var(--surface)]
-        md:hidden
-      "
-    >
-      {/* Trust features */}
+    <footer className="mt-auto border-t border-[var(--border)] bg-[var(--surface)] pb-[calc(4.25rem+env(safe-area-inset-bottom,0px))] md:pb-0">
+      {/* Trust bar */}
       <section className="border-b border-[var(--border)] bg-[var(--surface-2)]">
-        <div className="mx-auto grid max-w-7xl grid-cols-2">
-          <div className="flex flex-col items-center justify-center border-l border-[var(--border)] px-3 py-5 text-center">
-            <div className="flex size-11 items-center justify-center rounded-2xl bg-[var(--primary-light)] text-[var(--primary)]">
-              <Truck size={21} strokeWidth={1.8} />
+        <div className="mx-auto grid max-w-[1400px] grid-cols-2 gap-px sm:grid-cols-4">
+          {[
+            {
+              icon: Truck,
+              title: "ارسال سریع",
+              desc: "تحویل در کمترین زمان",
+            },
+            {
+              icon: ShieldCheck,
+              title: "ضمانت اصالت",
+              desc: "کالای ۱۰۰٪ اصلی",
+            },
+            {
+              icon: CreditCard,
+              title: "پرداخت امن",
+              desc: "درگاه‌های معتبر",
+            },
+            {
+              icon: Headphones,
+              title: "پشتیبانی تخصصی",
+              desc: "شنبه تا پنجشنبه ۹–۱۸",
+            },
+          ].map((item) => (
+            <div
+              key={item.title}
+              className="flex flex-col items-center justify-center gap-2 px-3 py-5 text-center sm:flex-row sm:gap-3 sm:text-right"
+            >
+              <span className="flex size-11 shrink-0 items-center justify-center rounded-2xl bg-[var(--primary)]/10 text-[var(--primary)]">
+                <item.icon size={20} strokeWidth={1.8} />
+              </span>
+              <div>
+                <p className="text-xs font-black text-[var(--text)]">
+                  {item.title}
+                </p>
+                <p className="mt-0.5 text-[10px] text-[var(--muted)]">
+                  {item.desc}
+                </p>
+              </div>
             </div>
-
-            <span className="mt-2 text-xs font-black text-[var(--text)]">
-              ارسال سریع
-            </span>
-
-            <span className="mt-1 text-[10px] leading-4 text-[var(--muted)]">
-              ارسال به سراسر کشور
-            </span>
-          </div>
-
-          <div className="flex flex-col items-center justify-center px-3 py-5 text-center">
-            <div className="flex size-11 items-center justify-center rounded-2xl bg-[var(--primary-light)] text-[var(--primary)]">
-              <ShieldCheck size={21} strokeWidth={1.8} />
-            </div>
-
-            <span className="mt-2 text-xs font-black text-[var(--text)]">
-              ضمانت اصالت
-            </span>
-
-            <span className="mt-1 text-[10px] leading-4 text-[var(--muted)]">
-              کالای معتبر و اصل
-            </span>
-          </div>
+          ))}
         </div>
       </section>
 
-      {/* Footer content */}
-      <div className="mx-auto max-w-7xl px-4">
-        {/* Brand */}
-        <section className="py-7">
-          <Link
-            href="/"
-            aria-label="ابزار احمدی"
-            className="group inline-flex items-center gap-3"
-          >
-            <div className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--primary)] text-white shadow-sm transition-transform duration-200 group-active:scale-95">
-              <span className="text-lg font-black">ا</span>
+      {/* Main links */}
+      <div className="mx-auto max-w-[1400px] px-4 py-8 lg:px-6">
+        <div className="grid gap-2 md:grid-cols-4 md:gap-10">
+          {/* Brand */}
+          <div className="mb-4 md:mb-0">
+            <div className="text-xl font-black tracking-tight text-[var(--text)]">
+              ابزار احمدی
             </div>
-
-            <div>
-              <div className="text-base font-black text-[var(--text)]">
-                ابزار احمدی
-              </div>
-
-              <div className="mt-0.5 text-[10px] font-medium text-[var(--muted)]">
-                فروش تخصصی ابزار و تجهیزات
-              </div>
-            </div>
-          </Link>
-
-          <p className="mt-4 max-w-md text-xs leading-6 text-[var(--muted)]">
-            خرید انواع ابزارآلات و تجهیزات با کیفیت، قیمت مناسب و ارسال سریع به
-            سراسر کشور.
-          </p>
-        </section>
-
-        {/* Accordion */}
-        <section className="overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--surface-2)] px-4">
-          <FooterSection title="دسترسی سریع" defaultOpen>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-3">
-              {footerLinks.quick.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-xs text-[var(--muted)] transition-colors duration-200 hover:text-[var(--primary)]"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          </FooterSection>
-
-          <FooterSection title="خدمات مشتریان">
-            <div className="grid grid-cols-2 gap-x-4 gap-y-3">
-              {footerLinks.support.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-xs text-[var(--muted)] transition-colors duration-200 hover:text-[var(--primary)]"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          </FooterSection>
-
-          <FooterSection title="ارتباط با ما">
-            <div className="space-y-3">
+            <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
+              فروش ابزار حرفه‌ای ساختمانی، کارگاهی و صنعتی با پشتیبانی تخصصی و
+              ارسال سریع در سراسر کشور.
+            </p>
+            <div className="mt-5 flex flex-wrap gap-2">
               <a
-                href="tel:02144881234"
-                className="flex items-center gap-3 text-xs text-[var(--muted)] transition-colors hover:text-[var(--primary)]"
+                href="tel:02100000000"
+                className="inline-flex items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--surface-2)] px-3 py-2 text-xs font-bold text-[var(--text)] transition hover:border-[var(--primary)] hover:text-[var(--primary)]"
               >
-                <span className="flex size-8 shrink-0 items-center justify-center rounded-xl bg-[var(--primary-light)] text-[var(--primary)]">
-                  <Phone size={15} strokeWidth={1.8} />
-                </span>
-
-                <span dir="ltr">021-44881234</span>
-              </a>
-
-              <div className="flex items-center gap-3 text-xs text-[var(--muted)]">
-                <span className="flex size-8 shrink-0 items-center justify-center rounded-xl bg-[var(--primary-light)] text-[var(--primary)]">
-                  <MapPin size={15} strokeWidth={1.8} />
-                </span>
-
-                <span>تهران، ایران</span>
-              </div>
-
-              <a
-                href="mailto:info@example.com"
-                className="flex items-center gap-3 text-xs text-[var(--muted)] transition-colors hover:text-[var(--primary)]"
-              >
-                <span className="flex size-8 shrink-0 items-center justify-center rounded-xl bg-[var(--primary-light)] text-[var(--primary)]">
-                  <Mail size={15} strokeWidth={1.8} />
-                </span>
-
-                <span dir="ltr">info@example.com</span>
+                <Phone size={14} />
+                <span dir="ltr">021-00000000</span>
               </a>
             </div>
-          </FooterSection>
-        </section>
-
-        {/* Social */}
-        <section className="flex items-center justify-between py-6">
-          <div>
-            <p className="text-xs font-black text-[var(--text)]">
-              ما را دنبال کنید
-            </p>
-
-            <p className="mt-1 text-[10px] text-[var(--muted)]">
-              جدیدترین محصولات و تخفیف‌ها
-            </p>
           </div>
 
-          <div className="flex gap-2">
+          {/* Quick links */}
+          <FooterSection title="دسترسی سریع" defaultOpen>
+            <ul className="space-y-2.5">
+              {footerLinks.quick.map((link) => (
+                <li key={link.href + link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-[var(--muted)] transition hover:text-[var(--primary)]"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </FooterSection>
+
+          {/* Support */}
+          <FooterSection title="خدمات مشتریان">
+            <ul className="space-y-2.5">
+              {footerLinks.support.map((link) => (
+                <li key={link.href + link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-[var(--muted)] transition hover:text-[var(--primary)]"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </FooterSection>
+
+          {/* Contact */}
+          <FooterSection title="ارتباط با ما">
+            <div className="space-y-3 text-sm text-[var(--muted)]">
+              <a
+                href="tel:02100000000"
+                className="flex items-center gap-2 transition hover:text-[var(--primary)]"
+              >
+                <span className="flex size-8 items-center justify-center rounded-lg bg-[var(--surface-2)] text-[var(--primary)]">
+                  <Phone size={14} />
+                </span>
+                <span dir="ltr">021-00000000</span>
+              </a>
+              <a
+                href="mailto:info@abzarahmadi.ir"
+                className="flex items-center gap-2 transition hover:text-[var(--primary)]"
+              >
+                <span className="flex size-8 items-center justify-center rounded-lg bg-[var(--surface-2)] text-[var(--primary)]">
+                  <Mail size={14} />
+                </span>
+                <span dir="ltr">info@abzarahmadi.ir</span>
+              </a>
+              <div className="flex items-start gap-2">
+                <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-lg bg-[var(--surface-2)] text-[var(--primary)]">
+                  <MapPin size={14} />
+                </span>
+                <span className="leading-6">تهران، ایران</span>
+              </div>
+            </div>
+          </FooterSection>
+        </div>
+
+        {/* Social + back to top */}
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-[var(--border)] pt-6 sm:flex-row">
+          <div className="flex items-center gap-3">
+            <span className="text-xs font-bold text-[var(--muted)]">
+              ما را دنبال کنید
+            </span>
             <a
               href="#"
               aria-label="اینستاگرام"
-              className="flex size-10 items-center justify-center rounded-xl border border-[var(--border)] bg-[var(--surface-2)] text-[var(--muted)] transition-all duration-200 hover:border-[var(--primary)] hover:text-[var(--primary)] active:scale-95"
+              className="flex size-10 items-center justify-center rounded-xl border border-[var(--border)] bg-[var(--surface-2)] text-[var(--muted)] transition hover:border-[var(--primary)] hover:text-[var(--primary)] active:scale-95"
             >
-              <Instagram size={18} strokeWidth={1.8} />
+              <Instagram size={18} />
             </a>
-
             <a
-              href="mailto:info@example.com"
+              href="mailto:info@abzarahmadi.ir"
               aria-label="ایمیل"
-              className="flex size-10 items-center justify-center rounded-xl border border-[var(--border)] bg-[var(--surface-2)] text-[var(--muted)] transition-all duration-200 hover:border-[var(--primary)] hover:text-[var(--primary)] active:scale-95"
+              className="flex size-10 items-center justify-center rounded-xl border border-[var(--border)] bg-[var(--surface-2)] text-[var(--muted)] transition hover:border-[var(--primary)] hover:text-[var(--primary)] active:scale-95"
             >
-              <Mail size={18} strokeWidth={1.8} />
+              <Mail size={18} />
             </a>
           </div>
-        </section>
 
-        {/* Back to top */}
-        <button
-          type="button"
-          onClick={scrollToTop}
-          className="flex w-full items-center justify-center gap-2 rounded-2xl border border-[var(--border)] bg-[var(--surface-2)] py-3.5 text-xs font-bold text-[var(--muted)] transition-all duration-200 hover:border-[var(--primary)] hover:text-[var(--primary)] active:scale-[0.99]"
-        >
-          <ArrowUp size={15} strokeWidth={2} />
-          بازگشت به بالای صفحه
-        </button>
+          <button
+            type="button"
+            onClick={scrollToTop}
+            className="flex items-center gap-2 rounded-2xl border border-[var(--border)] bg-[var(--surface-2)] px-4 py-2.5 text-xs font-bold text-[var(--muted)] transition hover:border-[var(--primary)] hover:text-[var(--primary)] active:scale-[0.98]"
+          >
+            <ArrowUp size={15} />
+            بازگشت به بالا
+          </button>
+        </div>
 
         {/* Copyright */}
-        <section className="py-6 text-center">
-          <p className="text-[10px] leading-5 text-[var(--muted)]">
-            تمامی حقوق این وب‌سایت متعلق به
-            <span className="mx-1 font-black text-[var(--text)]">
-              ابزار احمدی
-            </span>
-            است.
+        <div className="mt-6 text-center">
+          <p className="text-[11px] text-[var(--muted)]">
+            © ۱۴۰۵{" "}
+            <span className="font-black text-[var(--text)]">ابزار احمدی</span> —
+            تمامی حقوق محفوظ است.
           </p>
-
-          <p className="mt-1 text-[9px] text-[var(--muted)]">
-            طراحی و توسعه با ❤️
-          </p>
-        </section>
+        </div>
       </div>
     </footer>
   );
