@@ -220,5 +220,17 @@
     "productId": "p32",
     "quantity": -1,
     "updatedAt": "2026-09-20T17:47:57.324Z"
+  },
+  {
+    "id": "c8f23b0e-4e78-412f-b9f6-eb7de49f6a37",
+    "productId": "p120",
+    "quantity": -2,
+    "updatedAt": "2026-09-23T02:36:04.265Z"
+  },
+  {
+    "id": "2a7f5a14-99c0-4df0-b28a-d097a247faf4",
+    "productId": "p119",
+    "quantity": -1,
+    "updatedAt": "2026-09-23T02:36:04.265Z"
   }
 ]

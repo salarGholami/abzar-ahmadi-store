@@ -5545,7 +5545,7 @@
     "category": "موتور برق و کمپرسور",
     "price": 37267000,
     "discount": 8,
-    "stock": 6,
+    "stock": 5,
     "image": "/placeholders/cat-14-a.svg",
     "images": [
       {
@@ -5586,7 +5586,7 @@
     "rating": 4.8,
     "reviewCount": 47,
     "createdAt": "2026-09-16T09:12:03.000000Z",
-    "updatedAt": "2026-09-16T09:12:03.000000Z"
+    "updatedAt": "2026-09-23T02:36:04.265Z"
   },
   {
     "id": "p120",
@@ -5596,7 +5596,7 @@
     "category": "موتور برق و کمپرسور",
     "price": 27226000,
     "discount": 5,
-    "stock": 15,
+    "stock": 13,
     "image": "/placeholders/cat-14-a.svg",
     "images": [
       {
@@ -5637,6 +5637,6 @@
     "rating": 3.9,
     "reviewCount": 90,
     "createdAt": "2026-09-16T09:12:03.000000Z",
-    "updatedAt": "2026-09-16T09:12:03.000000Z"
+    "updatedAt": "2026-09-23T02:36:04.265Z"
   }
 ]

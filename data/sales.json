@@ -797,5 +797,21 @@
     "channel": "ONLINE",
     "createdAt": "2026-09-20T17:47:57.324Z",
     "idempotencyKey": "5a9b3c70-5896-4280-863a-2efc2889117a"
+  },
+  {
+    "id": "6c49b239-0bd7-4da9-99f1-3be698775b35",
+    "customerId": null,
+    "customerUserId": null,
+    "subtotal": 86015040,
+    "discount": 0,
+    "netAmount": 86015040,
+    "cogs": 65607000,
+    "grossProfit": 20408040,
+    "paymentStatus": "PAID",
+    "receiptImage": null,
+    "receipt": null,
+    "channel": "POS",
+    "createdAt": "2026-09-23T02:36:04.265Z",
+    "idempotencyKey": "6c49b239-0bd7-4da9-99f1-3be698775b35"
   }
 ]
