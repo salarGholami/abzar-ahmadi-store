@@ -57,6 +57,7 @@ export const metadata: Metadata = {
 };
 
 const themeInitScript = `(function(){try{var t=localStorage.getItem('theme');if(t!=='light'){document.documentElement.classList.add('dark')}}catch(e){}})();`;
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -69,10 +70,19 @@ export default function RootLayout({
       className={vazirmatn.variable}
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <meta name="theme-color" content="#222831" />
       </head>
+
       <body className="font-vazirmatn antialiased">
-        <Providers>{children}<StoreChrome /></Providers>
+        <Providers>
+          {children}
+          <StoreChrome />
+        </Providers>
+
+        <noscript>
+          برای استفاده کامل از فروشگاه ابزار احمدی، لطفاً JavaScript مرورگر خود
+          را فعال کنید.
+        </noscript>
       </body>
     </html>
   );
