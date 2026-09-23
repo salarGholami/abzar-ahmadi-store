@@ -8,7 +8,9 @@
     "permissions": [
       "*"
     ],
-    "updatedAt": "2026-09-16T05:23:56.672Z"
+    "updatedAt": "2026-09-23T02:08:26.099Z",
+    "twoFactorSecret": "Z5FNJLT5PQ2TASWILSDRJECKJLCRKLE4",
+    "twoFactorEnabled": false
   },
   {
     "id": "6bf1eb21-01fb-4ccc-b6ab-6ea8765e6450",
