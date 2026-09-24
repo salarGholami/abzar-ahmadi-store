@@ -52,25 +52,50 @@ const vazirmatn = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "ابزار احمدی | فروشگاه ابزار ساختمانی",
-  description: "فروشگاه ابزار ساختمانی",
+  title: "ابزار احمدی | فروشگاه ابزار آلات ساختمانی",
+  description: "فروشگاه تخصصی ابزار آلات ساختمانی ابزار احمدی",
 };
 
-const themeInitScript = `(function(){try{var t=localStorage.getItem('theme');if(t!=='light'){document.documentElement.classList.add('dark')}}catch(e){}})();`;
+const themeInitScript = `
+(function () {
+  try {
+    var theme = localStorage.getItem("theme");
+
+    if (theme === "light") {
+      document.documentElement.classList.remove("dark");
+      document.documentElement.classList.add("light");
+    } else {
+      document.documentElement.classList.remove("light");
+      document.documentElement.classList.add("dark");
+    }
+  } catch (error) {
+    document.documentElement.classList.remove("light");
+    document.documentElement.classList.add("dark");
+  }
+})();
+`;
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html
       lang="fa"
       dir="rtl"
       data-scroll-behavior="smooth"
       suppressHydrationWarning
-      className={vazirmatn.variable}
+      className={`${vazirmatn.variable} dark`}
     >
       <head>
         <meta name="theme-color" content="#222831" />
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: themeInitScript,
+          }}
+        />
       </head>
 
       <body className="font-vazirmatn antialiased">

@@ -1606,21 +1606,23 @@ export default function StoreHeader() {
                   rounded-2xl
                   bg-[var(--primary)]
                   px-4
-                  text-white
+                  !text-white
                   shadow-lg
                   shadow-[var(--primary)]/20
                   transition
                   hover:bg-[var(--primary-2)]
+                  hover:!text-white
                   active:scale-[0.98]
                 "
               >
-                <ShoppingBag size={18} />
+                <ShoppingBag size={18} className="!text-white" />
 
                 <span
                   className="
                     hidden
                     text-[10px]
                     font-black
+                    !text-white
                     xl:inline
                   "
                 >
@@ -1641,7 +1643,7 @@ export default function StoreHeader() {
                       px-1
                       text-[8px]
                       font-black
-                      text-white
+                      !text-white
                       ring-2
                       ring-[var(--surface)]
                     "

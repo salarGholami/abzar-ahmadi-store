@@ -1,15 +1,30 @@
 @import "tailwindcss";
 
 /* =========================================================
-   COLOR PALETTE
-   Primary  : #00ADB5  (دکمه‌ها تیره‌تر شدن)
+   ابزار احمدی
+   GLOBAL DESIGN SYSTEM
+   =========================================================
+
+   Primary  : #00ADB5
    Dark     : #222831
    Charcoal : #393E46
    Light    : #EEEEEE
+
+   Default Theme: DARK
+   ========================================================= */
+
+
+/* =========================================================
+   TAILWIND THEME
    ========================================================= */
 
 @theme {
-  /* PRIMARY — #00ADB5 */
+
+  /* =======================================================
+     PRIMARY
+     #00ADB5
+     ======================================================= */
+
   --color-primary-50: #e6fafb;
   --color-primary-100: #ccf5f7;
   --color-primary-200: #99ebef;
@@ -21,7 +36,12 @@
   --color-primary-800: #006b71;
   --color-primary-900: #004f54;
 
-  /* DARK — #222831 */
+
+  /* =======================================================
+     DARK
+     #222831
+     ======================================================= */
+
   --color-dark-50: #f1f2f3;
   --color-dark-100: #dde0e3;
   --color-dark-200: #bcc1c7;
@@ -33,7 +53,12 @@
   --color-dark-800: #14181e;
   --color-dark-900: #0c0f13;
 
-  /* CHARCOAL — #393E46 */
+
+  /* =======================================================
+     CHARCOAL
+     #393E46
+     ======================================================= */
+
   --color-charcoal-50: #f4f5f6;
   --color-charcoal-100: #e5e7e9;
   --color-charcoal-200: #cbced2;
@@ -45,7 +70,12 @@
   --color-charcoal-800: #23272d;
   --color-charcoal-900: #191c21;
 
-  /* LIGHT — #EEEEEE */
+
+  /* =======================================================
+     LIGHT
+     #EEEEEE
+     ======================================================= */
+
   --color-light-50: #ffffff;
   --color-light-100: #fafafa;
   --color-light-200: #f6f6f6;
@@ -58,10 +88,15 @@
   --color-light-900: #8e8e8e;
 }
 
+
+/* =========================================================
+   LIGHT THEME VARIABLES
+   ========================================================= */
+
 :root {
-  /* Primary تیره‌تر برای دکمه‌ها */
-  --primary: #00838a;          /* primary-700 - تیره‌تر و قوی‌تر */
-  --primary-2: #006b71;        /* primary-800 - هاور */
+
+  --primary: #00838a;
+  --primary-2: #006b71;
   --primary-light: #e6fafb;
   --primary-dark: #004f54;
 
@@ -73,6 +108,7 @@
   --surface-2: #fafafa;
 
   --border: #e5e5e5;
+
   --text: #222831;
   --muted: #6f7882;
 
@@ -81,13 +117,23 @@
   --danger: #dc2626;
 
   --radius: 16px;
-  --font-vazirmatn: "Vazirmatn", system-ui, sans-serif;
+
+  --font-vazirmatn:
+    "Vazirmatn",
+    system-ui,
+    sans-serif;
 }
 
+
+/* =========================================================
+   DARK THEME
+   ========================================================= */
+
+html.dark,
 .dark {
-  /* در دارک مود کمی روشن‌تر ولی هنوز قوی */
-  --primary: #00adb5;          /* primary-500 */
-  --primary-2: #009ba3;        /* primary-600 */
+
+  --primary: #00adb5;
+  --primary-2: #009ba3;
   --primary-light: #004f54;
   --primary-dark: #33d6df;
 
@@ -99,6 +145,7 @@
   --surface-2: #222831;
 
   --border: #2c3037;
+
   --text: #f2f2f2;
   --muted: #9aa1a9;
 
@@ -107,165 +154,429 @@
   --danger: #ef4444;
 }
 
-.bg-secondary-100 {
-  background-color: var(--bg-secondary-100);
+
+/* =========================================================
+   LIGHT THEME
+   ========================================================= */
+
+html.light {
+  color-scheme: light;
 }
+
+
+/* =========================================================
+   DARK COLOR SCHEME
+   ========================================================= */
+
+html.dark {
+  color-scheme: dark;
+}
+
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
 
 * {
   box-sizing: border-box;
 }
+
+
+/* =========================================================
+   HTML
+   ========================================================= */
+
 html {
   direction: rtl;
   scroll-behavior: smooth;
+  background: var(--bg);
 }
+
+
+/* =========================================================
+   BODY
+   ========================================================= */
+
 body {
   margin: 0;
   min-width: 320px;
+
   background: var(--bg);
   color: var(--text);
-  font-family: var(--font-vazirmatn), Tahoma, sans-serif;
+
+  font-family:
+    var(--font-vazirmatn),
+    Tahoma,
+    sans-serif;
+
   text-rendering: optimizeLegibility;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
 }
+
+
+/* =========================================================
+   FORM ELEMENTS
+   ========================================================= */
+
 button,
 input,
 select,
 textarea {
   font: inherit;
 }
+
 button {
   cursor: pointer;
 }
+
 button:disabled {
   cursor: not-allowed;
 }
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+::selection {
+  background: color-mix(
+    in srgb,
+    var(--primary) 25%,
+    transparent
+  );
+}
+
+
+/* =========================================================
+   SECONDARY BACKGROUND
+   ========================================================= */
+
+.bg-secondary-100 {
+  background-color: var(--bg-secondary-100);
+}
+
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
 .card {
   background: var(--surface);
+
   border: 1px solid var(--border);
+
   border-radius: var(--radius);
-  box-shadow: 0 10px 35px rgba(34, 40, 49, 0.045);
+
+  box-shadow:
+    0 10px 35px
+    rgba(34, 40, 49, 0.045);
+
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
+
+
+html.dark .card,
 .dark .card {
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+  box-shadow:
+    0 14px 40px
+    rgba(0, 0, 0, 0.35);
 }
+
+
+/* =========================================================
+   INPUT
+   ========================================================= */
 
 .input {
   width: 100%;
+
   border: 1px solid var(--border);
+
   background: var(--surface);
   color: var(--text);
+
   border-radius: 14px;
+
   padding: 11px 13px;
+
   outline: none;
-  transition: 0.16s ease;
+
+  transition:
+    border-color 0.16s ease,
+    background-color 0.16s ease,
+    color 0.16s ease,
+    box-shadow 0.16s ease;
 }
+
 .input:hover {
-  border-color: color-mix(in srgb, var(--muted) 35%, var(--border));
+  border-color:
+    color-mix(
+      in srgb,
+      var(--muted) 35%,
+      var(--border)
+    );
 }
+
 .input:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 14%, transparent);
+
+  box-shadow:
+    0 0 0 4px
+    color-mix(
+      in srgb,
+      var(--primary) 14%,
+      transparent
+    );
 }
+
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
 
 .btn {
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
+
   gap: 8px;
+
   border-radius: 14px;
+
   padding: 10px 15px;
+
   border: 1px solid transparent;
+
   font-weight: 800;
+
   transition:
     transform 0.16s ease,
     background 0.16s ease,
     border-color 0.16s ease,
     box-shadow 0.16s ease;
 }
+
 .btn:hover {
   transform: translateY(-1px);
 }
+
 .btn:active {
   transform: translateY(0);
 }
+
+
+/* =========================================================
+   PRIMARY BUTTON
+   ========================================================= */
+
 .btn-primary {
   background: var(--primary);
-  color: white;
-  /* box-shadow: 0 8px 20px color-mix(in srgb, var(--primary) 25%, transparent); */
+  color: #ffffff;
+
+  border-color: var(--primary);
 }
+
 .btn-primary:hover {
   background: var(--primary-2);
+  border-color: var(--primary-2);
 }
+
+
+/* =========================================================
+   SECONDARY BUTTON
+   ========================================================= */
+
 .btn-secondary {
   background: var(--surface);
+
   border-color: var(--border);
+
   color: var(--text);
 }
+
 .btn-secondary:hover {
   background: var(--surface-2);
-  border-color: color-mix(in srgb, var(--primary) 30%, var(--border));
+
+  border-color:
+    color-mix(
+      in srgb,
+      var(--primary) 30%,
+      var(--border)
+    );
 }
+
+
+/* =========================================================
+   DANGER BUTTON
+   ========================================================= */
+
 .btn-danger {
   background: #fff1f0;
+
   color: var(--danger);
+
   border-color: #ffd6d2;
 }
+
+html.dark .btn-danger,
 .dark .btn-danger {
   background: #3f1515;
+
   border-color: #5c2020;
+
   color: #fca5a5;
 }
 
+
+/* =========================================================
+   BADGE
+   ========================================================= */
+
 .badge {
   display: inline-flex;
+
   align-items: center;
+
   border-radius: 999px;
+
   padding: 5px 9px;
+
   font-size: 11px;
+
   font-weight: 800;
 }
 
-::selection {
-  background: color-mix(in srgb, var(--primary) 25%, transparent);
-}
 
-@media print {
-  .no-print {
-    display: none !important;
-  }
-  body {
-    background: white;
-  }
-}
+/* =========================================================
+   LABEL
+   ========================================================= */
 
 .field-label {
   display: block;
+
   margin-bottom: 0.375rem;
+
   font-size: 0.75rem;
+
   font-weight: 800;
+
   color: var(--muted);
 }
 
+
+/* =========================================================
+   SCROLLBAR NONE
+   ========================================================= */
+
 .scrollbar-none {
   scrollbar-width: none;
+
   -ms-overflow-style: none;
 }
+
 .scrollbar-none::-webkit-scrollbar {
   display: none;
 }
 
-/* Safe area for sticky mobile bottom nav (iOS home indicator) */
+
+/* =========================================================
+   SAFE AREA
+   ========================================================= */
+
 .safe-area-pb {
-  padding-bottom: env(safe-area-inset-bottom, 0px);
+  padding-bottom:
+    env(
+      safe-area-inset-bottom,
+      0px
+    );
 }
 
-/* Smooth page padding when mobile nav is present */
+
+/* =========================================================
+   CUSTOM SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--charcoal-scrollbar, #393e46);
+
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
 @media (max-width: 767px) {
+
   body {
     padding-bottom: 0;
   }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+}
+
+
+/* =========================================================
+   PRINT
+   ========================================================= */
+
+@media print {
+
+  .no-print {
+    display: none !important;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
 }
