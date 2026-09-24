@@ -1,9 +1,16 @@
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ChevronLeft, Sparkles } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import ProductCard from "./ProductCard";
 import type { Product } from "@/lib/types";
-
+import ProductHorizontalScroller from "./ProductHorizontalScroller";
+interface ProductRowProps {
+  title: string;
+  subtitle?: string;
+  icon?: LucideIcon;
+  products: Product[];
+  viewAllHref?: string;
+  accent?: "default" | "danger";
+}
 export default function ProductRow({
   title,
   subtitle,
@@ -11,40 +18,105 @@ export default function ProductRow({
   products,
   viewAllHref,
   accent = "default",
-}: {
-  title: string;
-  subtitle?: string;
-  icon?: LucideIcon;
-  products: Product[];
-  viewAllHref?: string;
-  accent?: "default" | "danger";
-}) {
+}: ProductRowProps) {
   if (!products.length) return null;
-
+  const isDanger = accent === "danger";
+  const accentText = isDanger ? "text-red-500" : "text-[var(--primary)]";
+  const accentBg = isDanger ? "bg-red-500" : "bg-[var(--primary)]";
+  const accentSoft = isDanger ? "bg-red-500/10" : "bg-[var(--primary)]/10";
   return (
-    <section className="mx-auto max-w-[1500px] px-4 py-8 lg:px-6">
-      <div className="mb-5 flex items-end justify-between gap-3">
-        <div>
-          <div className={`flex items-center gap-2 text-xs font-black ${accent === "danger" ? "text-red-500" : "text-[var(--primary)]"}`}>
-            {Icon && <Icon size={15} />}
-            {subtitle}
-          </div>
-          <h2 className="mt-1 text-2xl font-black">{title}</h2>
-        </div>
-        {viewAllHref && (
-          <Link href={viewAllHref} className="flex shrink-0 items-center gap-1 text-sm font-black text-[var(--primary)]">
-            مشاهده همه <ArrowLeft size={15} />
-          </Link>
-        )}
-      </div>
-
-      <div className="scrollbar-none -mx-4 flex gap-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:px-0 lg:grid-cols-3 xl:grid-cols-4">
-        {products.map((product) => (
-          <div key={product.id} className="w-[76vw] shrink-0 sm:w-auto">
-            <ProductCard p={product} />
-          </div>
-        ))}
-      </div>
+    <section className="w-full py-7 sm:py-10 lg:py-14">
+      {" "}
+      <div className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-8">
+        {" "}
+        {/* HEADER */}{" "}
+        <div className="mb-5 flex items-end justify-between gap-4 sm:mb-6">
+          {" "}
+          <div className="min-w-0">
+            {" "}
+            <div className="flex items-center gap-2.5">
+              {" "}
+              <div
+                className={` relative grid size-9 shrink-0 place-items-center overflow-hidden rounded-[12px] ${accentSoft} ${accentText} sm:size-10 sm:rounded-[14px] `}
+              >
+                {" "}
+                <span
+                  className={` absolute inset-0 ${accentBg} opacity-[0.06] `}
+                />{" "}
+                {Icon ? (
+                  <Icon size={17} strokeWidth={2.3} className="relative z-10" />
+                ) : (
+                  <Sparkles
+                    size={17}
+                    strokeWidth={2.3}
+                    className="relative z-10"
+                  />
+                )}{" "}
+              </div>{" "}
+              <div className="min-w-0">
+                {" "}
+                {subtitle && (
+                  <div
+                    className={` mb-0.5 flex items-center gap-1.5 text-[9px] font-black ${accentText} sm:text-[10px] `}
+                  >
+                    {" "}
+                    <span
+                      className={` size-1.5 shrink-0 rounded-full ${accentBg} `}
+                    />{" "}
+                    <span className="truncate"> {subtitle} </span>{" "}
+                  </div>
+                )}{" "}
+                <h2 className=" truncate text-[18px] font-black leading-tight tracking-tight text-[var(--text)] sm:text-[21px] lg:text-[24px] ">
+                  {" "}
+                  {title}{" "}
+                </h2>{" "}
+              </div>{" "}
+            </div>{" "}
+          </div>{" "}
+          {viewAllHref && (
+            <Link
+              href={viewAllHref}
+              className=" group flex shrink-0 items-center gap-1.5 rounded-full border border-[var(--border)] bg-[var(--surface)] px-3 py-2 text-[9px] font-black text-[var(--primary)] shadow-sm transition-all hover:border-[var(--primary)]/30 hover:bg-[var(--primary)]/[0.04] active:scale-95 sm:px-4 sm:py-2.5 sm:text-[10px] "
+            >
+              {" "}
+              <span>مشاهده همه</span>{" "}
+              <ArrowLeft
+                size={13}
+                strokeWidth={2.5}
+                className=" transition-transform duration-200 group-hover:-translate-x-1 "
+              />{" "}
+            </Link>
+          )}{" "}
+        </div>{" "}
+        {/* PRODUCTS */}{" "}
+        <div className=" overflow-hidden rounded-[24px] border border-[var(--border)] bg-[var(--surface)] p-2.5 shadow-[0_8px_35px_rgba(0,0,0,0.035)] sm:rounded-[28px] sm:p-3 lg:p-4 ">
+          {" "}
+          <ProductHorizontalScroller products={products} /> {/* FOOTER */}{" "}
+          {products.length > 1 && (
+            <div className=" mt-2.5 flex items-center justify-between border-t border-[var(--border)] px-1 pt-2.5 ">
+              {" "}
+              <div className="flex items-center gap-2">
+                {" "}
+                <div className="flex items-center gap-1">
+                  {" "}
+                  <span className=" size-1.5 rounded-full bg-[var(--primary)] " />{" "}
+                  <span className=" size-1 rounded-full bg-[var(--primary)]/30 " />{" "}
+                  <span className=" size-1 rounded-full bg-[var(--primary)]/15 " />{" "}
+                </div>{" "}
+                <span className=" text-[8px] font-bold text-[var(--muted)] sm:text-[9px] ">
+                  {" "}
+                  برای دیدن محصولات بیشتر بکشید{" "}
+                </span>{" "}
+              </div>{" "}
+              <div className=" flex items-center gap-0.5 text-[8px] font-black text-[var(--primary)] sm:text-[9px] ">
+                {" "}
+                <span>بیشتر</span>{" "}
+                <ChevronLeft size={11} strokeWidth={2.5} />{" "}
+              </div>{" "}
+            </div>
+          )}{" "}
+        </div>{" "}
+      </div>{" "}
     </section>
   );
 }

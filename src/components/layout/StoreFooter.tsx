@@ -81,7 +81,7 @@ export default function StoreFooter() {
     <footer className="mt-auto border-t border-[var(--border)] bg-[var(--surface)] pb-[calc(4.25rem+env(safe-area-inset-bottom,0px))] md:pb-0">
       {/* Trust bar */}
       <section className="border-b border-[var(--border)] bg-[var(--surface-2)]">
-        <div className="mx-auto grid max-w-[1400px] grid-cols-2 gap-px sm:grid-cols-4">
+        <div className="mx-auto grid max-w-[1500px] grid-cols-2 gap-px px-4 sm:grid-cols-4 sm:px-6 lg:px-8">
           {[
             {
               icon: Truck,
@@ -125,7 +125,7 @@ export default function StoreFooter() {
       </section>
 
       {/* Main links */}
-      <div className="mx-auto max-w-[1400px] px-4 py-8 lg:px-6">
+      <div className="mx-auto max-w-[1500px] px-4 py-8 sm:px-6 lg:px-8">
         <div className="grid gap-2 md:grid-cols-4 md:gap-10">
           {/* Brand */}
           <div className="mb-4 md:mb-0">

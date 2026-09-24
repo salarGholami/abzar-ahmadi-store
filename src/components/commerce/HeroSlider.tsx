@@ -30,7 +30,7 @@ export default function HeroSlider({ products }: { products: Product[] }) {
   const final = Math.round(p.price * (1 - p.discount / 100));
 
   return (
-    <section className="mx-auto max-w-[1500px] px-4 pt-5 lg:px-6">
+    <section className="mx-auto max-w-[1500px] px-4 pt-5 sm:px-6 lg:px-8">
       <div className="relative overflow-hidden rounded-[32px] bg-[#0b1020] text-white">
         <div className="absolute -left-20 -top-28 size-96 rounded-full bg-indigo-600/25 blur-3xl" />
         <div className="absolute -bottom-40 right-20 size-80 rounded-full bg-cyan-500/10 blur-3xl" />

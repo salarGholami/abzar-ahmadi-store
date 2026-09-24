@@ -106,7 +106,7 @@ export default function CrudTable<T extends Row>({
   }
 
   return (
-    <div className="mx-auto max-w-[1400px]">
+    <div className="mx-auto max-w-[1500px]">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <div className="text-sm font-bold text-[var(--primary)]">مدیریت فروشگاه</div>

@@ -73,7 +73,7 @@ export default function DataCenterPage() {
   const activeRows = data ? (active === "users" ? data.users : data.collections[active] || []) : [];
 
   return (
-    <div className="mx-auto max-w-[1600px]">
+    <div className="mx-auto max-w-[1500px]">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div><div className="text-xs font-black text-[var(--primary)]">مدیریت مرکزی</div><h1 className="mt-1 text-3xl font-black">مرکز تمام داده‌ها</h1><p className="mt-2 text-sm text-[var(--muted)]">تمام داده‌های عملیاتی فروشگاه، بدون دسترسی مستقیم به فایل‌های JSON، از اینجا قابل مشاهده‌اند.</p></div>
         <button type="button" onClick={() => void load()} className="btn btn-secondary"><RefreshCw size={17}/>بروزرسانی</button>

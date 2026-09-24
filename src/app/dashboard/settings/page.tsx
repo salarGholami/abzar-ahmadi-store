@@ -62,7 +62,7 @@ function StoreSettingsForm() {
 
 export default function SettingsPage() {
   return (
-    <div className="mx-auto max-w-[1400px] space-y-8">
+    <div className="mx-auto max-w-[1500px] space-y-8">
       <div>
         <div className="text-sm font-bold text-[var(--primary)]">مدیریت فروشگاه</div>
         <h1 className="mt-1 text-3xl font-black">تنظیمات</h1>

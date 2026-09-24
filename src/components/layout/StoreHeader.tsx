@@ -1339,12 +1339,13 @@ export default function StoreHeader() {
             className="
               mx-auto flex
               min-h-[88px]
-              max-w-[1480px]
+              max-w-[1500px]
               items-center
               gap-5
-              px-6
+              px-4
+              sm:px-6
+              lg:px-8
               xl:gap-7
-              xl:px-8
             "
           >
             {/* BRAND */}
@@ -1667,10 +1668,11 @@ export default function StoreHeader() {
               className="
                 mx-auto flex
                 min-h-[52px]
-                max-w-[1480px]
+                max-w-[1500px]
                 items-center
-                px-6
-                xl:px-8
+                px-4
+                sm:px-6
+                lg:px-8
               "
             >
               {/* CATEGORIES */}

@@ -149,7 +149,7 @@ export default function Cart() {
   return (
     <>
       <StoreHeader />
-      <main className="mx-auto max-w-[1100px] px-4 py-14 lg:px-6">
+      <main className="mx-auto max-w-[1100px] px-4 py-14 sm:px-6 lg:px-8">
         <h1 className="text-3xl font-black">سبد خرید</h1>
 
         {lines.length === 0 && !result ? (

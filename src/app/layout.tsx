@@ -1,6 +1,8 @@
+import "swiper/css";
 import "./globals.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+
 import Providers from "./providers";
 import StoreChrome from "@/components/layout/StoreChrome";
 
@@ -56,25 +58,6 @@ export const metadata: Metadata = {
   description: "فروشگاه تخصصی ابزار آلات ساختمانی ابزار احمدی",
 };
 
-const themeInitScript = `
-(function () {
-  try {
-    var theme = localStorage.getItem("theme");
-
-    if (theme === "light") {
-      document.documentElement.classList.remove("dark");
-      document.documentElement.classList.add("light");
-    } else {
-      document.documentElement.classList.remove("light");
-      document.documentElement.classList.add("dark");
-    }
-  } catch (error) {
-    document.documentElement.classList.remove("light");
-    document.documentElement.classList.add("dark");
-  }
-})();
-`;
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -86,18 +69,8 @@ export default function RootLayout({
       dir="rtl"
       data-scroll-behavior="smooth"
       suppressHydrationWarning
-      className={`${vazirmatn.variable} dark`}
+      className={vazirmatn.variable}
     >
-      <head>
-        <meta name="theme-color" content="#222831" />
-
-        <script
-          dangerouslySetInnerHTML={{
-            __html: themeInitScript,
-          }}
-        />
-      </head>
-
       <body className="font-vazirmatn antialiased">
         <Providers>
           {children}

@@ -15,7 +15,7 @@ export default async function Products({
   ]);
 
   return (
-    <div className="mx-auto max-w-[1500px] px-4 py-10 lg:px-6">
+    <div className="mx-auto max-w-[1500px] px-4 py-10 sm:px-6 lg:px-8">
       <ProductsBrowser
         products={products}
         categories={categoryResult.data}
