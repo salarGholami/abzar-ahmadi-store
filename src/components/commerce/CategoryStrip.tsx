@@ -97,12 +97,12 @@ export default function CategoryStrip({
             </span>
 
             <span className="text-[10px] font-black tracking-[0.16em] text-[var(--primary)]">
-              ابزارها
+              دسته بندی ابزارها
             </span>
           </div>
 
           <h2 className="text-xl font-black tracking-tight text-[var(--text)] sm:text-2xl">
-            دسته‌بندی ابزارها
+            برای هر کاری، یک ابزار
           </h2>
 
           <p className="mt-1.5 text-xs font-medium text-[var(--muted)] sm:text-sm">
