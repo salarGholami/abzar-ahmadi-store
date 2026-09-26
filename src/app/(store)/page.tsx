@@ -252,7 +252,7 @@ export default async function Home() {
             <ProductRow
               title="پرفروش‌ترین‌ها"
               subtitle="انتخاب‌های محبوب مشتری‌ها"
-              icon={Trophy}
+              // icon={Trophy}
               products={bestsellers}
               viewAllHref="/products"
             />
@@ -335,7 +335,7 @@ export default async function Home() {
             <ProductRow
               title="جدیدترین محصولات"
               subtitle="تازه‌واردهای فروشگاه"
-              icon={Package}
+              // icon={Package}
               products={newest}
               viewAllHref="/products"
             />
