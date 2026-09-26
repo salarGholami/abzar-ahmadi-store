@@ -4831,7 +4831,7 @@
     "category": "برق و روشنایی",
     "price": 1944000,
     "discount": 0,
-    "stock": 3,
+    "stock": 2,
     "image": "/placeholders/cat-12-a.svg",
     "images": [
       {
@@ -4872,7 +4872,7 @@
     "rating": 4.1,
     "reviewCount": 47,
     "createdAt": "2026-09-16T09:12:03.000000Z",
-    "updatedAt": "2026-09-16T09:12:03.000000Z"
+    "updatedAt": "2026-09-26T23:47:57.100Z"
   },
   {
     "id": "p106",
