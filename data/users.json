@@ -89,23 +89,5 @@
     "passwordHash": "scrypt:9570c03c25a3e1e8a4f15a0ec196a72d:e1b2857a1203fa232723a2820ed79fa5d31128cdc310355e2c13d6a1331a5ed9af622453e189df8872764b232ddd509b9f7846222c32f0aa7d2829b7ec54eb20",
     "createdAt": "2026-09-26T07:39:32.860Z",
     "updatedAt": "2026-09-26T07:39:32.860Z"
-  },
-  {
-    "id": "846c3c14-b535-44b3-aa4b-97028e4bd937",
-    "name": "shjgvhsldvmnodsn",
-    "phone": "09122222223",
-    "email": "salargholami0210@gmail.com",
-    "emailVerified": false,
-    "avatarUrl": null,
-    "role": "CUSTOMER",
-    "permissions": [
-      "products.read",
-      "sales.read",
-      "sales.create",
-      "quotations.create"
-    ],
-    "passwordHash": "scrypt:de6b23c3cab54efe98d9e0fb113d7ba0:5bf73745f26d41c9a56ad80b009a09d56c13597318e0fc963bd94d137945db3ef35027bfe70d2cb662f9dae1bb250b9e0a4cda29002656a1cecd3e5f31250edc",
-    "createdAt": "2026-09-26T07:42:24.843Z",
-    "updatedAt": "2026-09-26T07:42:24.843Z"
   }
 ]
