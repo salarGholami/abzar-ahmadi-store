@@ -116,5 +116,15 @@
     "balance": 0,
     "createdAt": "2026-09-26T07:39:32.860Z",
     "updatedAt": "2026-09-26T07:39:32.860Z"
+  },
+  {
+    "id": "customer-846c3c14-b535-44b3-aa4b-97028e4bd937",
+    "userId": "846c3c14-b535-44b3-aa4b-97028e4bd937",
+    "name": "shjgvhsldvmnodsn",
+    "phone": "09122222223",
+    "email": "salargholami0210@gmail.com",
+    "balance": 0,
+    "createdAt": "2026-09-26T07:42:24.843Z",
+    "updatedAt": "2026-09-26T07:42:24.843Z"
   }
 ]
