@@ -79,15 +79,12 @@
     "email": "salargholami021@gmail.com",
     "emailVerified": false,
     "avatarUrl": null,
-    "role": "CUSTOMER",
+    "role": "ADMIN",
     "permissions": [
-      "products.read",
-      "sales.read",
-      "sales.create",
-      "quotations.create"
+      "*"
     ],
-    "passwordHash": "scrypt:9570c03c25a3e1e8a4f15a0ec196a72d:e1b2857a1203fa232723a2820ed79fa5d31128cdc310355e2c13d6a1331a5ed9af622453e189df8872764b232ddd509b9f7846222c32f0aa7d2829b7ec54eb20",
+    "passwordHash": "scrypt:6f19c1145914c136e822deaf03b01784:912286688ebb2a70c51d418790bc3d14b49d243ba744a891c502f6a3760df9918b09883c3d3c4ee8ac131e2d6c8c11c9ad56eeff5bacd4dcf9981dfed88d2e83",
     "createdAt": "2026-09-26T07:39:32.860Z",
-    "updatedAt": "2026-09-26T07:39:32.860Z"
+    "updatedAt": "2026-09-26T07:48:27.299Z"
   }
 ]
