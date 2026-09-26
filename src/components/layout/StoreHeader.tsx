@@ -4,21 +4,25 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowLeft,
+  ArrowUpLeft,
   ChevronDown,
   ChevronLeft,
+  CircleUserRound,
+  ClipboardList,
+  Flame,
   Grid2X2,
   Headphones,
+  LogIn,
   Menu,
   Package,
+  Percent,
   Search,
   ShieldCheck,
+  ShoppingBag,
   Sparkles,
-  Flame,
   Truck,
   UserRound,
   X,
-  Percent,
-  ShoppingBag,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
@@ -27,6 +31,10 @@ import { useRouter } from "next/navigation";
 import ThemeToggle from "../ui/ThemeToggle";
 import { useCart } from "@/lib/cart-context";
 import type { Category } from "@/lib/types";
+
+/* ============================================================================
+   STORE HEADER
+============================================================================ */
 
 export default function StoreHeader() {
   const router = useRouter();
@@ -48,9 +56,9 @@ export default function StoreHeader() {
   const desktopSearchRef = useRef<HTMLInputElement>(null);
   const mobileSearchRef = useRef<HTMLInputElement>(null);
 
-  /* -------------------------------------------------------------------------- */
-  /* THEME                                                                      */
-  /* -------------------------------------------------------------------------- */
+  /* ==========================================================================
+     THEME
+  ========================================================================== */
 
   useEffect(() => {
     const root = document.documentElement;
@@ -68,14 +76,12 @@ export default function StoreHeader() {
       attributeFilter: ["class"],
     });
 
-    return () => {
-      observer.disconnect();
-    };
+    return () => observer.disconnect();
   }, []);
 
-  /* -------------------------------------------------------------------------- */
-  /* SCROLL                                                                     */
-  /* -------------------------------------------------------------------------- */
+  /* ==========================================================================
+     SCROLL
+  ========================================================================== */
 
   useEffect(() => {
     const handleScroll = () => {
@@ -93,9 +99,9 @@ export default function StoreHeader() {
     };
   }, []);
 
-  /* -------------------------------------------------------------------------- */
-  /* DATA                                                                       */
-  /* -------------------------------------------------------------------------- */
+  /* ==========================================================================
+     DATA
+  ========================================================================== */
 
   useEffect(() => {
     let mounted = true;
@@ -146,14 +152,12 @@ export default function StoreHeader() {
     };
   }, []);
 
-  /* -------------------------------------------------------------------------- */
-  /* BODY LOCK                                                                  */
-  /* -------------------------------------------------------------------------- */
+  /* ==========================================================================
+     BODY LOCK
+  ========================================================================== */
 
   useEffect(() => {
-    if (!mobileMenuOpen && !mobileSearchOpen) {
-      return;
-    }
+    if (!mobileMenuOpen && !mobileSearchOpen) return;
 
     const previousOverflow = document.body.style.overflow;
 
@@ -164,9 +168,9 @@ export default function StoreHeader() {
     };
   }, [mobileMenuOpen, mobileSearchOpen]);
 
-  /* -------------------------------------------------------------------------- */
-  /* ESC                                                                        */
-  /* -------------------------------------------------------------------------- */
+  /* ==========================================================================
+     ESC
+  ========================================================================== */
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -184,9 +188,9 @@ export default function StoreHeader() {
     };
   }, []);
 
-  /* -------------------------------------------------------------------------- */
-  /* SEARCH                                                                     */
-  /* -------------------------------------------------------------------------- */
+  /* ==========================================================================
+     SEARCH
+  ========================================================================== */
 
   const submitSearch = (event?: React.FormEvent) => {
     event?.preventDefault();
@@ -212,9 +216,9 @@ export default function StoreHeader() {
     });
   };
 
-  /* -------------------------------------------------------------------------- */
-  /* CLOSE ALL                                                                  */
-  /* -------------------------------------------------------------------------- */
+  /* ==========================================================================
+     CLOSE
+  ========================================================================== */
 
   const closeAll = () => {
     setDesktopCategoriesOpen(false);
@@ -222,23 +226,35 @@ export default function StoreHeader() {
     setMobileSearchOpen(false);
   };
 
-  /* -------------------------------------------------------------------------- */
-  /* LOGO                                                                       */
-  /* -------------------------------------------------------------------------- */
+  const openMobileSearch = () => {
+    setMobileMenuOpen(false);
+    setMobileSearchOpen(true);
+
+    window.setTimeout(() => {
+      mobileSearchRef.current?.focus();
+    }, 120);
+  };
+
+  /* ==========================================================================
+     LOGO
+  ========================================================================== */
 
   const logoSrc = isDark
     ? "/images/logo/abzar-ahmadi-logo-dark.png"
     : "/images/logo/abzar-ahmadi-logo-light.png";
 
-  /* ========================================================================== */
-  /* MOBILE MENU                                                                */
-  /* ========================================================================== */
+  /* ==========================================================================
+     MOBILE MENU
+  ========================================================================== */
 
   const mobileMenu =
     mobileMenuOpen &&
     typeof document !== "undefined" &&
     createPortal(
-      <div dir="rtl" className="fixed inset-0 z-[100] lg:hidden">
+      <div
+        dir="rtl"
+        className="fixed inset-0 z-[100] overflow-hidden lg:hidden"
+      >
         {/* BACKDROP */}
 
         <button
@@ -248,126 +264,107 @@ export default function StoreHeader() {
           className="
             absolute inset-0
             h-full w-full
-            cursor-default
-            bg-black/60
+            bg-black/70
             backdrop-blur-md
           "
         />
 
-        {/* PANEL */}
+        {/* MAIN SHEET */}
 
         <div
           className="
-            absolute inset-y-0 right-0
-            flex w-[91%] max-w-[430px]
+            absolute inset-x-0 bottom-0
+            flex h-[96dvh]
             flex-col
             overflow-hidden
-            border-l
+            rounded-t-[34px]
+            border-t
             border-[var(--border)]
             bg-[var(--surface)]
-            shadow-[-20px_0_70px_rgba(0,0,0,0.18)]
+            shadow-[0_-30px_100px_rgba(0,0,0,0.30)]
+            animate-[mobileMenuIn_.32s_cubic-bezier(.22,1,.36,1)]
           "
         >
-          {/* ACCENT */}
+          {/* ================================================================
+             TOP HANDLE
+          ================================================================= */}
+
+          <div className="flex shrink-0 justify-center pt-2.5">
+            <span
+              className="
+                h-1 w-11
+                rounded-full
+                bg-[var(--border)]
+              "
+            />
+          </div>
+
+          {/* ================================================================
+             HEADER
+          ================================================================= */}
 
           <div
             className="
-              h-[3px] shrink-0
-              bg-gradient-to-l
-              from-[var(--primary)]
-              via-[var(--primary)]
-              to-transparent
-            "
-          />
-
-          {/* MENU HEADER */}
-
-          <div
-            className="
-              flex items-center
-              justify-between
-              border-b
-              border-[var(--border)]
-              px-5 py-4
+              flex shrink-0
+              items-center justify-between
+              px-5 pb-4 pt-3
             "
           >
-            {/* BRAND */}
-
             <Link
               href="/"
               onClick={closeAll}
-              className="
-                flex min-w-0
-                items-center
-                gap-2.5
-                transition
-                active:scale-[0.98]
-              "
+              className="flex items-center gap-3"
             >
               <div
                 className="
-                  relative
-                  h-[44px]
-                  w-[56px]
-                  shrink-0
+                  relative grid size-11
+                  shrink-0 place-items-center
+                  overflow-hidden rounded-[15px]
+                  bg-[var(--primary)]/10
                 "
               >
                 <Image
                   src={logoSrc}
                   alt="لوگوی ابزار احمدی"
                   fill
-                  priority
-                  sizes="56px"
-                  className="object-contain object-center"
+                  sizes="44px"
+                  className="object-contain p-1.5"
                 />
               </div>
 
-              <div
-                className="
-                  flex min-w-0
-                  flex-col
-                  justify-center
-                  text-right
-                "
-              >
+              <div>
                 <div
                   className="
-                    whitespace-nowrap
-                    text-[16px]
+                    text-[13px]
                     font-black
-                    leading-6
-                    tracking-[-0.4px]
+                    tracking-tight
+                    text-[var(--text)]
                   "
                 >
-                  <span className="text-[var(--primary)]">ابزار</span>{" "}
-                  <span className="text-[var(--text)]">احمدی</span>
+                  ابزار احمدی
                 </div>
 
-                <span
+                <div
                   className="
                     mt-0.5
-                    whitespace-nowrap
                     text-[8px]
                     font-bold
-                    leading-4
                     text-[var(--muted)]
                   "
                 >
-                  فروشگاه ابزار آلات ساختمانی
-                </span>
+                  ابزار حرفه‌ای برای حرفه‌ای‌ها
+                </div>
               </div>
             </Link>
-
-            {/* CLOSE */}
 
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
+              aria-label="بستن منو"
               className="
                 grid size-10
-                shrink-0
                 place-items-center
-                rounded-xl
+                rounded-2xl
                 border
                 border-[var(--border)]
                 bg-[var(--surface-2)]
@@ -377,120 +374,276 @@ export default function StoreHeader() {
                 hover:text-[var(--primary)]
                 active:scale-95
               "
-              aria-label="بستن"
             >
-              <X size={19} />
+              <X size={18} />
             </button>
           </div>
 
-          {/* MENU CONTENT */}
+          {/* ================================================================
+             CONTENT
+          ================================================================= */}
 
           <div
             className="
+              min-h-0
               flex-1
               overflow-y-auto
               overscroll-contain
-              px-4 pb-7 pt-4
+              px-4 pb-10
             "
           >
-            {/* SEARCH */}
+            {/* ============================================================
+               ACCOUNT CARD
+            ============================================================= */}
 
-            <form
-              onSubmit={submitSearch}
+            <Link
+              href="/account"
+              onClick={closeAll}
               className="
-                flex h-[52px]
-                items-center gap-3
-                rounded-2xl
+                group
+                relative
+                block
+                overflow-hidden
+                rounded-[26px]
                 border
                 border-[var(--border)]
                 bg-[var(--surface-2)]
-                px-3
+                p-4
                 transition
-                focus-within:border-[var(--primary)]/50
-                focus-within:ring-4
-                focus-within:ring-[var(--primary)]/10
+                active:scale-[0.99]
               "
             >
+              {/* Decorative glow */}
+
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+                  -left-12
+                  -top-16
+                  size-36
+                  rounded-full
+                  bg-[var(--primary)]/10
+                  blur-2xl
+                "
+              />
+
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+                  -bottom-20
+                  right-10
+                  size-32
+                  rounded-full
+                  bg-[var(--primary)]/5
+                  blur-2xl
+                "
+              />
+
+              <div className="relative flex items-center gap-3">
+                <div
+                  className="
+                    grid size-12
+                    shrink-0
+                    place-items-center
+                    rounded-[17px]
+                    bg-[var(--primary)]/10
+                    text-[var(--primary)]
+                  "
+                >
+                  {userName ? (
+                    <CircleUserRound size={22} />
+                  ) : (
+                    <LogIn size={21} />
+                  )}
+                </div>
+
+                <div className="min-w-0 flex-1">
+                  <div
+                    className="
+                      truncate
+                      text-[12px]
+                      font-black
+                      text-[var(--text)]
+                    "
+                  >
+                    {userName ? `سلام ${userName} 👋` : "خوش اومدی 👋"}
+                  </div>
+
+                  <div
+                    className="
+                      mt-1
+                      text-[9px]
+                      font-bold
+                      text-[var(--muted)]
+                    "
+                  >
+                    {userName
+                      ? "حساب کاربری و سفارش‌های خودت را ببین"
+                      : "برای مشاهده سفارش‌ها وارد حساب شو"}
+                  </div>
+                </div>
+
+                <span
+                  className="
+                    grid size-9
+                    place-items-center
+                    rounded-xl
+                    bg-[var(--surface)]
+                    text-[var(--muted)]
+                    transition
+                    group-hover:text-[var(--primary)]
+                  "
+                >
+                  <ChevronLeft size={15} />
+                </span>
+              </div>
+            </Link>
+
+            {/* ============================================================
+               SEARCH
+            ============================================================= */}
+
+            <button
+              type="button"
+              onClick={openMobileSearch}
+              className="
+                group
+                relative
+                mt-3
+                flex h-[58px]
+                w-full
+                items-center
+                gap-3
+                overflow-hidden
+                rounded-[20px]
+                border
+                border-[var(--primary)]/20
+                bg-[var(--surface-2)]
+                px-3
+                text-right
+                transition
+                hover:border-[var(--primary)]/40
+                active:scale-[0.99]
+              "
+            >
+              <div
+                className="
+                  absolute
+                  inset-y-0
+                  right-0
+                  w-24
+                  bg-gradient-to-l
+                  from-[var(--primary)]/8
+                  to-transparent
+                "
+              />
+
               <span
                 className="
-                  grid size-9
+                  relative
+                  grid size-10
                   shrink-0
                   place-items-center
-                  rounded-xl
-                  bg-[var(--primary)]/10
-                  text-[var(--primary)]
+                  rounded-[14px]
+                  bg-[var(--primary)]
+                  text-white
+                  shadow-lg
+                  shadow-[var(--primary)]/20
                 "
               >
                 <Search size={17} />
               </span>
 
-              <input
-                value={searchQuery}
-                onChange={(event) => setSearchQuery(event.target.value)}
-                type="search"
-                placeholder="چی می‌خوای پیدا کنی؟"
-                className="
-                  min-w-0 flex-1
-                  bg-transparent
-                  text-xs font-bold
-                  text-[var(--text)]
-                  outline-none
-                  placeholder:text-[var(--muted)]
-                "
-                autoComplete="off"
-              />
-
-              {searchQuery && (
-                <button
-                  type="button"
-                  onClick={() => setSearchQuery("")}
-                  className="
-                    grid size-7
-                    place-items-center
-                    rounded-lg
-                    text-[var(--muted)]
-                  "
-                  aria-label="پاک کردن"
-                >
-                  <X size={14} />
-                </button>
-              )}
-            </form>
-
-            {/* QUICK ACTIONS */}
-
-            <div className="mt-5">
-              <div
-                className="
-                  mb-3 flex
-                  items-center
-                  justify-between
-                "
-              >
+              <span className="relative min-w-0 flex-1">
                 <span
                   className="
+                    block
                     text-[10px]
                     font-black
-                    text-[var(--muted)]
+                    text-[var(--text)]
                   "
                 >
-                  دسترسی سریع
+                  دنبال چه ابزاری هستی؟
                 </span>
 
                 <span
                   className="
-                    h-px w-16
-                    bg-[var(--border)]
+                    mt-0.5
+                    block
+                    truncate
+                    text-[8px]
+                    font-medium
+                    text-[var(--muted)]
                   "
-                />
-              </div>
+                >
+                  نام محصول، برند یا کد کالا...
+                </span>
+              </span>
 
-              <div
+              <span
                 className="
-                  grid grid-cols-2
-                  gap-2
+                  relative
+                  grid size-8
+                  place-items-center
+                  rounded-xl
+                  bg-[var(--surface)]
+                  text-[var(--muted)]
                 "
               >
+                <ArrowUpLeft size={14} />
+              </span>
+            </button>
+
+            {/* ============================================================
+               QUICK ACTIONS
+            ============================================================= */}
+
+            <section className="mt-7">
+              <div className="mb-3 flex items-center justify-between">
+                <div>
+                  <div
+                    className="
+                      text-[11px]
+                      font-black
+                      text-[var(--text)]
+                    "
+                  >
+                    دسترسی سریع
+                  </div>
+
+                  <div
+                    className="
+                      mt-1
+                      text-[8px]
+                      font-bold
+                      text-[var(--muted)]
+                    "
+                  >
+                    کارهای پرتکرار
+                  </div>
+                </div>
+
+                {count > 0 && (
+                  <div
+                    className="
+                      flex items-center gap-1
+                      rounded-full
+                      bg-[var(--primary)]/10
+                      px-2.5 py-1.5
+                      text-[8px]
+                      font-black
+                      text-[var(--primary)]
+                    "
+                  >
+                    <ShoppingBag size={11} />
+                    {count.toLocaleString("fa-IR")} کالا
+                  </div>
+                )}
+              </div>
+
+              <div className="grid grid-cols-2 gap-2.5">
                 {/* STORE */}
 
                 <Link
@@ -499,12 +652,13 @@ export default function StoreHeader() {
                   className="
                     group
                     relative
+                    min-h-[112px]
                     overflow-hidden
-                    rounded-2xl
+                    rounded-[24px]
                     bg-[var(--primary)]
                     p-4
                     text-white
-                    shadow-lg
+                    shadow-xl
                     shadow-[var(--primary)]/15
                     transition
                     active:scale-[0.98]
@@ -513,32 +667,174 @@ export default function StoreHeader() {
                   <div
                     className="
                       absolute
-                      -left-6 -top-6
-                      size-20
+                      -left-8
+                      -top-8
+                      size-28
                       rounded-full
                       bg-white/10
                     "
                   />
 
-                  <div
-                    className="
-                      relative
-                      grid size-10
-                      place-items-center
-                      rounded-xl
-                      bg-white/15
-                    "
-                  >
-                    <ShoppingBag size={18} />
-                  </div>
+                  <div className="relative flex h-full flex-col">
+                    <span
+                      className="
+                        grid size-10
+                        place-items-center
+                        rounded-[14px]
+                        bg-white/15
+                      "
+                    >
+                      <ShoppingBag size={19} />
+                    </span>
 
-                  <div className="relative mt-3">
-                    <div className="text-xs font-black">فروشگاه</div>
+                    <div className="mt-auto">
+                      <div className="text-[11px] font-black">فروشگاه</div>
 
-                    <div className="mt-1 text-[9px] text-white/65">
-                      همه محصولات
+                      <div className="mt-0.5 text-[8px] font-medium text-white/65">
+                        مشاهده همه محصولات
+                      </div>
                     </div>
                   </div>
+                </Link>
+
+                {/* CART */}
+
+                <Link
+                  href="/cart"
+                  onClick={closeAll}
+                  className="
+                    group
+                    relative
+                    min-h-[112px]
+                    overflow-hidden
+                    rounded-[24px]
+                    border
+                    border-[var(--border)]
+                    bg-[var(--surface-2)]
+                    p-4
+                    transition
+                    active:scale-[0.98]
+                  "
+                >
+                  <span
+                    className="
+                      grid size-10
+                      place-items-center
+                      rounded-[14px]
+                      bg-[var(--primary)]/10
+                      text-[var(--primary)]
+                    "
+                  >
+                    <ShoppingBag size={19} />
+                  </span>
+
+                  <div className="mt-5">
+                    <div
+                      className="
+                        text-[11px]
+                        font-black
+                        text-[var(--text)]
+                      "
+                    >
+                      سبد خرید
+                    </div>
+
+                    <div
+                      className="
+                        mt-0.5
+                        text-[8px]
+                        font-medium
+                        text-[var(--muted)]
+                      "
+                    >
+                      مشاهده و تکمیل خرید
+                    </div>
+                  </div>
+
+                  {count > 0 && (
+                    <span
+                      className="
+                        absolute
+                        left-3
+                        top-3
+                        grid
+                        h-6
+                        min-w-6
+                        place-items-center
+                        rounded-full
+                        bg-[var(--danger)]
+                        px-1.5
+                        text-[8px]
+                        font-black
+                        text-white
+                        ring-4
+                        ring-[var(--surface-2)]
+                      "
+                    >
+                      {count > 99 ? "۹۹+" : count.toLocaleString("fa-IR")}
+                    </span>
+                  )}
+                </Link>
+
+                {/* ORDERS */}
+
+                <Link
+                  href="/account/orders"
+                  onClick={closeAll}
+                  className="
+                    group
+                    flex
+                    min-h-[86px]
+                    items-center
+                    gap-3
+                    rounded-[22px]
+                    border
+                    border-[var(--border)]
+                    bg-[var(--surface-2)]
+                    px-4
+                    transition
+                    active:scale-[0.98]
+                  "
+                >
+                  <span
+                    className="
+                      grid size-10
+                      shrink-0
+                      place-items-center
+                      rounded-[14px]
+                      bg-blue-500/10
+                      text-blue-500
+                    "
+                  >
+                    <ClipboardList size={18} />
+                  </span>
+
+                  <span className="min-w-0 flex-1">
+                    <span
+                      className="
+                        block
+                        text-[10px]
+                        font-black
+                        text-[var(--text)]
+                      "
+                    >
+                      سفارش‌های من
+                    </span>
+
+                    <span
+                      className="
+                        mt-1
+                        block
+                        text-[8px]
+                        font-bold
+                        text-[var(--muted)]
+                      "
+                    >
+                      پیگیری سفارش
+                    </span>
+                  </span>
+
+                  <ChevronLeft size={14} className="text-[var(--muted)]" />
                 </Link>
 
                 {/* NEW */}
@@ -548,131 +844,244 @@ export default function StoreHeader() {
                   onClick={closeAll}
                   className="
                     group
-                    rounded-2xl
+                    flex
+                    min-h-[86px]
+                    items-center
+                    gap-3
+                    rounded-[22px]
                     border
                     border-[var(--border)]
                     bg-[var(--surface-2)]
-                    p-4
+                    px-4
                     transition
-                    hover:border-[var(--primary)]/20
                     active:scale-[0.98]
                   "
                 >
-                  <div
+                  <span
                     className="
                       grid size-10
+                      shrink-0
                       place-items-center
-                      rounded-xl
-                      bg-[var(--primary)]/10
-                      text-[var(--primary)]
+                      rounded-[14px]
+                      bg-purple-500/10
+                      text-purple-500
                     "
                   >
                     <Sparkles size={18} />
-                  </div>
+                  </span>
 
+                  <span className="min-w-0 flex-1">
+                    <span
+                      className="
+                        block
+                        text-[10px]
+                        font-black
+                        text-[var(--text)]
+                      "
+                    >
+                      تازه‌ها
+                    </span>
+
+                    <span
+                      className="
+                        mt-1
+                        block
+                        text-[8px]
+                        font-bold
+                        text-[var(--muted)]
+                      "
+                    >
+                      جدیدترین محصولات
+                    </span>
+                  </span>
+
+                  <ChevronLeft size={14} className="text-[var(--muted)]" />
+                </Link>
+              </div>
+            </section>
+
+            {/* ============================================================
+               CATEGORY HORIZONTAL SCROLLER
+            ============================================================= */}
+
+            <section className="mt-8">
+              <div className="mb-3 flex items-end justify-between">
+                <div>
                   <div
                     className="
-                      mt-3 text-xs
+                      flex items-center gap-2
+                      text-[11px]
                       font-black
                       text-[var(--text)]
                     "
                   >
-                    جدیدترین‌ها
+                    <span
+                      className="
+                        grid size-7
+                        place-items-center
+                        rounded-lg
+                        bg-[var(--primary)]/10
+                        text-[var(--primary)]
+                      "
+                    >
+                      <Grid2X2 size={13} />
+                    </span>
+                    دسته‌بندی ابزارها
                   </div>
 
                   <div
                     className="
-                      mt-1 text-[9px]
+                      mt-1
+                      text-[8px]
+                      font-bold
                       text-[var(--muted)]
                     "
                   >
-                    تازه‌ترین محصولات
+                    سریع وارد دسته مورد نظر شو
                   </div>
-                </Link>
-              </div>
-            </div>
-
-            {/* MAIN NAV */}
-
-            <div className="mt-6">
-              <div
-                className="
-                  mb-3 flex
-                  items-center
-                  justify-between
-                "
-              >
-                <span
-                  className="
-                    text-[10px]
-                    font-black
-                    text-[var(--muted)]
-                  "
-                >
-                  منوی فروشگاه
-                </span>
-
-                <span
-                  className="
-                    h-px w-16
-                    bg-[var(--border)]
-                  "
-                />
-              </div>
-
-              <div
-                className="
-                  overflow-hidden
-                  rounded-2xl
-                  border
-                  border-[var(--border)]
-                  bg-[var(--surface-2)]
-                "
-              >
-                {/* STORE */}
+                </div>
 
                 <Link
                   href="/products"
                   onClick={closeAll}
                   className="
-                    group
-                    flex items-center
-                    gap-3
-                    border-b
-                    border-[var(--border)]
-                    px-4 py-3.5
-                    transition
-                    hover:bg-[var(--surface)]
+                    flex items-center gap-1
+                    text-[8px]
+                    font-black
+                    text-[var(--primary)]
                   "
                 >
-                  <span
-                    className="
-                      grid size-9
-                      place-items-center
-                      rounded-xl
-                      bg-[var(--surface)]
-                      text-[var(--muted)]
-                      transition
-                      group-hover:bg-[var(--primary)]/10
-                      group-hover:text-[var(--primary)]
-                    "
-                  >
-                    <Grid2X2 size={16} />
-                  </span>
-
-                  <span
-                    className="
-                      flex-1 text-xs
-                      font-bold
-                      text-[var(--text)]
-                    "
-                  >
-                    فروشگاه
-                  </span>
-
-                  <ChevronLeft size={15} className="text-[var(--muted)]" />
+                  همه
+                  <ChevronLeft size={12} />
                 </Link>
+              </div>
 
+              {categories.length > 0 ? (
+                <div
+                  className="
+                    -mx-4
+                    flex
+                    gap-2.5
+                    overflow-x-auto
+                    px-4
+                    pb-2
+                    scrollbar-none
+                  "
+                >
+                  {categories.map((category) => (
+                    <Link
+                      key={category.id}
+                      href={`/products?category=${encodeURIComponent(
+                        category.name,
+                      )}`}
+                      onClick={closeAll}
+                      className="
+                        group
+                        flex
+                        w-[118px]
+                        shrink-0
+                        flex-col
+                        rounded-[22px]
+                        border
+                        border-[var(--border)]
+                        bg-[var(--surface-2)]
+                        p-3
+                        transition
+                        active:scale-[0.97]
+                      "
+                    >
+                      <span
+                        className="
+                          grid size-10
+                          place-items-center
+                          rounded-[14px]
+                          bg-[var(--surface)]
+                          text-[var(--muted)]
+                          transition
+                          group-hover:bg-[var(--primary)]/10
+                          group-hover:text-[var(--primary)]
+                        "
+                      >
+                        <Package size={17} />
+                      </span>
+
+                      <span
+                        className="
+                          mt-3
+                          line-clamp-2
+                          min-h-[28px]
+                          text-[9px]
+                          font-black
+                          leading-4
+                          text-[var(--text)]
+                        "
+                      >
+                        {category.name}
+                      </span>
+
+                      <span
+                        className="
+                          mt-2
+                          flex items-center gap-1
+                          text-[7px]
+                          font-bold
+                          text-[var(--muted)]
+                        "
+                      >
+                        مشاهده
+                        <ChevronLeft size={10} />
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+                <div
+                  className="
+                    rounded-[22px]
+                    border
+                    border-dashed
+                    border-[var(--border)]
+                    py-7
+                    text-center
+                    text-[9px]
+                    font-bold
+                    text-[var(--muted)]
+                  "
+                >
+                  دسته‌بندی‌ای موجود نیست.
+                </div>
+              )}
+            </section>
+
+            {/* ============================================================
+               DISCOVER
+            ============================================================= */}
+
+            <section className="mt-8">
+              <div className="mb-3">
+                <div
+                  className="
+                    text-[11px]
+                    font-black
+                    text-[var(--text)]
+                  "
+                >
+                  کشف کن
+                </div>
+
+                <div
+                  className="
+                    mt-1
+                    text-[8px]
+                    font-bold
+                    text-[var(--muted)]
+                  "
+                >
+                  چیزی که امروز به کارت می‌آید
+                </div>
+              </div>
+
+              <div className="space-y-2.5">
                 {/* POPULAR */}
 
                 <Link
@@ -680,38 +1089,85 @@ export default function StoreHeader() {
                   onClick={closeAll}
                   className="
                     group
-                    flex items-center
+                    relative
+                    flex
+                    min-h-[78px]
+                    items-center
                     gap-3
-                    border-b
+                    overflow-hidden
+                    rounded-[22px]
+                    border
                     border-[var(--border)]
-                    px-4 py-3.5
+                    bg-[var(--surface-2)]
+                    px-4
                     transition
-                    hover:bg-[var(--surface)]
+                    active:scale-[0.99]
                   "
                 >
+                  <div
+                    className="
+                      absolute
+                      -left-8
+                      top-1/2
+                      size-24
+                      -translate-y-1/2
+                      rounded-full
+                      bg-orange-500/5
+                      blur-xl
+                    "
+                  />
+
                   <span
                     className="
-                      grid size-9
+                      relative
+                      grid size-11
+                      shrink-0
                       place-items-center
-                      rounded-xl
+                      rounded-[15px]
                       bg-orange-500/10
                       text-orange-500
                     "
                   >
-                    <Flame size={16} />
+                    <Flame size={20} />
+                  </span>
+
+                  <span className="relative min-w-0 flex-1">
+                    <span
+                      className="
+                        block
+                        text-[10px]
+                        font-black
+                        text-[var(--text)]
+                      "
+                    >
+                      پرفروش‌ترین‌ها
+                    </span>
+
+                    <span
+                      className="
+                        mt-1
+                        block
+                        text-[8px]
+                        font-bold
+                        text-[var(--muted)]
+                      "
+                    >
+                      محصولاتی که بیشتر انتخاب شده‌اند
+                    </span>
                   </span>
 
                   <span
                     className="
-                      flex-1 text-xs
-                      font-bold
-                      text-[var(--text)]
+                      relative
+                      grid size-8
+                      place-items-center
+                      rounded-xl
+                      bg-[var(--surface)]
+                      text-[var(--muted)]
                     "
                   >
-                    پرفروش‌ها
+                    <ChevronLeft size={14} />
                   </span>
-
-                  <ChevronLeft size={15} className="text-[var(--muted)]" />
                 </Link>
 
                 {/* DISCOUNT */}
@@ -721,52 +1177,99 @@ export default function StoreHeader() {
                   onClick={closeAll}
                   className="
                     group
-                    flex items-center
+                    relative
+                    flex
+                    min-h-[78px]
+                    items-center
                     gap-3
-                    border-b
+                    overflow-hidden
+                    rounded-[22px]
+                    border
                     border-[var(--border)]
-                    px-4 py-3.5
+                    bg-[var(--surface-2)]
+                    px-4
                     transition
-                    hover:bg-[var(--surface)]
+                    active:scale-[0.99]
                   "
                 >
                   <span
                     className="
-                      grid size-9
+                      grid size-11
+                      shrink-0
                       place-items-center
-                      rounded-xl
+                      rounded-[15px]
                       bg-red-500/10
                       text-red-500
                     "
                   >
-                    <Percent size={16} />
+                    <Percent size={19} />
+                  </span>
+
+                  <span className="min-w-0 flex-1">
+                    <span
+                      className="
+                        block
+                        text-[10px]
+                        font-black
+                        text-[var(--text)]
+                      "
+                    >
+                      پیشنهادهای ویژه
+                    </span>
+
+                    <span
+                      className="
+                        mt-1
+                        block
+                        text-[8px]
+                        font-bold
+                        text-[var(--muted)]
+                      "
+                    >
+                      تخفیف‌های فعال فروشگاه
+                    </span>
                   </span>
 
                   <span
                     className="
-                      flex-1 text-xs
-                      font-bold
-                      text-[var(--text)]
+                      grid size-8
+                      place-items-center
+                      rounded-xl
+                      bg-[var(--surface)]
+                      text-[var(--muted)]
                     "
                   >
-                    پیشنهادهای ویژه
+                    <ChevronLeft size={14} />
                   </span>
-
-                  <ChevronLeft size={15} className="text-[var(--muted)]" />
                 </Link>
+              </div>
+            </section>
 
-                {/* NEW */}
+            {/* ============================================================
+               SERVICE STRIP
+            ============================================================= */}
 
-                <Link
-                  href="/products?sort=newest"
-                  onClick={closeAll}
+            <section className="mt-7">
+              <div
+                className="
+                  grid grid-cols-3
+                  overflow-hidden
+                  rounded-[22px]
+                  border
+                  border-[var(--border)]
+                  bg-[var(--surface-2)]
+                "
+              >
+                <div
                   className="
-                    group
-                    flex items-center
-                    gap-3
-                    px-4 py-3.5
-                    transition
-                    hover:bg-[var(--surface)]
+                    flex flex-col
+                    items-center
+                    gap-2
+                    border-l
+                    border-[var(--border)]
+                    px-2
+                    py-4
+                    text-center
                   "
                 >
                   <span
@@ -778,277 +1281,112 @@ export default function StoreHeader() {
                       text-[var(--primary)]
                     "
                   >
-                    <Sparkles size={16} />
+                    <ShieldCheck size={16} />
                   </span>
 
                   <span
                     className="
-                      flex-1 text-xs
-                      font-bold
-                      text-[var(--text)]
-                    "
-                  >
-                    جدیدترین‌ها
-                  </span>
-
-                  <ChevronLeft size={15} className="text-[var(--muted)]" />
-                </Link>
-              </div>
-            </div>
-
-            {/* ACCOUNT */}
-
-            <div className="mt-6">
-              <Link
-                href="/account"
-                onClick={closeAll}
-                className="
-                  group
-                  flex items-center
-                  gap-3
-                  rounded-2xl
-                  border
-                  border-[var(--border)]
-                  bg-[var(--surface-2)]
-                  p-4
-                  transition
-                  hover:border-[var(--primary)]/25
-                "
-              >
-                <div
-                  className="
-                    grid size-11
-                    place-items-center
-                    rounded-xl
-                    bg-[var(--primary)]/10
-                    text-[var(--primary)]
-                  "
-                >
-                  <UserRound size={19} />
-                </div>
-
-                <div className="min-w-0 flex-1">
-                  <div
-                    className="
-                      truncate
-                      text-xs font-black
-                      text-[var(--text)]
-                    "
-                  >
-                    {userName ?? "حساب کاربری"}
-                  </div>
-
-                  <div
-                    className="
-                      mt-1 text-[9px]
+                      text-[7px]
+                      font-black
                       text-[var(--muted)]
                     "
                   >
-                    {userName ? "مشاهده حساب و سفارش‌ها" : "ورود یا ثبت‌نام"}
-                  </div>
+                    اصالت کالا
+                  </span>
                 </div>
 
-                <ChevronLeft size={16} className="text-[var(--muted)]" />
-              </Link>
-            </div>
-
-            {/* CATEGORIES */}
-
-            <div className="mt-6">
-              <div
-                className="
-                  mb-3 flex
-                  items-center
-                  justify-between
-                "
-              >
                 <div
                   className="
-                    flex items-center gap-2
+                    flex flex-col
+                    items-center
+                    gap-2
+                    border-l
+                    border-[var(--border)]
+                    px-2
+                    py-4
+                    text-center
                   "
                 >
                   <span
                     className="
-                      grid size-7
+                      grid size-9
                       place-items-center
-                      rounded-lg
+                      rounded-xl
                       bg-[var(--primary)]/10
                       text-[var(--primary)]
                     "
                   >
-                    <Grid2X2 size={14} />
+                    <Truck size={16} />
                   </span>
 
                   <span
                     className="
-                      text-xs font-black
-                      text-[var(--text)]
-                    "
-                  >
-                    دسته‌بندی کالاها
-                  </span>
-                </div>
-
-                <span
-                  className="
-                    rounded-full
-                    bg-[var(--surface-2)]
-                    px-2.5 py-1
-                    text-[8px] font-black
-                    text-[var(--muted)]
-                  "
-                >
-                  {categories.length.toLocaleString("fa-IR")} دسته
-                </span>
-              </div>
-
-              <div className="space-y-1">
-                {categories.length > 0 ? (
-                  categories.map((category) => (
-                    <Link
-                      key={category.id}
-                      href={`/products?category=${encodeURIComponent(
-                        category.name,
-                      )}`}
-                      onClick={closeAll}
-                      className="
-                        group
-                        flex items-center
-                        gap-3
-                        rounded-2xl
-                        p-2.5
-                        transition
-                        hover:bg-[var(--surface-2)]
-                        active:scale-[0.99]
-                      "
-                    >
-                      <span
-                        className="
-                          grid size-10
-                          shrink-0
-                          place-items-center
-                          rounded-xl
-                          border
-                          border-[var(--border)]
-                          bg-[var(--surface-2)]
-                          text-[var(--muted)]
-                          transition
-                          group-hover:border-[var(--primary)]/20
-                          group-hover:bg-[var(--primary)]/10
-                          group-hover:text-[var(--primary)]
-                        "
-                      >
-                        <Package size={16} />
-                      </span>
-
-                      <span
-                        className="
-                          flex-1
-                          truncate
-                          text-xs font-bold
-                          text-[var(--text)]
-                        "
-                      >
-                        {category.name}
-                      </span>
-
-                      <ChevronLeft size={15} className="text-[var(--muted)]" />
-                    </Link>
-                  ))
-                ) : (
-                  <div
-                    className="
-                      rounded-2xl
-                      border border-dashed
-                      border-[var(--border)]
-                      py-8
-                      text-center
-                      text-xs font-bold
+                      text-[7px]
+                      font-black
                       text-[var(--muted)]
                     "
                   >
-                    دسته‌بندی‌ای موجود نیست.
-                  </div>
-                )}
-              </div>
-            </div>
-
-            {/* SERVICES */}
-
-            <div
-              className="
-                mt-6
-                grid grid-cols-3
-                gap-2
-              "
-            >
-              <div
-                className="
-                  rounded-2xl
-                  border border-[var(--border)]
-                  bg-[var(--surface-2)]
-                  p-3 text-center
-                "
-              >
-                <ShieldCheck
-                  size={17}
-                  className="mx-auto text-[var(--primary)]"
-                />
+                    ارسال سریع
+                  </span>
+                </div>
 
                 <div
                   className="
-                    mt-2 text-[8px]
-                    font-bold
-                    text-[var(--muted)]
+                    flex flex-col
+                    items-center
+                    gap-2
+                    px-2
+                    py-4
+                    text-center
                   "
                 >
-                  ضمانت اصالت
+                  <span
+                    className="
+                      grid size-9
+                      place-items-center
+                      rounded-xl
+                      bg-[var(--primary)]/10
+                      text-[var(--primary)]
+                    "
+                  >
+                    <Headphones size={16} />
+                  </span>
+
+                  <span
+                    className="
+                      text-[7px]
+                      font-black
+                      text-[var(--muted)]
+                    "
+                  >
+                    پشتیبانی
+                  </span>
                 </div>
               </div>
+            </section>
 
+            {/* BOTTOM BRAND */}
+
+            <div className="mt-8 text-center">
               <div
                 className="
-                  rounded-2xl
-                  border border-[var(--border)]
-                  bg-[var(--surface-2)]
-                  p-3 text-center
+                  text-[9px]
+                  font-black
+                  text-[var(--muted)]
                 "
               >
-                <Truck size={17} className="mx-auto text-[var(--primary)]" />
-
-                <div
-                  className="
-                    mt-2 text-[8px]
-                    font-bold
-                    text-[var(--muted)]
-                  "
-                >
-                  ارسال سریع
-                </div>
+                ابزار احمدی
               </div>
 
               <div
                 className="
-                  rounded-2xl
-                  border border-[var(--border)]
-                  bg-[var(--surface-2)]
-                  p-3 text-center
+                  mt-1
+                  text-[7px]
+                  font-bold
+                  text-[var(--muted)]/60
                 "
               >
-                <Headphones
-                  size={17}
-                  className="mx-auto text-[var(--primary)]"
-                />
-
-                <div
-                  className="
-                    mt-2 text-[8px]
-                    font-bold
-                    text-[var(--muted)]
-                  "
-                >
-                  پشتیبانی
-                </div>
+                ابزار حرفه‌ای برای کار حرفه‌ای
               </div>
             </div>
           </div>
@@ -1057,9 +1395,9 @@ export default function StoreHeader() {
       document.body,
     );
 
-  /* ========================================================================== */
-  /* MOBILE SEARCH                                                              */
-  /* ========================================================================== */
+  /* ==========================================================================
+     MOBILE SEARCH
+  ========================================================================== */
 
   const mobileSearch =
     mobileSearchOpen &&
@@ -1068,7 +1406,8 @@ export default function StoreHeader() {
       <div
         dir="rtl"
         className="
-          fixed inset-0 z-[110]
+          fixed inset-0
+          z-[110]
           bg-[var(--surface)]
           lg:hidden
         "
@@ -1078,8 +1417,10 @@ export default function StoreHeader() {
 
           <div
             className="
-              flex h-[72px]
-              items-center gap-2
+              flex h-[76px]
+              shrink-0
+              items-center
+              gap-2
               border-b
               border-[var(--border)]
               px-3
@@ -1087,7 +1428,10 @@ export default function StoreHeader() {
           >
             <button
               type="button"
-              onClick={() => setMobileSearchOpen(false)}
+              onClick={() => {
+                setMobileSearchOpen(false);
+                setMobileMenuOpen(true);
+              }}
               className="
                 grid size-11
                 shrink-0
@@ -1117,24 +1461,19 @@ export default function StoreHeader() {
                 ring-[var(--primary)]/5
               "
             >
-              <Search
-                size={18}
-                className="
-                  shrink-0
-                  text-[var(--primary)]
-                "
-              />
+              <Search size={18} className="shrink-0 text-[var(--primary)]" />
 
               <input
                 ref={mobileSearchRef}
                 value={searchQuery}
                 onChange={(event) => setSearchQuery(event.target.value)}
                 type="search"
-                placeholder="جستجوی محصول..."
+                placeholder="جستجوی محصول، برند یا کد کالا..."
                 className="
                   min-w-0 flex-1
                   bg-transparent
-                  text-sm font-bold
+                  text-sm
+                  font-bold
                   text-[var(--text)]
                   outline-none
                   placeholder:text-[var(--muted)]
@@ -1163,18 +1502,13 @@ export default function StoreHeader() {
 
           {/* SEARCH CONTENT */}
 
-          <div
-            className="
-              flex-1
-              overflow-y-auto
-              p-5
-            "
-          >
+          <div className="flex-1 overflow-y-auto p-5">
             <div
               className="
                 mb-5
                 flex items-center gap-2
-                text-xs font-black
+                text-xs
+                font-black
                 text-[var(--text)]
               "
             >
@@ -1182,17 +1516,12 @@ export default function StoreHeader() {
               جستجوی سریع
             </div>
 
-            <div
-              className="
-                grid grid-cols-2
-                gap-2
-              "
-            >
+            <div className="grid grid-cols-2 gap-2.5">
               <Link
                 href="/products?sort=newest"
                 onClick={closeAll}
                 className="
-                  rounded-2xl
+                  rounded-[22px]
                   border
                   border-[var(--border)]
                   bg-[var(--surface-2)]
@@ -1205,7 +1534,9 @@ export default function StoreHeader() {
 
                 <div
                   className="
-                    mt-3 text-xs font-black
+                    mt-3
+                    text-xs
+                    font-black
                     text-[var(--text)]
                   "
                 >
@@ -1217,7 +1548,7 @@ export default function StoreHeader() {
                 href="/products?sort=popular"
                 onClick={closeAll}
                 className="
-                  rounded-2xl
+                  rounded-[22px]
                   border
                   border-[var(--border)]
                   bg-[var(--surface-2)]
@@ -1230,7 +1561,9 @@ export default function StoreHeader() {
 
                 <div
                   className="
-                    mt-3 text-xs font-black
+                    mt-3
+                    text-xs
+                    font-black
                     text-[var(--text)]
                   "
                 >
@@ -1242,14 +1575,16 @@ export default function StoreHeader() {
             <div className="mt-7">
               <div
                 className="
-                  mb-3 text-xs font-black
+                  mb-3
+                  text-xs
+                  font-black
                   text-[var(--text)]
                 "
               >
                 دسته‌بندی‌ها
               </div>
 
-              <div className="space-y-1">
+              <div className="flex flex-wrap gap-2">
                 {categories.map((category) => (
                   <Link
                     key={category.id}
@@ -1258,37 +1593,20 @@ export default function StoreHeader() {
                     )}`}
                     onClick={closeAll}
                     className="
-                      flex items-center
-                      gap-3
-                      rounded-2xl
-                      p-3
+                      rounded-full
+                      border
+                      border-[var(--border)]
+                      bg-[var(--surface-2)]
+                      px-3.5
+                      py-2.5
+                      text-[9px]
+                      font-black
+                      text-[var(--text)]
                       transition
-                      hover:bg-[var(--surface-2)]
+                      active:scale-95
                     "
                   >
-                    <span
-                      className="
-                        grid size-9
-                        place-items-center
-                        rounded-xl
-                        bg-[var(--surface-2)]
-                        text-[var(--muted)]
-                      "
-                    >
-                      <Package size={15} />
-                    </span>
-
-                    <span
-                      className="
-                        flex-1 truncate
-                        text-xs font-bold
-                        text-[var(--text)]
-                      "
-                    >
-                      {category.name}
-                    </span>
-
-                    <ChevronLeft size={14} className="text-[var(--muted)]" />
+                    {category.name}
                   </Link>
                 ))}
               </div>
@@ -1299,9 +1617,9 @@ export default function StoreHeader() {
       document.body,
     );
 
-  /* ========================================================================== */
-  /* HEADER                                                                     */
-  /* ========================================================================== */
+  /* ==========================================================================
+     HEADER
+  ========================================================================== */
 
   return (
     <>
@@ -1328,9 +1646,9 @@ export default function StoreHeader() {
           "
         />
 
-        {/* ================================================================== */}
-        {/* DESKTOP                                                             */}
-        {/* ================================================================== */}
+        {/* ==================================================================
+           DESKTOP
+        ================================================================== */}
 
         <div className="hidden lg:block">
           {/* MAIN ROW */}
@@ -1363,8 +1681,6 @@ export default function StoreHeader() {
                 hover:scale-[1.01]
               "
             >
-              {/* LOGO */}
-
               <div
                 className="
                   relative
@@ -1382,8 +1698,6 @@ export default function StoreHeader() {
                   className="object-contain object-center"
                 />
               </div>
-
-              {/* BRAND TEXT */}
 
               <div
                 className="
@@ -1532,11 +1846,7 @@ export default function StoreHeader() {
                 gap-2
               "
             >
-              {/* DARK / LIGHT */}
-
               <ThemeToggle />
-
-              {/* ACCOUNT */}
 
               <Link
                 href="/account"
@@ -1595,8 +1905,6 @@ export default function StoreHeader() {
                   </span>
                 </span>
               </Link>
-
-              {/* CART */}
 
               <Link
                 href="/cart"
@@ -1658,12 +1966,7 @@ export default function StoreHeader() {
 
           {/* SECOND ROW */}
 
-          <div
-            className="
-              border-t
-              border-[var(--border)]
-            "
-          >
+          <div className="border-t border-[var(--border)]">
             <div
               className="
                 mx-auto flex
@@ -1675,8 +1978,6 @@ export default function StoreHeader() {
                 lg:px-8
               "
             >
-              {/* CATEGORIES */}
-
               <div className="relative">
                 <button
                   type="button"
@@ -1906,8 +2207,6 @@ export default function StoreHeader() {
                 )}
               </div>
 
-              {/* NAVIGATION */}
-
               <nav
                 className="
                   mr-3
@@ -1995,8 +2294,6 @@ export default function StoreHeader() {
                 </Link>
               </nav>
 
-              {/* SERVICES */}
-
               <div
                 className="
                   mr-auto
@@ -2048,23 +2345,21 @@ export default function StoreHeader() {
           </div>
         </div>
 
-        {/* ================================================================== */}
-        {/* MOBILE                                                              */}
-        {/* ================================================================== */}
+        {/* ==================================================================
+           MOBILE HEADER
+        ================================================================== */}
 
         <div className="lg:hidden">
-          {/* MOBILE TOP */}
+          {/* TOP */}
 
           <div
             className="
-              flex h-[74px]
+              flex h-[72px]
               items-center
               px-3
               sm:px-4
             "
           >
-            {/* BRAND - RIGHT */}
-
             <Link
               href="/"
               onClick={closeAll}
@@ -2077,13 +2372,11 @@ export default function StoreHeader() {
                 active:scale-[0.98]
               "
             >
-              {/* LOGO */}
-
               <div
                 className="
                   relative
-                  h-[48px]
-                  w-[60px]
+                  h-[46px]
+                  w-[58px]
                   shrink-0
                 "
               >
@@ -2092,12 +2385,10 @@ export default function StoreHeader() {
                   alt="لوگوی ابزار احمدی"
                   fill
                   priority
-                  sizes="60px"
+                  sizes="58px"
                   className="object-contain object-center"
                 />
               </div>
-
-              {/* BRAND TEXT */}
 
               <div
                 className="
@@ -2110,7 +2401,7 @@ export default function StoreHeader() {
                 <div
                   className="
                     whitespace-nowrap
-                    text-[17px]
+                    text-[16px]
                     font-black
                     leading-6
                     tracking-[-0.5px]
@@ -2124,7 +2415,7 @@ export default function StoreHeader() {
                   className="
                     mt-0.5
                     whitespace-nowrap
-                    text-[8px]
+                    text-[7px]
                     font-bold
                     leading-4
                     text-[var(--muted)]
@@ -2135,29 +2426,13 @@ export default function StoreHeader() {
               </div>
             </Link>
 
-            {/* MOBILE ACTIONS - LEFT */}
-
             <div
               className="
-                flex
-                shrink-0
-                items-center
-                gap-2
+                flex shrink-0
+                items-center gap-2
               "
             >
-              {/* DARK / LIGHT */}
-
-              <div
-                className="
-                  flex
-                  shrink-0
-                  items-center
-                "
-              >
-                <ThemeToggle />
-              </div>
-
-              {/* HAMBURGER */}
+              <ThemeToggle />
 
               <button
                 type="button"
@@ -2171,8 +2446,7 @@ export default function StoreHeader() {
                   border-[var(--border)]
                   bg-[var(--surface-2)]
                   text-[var(--text)]
-                  transition-all
-                  duration-200
+                  transition
                   hover:border-[var(--primary)]/30
                   hover:bg-[var(--primary)]/5
                   hover:text-[var(--primary)]
@@ -2186,7 +2460,7 @@ export default function StoreHeader() {
             </div>
           </div>
 
-          {/* MOBILE SEARCH */}
+          {/* SEARCH BAR */}
 
           <div
             className="
@@ -2196,13 +2470,7 @@ export default function StoreHeader() {
           >
             <button
               type="button"
-              onClick={() => {
-                setMobileSearchOpen(true);
-
-                window.setTimeout(() => {
-                  mobileSearchRef.current?.focus();
-                }, 100);
-              }}
+              onClick={openMobileSearch}
               className="
                 group
                 flex h-[50px]
@@ -2238,6 +2506,7 @@ export default function StoreHeader() {
               <span
                 className="
                   flex-1
+                  truncate
                   text-xs
                   font-medium
                   text-[var(--muted)]
