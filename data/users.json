@@ -56,5 +56,20 @@
     "passwordHash": "scrypt:da4891f518d6c40916c74a14bff3baed:cfdb4728394d6079e79371326cdf0c3619c31d38c920dce690f5c4c6f152edf1b027b11bea9bb5f8e98d74e86174357f5b07662211baec68fd0f253b56a288f5",
     "createdAt": "2026-09-20T17:46:06.673Z",
     "updatedAt": "2026-09-20T17:46:06.673Z"
+  },
+  {
+    "id": "cf272585-2f77-4a1e-9fc2-ec3fde9b92c6",
+    "name": "حسن محمدی ",
+    "phone": "09123223223",
+    "role": "CUSTOMER",
+    "permissions": [
+      "products.read",
+      "sales.read",
+      "sales.create",
+      "quotations.create"
+    ],
+    "passwordHash": "scrypt:ccadeedb72533c9be6c112d1b20d9c1a:495d66634fb5fe2fbd616bf251fb767a41086b9af2e2176608b5b6d65cc045ac058de8c47cf4cb64c26cccbbd6263e00c4ea96f79fc57c83db2029586556698a",
+    "createdAt": "2026-09-26T06:46:38.564Z",
+    "updatedAt": "2026-09-26T06:46:38.564Z"
   }
 ]
