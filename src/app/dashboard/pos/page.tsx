@@ -44,6 +44,8 @@ type ScannerProps = {
   onDetected: (barcode: string) => void;
 };
 
+const PRODUCTS_PER_PAGE = 10;
+
 function formatNumber(value: number) {
   return new Intl.NumberFormat("fa-IR").format(value);
 }
@@ -113,7 +115,6 @@ function ProductImage({ product }: { product: Product }) {
 
 function BarcodeScanner({ open, onClose, onDetected }: ScannerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
-
   const controlsRef = useRef<IScannerControls | null>(null);
 
   const detectedRef = useRef(false);
@@ -150,13 +151,10 @@ function BarcodeScanner({ open, onClose, onDetected }: ScannerProps) {
 
     if (!videoElement) {
       setLoading(false);
-
       return;
     }
 
     try {
-      // Loaded on demand so the ZXing decoder never bloats the initial
-      // POS bundle — it is only needed once the scanner modal opens.
       const [{ BrowserMultiFormatReader }, zxingLibrary] = await Promise.all([
         import("@zxing/browser"),
         import("@zxing/library"),
@@ -187,7 +185,9 @@ function BarcodeScanner({ open, onClose, onDetected }: ScannerProps) {
         {
           audio: false,
           video: {
-            facingMode: { ideal: "environment" },
+            facingMode: {
+              ideal: "environment",
+            },
           },
         },
         videoElement,
@@ -203,7 +203,9 @@ function BarcodeScanner({ open, onClose, onDetected }: ScannerProps) {
           }
 
           detectedRef.current = true;
+
           controlsRef.current?.stop();
+
           onDetected(value);
         },
       );
@@ -262,7 +264,6 @@ function BarcodeScanner({ open, onClose, onDetected }: ScannerProps) {
   return (
     <div className="fixed inset-0 z-[500] grid place-items-center bg-black/70 p-3 backdrop-blur-md">
       <div className="relative flex h-[min(680px,94dvh)] w-full max-w-[520px] flex-col overflow-hidden rounded-[28px] border border-white/10 bg-black shadow-2xl">
-        {/* Header */}
         <div className="absolute inset-x-0 top-0 z-20 flex items-center justify-between bg-gradient-to-b from-black/80 to-transparent px-4 pb-10 pt-4">
           <div>
             <p className="text-sm font-black text-white">اسکن بارکد</p>
@@ -282,7 +283,6 @@ function BarcodeScanner({ open, onClose, onDetected }: ScannerProps) {
           </button>
         </div>
 
-        {/* Camera */}
         <div className="relative min-h-0 flex-1 overflow-hidden">
           <video
             ref={videoRef}
@@ -292,7 +292,6 @@ function BarcodeScanner({ open, onClose, onDetected }: ScannerProps) {
             className="h-full w-full object-cover"
           />
 
-          {/* Scanner frame */}
           <div className="pointer-events-none absolute left-1/2 top-1/2 h-40 w-[78%] max-w-[380px] -translate-x-1/2 -translate-y-1/2">
             <div className="absolute inset-0 rounded-3xl border-2 border-white/80 shadow-[0_0_0_9999px_rgba(0,0,0,0.35)]" />
 
@@ -361,12 +360,11 @@ function Cart({
 
   return (
     <div className="flex min-h-0 flex-1 flex-col">
-      {/* Cart header */}
       <div className="flex shrink-0 items-center justify-between border-b border-[var(--border)] px-4 py-3">
         <div>
-          <p className="text-sm font-black text-[var(--text)]">سبد فروش</p>
+          <p className="text-base font-black text-[var(--text)]">سبد فروش</p>
 
-          <p className="mt-0.5 text-[9px] text-[var(--muted)]">
+          <p className="mt-0.5 text-[10px] text-[var(--muted)]">
             {count ? `${formatNumber(count)} کالا` : "سبد خالی است"}
           </p>
         </div>
@@ -375,14 +373,13 @@ function Cart({
           <button
             type="button"
             onClick={onClear}
-            className="text-[9px] font-bold text-[var(--danger)]"
+            className="text-[10px] font-bold text-[var(--danger)]"
           >
             پاک کردن
           </button>
         )}
       </div>
 
-      {/* Items */}
       <div className="min-h-0 flex-1 overflow-y-auto p-3">
         {items.length === 0 ? (
           <div className="grid h-full min-h-[220px] place-items-center text-center">
@@ -391,11 +388,11 @@ function Cart({
                 <ShoppingCart size={24} />
               </div>
 
-              <p className="mt-3 text-xs font-black text-[var(--text)]">
+              <p className="mt-3 text-sm font-black text-[var(--text)]">
                 هنوز محصولی اضافه نشده
               </p>
 
-              <p className="mt-1 text-[9px] text-[var(--muted)]">
+              <p className="mt-1 text-[10px] text-[var(--muted)]">
                 یک محصول را انتخاب کنید
               </p>
             </div>
@@ -414,7 +411,7 @@ function Cart({
 
                   <div className="min-w-0 flex-1">
                     <div className="flex items-start gap-2">
-                      <p className="line-clamp-2 flex-1 text-[10px] font-bold leading-4 text-[var(--text)]">
+                      <p className="line-clamp-2 flex-1 text-[11px] font-bold leading-5 text-[var(--text)]">
                         {item.title}
                       </p>
 
@@ -464,12 +461,11 @@ function Cart({
         )}
       </div>
 
-      {/* Checkout */}
       <div className="shrink-0 border-t border-[var(--border)] p-3">
         <div className="flex items-center justify-between">
-          <span className="text-[10px] text-[var(--muted)]">مبلغ نهایی</span>
+          <span className="text-[11px] text-[var(--muted)]">مبلغ نهایی</span>
 
-          <strong className="text-base font-black text-[var(--text)]">
+          <strong className="text-lg font-black text-[var(--text)]">
             {formatMoney(total)}
           </strong>
         </div>
@@ -478,12 +474,134 @@ function Cart({
           type="button"
           disabled={items.length === 0 || submitting}
           onClick={onSubmit}
-          className="mt-3 flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-[var(--primary)] text-xs font-black text-white transition hover:brightness-95 disabled:opacity-40"
+          className="mt-3 flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-[var(--primary)] text-sm font-black text-white transition hover:brightness-95 disabled:opacity-40"
         >
           <Check size={16} />
 
           {submitting ? "در حال ثبت..." : "ثبت فروش"}
         </button>
+      </div>
+    </div>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/* Pagination                                                                 */
+/* -------------------------------------------------------------------------- */
+
+function Pagination({
+  currentPage,
+  totalPages,
+  totalItems,
+  startItem,
+  endItem,
+  onPageChange,
+}: {
+  currentPage: number;
+  totalPages: number;
+  totalItems: number;
+  startItem: number;
+  endItem: number;
+  onPageChange: (page: number) => void;
+}) {
+  if (totalItems === 0 || totalPages <= 1) {
+    return null;
+  }
+
+  const pages: number[] = [];
+
+  if (totalPages <= 5) {
+    for (let page = 1; page <= totalPages; page += 1) {
+      pages.push(page);
+    }
+  } else {
+    pages.push(1);
+
+    if (currentPage > 3) {
+      pages.push(-1);
+    }
+
+    const start = Math.max(2, currentPage - 1);
+
+    const end = Math.min(totalPages - 1, currentPage + 1);
+
+    for (let page = start; page <= end; page += 1) {
+      pages.push(page);
+    }
+
+    if (currentPage < totalPages - 2) {
+      pages.push(-2);
+    }
+
+    pages.push(totalPages);
+  }
+
+  return (
+    <div className="shrink-0 border-t border-[var(--border)] bg-[var(--surface)] px-3 py-2.5">
+      <div className="flex min-w-0 items-center justify-between gap-3">
+        <p className="hidden shrink-0 text-[10px] font-bold text-[var(--muted)] sm:block">
+          {formatNumber(startItem)} تا {formatNumber(endItem)} از{" "}
+          {formatNumber(totalItems)}
+        </p>
+
+        <div className="flex min-w-0 flex-1 items-center justify-center gap-1 sm:flex-none">
+          <button
+            type="button"
+            disabled={currentPage === 1}
+            onClick={() => onPageChange(Math.max(1, currentPage - 1))}
+            className="grid size-8 shrink-0 place-items-center rounded-lg border border-[var(--border)] bg-[var(--surface)] text-[var(--muted)] transition hover:border-[var(--primary)] hover:text-[var(--primary)] disabled:pointer-events-none disabled:opacity-30"
+            aria-label="صفحه قبل"
+          >
+            <ChevronRight size={14} />
+          </button>
+
+          <div className="flex min-w-0 items-center gap-1 overflow-hidden">
+            {pages.map((page, index) => {
+              if (page < 0) {
+                return (
+                  <span
+                    key={`dots-${index}`}
+                    className="grid size-7 shrink-0 place-items-center text-[11px] text-[var(--muted)]"
+                  >
+                    …
+                  </span>
+                );
+              }
+
+              const active = page === currentPage;
+
+              return (
+                <button
+                  key={page}
+                  type="button"
+                  onClick={() => onPageChange(page)}
+                  className={`grid size-8 shrink-0 place-items-center rounded-lg text-[11px] font-black transition ${
+                    active
+                      ? "bg-[var(--primary)] text-white shadow-sm"
+                      : "border border-[var(--border)] bg-[var(--surface)] text-[var(--muted)] hover:border-[var(--primary)] hover:text-[var(--primary)]"
+                  }`}
+                  aria-current={active ? "page" : undefined}
+                >
+                  {formatNumber(page)}
+                </button>
+              );
+            })}
+          </div>
+
+          <button
+            type="button"
+            disabled={currentPage === totalPages}
+            onClick={() => onPageChange(Math.min(totalPages, currentPage + 1))}
+            className="grid size-8 shrink-0 place-items-center rounded-lg border border-[var(--border)] bg-[var(--surface)] text-[var(--muted)] transition hover:border-[var(--primary)] hover:text-[var(--primary)] disabled:pointer-events-none disabled:opacity-30"
+            aria-label="صفحه بعد"
+          >
+            <ChevronLeft size={14} />
+          </button>
+        </div>
+
+        <p className="shrink-0 text-[10px] font-bold text-[var(--muted)] sm:hidden">
+          {formatNumber(currentPage)} / {formatNumber(totalPages)}
+        </p>
       </div>
     </div>
   );
@@ -512,6 +630,8 @@ export default function POSPage() {
 
   const [mobileCart, setMobileCart] = useState(false);
 
+  const [currentPage, setCurrentPage] = useState(1);
+
   const barcodeRef = useRef<HTMLInputElement>(null);
 
   const categoriesRef = useRef<HTMLDivElement>(null);
@@ -536,7 +656,6 @@ export default function POSPage() {
 
       if (Array.isArray(payload)) {
         setProducts(payload as Product[]);
-
         return;
       }
 
@@ -547,7 +666,6 @@ export default function POSPage() {
         Array.isArray(payload.data)
       ) {
         setProducts(payload.data as Product[]);
-
         return;
       }
 
@@ -558,7 +676,6 @@ export default function POSPage() {
         Array.isArray(payload.products)
       ) {
         setProducts(payload.products as Product[]);
-
         return;
       }
 
@@ -649,6 +766,41 @@ export default function POSPage() {
   }, [products, search, category]);
 
   /* ---------------------------------------------------------------------- */
+  /* Pagination                                                              */
+  /* ---------------------------------------------------------------------- */
+
+  const totalPages = Math.max(
+    1,
+    Math.ceil(filteredProducts.length / PRODUCTS_PER_PAGE),
+  );
+
+  const paginatedProducts = useMemo(() => {
+    const start = (currentPage - 1) * PRODUCTS_PER_PAGE;
+
+    return filteredProducts.slice(start, start + PRODUCTS_PER_PAGE);
+  }, [filteredProducts, currentPage]);
+
+  const paginationStart =
+    filteredProducts.length === 0
+      ? 0
+      : (currentPage - 1) * PRODUCTS_PER_PAGE + 1;
+
+  const paginationEnd = Math.min(
+    currentPage * PRODUCTS_PER_PAGE,
+    filteredProducts.length,
+  );
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [search, category]);
+
+  useEffect(() => {
+    if (currentPage > totalPages) {
+      setCurrentPage(totalPages);
+    }
+  }, [currentPage, totalPages]);
+
+  /* ---------------------------------------------------------------------- */
   /* Cart calculations                                                       */
   /* ---------------------------------------------------------------------- */
 
@@ -719,7 +871,6 @@ export default function POSPage() {
 
     if (!product) {
       alert("محصولی با این بارکد پیدا نشد.");
-
       return;
     }
 
@@ -837,7 +988,7 @@ export default function POSPage() {
   }
 
   /* ---------------------------------------------------------------------- */
-  /* UI                                                                       */
+  /* UI                                                                      */
   /* ---------------------------------------------------------------------- */
 
   return (
@@ -850,11 +1001,11 @@ export default function POSPage() {
         <div className="shrink-0 pb-3">
           <div className="flex items-center justify-between gap-3">
             <div>
-              <h1 className="text-lg font-black tracking-tight text-[var(--text)]">
+              <h1 className="text-xl font-black tracking-tight text-[var(--text)]">
                 فروش سریع
               </h1>
 
-              <p className="mt-1 text-[10px] text-[var(--muted)]">
+              <p className="mt-1 text-xs text-[var(--muted)]">
                 انتخاب محصول و ثبت فروش
               </p>
             </div>
@@ -862,36 +1013,33 @@ export default function POSPage() {
             <button
               type="button"
               onClick={() => setMobileCart(true)}
-              className="relative flex h-10 items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--surface)] px-3 text-xs font-black text-[var(--text)] lg:hidden"
+              className="relative flex h-10 items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--surface)] px-3 text-sm font-black text-[var(--text)] lg:hidden"
             >
               <ShoppingCart size={16} className="text-[var(--primary)]" />
               سبد
               {cartCount > 0 && (
-                <span className="grid min-w-5 place-items-center rounded-md bg-[var(--primary)] px-1 py-0.5 text-[9px] text-white">
+                <span className="grid min-w-5 place-items-center rounded-md bg-[var(--primary)] px-1 py-0.5 text-[10px] text-white">
                   {formatNumber(cartCount)}
                 </span>
               )}
             </button>
           </div>
 
-          {/* -------------------------------------------------------------- */}
-          {/* Lookup                                                           */}
-          {/* -------------------------------------------------------------- */}
-
+          {/* Lookup */}
           <div className="mt-3 flex gap-2">
             <div className="flex min-w-0 flex-1 items-center gap-2 rounded-2xl border border-[var(--border)] bg-[var(--surface)] px-3">
-              <Search size={17} className="shrink-0 text-[var(--muted)]" />
+              <Search size={18} className="shrink-0 text-[var(--muted)]" />
 
               <input
                 value={search}
                 onChange={(event) => setSearch(event.target.value)}
                 placeholder="جستجوی نام، ID یا SKU..."
-                className="h-11 min-w-0 flex-1 bg-transparent text-xs font-bold text-[var(--text)] outline-none placeholder:text-[var(--muted)]"
+                className="h-11 min-w-0 flex-1 bg-transparent text-sm font-bold text-[var(--text)] outline-none placeholder:text-[var(--muted)]"
               />
             </div>
 
             <div className="hidden items-center gap-2 rounded-2xl border border-[var(--border)] bg-[var(--surface)] px-3 sm:flex sm:w-[220px]">
-              <Barcode size={17} className="shrink-0 text-[var(--primary)]" />
+              <Barcode size={18} className="shrink-0 text-[var(--primary)]" />
 
               <input
                 ref={barcodeRef}
@@ -904,21 +1052,21 @@ export default function POSPage() {
                   }
                 }}
                 placeholder="بارکد..."
-                className="h-11 min-w-0 flex-1 bg-transparent text-xs font-bold text-[var(--text)] outline-none placeholder:text-[var(--muted)]"
+                className="h-11 min-w-0 flex-1 bg-transparent text-sm font-bold text-[var(--text)] outline-none placeholder:text-[var(--muted)]"
               />
             </div>
 
             <button
               type="button"
               onClick={() => setScannerOpen(true)}
-              className="flex h-11 shrink-0 items-center gap-2 rounded-2xl bg-[var(--primary)] px-3 text-xs font-black text-white transition hover:brightness-95 active:scale-95"
+              className="flex h-11 shrink-0 items-center gap-2 rounded-2xl bg-[var(--primary)] px-3 text-sm font-black text-white transition hover:brightness-95 active:scale-95"
               title="F4"
             >
               <Barcode size={18} />
 
               <span className="hidden sm:inline">اسکن</span>
 
-              <kbd className="hidden rounded-md bg-white/15 px-1.5 py-0.5 text-[9px] sm:inline">
+              <kbd className="hidden rounded-md bg-white/15 px-1.5 py-0.5 text-[10px] sm:inline">
                 F4
               </kbd>
             </button>
@@ -956,7 +1104,7 @@ export default function POSPage() {
                         key={item}
                         type="button"
                         onClick={() => setCategory(item)}
-                        className={`shrink-0 rounded-lg px-3 py-2 text-[10px] font-bold transition ${
+                        className={`shrink-0 rounded-lg px-3 py-2 text-xs font-bold transition ${
                           active
                             ? "bg-[var(--text)] text-[var(--surface)]"
                             : "text-[var(--muted)] hover:bg-[var(--surface-2)] hover:text-[var(--text)]"
@@ -979,12 +1127,12 @@ export default function POSPage() {
               </button>
             </div>
 
-            {/* Products */}
+            {/* Product viewport */}
             <div className="min-h-0 flex-1 overflow-y-auto p-2.5">
               {loading ? (
                 <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
                   {Array.from({
-                    length: 10,
+                    length: 8,
                   }).map((_, index) => (
                     <div
                       key={index}
@@ -992,7 +1140,7 @@ export default function POSPage() {
                     />
                   ))}
                 </div>
-              ) : filteredProducts.length === 0 ? (
+              ) : paginatedProducts.length === 0 ? (
                 <div className="grid h-full min-h-[280px] place-items-center">
                   <div className="text-center">
                     <Package
@@ -1000,18 +1148,18 @@ export default function POSPage() {
                       className="mx-auto text-[var(--muted)]"
                     />
 
-                    <p className="mt-3 text-xs font-black text-[var(--text)]">
+                    <p className="mt-3 text-sm font-black text-[var(--text)]">
                       محصولی پیدا نشد
                     </p>
 
-                    <p className="mt-1 text-[9px] text-[var(--muted)]">
+                    <p className="mt-1 text-[10px] text-[var(--muted)]">
                       جستجو یا دسته را تغییر دهید.
                     </p>
                   </div>
                 </div>
               ) : (
                 <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-                  {filteredProducts.map((product) => {
+                  {paginatedProducts.map((product) => {
                     const price = getPrice(product);
 
                     const discount = Number(product.discount ?? 0);
@@ -1030,7 +1178,7 @@ export default function POSPage() {
                           <ProductImage product={product} />
 
                           {discount > 0 && (
-                            <span className="absolute right-2 top-2 rounded-md bg-[var(--danger)] px-1.5 py-1 text-[8px] font-black text-white">
+                            <span className="absolute right-2 top-2 rounded-md bg-[var(--danger)] px-1.5 py-1 text-[9px] font-black text-white">
                               {formatNumber(discount)}٪
                             </span>
                           )}
@@ -1043,17 +1191,17 @@ export default function POSPage() {
                         </div>
 
                         <div className="p-2.5">
-                          <p className="line-clamp-2 min-h-8 text-[10px] font-bold leading-4 text-[var(--text)]">
+                          <p className="line-clamp-2 min-h-9 text-xs font-bold leading-5 text-[var(--text)]">
                             {product.title}
                           </p>
 
                           <div className="mt-2 flex items-center justify-between gap-2">
-                            <span className="truncate text-[8px] text-[var(--muted)]">
+                            <span className="truncate text-[9px] text-[var(--muted)]">
                               {product.brand || "بدون برند"}
                             </span>
 
                             <span
-                              className={`text-[8px] font-bold ${
+                              className={`text-[9px] font-bold ${
                                 out
                                   ? "text-[var(--danger)]"
                                   : "text-[var(--success)]"
@@ -1065,7 +1213,7 @@ export default function POSPage() {
                             </span>
                           </div>
 
-                          <div className="mt-2 text-[10px] font-black text-[var(--primary)]">
+                          <div className="mt-2 text-xs font-black text-[var(--primary)]">
                             {formatMoney(price)}
                           </div>
                         </div>
@@ -1075,6 +1223,16 @@ export default function POSPage() {
                 </div>
               )}
             </div>
+
+            {/* Fixed pagination */}
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              totalItems={filteredProducts.length}
+              startItem={paginationStart}
+              endItem={paginationEnd}
+              onPageChange={setCurrentPage}
+            />
           </section>
 
           {/* Desktop cart */}
@@ -1108,7 +1266,9 @@ export default function POSPage() {
 
           <div className="absolute inset-x-0 bottom-0 flex max-h-[88dvh] min-h-0 flex-col overflow-hidden rounded-t-[24px] bg-[var(--surface)]">
             <div className="flex shrink-0 items-center justify-between border-b border-[var(--border)] px-4 py-3">
-              <p className="text-sm font-black text-[var(--text)]">سبد فروش</p>
+              <p className="text-base font-black text-[var(--text)]">
+                سبد فروش
+              </p>
 
               <button
                 type="button"
@@ -1145,4 +1305,3 @@ export default function POSPage() {
     </>
   );
 }
-
