@@ -2387,7 +2387,7 @@
     "category": "جوشکاری",
     "price": 11983000,
     "discount": 30,
-    "stock": 10,
+    "stock": 9,
     "image": "/placeholders/cat-5-a.svg",
     "images": [
       {
@@ -2428,7 +2428,7 @@
     "rating": 3.7,
     "reviewCount": 5,
     "createdAt": "2026-09-16T09:12:03.000000Z",
-    "updatedAt": "2026-09-16T09:12:03.000000Z",
+    "updatedAt": "2026-09-27T02:07:34.846Z",
     "barcode": "6260000000569"
   },
   {

@@ -547,5 +547,14 @@
     "unitPrice": 1944000,
     "purchaseCost": 1387000,
     "total": 1944000
+  },
+  {
+    "id": "4bd7883c-50ed-4a7b-96dd-e602e300d287",
+    "saleId": "50d04e6b-6b11-443b-ac73-84f5b9049aa6",
+    "productId": "p56",
+    "quantity": 1,
+    "unitPrice": 8388100,
+    "purchaseCost": 8390000,
+    "total": 8388100
   }
 ]
