@@ -846,28 +846,5 @@
     "channel": "POS",
     "createdAt": "2026-09-26T23:47:57.100Z",
     "idempotencyKey": "a9738a11-f33d-4f44-870c-1cb59561a829"
-  },
-  {
-    "id": "50d04e6b-6b11-443b-ac73-84f5b9049aa6",
-    "customerId": null,
-    "customerUserId": "256d6164-bc8e-49cc-817a-fd5a8ee1a9ea",
-    "buyerName": "سالار غلامی",
-    "buyerPhone": "09389525194",
-    "subtotal": 8388100,
-    "discount": 0,
-    "netAmount": 8388100,
-    "cogs": 8390000,
-    "grossProfit": -1900,
-    "paymentStatus": "PENDING_TRANSFER",
-    "receiptImage": "https://raw.githubusercontent.com/salarGholami/abzar-ahmadi-store/main/data/media/receipts/256d6164-bc8e-49cc-817a-fd5a8ee1a9ea/fa6e8b75-ba42-449f-8397-40f8838f38cc.jpg",
-    "receipt": {
-      "id": "3e5e619c-9234-4282-996f-16ce8795d728",
-      "url": "https://raw.githubusercontent.com/salarGholami/abzar-ahmadi-store/main/data/media/receipts/256d6164-bc8e-49cc-817a-fd5a8ee1a9ea/fa6e8b75-ba42-449f-8397-40f8838f38cc.jpg",
-      "fileName": "1000048143.jpg",
-      "uploadedAt": "2026-09-27T02:07:29.186Z"
-    },
-    "channel": "ONLINE",
-    "createdAt": "2026-09-27T02:07:34.846Z",
-    "idempotencyKey": "50d04e6b-6b11-443b-ac73-84f5b9049aa6"
   }
 ]

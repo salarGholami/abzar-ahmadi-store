@@ -14,6 +14,8 @@ import {
   X,
 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import type { IScannerControls } from "@zxing/browser";
+import type { DecodeHintType, Result } from "@zxing/library";
 
 type Product = {
   id: string;
@@ -112,9 +114,7 @@ function ProductImage({ product }: { product: Product }) {
 function BarcodeScanner({ open, onClose, onDetected }: ScannerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const streamRef = useRef<MediaStream | null>(null);
-
-  const animationRef = useRef<number | null>(null);
+  const controlsRef = useRef<IScannerControls | null>(null);
 
   const detectedRef = useRef(false);
 
@@ -122,109 +122,107 @@ function BarcodeScanner({ open, onClose, onDetected }: ScannerProps) {
   const [loading, setLoading] = useState(false);
 
   const stop = useCallback(() => {
-    if (animationRef.current !== null) {
-      cancelAnimationFrame(animationRef.current);
-
-      animationRef.current = null;
-    }
-
-    if (streamRef.current) {
-      streamRef.current.getTracks().forEach((track) => track.stop());
-
-      streamRef.current = null;
-    }
+    controlsRef.current?.stop();
+    controlsRef.current = null;
 
     if (videoRef.current) {
       videoRef.current.srcObject = null;
     }
   }, []);
 
-  const scan = useCallback(async () => {
-    if (!videoRef.current || detectedRef.current || !window.BarcodeDetector) {
-      return;
-    }
-
-    try {
-      const detector = new window.BarcodeDetector({
-        formats: [
-          "ean_13",
-          "ean_8",
-          "upc_a",
-          "upc_e",
-          "code_128",
-          "code_39",
-          "code_93",
-          "itf",
-        ],
-      });
-
-      const results = await detector.detect(videoRef.current);
-
-      const value = results[0]?.rawValue?.trim();
-
-      if (value) {
-        detectedRef.current = true;
-        onDetected(value);
-        return;
-      }
-    } catch {
-      // Continue scanning.
-    }
-
-    if (!detectedRef.current) {
-      animationRef.current = requestAnimationFrame(() => {
-        void scan();
-      });
-    }
-  }, [onDetected]);
-
   const start = useCallback(async () => {
     setLoading(true);
     setError("");
     detectedRef.current = false;
 
-    if (!window.BarcodeDetector) {
+    if (
+      typeof navigator === "undefined" ||
+      !navigator.mediaDevices?.getUserMedia
+    ) {
       setLoading(false);
 
-      setError("مرورگر شما از اسکن بارکد پشتیبانی نمی‌کند.");
+      setError("مرورگر شما از دسترسی به دوربین پشتیبانی نمی‌کند.");
+
+      return;
+    }
+
+    const videoElement = videoRef.current;
+
+    if (!videoElement) {
+      setLoading(false);
 
       return;
     }
 
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({
-        video: {
-          facingMode: {
-            ideal: "environment",
+      // Loaded on demand so the ZXing decoder never bloats the initial
+      // POS bundle — it is only needed once the scanner modal opens.
+      const [{ BrowserMultiFormatReader }, zxingLibrary] = await Promise.all([
+        import("@zxing/browser"),
+        import("@zxing/library"),
+      ]);
+
+      const { BarcodeFormat, DecodeHintType: HintType } = zxingLibrary;
+
+      const hints = new Map<DecodeHintType, unknown>([
+        [
+          HintType.POSSIBLE_FORMATS,
+          [
+            BarcodeFormat.EAN_13,
+            BarcodeFormat.EAN_8,
+            BarcodeFormat.UPC_A,
+            BarcodeFormat.UPC_E,
+            BarcodeFormat.CODE_128,
+            BarcodeFormat.CODE_39,
+            BarcodeFormat.CODE_93,
+            BarcodeFormat.ITF,
+          ],
+        ],
+        [HintType.TRY_HARDER, true],
+      ]);
+
+      const reader = new BrowserMultiFormatReader(hints);
+
+      const controls = await reader.decodeFromConstraints(
+        {
+          audio: false,
+          video: {
+            facingMode: { ideal: "environment" },
           },
         },
-        audio: false,
-      });
+        videoElement,
+        (result: Result | undefined) => {
+          if (detectedRef.current || !result) {
+            return;
+          }
 
-      streamRef.current = stream;
+          const value = result.getText().trim();
 
-      if (!videoRef.current) {
-        stop();
-        return;
-      }
+          if (!value) {
+            return;
+          }
 
-      videoRef.current.srcObject = stream;
+          detectedRef.current = true;
+          controlsRef.current?.stop();
+          onDetected(value);
+        },
+      );
 
-      await videoRef.current.play();
+      controlsRef.current = controls;
 
       setLoading(false);
-
-      animationRef.current = requestAnimationFrame(() => {
-        void scan();
-      });
-    } catch {
+    } catch (err) {
       setLoading(false);
 
-      setError("دسترسی به دوربین امکان‌پذیر نیست. دسترسی دوربین را فعال کنید.");
+      setError(
+        err instanceof DOMException && err.name === "NotAllowedError"
+          ? "دسترسی به دوربین رد شد. دسترسی دوربین را در مرورگر فعال کنید."
+          : "دسترسی به دوربین امکان‌پذیر نیست.",
+      );
 
       stop();
     }
-  }, [scan, stop]);
+  }, [onDetected, stop]);
 
   useEffect(() => {
     if (!open) {
@@ -1148,18 +1146,3 @@ export default function POSPage() {
   );
 }
 
-/* -------------------------------------------------------------------------- */
-/* BarcodeDetector Type                                                       */
-/* -------------------------------------------------------------------------- */
-
-declare global {
-  interface Window {
-    BarcodeDetector?: new (options?: { formats?: string[] }) => {
-      detect(source: HTMLVideoElement): Promise<
-        Array<{
-          rawValue: string;
-        }>
-      >;
-    };
-  }
-}
