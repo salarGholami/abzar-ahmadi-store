@@ -31,9 +31,7 @@ export default function DashboardShell({
       dir="rtl"
       className="
         flex
-        h-dvh
-        min-h-0
-        overflow-hidden
+        min-h-dvh
         bg-[var(--bg)]
       "
     >
@@ -61,30 +59,34 @@ export default function DashboardShell({
       {/* Main application */}
       <div
         className="
-          flex
-          min-h-0
           min-w-0
           flex-1
-          flex-col
-          overflow-hidden
-          transition-[margin]
-          duration-200
           lg:mr-[292px]
         "
       >
         {/* Header */}
         <header
           className="
-            relative
+            sticky
+            top-0
             z-[80]
-            shrink-0
             border-b
             border-[var(--border)]
             bg-[color-mix(in_srgb,var(--surface)_92%,transparent)]
             backdrop-blur-xl
           "
         >
-          <div className="flex min-h-[72px] items-center gap-3 px-3 sm:px-4 lg:px-7">
+          <div
+            className="
+              flex
+              min-h-[72px]
+              items-center
+              gap-3
+              px-3
+              sm:px-4
+              lg:px-7
+            "
+          >
             {/* Mobile menu */}
             <button
               type="button"
@@ -185,15 +187,14 @@ export default function DashboardShell({
         {/* Page content */}
         <main
           className="
-            min-h-0
-            flex-1
-            overflow-x-hidden
-            overflow-y-auto
-            overscroll-y-contain
-            p-3
-            sm:p-4
-            lg:overflow-hidden
-            lg:p-5
+            w-full
+            min-w-0
+            px-3
+            py-4
+            sm:px-4
+            sm:py-5
+            lg:px-5
+            lg:py-6
           "
         >
           {children}

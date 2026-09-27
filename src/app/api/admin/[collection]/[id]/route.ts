@@ -1,7 +1,6 @@
 import { ok, fail } from "@/lib/http";
 import { requirePermission } from "@/lib/permissions";
-import { getJson, writeJson, batchCommit } from "@/lib/github";
-import { deleteMedia } from "@/lib/media";
+import { getJson, writeJson } from "@/lib/github";
 import { normalizeProduct } from "@/lib/data";
 import type { Product } from "@/lib/types";
 
@@ -35,8 +34,8 @@ const perms: Record<string, string> = {
   "purchase-items": "purchases",
   inventory: "inventory",
   finance: "finance",
-  checks: "checks",
-  quotations: "quotations",
+  checks: "finance",
+  quotations: "sales",
   expenses: "finance",
   incomes: "finance",
   brands: "products",
@@ -45,122 +44,86 @@ const perms: Record<string, string> = {
   "activity-logs": "settings",
 };
 
-export async function PATCH(
+export async function GET(
   req: Request,
-  { params }: { params: Promise<{ collection: string; id: string }> },
+  {
+    params,
+  }: {
+    params: Promise<{
+      collection: string;
+    }>;
+  },
 ) {
   try {
-    const { collection, id } = await params;
-    if (!allowed.has(collection)) throw new Error("NOT_FOUND");
-    await requirePermission(`${perms[collection]}.update`);
+    const { collection } = await params;
 
-    const f = await getJson<any[]>(`${collection}.json`, []);
-    const i = f.data.findIndex((x) => x.id === id);
-    if (i < 0) throw new Error("NOT_FOUND");
-
-    const body = await req.json();
-
-    if (
-      collection === "sales" &&
-      body.paymentStatus &&
-      !["PAID", "PENDING_TRANSFER", "PARTIAL", "CANCELED"].includes(
-        String(body.paymentStatus),
-      )
-    ) {
-      throw new Error("VALIDATION_ERROR");
+    if (!allowed.has(collection)) {
+      throw new Error("NOT_FOUND");
     }
 
-    const updated = {
-      ...f.data[i],
-      ...body,
-      id,
-      updatedAt: new Date().toISOString(),
-    };
+    await requirePermission(`${perms[collection]}.read`);
 
-    f.data[i] =
+    const file = await getJson<any[]>(`${collection}.json`, []);
+
+    const data =
       collection === "products"
-        ? normalizeProduct(updated as Product)
-        : updated;
+        ? file.data.map((item) => normalizeProduct(item as Product))
+        : file.data;
 
-    if (
-      collection === "sales" &&
-      body.paymentStatus === "PAID" &&
-      f.data[i].paymentStatus === "PAID"
-    ) {
-      const finance = await getJson<any[]>("finance.json", []);
-      const alreadyRecorded = finance.data.some(
-        (entry) => entry.type === "SALE" && entry.referenceId === id,
-      );
-
-      if (!alreadyRecorded) {
-        await batchCommit([
-          {
-            path: "sales.json",
-            data: f.data,
-            message: `Confirm payment ${id}`,
-            expectedSha: f.sha || undefined,
-          },
-          {
-            path: "finance.json",
-            data: [
-              ...finance.data,
-              {
-                id: crypto.randomUUID(),
-                type: "SALE",
-                referenceId: id,
-                amount: Number(updated.netAmount || 0),
-                createdAt: new Date().toISOString(),
-              },
-            ],
-            message: `Record payment ${id}`,
-            expectedSha: finance.sha || undefined,
-          },
-        ]);
-        return ok(f.data[i]);
-      }
-    }
-
-    await writeJson(
-      `${collection}.json`,
-      f.data,
-      `Update ${collection}/${id}`,
-      f.sha || undefined,
-    );
-    return ok(f.data[i]);
-  } catch (e) {
-    return fail(e);
+    return ok(data);
+  } catch (error) {
+    return fail(error);
   }
 }
 
-export async function DELETE(
+export async function POST(
   req: Request,
-  { params }: { params: Promise<{ collection: string; id: string }> },
+  {
+    params,
+  }: {
+    params: Promise<{
+      collection: string;
+    }>;
+  },
 ) {
   try {
-    const { collection, id } = await params;
-    if (!allowed.has(collection)) throw new Error("NOT_FOUND");
-    await requirePermission(`${perms[collection]}.delete`);
+    const { collection } = await params;
 
-    const f = await getJson<any[]>(`${collection}.json`, []);
-    const target = f.data.find((x) => x.id === id);
-    if (!target) throw new Error("NOT_FOUND");
-
-    const next = f.data.filter((x) => x.id !== id);
-    await writeJson(
-      `${collection}.json`,
-      next,
-      `Delete ${collection}/${id}`,
-      f.sha || undefined,
-    );
-
-    if (collection === "products") {
-      for (const image of (target as Product).images || []) {
-        if (image.path) await deleteMedia(image.path).catch(() => undefined);
-      }
+    if (!allowed.has(collection)) {
+      throw new Error("NOT_FOUND");
     }
 
-    return ok({ id });
-  } catch (e) {
-    return fail(e);
+    await requirePermission(`${perms[collection]}.create`);
+
+    const body = await req.json();
+
+    if (!body || typeof body !== "object" || Array.isArray(body)) {
+      throw new Error("VALIDATION_ERROR");
+    }
+
+    const file = await getJson<any[]>(`${collection}.json`, []);
+
+    const now = new Date().toISOString();
+
+    const item = {
+      ...body,
+      id: crypto.randomUUID(),
+      createdAt: now,
+      updatedAt: now,
+    };
+
+    const normalized =
+      collection === "products" ? normalizeProduct(item as Product) : item;
+
+    await writeJson(
+      `${collection}.json`,
+      [...file.data, normalized],
+      `Create ${collection}/${item.id}`,
+      file.sha || undefined,
+    );
+
+    return ok(normalized, 201);
+  } catch (error) {
+    return fail(error);
   }
 }

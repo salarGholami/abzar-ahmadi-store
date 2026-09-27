@@ -1,242 +1,416 @@
 "use client";
 
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";
 
-/* =========================================================
-   Types
-========================================================= */
-
-export type PaginationProps = {
-  currentPage: number;
-  totalItems: number;
-  pageSize: number;
+type PaginationProps = {
+  page: number;
+  totalPages: number;
   onPageChange: (page: number) => void;
-  visiblePages?: number;
-  showInfo?: boolean;
+  totalItems?: number;
+  pageSize?: number;
+  disabled?: boolean;
   className?: string;
 };
 
-/* =========================================================
-   Helpers
-========================================================= */
+type PageItem = number | "ellipsis";
 
-function clamp(value: number, min: number, max: number) {
-  return Math.min(Math.max(value, min), max);
-}
-
-function formatNumber(value: number) {
-  return new Intl.NumberFormat("fa-IR").format(value);
-}
-
-/* =========================================================
-   Page Range (always ascending)
-========================================================= */
-
-function createPageRange(
-  currentPage: number,
-  totalPages: number,
-  visiblePages: number,
-): Array<number | "dots"> {
-  const maxVisible = Math.max(3, Math.min(7, visiblePages || 5));
-
-  if (totalPages <= maxVisible) {
-    return Array.from({ length: totalPages }, (_, i) => i + 1);
+function getPageNumbers(currentPage: number, totalPages: number): PageItem[] {
+  if (totalPages <= 7) {
+    return Array.from({ length: totalPages }, (_, index) => index + 1);
   }
 
-  const pages: Array<number | "dots"> = [];
-  const sideCount = 1; // how many pages to show around current
+  const pages: PageItem[] = [1];
 
-  // Always show first page
-  pages.push(1);
+  /*
+   * صفحات نزدیک صفحه فعلی
+   */
+  const start = Math.max(2, currentPage - 1);
 
-  const left = Math.max(2, currentPage - sideCount);
-  const right = Math.min(totalPages - 1, currentPage + sideCount);
+  const end = Math.min(totalPages - 1, currentPage + 1);
 
-  if (left > 2) {
-    pages.push("dots");
+  /*
+   * قبل از محدوده فعلی
+   */
+  if (start > 2) {
+    pages.push("ellipsis");
   }
 
-  for (let i = left; i <= right; i++) {
-    pages.push(i);
+  for (let page = start; page <= end; page += 1) {
+    pages.push(page);
   }
 
-  if (right < totalPages - 1) {
-    pages.push("dots");
+  /*
+   * بعد از محدوده فعلی
+   */
+  if (end < totalPages - 1) {
+    pages.push("ellipsis");
   }
 
-  // Always show last page
-  if (totalPages > 1) {
-    pages.push(totalPages);
-  }
+  /*
+   * آخرین صفحه
+   */
+  pages.push(totalPages);
 
   return pages;
 }
 
-/* =========================================================
-   Pagination
-========================================================= */
-
 export default function Pagination({
-  currentPage,
+  page,
+  totalPages,
+  onPageChange,
   totalItems,
   pageSize,
-  onPageChange,
-  visiblePages = 5,
-  showInfo = true,
+  disabled = false,
   className = "",
 }: PaginationProps) {
-  const safePageSize = Math.max(1, Math.floor(pageSize) || 1);
-  const safeTotalItems = Math.max(0, Math.floor(totalItems) || 0);
-  const totalPages = Math.max(1, Math.ceil(safeTotalItems / safePageSize));
-  const safeCurrentPage = clamp(Math.floor(currentPage) || 1, 1, totalPages);
-
-  if (safeTotalItems === 0 || totalPages <= 1) {
+  /*
+   * اگر pagination عملاً لازم نیست
+   */
+  if (totalPages <= 1) {
     return null;
   }
 
-  const pageRange = createPageRange(safeCurrentPage, totalPages, visiblePages);
+  /*
+   * جلوگیری از page نامعتبر
+   */
+  const safeTotalPages = Math.max(1, Math.floor(totalPages));
 
-  const startItem = (safeCurrentPage - 1) * safePageSize + 1;
-  const endItem = Math.min(safeCurrentPage * safePageSize, safeTotalItems);
+  const safePage = Math.min(Math.max(Math.floor(page) || 1, 1), safeTotalPages);
 
-  const goToPage = (page: number) => {
-    const next = clamp(page, 1, totalPages);
-    if (next !== safeCurrentPage) {
-      onPageChange(next);
+  const pageNumbers = getPageNumbers(safePage, safeTotalPages);
+
+  /*
+   * محدوده نتایج
+   */
+  const hasResultRange =
+    typeof totalItems === "number" &&
+    typeof pageSize === "number" &&
+    totalItems > 0 &&
+    pageSize > 0;
+
+  const firstItem = hasResultRange ? (safePage - 1) * pageSize + 1 : undefined;
+
+  const lastItem = hasResultRange
+    ? Math.min(safePage * pageSize, totalItems)
+    : undefined;
+
+  const canGoPrevious = safePage > 1;
+
+  const canGoNext = safePage < safeTotalPages;
+
+  function handlePageChange(nextPage: number) {
+    if (disabled) {
+      return;
     }
-  };
+
+    if (nextPage < 1 || nextPage > safeTotalPages) {
+      return;
+    }
+
+    if (nextPage === safePage) {
+      return;
+    }
+
+    onPageChange(nextPage);
+  }
 
   return (
     <nav
       aria-label="صفحه‌بندی"
-      className={["mt-10 w-full", className].filter(Boolean).join(" ")}
+      dir="rtl"
+      className={`
+        flex
+        flex-col
+        gap-4
+        border-t
+        border-[var(--border)]
+        pt-4
+
+        sm:flex-row
+        sm:items-center
+        sm:justify-between
+
+        ${className}
+      `}
     >
-      {/* ========== کنترل‌ها ========== */}
-      <div className="flex justify-center">
-        {/* 
-          مهم: dir="ltr" 
-          تا اعداد همیشه از چپ به راست ۱ ۲ ۳ نمایش داده شوند
-          و فلش‌ها هم جهت درست داشته باشند
-        */}
-        <div
-          dir="ltr"
-          className="
-            inline-flex items-center gap-1
-            rounded-2xl
-            border border-black/[0.06]
-            bg-white
-            p-1.5
-            shadow-[0_4px_20px_rgba(0,0,0,0.04)]
-            dark:border-white/[0.08]
-            dark:bg-[#1e2329]
-          "
-        >
-          {/* قبلی */}
-          <button
-            type="button"
-            onClick={() => goToPage(safeCurrentPage - 1)}
-            disabled={safeCurrentPage === 1}
-            aria-label="صفحه قبلی"
-            className="
-              group flex h-9 w-9 items-center justify-center
-              rounded-xl
-              text-[#393E46]/60
-              transition-all duration-200
-              hover:bg-[#00ADB5]/10 hover:text-[#00ADB5]
-              disabled:pointer-events-none disabled:opacity-30
-              dark:text-white/50
-              dark:hover:bg-[#00ADB5]/15 dark:hover:text-[#00ADB5]
-            "
-          >
-            <ChevronLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
-          </button>
+      {/* -------------------------------- */}
+      {/* RESULT INFORMATION */}
+      {/* -------------------------------- */}
 
-          {/* صفحات */}
-          <div className="flex items-center gap-0.5 px-1">
-            {pageRange.map((item, index) => {
-              if (item === "dots") {
-                return (
-                  <span
-                    key={`dots-${index}`}
-                    className="
-                      flex h-9 w-7 items-center justify-center
-                      text-[12px] font-bold tracking-widest
-                      text-[#393E46]/30
-                      dark:text-white/25
-                    "
-                  >
-                    ···
-                  </span>
-                );
-              }
+      <div
+        className="
+          text-center
+          text-sm
+          text-[var(--muted)]
 
-              const isActive = item === safeCurrentPage;
-
-              return (
-                <button
-                  key={item}
-                  type="button"
-                  onClick={() => goToPage(item)}
-                  aria-label={`صفحه ${formatNumber(item)}`}
-                  aria-current={isActive ? "page" : undefined}
-                  className={[
-                    "relative flex h-9 min-w-9 items-center justify-center",
-                    "rounded-xl px-2.5",
-                    "text-[13px] font-bold tabular-nums",
-                    "transition-all duration-200",
-                    isActive
-                      ? "bg-[#00ADB5] text-white shadow-[0_4px_14px_rgba(0,173,181,0.35)]"
-                      : "text-[#393E46]/70 hover:bg-[#00ADB5]/[0.08] hover:text-[#00ADB5] dark:text-white/60 dark:hover:bg-[#00ADB5]/15 dark:hover:text-[#00ADB5]",
-                  ].join(" ")}
-                >
-                  {formatNumber(item)}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* بعدی */}
-          <button
-            type="button"
-            onClick={() => goToPage(safeCurrentPage + 1)}
-            disabled={safeCurrentPage === totalPages}
-            aria-label="صفحه بعدی"
-            className="
-              group flex h-9 w-9 items-center justify-center
-              rounded-xl
-              text-[#393E46]/60
-              transition-all duration-200
-              hover:bg-[#00ADB5]/10 hover:text-[#00ADB5]
-              disabled:pointer-events-none disabled:opacity-30
-              dark:text-white/50
-              dark:hover:bg-[#00ADB5]/15 dark:hover:text-[#00ADB5]
-            "
-          >
-            <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-          </button>
-        </div>
+          sm:text-right
+        "
+      >
+        {hasResultRange &&
+        typeof firstItem === "number" &&
+        typeof lastItem === "number" ? (
+          <>
+            نمایش{" "}
+            <span
+              className="
+                font-bold
+                text-[var(--text)]
+              "
+            >
+              {firstItem.toLocaleString("fa-IR")}
+            </span>{" "}
+            تا{" "}
+            <span
+              className="
+                font-bold
+                text-[var(--text)]
+              "
+            >
+              {lastItem.toLocaleString("fa-IR")}
+            </span>{" "}
+            از{" "}
+            <span
+              className="
+                font-bold
+                text-[var(--text)]
+              "
+            >
+              {totalItems.toLocaleString("fa-IR")}
+            </span>{" "}
+            نتیجه
+          </>
+        ) : (
+          <>
+            صفحه{" "}
+            <span
+              className="
+                font-bold
+                text-[var(--text)]
+              "
+            >
+              {safePage.toLocaleString("fa-IR")}
+            </span>{" "}
+            از{" "}
+            <span
+              className="
+                font-bold
+                text-[var(--text)]
+              "
+            >
+              {safeTotalPages.toLocaleString("fa-IR")}
+            </span>
+          </>
+        )}
       </div>
 
-      {/* ========== اطلاعات ========== */}
-      {showInfo && (
-        <div className="mt-4 text-center" dir="rtl">
-          <p className="text-[11px] font-medium text-[#393E46]/45 dark:text-white/40">
-            نمایش{" "}
-            <span className="font-bold text-[#393E46]/70 dark:text-white/70">
-              {formatNumber(startItem)}
-            </span>
-            {" – "}
-            <span className="font-bold text-[#393E46]/70 dark:text-white/70">
-              {formatNumber(endItem)}
-            </span>
-            {" از "}
-            <span className="font-black text-[#00ADB5]">
-              {formatNumber(safeTotalItems)}
-            </span>
-            {" محصول"}
-          </p>
+      {/* -------------------------------- */}
+      {/* PAGINATION */}
+      {/* -------------------------------- */}
+
+      <div
+        className="
+          flex
+          items-center
+          justify-center
+          gap-1
+        "
+        dir="ltr"
+      >
+        {/* PREVIOUS */}
+
+        <button
+          type="button"
+          onClick={() => handlePageChange(safePage - 1)}
+          disabled={!canGoPrevious || disabled}
+          aria-label="صفحه قبلی"
+          className="
+            inline-flex
+            h-9
+            min-w-9
+            items-center
+            justify-center
+            rounded-xl
+            border
+            border-[var(--border)]
+            bg-[var(--surface)]
+            text-[var(--muted)]
+            transition
+
+            hover:border-[var(--primary)]
+            hover:bg-[var(--primary-light)]
+            hover:text-[var(--primary)]
+
+            focus-visible:outline-none
+            focus-visible:ring-2
+            focus-visible:ring-[var(--primary)]/30
+
+            disabled:pointer-events-none
+            disabled:opacity-40
+          "
+        >
+          <ChevronLeft className="h-4 w-4" />
+        </button>
+
+        {/* -------------------------------- */}
+        {/* DESKTOP PAGES */}
+        {/* -------------------------------- */}
+
+        <div
+          className="
+            hidden
+            items-center
+            gap-1
+            sm:flex
+          "
+        >
+          {pageNumbers.map((item, index) => {
+            /*
+             * ELLIPSIS
+             */
+
+            if (item === "ellipsis") {
+              return (
+                <span
+                  key={`ellipsis-${index}`}
+                  aria-hidden="true"
+                  className="
+                      inline-flex
+                      h-9
+                      min-w-9
+                      items-center
+                      justify-center
+                      text-[var(--muted)]
+                    "
+                >
+                  <MoreHorizontal className="h-4 w-4" />
+                </span>
+              );
+            }
+
+            /*
+             * PAGE
+             */
+
+            const isActive = item === safePage;
+
+            return (
+              <button
+                key={item}
+                type="button"
+                onClick={() => handlePageChange(item)}
+                disabled={disabled}
+                aria-current={isActive ? "page" : undefined}
+                aria-label={`صفحه ${item.toLocaleString("fa-IR")}`}
+                className={`
+                    inline-flex
+                    h-9
+                    min-w-9
+                    items-center
+                    justify-center
+                    rounded-xl
+                    border
+                    px-2.5
+                    text-sm
+                    font-bold
+                    transition
+
+                    focus-visible:outline-none
+                    focus-visible:ring-2
+                    focus-visible:ring-[var(--primary)]/30
+
+                    disabled:pointer-events-none
+                    disabled:opacity-50
+
+                    ${
+                      isActive
+                        ? `
+                          border-[var(--primary)]
+                          bg-[var(--primary)]
+                          text-white
+                          shadow-sm
+                        `
+                        : `
+                          border-[var(--border)]
+                          bg-[var(--surface)]
+                          text-[var(--text)]
+                          hover:border-[var(--primary)]
+                          hover:bg-[var(--primary-light)]
+                          hover:text-[var(--primary)]
+                        `
+                    }
+                  `}
+              >
+                {item.toLocaleString("fa-IR")}
+              </button>
+            );
+          })}
         </div>
-      )}
+
+        {/* -------------------------------- */}
+        {/* MOBILE CURRENT PAGE */}
+        {/* -------------------------------- */}
+
+        <div
+          className="
+            flex
+            h-9
+            min-w-20
+            items-center
+            justify-center
+            rounded-xl
+            border
+            border-[var(--border)]
+            bg-[var(--surface)]
+            px-3
+            text-sm
+            font-bold
+            text-[var(--text)]
+
+            sm:hidden
+          "
+          aria-live="polite"
+        >
+          {safePage.toLocaleString("fa-IR")} /{" "}
+          {safeTotalPages.toLocaleString("fa-IR")}
+        </div>
+
+        {/* -------------------------------- */}
+        {/* NEXT */}
+        {/* -------------------------------- */}
+
+        <button
+          type="button"
+          onClick={() => handlePageChange(safePage + 1)}
+          disabled={!canGoNext || disabled}
+          aria-label="صفحه بعدی"
+          className="
+            inline-flex
+            h-9
+            min-w-9
+            items-center
+            justify-center
+            rounded-xl
+            border
+            border-[var(--border)]
+            bg-[var(--surface)]
+            text-[var(--muted)]
+            transition
+
+            hover:border-[var(--primary)]
+            hover:bg-[var(--primary-light)]
+            hover:text-[var(--primary)]
+
+            focus-visible:outline-none
+            focus-visible:ring-2
+            focus-visible:ring-[var(--primary)]/30
+
+            disabled:pointer-events-none
+            disabled:opacity-40
+          "
+        >
+          <ChevronRight className="h-4 w-4" />
+        </button>
+      </div>
     </nav>
   );
 }
