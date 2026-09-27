@@ -1,5 +1,6 @@
 "use client";
 
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import {
   Bell,
@@ -71,10 +72,8 @@ function getIcon(type: NotificationType) {
   switch (type) {
     case "stock":
       return Package;
-
     case "payment":
       return CreditCard;
-
     case "sale":
       return Receipt;
   }
@@ -110,22 +109,30 @@ function saveReadIds(ids: string[]) {
 
 export default function NotificationCenter() {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   const [filter, setFilter] = useState<FilterType>("all");
 
   const [lowStock, setLowStock] = useState<LowStockItem[]>([]);
-
   const [sales, setSales] = useState<Sale[]>([]);
 
   const [readIds, setReadIds] = useState<string[]>([]);
-
   const [hydrated, setHydrated] = useState(false);
 
   const [loading, setLoading] = useState(true);
-
   const [refreshing, setRefreshing] = useState(false);
 
-  const containerRef = useRef<HTMLDivElement | null>(null);
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
+
+  /*
+   * ----------------------------------------
+   * MOUNT
+   * ----------------------------------------
+   */
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   /*
    * ----------------------------------------
@@ -148,7 +155,27 @@ export default function NotificationCenter() {
 
   /*
    * ----------------------------------------
-   * FETCH DATA
+   * BODY SCROLL LOCK
+   * ----------------------------------------
+   */
+
+  useEffect(() => {
+    if (!open) {
+      return;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [open]);
+
+  /*
+   * ----------------------------------------
+   * FETCH
    * ----------------------------------------
    */
 
@@ -173,17 +200,14 @@ export default function NotificationCenter() {
       }
 
       if (salesResponse.ok) {
-        const salesPayload = (await salesResponse.json()) as SalesResponse;
+        const payload = (await salesResponse.json()) as SalesResponse;
 
-        const salesData = salesPayload.data;
+        const data = payload.data;
 
-        setSales(Array.isArray(salesData) ? salesData : []);
+        setSales(Array.isArray(data) ? data : []);
       }
     } catch {
-      /*
-       * اگر API خطا داد، اطلاعات قبلی
-       * پاک نمی‌شوند.
-       */
+      // Keep existing data.
     } finally {
       setLoading(false);
     }
@@ -195,7 +219,7 @@ export default function NotificationCenter() {
 
   /*
    * ----------------------------------------
-   * ESCAPE
+   * ESC
    * ----------------------------------------
    */
 
@@ -219,36 +243,6 @@ export default function NotificationCenter() {
 
   /*
    * ----------------------------------------
-   * CLICK OUTSIDE
-   * ----------------------------------------
-   */
-
-  useEffect(() => {
-    if (!open) {
-      return;
-    }
-
-    function handlePointerDown(event: PointerEvent) {
-      const target = event.target;
-
-      if (!(target instanceof Node)) {
-        return;
-      }
-
-      if (containerRef.current && !containerRef.current.contains(target)) {
-        setOpen(false);
-      }
-    }
-
-    document.addEventListener("pointerdown", handlePointerDown);
-
-    return () => {
-      document.removeEventListener("pointerdown", handlePointerDown);
-    };
-  }, [open]);
-
-  /*
-   * ----------------------------------------
    * NOTIFICATIONS
    * ----------------------------------------
    */
@@ -256,9 +250,6 @@ export default function NotificationCenter() {
   const notifications = useMemo<DashboardNotification[]>(() => {
     const result: DashboardNotification[] = [];
 
-    /*
-     * Low stock
-     */
     for (const product of lowStock) {
       result.push({
         id: `stock:${product.sku}`,
@@ -272,9 +263,6 @@ export default function NotificationCenter() {
       });
     }
 
-    /*
-     * Sales
-     */
     for (const sale of sales) {
       if (sale.paymentStatus === "PENDING_TRANSFER") {
         result.push({
@@ -306,7 +294,6 @@ export default function NotificationCenter() {
     return result
       .sort((a, b) => {
         const first = new Date(a.createdAt).getTime();
-
         const second = new Date(b.createdAt).getTime();
 
         return second - first;
@@ -403,7 +390,6 @@ export default function NotificationCenter() {
 
     try {
       setRefreshing(true);
-
       await loadNotifications();
     } finally {
       setRefreshing(false);
@@ -445,248 +431,288 @@ export default function NotificationCenter() {
 
   /*
    * ----------------------------------------
-   * UI
+   * PANEL
+   * ----------------------------------------
+   */
+
+  const notificationPanel =
+    mounted && open
+      ? createPortal(
+          <>
+            {/* BACKDROP */}
+
+            <button
+              type="button"
+              aria-label="بستن اعلان‌ها"
+              onClick={() => setOpen(false)}
+              className="fixed inset-0 z-[99998] cursor-default bg-black/35 backdrop-blur-[2px]"
+            />
+
+            {/* PANEL */}
+
+            <section
+              role="dialog"
+              aria-modal="true"
+              aria-label="مرکز اعلان‌ها"
+              dir="rtl"
+              onClick={(event) => event.stopPropagation()}
+              className="
+                fixed
+                z-[99999]
+                flex
+                flex-col
+                overflow-hidden
+                border
+                border-[var(--border)]
+                bg-[var(--surface)]
+                shadow-[0_25px_100px_rgba(0,0,0,0.35)]
+
+                inset-x-2
+                top-16
+                bottom-2
+                rounded-2xl
+
+                sm:inset-x-4
+                sm:top-20
+                sm:bottom-4
+
+                md:left-auto
+                md:right-4
+                md:top-[76px]
+                md:bottom-auto
+                md:h-[580px]
+                md:w-[430px]
+                md:rounded-2xl
+              "
+            >
+              {/* HEADER */}
+
+              <header className="shrink-0 border-b border-[var(--border)] bg-[var(--surface)]">
+                <div className="flex items-center justify-between px-4 py-4">
+                  <div className="flex min-w-0 items-center gap-3">
+                    <div className="grid size-11 shrink-0 place-items-center rounded-xl bg-[var(--primary)]/10 text-[var(--primary)]">
+                      {counts.all > 0 ? (
+                        <BellRing className="h-5 w-5" />
+                      ) : (
+                        <Bell className="h-5 w-5" />
+                      )}
+                    </div>
+
+                    <div className="min-w-0">
+                      <h2 className="text-sm font-black text-[var(--text)]">
+                        مرکز اعلان‌ها
+                      </h2>
+
+                      <p className="mt-1 text-xs text-[var(--muted)]">
+                        {loading
+                          ? "در حال دریافت..."
+                          : counts.all > 0
+                            ? `${counts.all.toLocaleString("fa-IR")} اعلان جدید`
+                            : "اعلان جدیدی ندارید"}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex shrink-0 items-center gap-1">
+                    <button
+                      type="button"
+                      onClick={() => void handleRefresh()}
+                      disabled={refreshing}
+                      aria-label="بروزرسانی"
+                      className="grid size-9 place-items-center rounded-lg text-[var(--muted)] transition hover:bg-[var(--surface-2)] hover:text-[var(--primary)] disabled:opacity-40"
+                    >
+                      <RefreshCw
+                        className={`h-4 w-4 ${
+                          refreshing ? "animate-spin" : ""
+                        }`}
+                      />
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => setOpen(false)}
+                      aria-label="بستن"
+                      className="grid size-9 place-items-center rounded-lg text-[var(--muted)] transition hover:bg-[var(--surface-2)] hover:text-[var(--text)]"
+                    >
+                      <X className="h-5 w-5" />
+                    </button>
+                  </div>
+                </div>
+
+                {/* FILTERS */}
+
+                <div className="grid grid-cols-4 gap-1 px-3 pb-3">
+                  {filters.map((item) => {
+                    const active = filter === item.id;
+
+                    return (
+                      <button
+                        key={item.id}
+                        type="button"
+                        onClick={() => setFilter(item.id)}
+                        className={`rounded-lg px-2 py-2 text-xs font-bold transition ${
+                          active
+                            ? "bg-[var(--primary)] text-white"
+                            : "bg-[var(--surface-2)] text-[var(--muted)] hover:text-[var(--text)]"
+                        }`}
+                      >
+                        {item.label}
+
+                        <span className="mr-1">
+                          {item.count.toLocaleString("fa-IR")}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* MARK ALL */}
+
+                {counts.all > 0 && (
+                  <div className="border-t border-[var(--border)] px-3 py-2">
+                    <button
+                      type="button"
+                      onClick={markAllAsRead}
+                      className="flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-xs font-bold text-[var(--primary)] transition hover:bg-[var(--primary)]/10"
+                    >
+                      <CheckCheck className="h-4 w-4" />
+                      خواندن همه
+                    </button>
+                  </div>
+                )}
+              </header>
+
+              {/* BODY */}
+
+              <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain p-3">
+                {loading ? (
+                  <div className="flex min-h-[320px] flex-col items-center justify-center">
+                    <RefreshCw className="h-7 w-7 animate-spin text-[var(--primary)]" />
+
+                    <p className="mt-4 text-xs font-bold text-[var(--muted)]">
+                      در حال دریافت اعلان‌ها...
+                    </p>
+                  </div>
+                ) : filteredNotifications.length === 0 ? (
+                  <div className="flex min-h-[320px] flex-col items-center justify-center text-center">
+                    <div className="grid size-16 place-items-center rounded-2xl bg-emerald-500/10 text-emerald-500">
+                      <CheckCheck className="h-8 w-8" />
+                    </div>
+
+                    <h3 className="mt-4 text-sm font-black text-[var(--text)]">
+                      اعلان جدیدی نیست
+                    </h3>
+
+                    <p className="mt-2 max-w-[270px] text-xs leading-6 text-[var(--muted)]">
+                      در حال حاضر اعلان خوانده‌نشده‌ای برای نمایش وجود ندارد.
+                    </p>
+                  </div>
+                ) : (
+                  <div className="space-y-2">
+                    {filteredNotifications.map((notification) => {
+                      const Icon = getIcon(notification.type);
+
+                      return (
+                        <article
+                          key={notification.id}
+                          className="rounded-xl border border-[var(--border)] bg-[var(--surface-2)] p-3 transition hover:border-[var(--primary)]/30"
+                        >
+                          <div className="flex gap-3">
+                            <div className="grid size-10 shrink-0 place-items-center rounded-xl bg-[var(--primary)]/10 text-[var(--primary)]">
+                              <Icon className="h-4 w-4" />
+                            </div>
+
+                            <div className="min-w-0 flex-1">
+                              <div className="flex items-start justify-between gap-2">
+                                <div className="min-w-0">
+                                  <h3 className="text-xs font-black text-[var(--text)]">
+                                    {notification.title}
+                                  </h3>
+
+                                  <p className="mt-1 text-xs leading-5 text-[var(--muted)]">
+                                    {notification.description}
+                                  </p>
+                                </div>
+
+                                <button
+                                  type="button"
+                                  onClick={() => markAsRead(notification.id)}
+                                  aria-label="خوانده شد"
+                                  className="grid size-7 shrink-0 place-items-center rounded-lg text-[var(--muted)] transition hover:bg-[var(--primary)]/10 hover:text-[var(--primary)]"
+                                >
+                                  <Check className="h-4 w-4" />
+                                </button>
+                              </div>
+
+                              <div className="mt-3 flex items-center gap-2">
+                                <span className="flex items-center gap-1 text-[10px] text-[var(--muted)]">
+                                  <Clock3 className="h-3 w-3" />
+                                  {formatDate(notification.createdAt)}
+                                </span>
+
+                                <Link
+                                  href={notification.href}
+                                  onClick={() => markAsRead(notification.id)}
+                                  className="mr-auto rounded-lg px-2.5 py-1.5 text-[10px] font-black text-[var(--primary)] transition hover:bg-[var(--primary)]/10"
+                                >
+                                  مشاهده
+                                </Link>
+                              </div>
+                            </div>
+                          </div>
+                        </article>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+
+              {/* FOOTER */}
+
+              <footer className="shrink-0 border-t border-[var(--border)] bg-[var(--surface)] px-4 py-3">
+                <p className="text-center text-[10px] text-[var(--muted)]">
+                  اعلان‌های خوانده‌شده دیگر نمایش داده نمی‌شوند.
+                </p>
+              </footer>
+            </section>
+          </>,
+          document.body,
+        )
+      : null;
+
+  /*
+   * ----------------------------------------
+   * BUTTON + PORTAL
    * ----------------------------------------
    */
 
   return (
-    <div ref={containerRef} dir="rtl" className="relative z-[300]">
-      {/* NOTIFICATION BUTTON */}
+    <>
+      <div dir="rtl">
+        <button
+          ref={buttonRef}
+          type="button"
+          aria-label="اعلان‌ها"
+          aria-expanded={open}
+          aria-haspopup="dialog"
+          onClick={() => setOpen((current) => !current)}
+          className="relative z-[310] flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center rounded-xl border border-[var(--border)] bg-[var(--surface)] text-[var(--muted)] outline-none transition-all duration-200 hover:border-[var(--primary)]/40 hover:bg-[var(--surface-2)] hover:text-[var(--primary)] focus-visible:ring-2 focus-visible:ring-[var(--primary)]/30 active:scale-95"
+        >
+          {counts.all > 0 ? (
+            <BellRing className="h-5 w-5" />
+          ) : (
+            <Bell className="h-5 w-5" />
+          )}
 
-      <button
-        type="button"
-        aria-label="اعلان‌ها"
-        aria-expanded={open}
-        aria-haspopup="dialog"
-        onClick={(event) => {
-          event.stopPropagation();
-          setOpen((current) => !current);
-        }}
-        className="relative z-[310] flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center rounded-xl border border-[var(--border)] bg-[var(--surface)] text-[var(--muted)] outline-none transition-all duration-200 hover:border-[var(--primary)]/40 hover:bg-[var(--surface-2)] hover:text-[var(--primary)] focus-visible:ring-2 focus-visible:ring-[var(--primary)]/30 active:scale-95"
-      >
-        {counts.all > 0 ? (
-          <BellRing className="h-5 w-5" />
-        ) : (
-          <Bell className="h-5 w-5" />
-        )}
+          {counts.all > 0 && (
+            <span className="absolute -right-1 -top-1 flex min-h-5 min-w-5 items-center justify-center rounded-full border-2 border-[var(--bg)] bg-[var(--danger)] px-1 text-[10px] font-black text-white">
+              {counts.all > 99 ? "۹۹+" : counts.all.toLocaleString("fa-IR")}
+            </span>
+          )}
+        </button>
+      </div>
 
-        {counts.all > 0 && (
-          <span className="absolute -right-1 -top-1 flex min-h-5 min-w-5 items-center justify-center rounded-full border-2 border-[var(--bg)] bg-[var(--danger)] px-1 text-[10px] font-black text-white">
-            {counts.all > 99 ? "۹۹+" : counts.all.toLocaleString("fa-IR")}
-          </span>
-        )}
-      </button>
-
-      {open && (
-        <>
-          {/* BACKDROP */}
-
-          <button
-            type="button"
-            aria-label="بستن اعلان‌ها"
-            onClick={() => setOpen(false)}
-            className="fixed inset-0 z-[280] cursor-default bg-black/20 md:bg-transparent"
-          />
-
-          {/* PANEL */}
-
-          <section
-            role="dialog"
-            aria-label="مرکز اعلان‌ها"
-            onClick={(event) => event.stopPropagation()}
-            className="fixed inset-x-3 bottom-3 top-20 z-[350] flex flex-col overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--surface)] shadow-[0_25px_80px_rgba(0,0,0,0.25)] md:absolute md:left-0 md:right-auto md:top-[calc(100%+12px)] md:bottom-auto md:h-[580px] md:w-[430px]"
-          >
-            {/* PANEL HEADER */}
-
-            <header className="shrink-0 border-b border-[var(--border)] bg-[var(--surface)]">
-              <div className="flex items-center justify-between px-4 py-4">
-                <div className="flex items-center gap-3">
-                  <div className="grid size-11 shrink-0 place-items-center rounded-xl bg-[var(--primary)]/10 text-[var(--primary)]">
-                    {counts.all > 0 ? (
-                      <BellRing className="h-5 w-5" />
-                    ) : (
-                      <Bell className="h-5 w-5" />
-                    )}
-                  </div>
-
-                  <div>
-                    <h2 className="text-sm font-black text-[var(--text)]">
-                      مرکز اعلان‌ها
-                    </h2>
-
-                    <p className="mt-1 text-xs text-[var(--muted)]">
-                      {loading
-                        ? "در حال دریافت..."
-                        : counts.all > 0
-                          ? `${counts.all.toLocaleString("fa-IR")} اعلان جدید`
-                          : "اعلان جدیدی ندارید"}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-1">
-                  <button
-                    type="button"
-                    onClick={() => void handleRefresh()}
-                    disabled={refreshing}
-                    aria-label="بروزرسانی"
-                    className="grid size-9 place-items-center rounded-lg text-[var(--muted)] transition hover:bg-[var(--surface-2)] hover:text-[var(--primary)] disabled:opacity-40"
-                  >
-                    <RefreshCw
-                      className={`h-4 w-4 ${refreshing ? "animate-spin" : ""}`}
-                    />
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => setOpen(false)}
-                    aria-label="بستن"
-                    className="grid size-9 place-items-center rounded-lg text-[var(--muted)] transition hover:bg-[var(--surface-2)] hover:text-[var(--text)]"
-                  >
-                    <X className="h-5 w-5" />
-                  </button>
-                </div>
-              </div>
-
-              {/* FILTERS */}
-
-              <div className="grid grid-cols-4 gap-1 px-3 pb-3">
-                {filters.map((item) => {
-                  const active = filter === item.id;
-
-                  return (
-                    <button
-                      key={item.id}
-                      type="button"
-                      onClick={() => setFilter(item.id)}
-                      className={`rounded-lg px-2 py-2 text-xs font-bold transition ${
-                        active
-                          ? "bg-[var(--primary)] text-white"
-                          : "bg-[var(--surface-2)] text-[var(--muted)] hover:text-[var(--text)]"
-                      }`}
-                    >
-                      {item.label}
-
-                      <span className="mr-1">
-                        {item.count.toLocaleString("fa-IR")}
-                      </span>
-                    </button>
-                  );
-                })}
-              </div>
-
-              {/* MARK ALL */}
-
-              {counts.all > 0 && (
-                <div className="border-t border-[var(--border)] px-3 py-2">
-                  <button
-                    type="button"
-                    onClick={markAllAsRead}
-                    className="flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-xs font-bold text-[var(--primary)] transition hover:bg-[var(--primary)]/10"
-                  >
-                    <CheckCheck className="h-4 w-4" />
-                    خواندن همه
-                  </button>
-                </div>
-              )}
-            </header>
-
-            {/* BODY */}
-
-            <div className="min-h-0 flex-1 overflow-y-auto p-3">
-              {loading ? (
-                <div className="flex min-h-[320px] flex-col items-center justify-center">
-                  <RefreshCw className="h-7 w-7 animate-spin text-[var(--primary)]" />
-
-                  <p className="mt-4 text-xs font-bold text-[var(--muted)]">
-                    در حال دریافت اعلان‌ها...
-                  </p>
-                </div>
-              ) : filteredNotifications.length === 0 ? (
-                <div className="flex min-h-[320px] flex-col items-center justify-center text-center">
-                  <div className="grid size-16 place-items-center rounded-2xl bg-emerald-500/10 text-emerald-500">
-                    <CheckCheck className="h-8 w-8" />
-                  </div>
-
-                  <h3 className="mt-4 text-sm font-black text-[var(--text)]">
-                    اعلان جدیدی نیست
-                  </h3>
-
-                  <p className="mt-2 max-w-[270px] text-xs leading-6 text-[var(--muted)]">
-                    در حال حاضر اعلان خوانده‌نشده‌ای برای نمایش وجود ندارد.
-                  </p>
-                </div>
-              ) : (
-                <div className="space-y-2">
-                  {filteredNotifications.map((notification) => {
-                    const Icon = getIcon(notification.type);
-
-                    return (
-                      <article
-                        key={notification.id}
-                        className="rounded-xl border border-[var(--border)] bg-[var(--surface-2)] p-3 transition hover:border-[var(--primary)]/30"
-                      >
-                        <div className="flex gap-3">
-                          <div className="grid size-10 shrink-0 place-items-center rounded-xl bg-[var(--primary)]/10 text-[var(--primary)]">
-                            <Icon className="h-4 w-4" />
-                          </div>
-
-                          <div className="min-w-0 flex-1">
-                            <div className="flex items-start justify-between gap-2">
-                              <div className="min-w-0">
-                                <h3 className="text-xs font-black text-[var(--text)]">
-                                  {notification.title}
-                                </h3>
-
-                                <p className="mt-1 text-xs leading-5 text-[var(--muted)]">
-                                  {notification.description}
-                                </p>
-                              </div>
-
-                              <button
-                                type="button"
-                                onClick={() => markAsRead(notification.id)}
-                                aria-label="خوانده شد"
-                                className="grid size-7 shrink-0 place-items-center rounded-lg text-[var(--muted)] transition hover:bg-[var(--primary)]/10 hover:text-[var(--primary)]"
-                              >
-                                <Check className="h-4 w-4" />
-                              </button>
-                            </div>
-
-                            <div className="mt-3 flex items-center gap-2">
-                              <span className="flex items-center gap-1 text-[10px] text-[var(--muted)]">
-                                <Clock3 className="h-3 w-3" />
-
-                                {formatDate(notification.createdAt)}
-                              </span>
-
-                              <Link
-                                href={notification.href}
-                                onClick={() => markAsRead(notification.id)}
-                                className="mr-auto rounded-lg px-2.5 py-1.5 text-[10px] font-black text-[var(--primary)] transition hover:bg-[var(--primary)]/10"
-                              >
-                                مشاهده
-                              </Link>
-                            </div>
-                          </div>
-                        </div>
-                      </article>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
-
-            {/* FOOTER */}
-
-            <footer className="shrink-0 border-t border-[var(--border)] bg-[var(--surface)] px-4 py-3">
-              <p className="text-center text-[10px] text-[var(--muted)]">
-                اعلان‌های خوانده‌شده دیگر نمایش داده نمی‌شوند.
-              </p>
-            </footer>
-          </section>
-        </>
-      )}
-    </div>
+      {notificationPanel}
+    </>
   );
 }
