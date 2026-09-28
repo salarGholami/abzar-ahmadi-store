@@ -23,6 +23,10 @@ export type Product = {
   stock: number;
   image: string;
   images?: ProductImage[];
+
+  // تأمین‌کننده‌های مجاز این محصول
+  supplierIds?: string[];
+
   purchaseCost?: number;
   description?: string;
   specs?: ProductSpec[];

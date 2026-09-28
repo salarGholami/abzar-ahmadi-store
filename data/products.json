@@ -33,7 +33,8 @@
     ],
     "rating": 3.9,
     "reviewCount": 47,
-    "barcode": "6260000000019"
+    "barcode": "6260000000019",
+    "supplierId": "s1"
   },
   {
     "id": "p2",
@@ -69,7 +70,8 @@
     ],
     "rating": 4.5,
     "reviewCount": 12,
-    "barcode": "6260000000026"
+    "barcode": "6260000000026",
+    "supplierId": "s2"
   },
   {
     "id": "p3",
@@ -105,7 +107,8 @@
     ],
     "rating": 4.2,
     "reviewCount": 18,
-    "barcode": "6260000000033"
+    "barcode": "6260000000033",
+    "supplierId": "s3"
   },
   {
     "id": "p4",
@@ -141,7 +144,8 @@
     ],
     "rating": 4.5,
     "reviewCount": 12,
-    "barcode": "6260000000040"
+    "barcode": "6260000000040",
+    "supplierId": "s4"
   },
   {
     "id": "p5",
@@ -177,7 +181,8 @@
     ],
     "rating": 4.1,
     "reviewCount": 8,
-    "barcode": "6260000000057"
+    "barcode": "6260000000057",
+    "supplierId": "s5"
   },
   {
     "id": "p6",
@@ -213,7 +218,8 @@
     ],
     "rating": 4.3,
     "reviewCount": 5,
-    "barcode": "6260000000064"
+    "barcode": "6260000000064",
+    "supplierId": "s6"
   },
   {
     "id": "p7",
@@ -249,7 +255,8 @@
     ],
     "rating": 4,
     "reviewCount": 5,
-    "barcode": "6260000000071"
+    "barcode": "6260000000071",
+    "supplierId": "s7"
   },
   {
     "id": "p8",
@@ -285,7 +292,8 @@
     ],
     "rating": 4.5,
     "reviewCount": 120,
-    "barcode": "6260000000088"
+    "barcode": "6260000000088",
+    "supplierId": "s8"
   },
   {
     "id": "p9",
@@ -321,7 +329,8 @@
     ],
     "rating": 4.9,
     "reviewCount": 90,
-    "barcode": "6260000000095"
+    "barcode": "6260000000095",
+    "supplierId": "s1"
   },
   {
     "id": "p10",
@@ -357,7 +366,8 @@
     ],
     "rating": 4.6,
     "reviewCount": 90,
-    "barcode": "6260000000101"
+    "barcode": "6260000000101",
+    "supplierId": "s2"
   },
   {
     "id": "p11",
@@ -393,7 +403,8 @@
     ],
     "rating": 4.6,
     "reviewCount": 34,
-    "barcode": "6260000000118"
+    "barcode": "6260000000118",
+    "supplierId": "s3"
   },
   {
     "id": "p12",
@@ -429,7 +440,8 @@
     ],
     "rating": 3.9,
     "reviewCount": 47,
-    "barcode": "6260000000125"
+    "barcode": "6260000000125",
+    "supplierId": "s4"
   },
   {
     "id": "p13",
@@ -465,7 +477,8 @@
     ],
     "rating": 4.5,
     "reviewCount": 25,
-    "barcode": "6260000000132"
+    "barcode": "6260000000132",
+    "supplierId": "s5"
   },
   {
     "id": "p14",
@@ -501,7 +514,8 @@
     ],
     "rating": 4.3,
     "reviewCount": 18,
-    "barcode": "6260000000149"
+    "barcode": "6260000000149",
+    "supplierId": "s6"
   },
   {
     "id": "p15",
@@ -537,7 +551,8 @@
     ],
     "rating": 4.3,
     "reviewCount": 25,
-    "barcode": "6260000000156"
+    "barcode": "6260000000156",
+    "supplierId": "s7"
   },
   {
     "id": "p16",
@@ -573,7 +588,8 @@
     ],
     "rating": 4.4,
     "reviewCount": 90,
-    "barcode": "6260000000163"
+    "barcode": "6260000000163",
+    "supplierId": "s8"
   },
   {
     "id": "p17",
@@ -609,7 +625,8 @@
     ],
     "rating": 4.6,
     "reviewCount": 47,
-    "barcode": "6260000000170"
+    "barcode": "6260000000170",
+    "supplierId": "s1"
   },
   {
     "id": "p18",
@@ -645,7 +662,8 @@
     ],
     "rating": 3.8,
     "reviewCount": 25,
-    "barcode": "6260000000187"
+    "barcode": "6260000000187",
+    "supplierId": "s2"
   },
   {
     "id": "p19",
@@ -681,7 +699,8 @@
     ],
     "rating": 4,
     "reviewCount": 90,
-    "barcode": "6260000000194"
+    "barcode": "6260000000194",
+    "supplierId": "s3"
   },
   {
     "id": "p20",
@@ -717,7 +736,8 @@
     ],
     "rating": 4.8,
     "reviewCount": 8,
-    "barcode": "6260000000200"
+    "barcode": "6260000000200",
+    "supplierId": "s4"
   },
   {
     "id": "p21",
@@ -753,7 +773,8 @@
     ],
     "rating": 3.9,
     "reviewCount": 90,
-    "barcode": "6260000000217"
+    "barcode": "6260000000217",
+    "supplierId": "s5"
   },
   {
     "id": "p22",
@@ -789,7 +810,8 @@
     ],
     "rating": 4,
     "reviewCount": 5,
-    "barcode": "6260000000224"
+    "barcode": "6260000000224",
+    "supplierId": "s6"
   },
   {
     "id": "p23",
@@ -825,7 +847,8 @@
     ],
     "rating": 4.1,
     "reviewCount": 90,
-    "barcode": "6260000000231"
+    "barcode": "6260000000231",
+    "supplierId": "s7"
   },
   {
     "id": "p24",
@@ -861,7 +884,8 @@
     ],
     "rating": 4.6,
     "reviewCount": 25,
-    "barcode": "6260000000248"
+    "barcode": "6260000000248",
+    "supplierId": "s8"
   },
   {
     "id": "p25",
@@ -897,7 +921,8 @@
     ],
     "rating": 4.3,
     "reviewCount": 62,
-    "barcode": "6260000000255"
+    "barcode": "6260000000255",
+    "supplierId": "s1"
   },
   {
     "id": "p26",
@@ -933,7 +958,8 @@
     ],
     "rating": 3.8,
     "reviewCount": 120,
-    "barcode": "6260000000262"
+    "barcode": "6260000000262",
+    "supplierId": "s2"
   },
   {
     "id": "p27",
@@ -969,7 +995,8 @@
     ],
     "rating": 4.8,
     "reviewCount": 90,
-    "barcode": "6260000000279"
+    "barcode": "6260000000279",
+    "supplierId": "s3"
   },
   {
     "id": "p28",
@@ -1005,7 +1032,8 @@
     ],
     "rating": 4.8,
     "reviewCount": 62,
-    "barcode": "6260000000286"
+    "barcode": "6260000000286",
+    "supplierId": "s4"
   },
   {
     "id": "p29",
@@ -1041,7 +1069,8 @@
     ],
     "rating": 4.8,
     "reviewCount": 5,
-    "barcode": "6260000000293"
+    "barcode": "6260000000293",
+    "supplierId": "s5"
   },
   {
     "id": "p30",
@@ -1077,7 +1106,8 @@
     ],
     "rating": 4.1,
     "reviewCount": 47,
-    "barcode": "6260000000309"
+    "barcode": "6260000000309",
+    "supplierId": "s6"
   },
   {
     "id": "p31",
@@ -1129,7 +1159,8 @@
     "reviewCount": 25,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000316"
+    "barcode": "6260000000316",
+    "supplierId": "s7"
   },
   {
     "id": "p32",
@@ -1181,7 +1212,8 @@
     "reviewCount": 12,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-20T17:47:57.325Z",
-    "barcode": "6260000000323"
+    "barcode": "6260000000323",
+    "supplierId": "s8"
   },
   {
     "id": "p33",
@@ -1233,7 +1265,8 @@
     "reviewCount": 3,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000330"
+    "barcode": "6260000000330",
+    "supplierId": "s1"
   },
   {
     "id": "p34",
@@ -1285,7 +1318,8 @@
     "reviewCount": 62,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000347"
+    "barcode": "6260000000347",
+    "supplierId": "s2"
   },
   {
     "id": "p35",
@@ -1337,7 +1371,8 @@
     "reviewCount": 0,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000354"
+    "barcode": "6260000000354",
+    "supplierId": "s3"
   },
   {
     "id": "p36",
@@ -1389,7 +1424,8 @@
     "reviewCount": 25,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000361"
+    "barcode": "6260000000361",
+    "supplierId": "s4"
   },
   {
     "id": "p37",
@@ -1441,7 +1477,8 @@
     "reviewCount": 25,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000378"
+    "barcode": "6260000000378",
+    "supplierId": "s5"
   },
   {
     "id": "p38",
@@ -1493,7 +1530,8 @@
     "reviewCount": 34,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000385"
+    "barcode": "6260000000385",
+    "supplierId": "s6"
   },
   {
     "id": "p39",
@@ -1545,7 +1583,8 @@
     "reviewCount": 25,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000392"
+    "barcode": "6260000000392",
+    "supplierId": "s7"
   },
   {
     "id": "p40",
@@ -1597,7 +1636,8 @@
     "reviewCount": 3,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000408"
+    "barcode": "6260000000408",
+    "supplierId": "s8"
   },
   {
     "id": "p41",
@@ -1649,7 +1689,8 @@
     "reviewCount": 18,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000415"
+    "barcode": "6260000000415",
+    "supplierId": "s1"
   },
   {
     "id": "p42",
@@ -1701,7 +1742,8 @@
     "reviewCount": 47,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000422"
+    "barcode": "6260000000422",
+    "supplierId": "s2"
   },
   {
     "id": "p43",
@@ -1753,7 +1795,8 @@
     "reviewCount": 34,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000439"
+    "barcode": "6260000000439",
+    "supplierId": "s3"
   },
   {
     "id": "p44",
@@ -1805,7 +1848,8 @@
     "reviewCount": 25,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000446"
+    "barcode": "6260000000446",
+    "supplierId": "s4"
   },
   {
     "id": "p45",
@@ -1857,7 +1901,8 @@
     "reviewCount": 5,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000453"
+    "barcode": "6260000000453",
+    "supplierId": "s5"
   },
   {
     "id": "p46",
@@ -1909,7 +1954,8 @@
     "reviewCount": 0,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000460"
+    "barcode": "6260000000460",
+    "supplierId": "s6"
   },
   {
     "id": "p47",
@@ -1961,7 +2007,8 @@
     "reviewCount": 18,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000477"
+    "barcode": "6260000000477",
+    "supplierId": "s7"
   },
   {
     "id": "p48",
@@ -2013,7 +2060,8 @@
     "reviewCount": 5,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000484"
+    "barcode": "6260000000484",
+    "supplierId": "s8"
   },
   {
     "id": "p49",
@@ -2065,7 +2113,8 @@
     "reviewCount": 5,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000491"
+    "barcode": "6260000000491",
+    "supplierId": "s1"
   },
   {
     "id": "p50",
@@ -2117,7 +2166,8 @@
     "reviewCount": 47,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000507"
+    "barcode": "6260000000507",
+    "supplierId": "s2"
   },
   {
     "id": "p51",
@@ -2169,7 +2219,8 @@
     "reviewCount": 34,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000514"
+    "barcode": "6260000000514",
+    "supplierId": "s3"
   },
   {
     "id": "p52",
@@ -2221,7 +2272,8 @@
     "reviewCount": 47,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000521"
+    "barcode": "6260000000521",
+    "supplierId": "s4"
   },
   {
     "id": "p53",
@@ -2273,7 +2325,8 @@
     "reviewCount": 8,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000538"
+    "barcode": "6260000000538",
+    "supplierId": "s5"
   },
   {
     "id": "p54",
@@ -2325,7 +2378,8 @@
     "reviewCount": 90,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000545"
+    "barcode": "6260000000545",
+    "supplierId": "s6"
   },
   {
     "id": "p55",
@@ -2377,7 +2431,8 @@
     "reviewCount": 8,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000552"
+    "barcode": "6260000000552",
+    "supplierId": "s7"
   },
   {
     "id": "p56",
@@ -2429,7 +2484,8 @@
     "reviewCount": 5,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000569"
+    "barcode": "6260000000569",
+    "supplierId": "s8"
   },
   {
     "id": "p57",
@@ -2481,7 +2537,8 @@
     "reviewCount": 90,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000576"
+    "barcode": "6260000000576",
+    "supplierId": "s1"
   },
   {
     "id": "p58",
@@ -2533,7 +2590,8 @@
     "reviewCount": 12,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000583"
+    "barcode": "6260000000583",
+    "supplierId": "s2"
   },
   {
     "id": "p59",
@@ -2585,7 +2643,8 @@
     "reviewCount": 34,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000590"
+    "barcode": "6260000000590",
+    "supplierId": "s3"
   },
   {
     "id": "p60",
@@ -2637,7 +2696,8 @@
     "reviewCount": 47,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000606"
+    "barcode": "6260000000606",
+    "supplierId": "s4"
   },
   {
     "id": "p61",
@@ -2689,7 +2749,8 @@
     "reviewCount": 8,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000613"
+    "barcode": "6260000000613",
+    "supplierId": "s5"
   },
   {
     "id": "p62",
@@ -2741,7 +2802,8 @@
     "reviewCount": 47,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000620"
+    "barcode": "6260000000620",
+    "supplierId": "s6"
   },
   {
     "id": "p63",
@@ -2793,7 +2855,8 @@
     "reviewCount": 34,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000637"
+    "barcode": "6260000000637",
+    "supplierId": "s7"
   },
   {
     "id": "p64",
@@ -2845,7 +2908,8 @@
     "reviewCount": 47,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000644"
+    "barcode": "6260000000644",
+    "supplierId": "s8"
   },
   {
     "id": "p65",
@@ -2897,7 +2961,8 @@
     "reviewCount": 18,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000651"
+    "barcode": "6260000000651",
+    "supplierId": "s1"
   },
   {
     "id": "p66",
@@ -2949,7 +3014,8 @@
     "reviewCount": 25,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000668"
+    "barcode": "6260000000668",
+    "supplierId": "s2"
   },
   {
     "id": "p67",
@@ -3001,7 +3067,8 @@
     "reviewCount": 5,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000675"
+    "barcode": "6260000000675",
+    "supplierId": "s3"
   },
   {
     "id": "p68",
@@ -3053,7 +3120,8 @@
     "reviewCount": 5,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000682"
+    "barcode": "6260000000682",
+    "supplierId": "s4"
   },
   {
     "id": "p69",
@@ -3105,7 +3173,8 @@
     "reviewCount": 25,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000699"
+    "barcode": "6260000000699",
+    "supplierId": "s5"
   },
   {
     "id": "p70",
@@ -3157,7 +3226,8 @@
     "reviewCount": 62,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000705"
+    "barcode": "6260000000705",
+    "supplierId": "s6"
   },
   {
     "id": "p71",
@@ -3209,7 +3279,8 @@
     "reviewCount": 3,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000712"
+    "barcode": "6260000000712",
+    "supplierId": "s7"
   },
   {
     "id": "p72",
@@ -3261,7 +3332,8 @@
     "reviewCount": 12,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-18T04:55:56.654Z",
-    "barcode": "6260000000729"
+    "barcode": "6260000000729",
+    "supplierId": "s8"
   },
   {
     "id": "p73",
@@ -3313,7 +3385,8 @@
     "reviewCount": 5,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000736"
+    "barcode": "6260000000736",
+    "supplierId": "s1"
   },
   {
     "id": "p74",
@@ -3365,7 +3438,8 @@
     "reviewCount": 47,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000743"
+    "barcode": "6260000000743",
+    "supplierId": "s2"
   },
   {
     "id": "p75",
@@ -3417,7 +3491,8 @@
     "reviewCount": 8,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000750"
+    "barcode": "6260000000750",
+    "supplierId": "s3"
   },
   {
     "id": "p76",
@@ -3469,7 +3544,8 @@
     "reviewCount": 34,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000767"
+    "barcode": "6260000000767",
+    "supplierId": "s4"
   },
   {
     "id": "p77",
@@ -3521,7 +3597,8 @@
     "reviewCount": 25,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000774"
+    "barcode": "6260000000774",
+    "supplierId": "s5"
   },
   {
     "id": "p78",
@@ -3573,7 +3650,8 @@
     "reviewCount": 62,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000781"
+    "barcode": "6260000000781",
+    "supplierId": "s6"
   },
   {
     "id": "p79",
@@ -3625,7 +3703,8 @@
     "reviewCount": 47,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000798"
+    "barcode": "6260000000798",
+    "supplierId": "s7"
   },
   {
     "id": "p80",
@@ -3677,7 +3756,8 @@
     "reviewCount": 12,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000804"
+    "barcode": "6260000000804",
+    "supplierId": "s8"
   },
   {
     "id": "p81",
@@ -3729,7 +3809,8 @@
     "reviewCount": 0,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000811"
+    "barcode": "6260000000811",
+    "supplierId": "s1"
   },
   {
     "id": "p82",
@@ -3781,7 +3862,8 @@
     "reviewCount": 47,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000828"
+    "barcode": "6260000000828",
+    "supplierId": "s2"
   },
   {
     "id": "p83",
@@ -3833,7 +3915,8 @@
     "reviewCount": 8,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000835"
+    "barcode": "6260000000835",
+    "supplierId": "s3"
   },
   {
     "id": "p84",
@@ -3885,7 +3968,8 @@
     "reviewCount": 8,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000842"
+    "barcode": "6260000000842",
+    "supplierId": "s4"
   },
   {
     "id": "p85",
@@ -3937,7 +4021,8 @@
     "reviewCount": 0,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000859"
+    "barcode": "6260000000859",
+    "supplierId": "s5"
   },
   {
     "id": "p86",
@@ -3989,7 +4074,8 @@
     "reviewCount": 8,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000866"
+    "barcode": "6260000000866",
+    "supplierId": "s6"
   },
   {
     "id": "p87",
@@ -4041,7 +4127,8 @@
     "reviewCount": 18,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000873"
+    "barcode": "6260000000873",
+    "supplierId": "s7"
   },
   {
     "id": "p88",
@@ -4093,7 +4180,8 @@
     "reviewCount": 62,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000880"
+    "barcode": "6260000000880",
+    "supplierId": "s8"
   },
   {
     "id": "p89",
@@ -4145,7 +4233,8 @@
     "reviewCount": 5,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000897"
+    "barcode": "6260000000897",
+    "supplierId": "s1"
   },
   {
     "id": "p90",
@@ -4197,7 +4286,8 @@
     "reviewCount": 3,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000903"
+    "barcode": "6260000000903",
+    "supplierId": "s2"
   },
   {
     "id": "p91",
@@ -4249,7 +4339,8 @@
     "reviewCount": 25,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000910"
+    "barcode": "6260000000910",
+    "supplierId": "s3"
   },
   {
     "id": "p92",
@@ -4301,7 +4392,8 @@
     "reviewCount": 0,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000927"
+    "barcode": "6260000000927",
+    "supplierId": "s4"
   },
   {
     "id": "p93",
@@ -4353,7 +4445,8 @@
     "reviewCount": 12,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000934"
+    "barcode": "6260000000934",
+    "supplierId": "s5"
   },
   {
     "id": "p94",
@@ -4405,7 +4498,8 @@
     "reviewCount": 34,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000941"
+    "barcode": "6260000000941",
+    "supplierId": "s6"
   },
   {
     "id": "p95",
@@ -4457,7 +4551,8 @@
     "reviewCount": 25,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000958"
+    "barcode": "6260000000958",
+    "supplierId": "s7"
   },
   {
     "id": "p96",
@@ -4509,7 +4604,8 @@
     "reviewCount": 62,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000965"
+    "barcode": "6260000000965",
+    "supplierId": "s8"
   },
   {
     "id": "p97",
@@ -4561,7 +4657,8 @@
     "reviewCount": 90,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000972"
+    "barcode": "6260000000972",
+    "supplierId": "s1"
   },
   {
     "id": "p98",
@@ -4613,7 +4710,8 @@
     "reviewCount": 18,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000989"
+    "barcode": "6260000000989",
+    "supplierId": "s2"
   },
   {
     "id": "p99",
@@ -4665,7 +4763,8 @@
     "reviewCount": 0,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000000996"
+    "barcode": "6260000000996",
+    "supplierId": "s3"
   },
   {
     "id": "p100",
@@ -4717,7 +4816,8 @@
     "reviewCount": 25,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000001009"
+    "barcode": "6260000001009",
+    "supplierId": "s4"
   },
   {
     "id": "p101",
@@ -4769,7 +4869,8 @@
     "reviewCount": 5,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000001016"
+    "barcode": "6260000001016",
+    "supplierId": "s5"
   },
   {
     "id": "p102",
@@ -4821,7 +4922,8 @@
     "reviewCount": 90,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000001023"
+    "barcode": "6260000001023",
+    "supplierId": "s6"
   },
   {
     "id": "p103",
@@ -4873,7 +4975,8 @@
     "reviewCount": 34,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000001030"
+    "barcode": "6260000001030",
+    "supplierId": "s7"
   },
   {
     "id": "p104",
@@ -4925,7 +5028,8 @@
     "reviewCount": 25,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000001047"
+    "barcode": "6260000001047",
+    "supplierId": "s8"
   },
   {
     "id": "p105",
@@ -4977,7 +5081,8 @@
     "reviewCount": 47,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000001054"
+    "barcode": "6260000001054",
+    "supplierId": "s1"
   },
   {
     "id": "p106",
@@ -5029,7 +5134,8 @@
     "reviewCount": 12,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000001061"
+    "barcode": "6260000001061",
+    "supplierId": "s2"
   },
   {
     "id": "p107",
@@ -5081,7 +5187,8 @@
     "reviewCount": 12,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000001078"
+    "barcode": "6260000001078",
+    "supplierId": "s3"
   },
   {
     "id": "p108",
@@ -5133,7 +5240,8 @@
     "reviewCount": 18,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000001085"
+    "barcode": "6260000001085",
+    "supplierId": "s4"
   },
   {
     "id": "p109",
@@ -5185,7 +5293,8 @@
     "reviewCount": 5,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000001092"
+    "barcode": "6260000001092",
+    "supplierId": "s5"
   },
   {
     "id": "p110",
@@ -5237,7 +5346,8 @@
     "reviewCount": 25,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000001108"
+    "barcode": "6260000001108",
+    "supplierId": "s6"
   },
   {
     "id": "p111",
@@ -5289,7 +5399,8 @@
     "reviewCount": 8,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000001115"
+    "barcode": "6260000001115",
+    "supplierId": "s7"
   },
   {
     "id": "p112",
@@ -5341,7 +5452,8 @@
     "reviewCount": 12,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000001122"
+    "barcode": "6260000001122",
+    "supplierId": "s8"
   },
   {
     "id": "p113",
@@ -5393,7 +5505,8 @@
     "reviewCount": 3,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000001139"
+    "barcode": "6260000001139",
+    "supplierId": "s1"
   },
   {
     "id": "p114",
@@ -5445,7 +5558,8 @@
     "reviewCount": 90,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000001146"
+    "barcode": "6260000001146",
+    "supplierId": "s2"
   },
   {
     "id": "p115",
@@ -5497,7 +5611,8 @@
     "reviewCount": 34,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000001153"
+    "barcode": "6260000001153",
+    "supplierId": "s3"
   },
   {
     "id": "p116",
@@ -5549,7 +5664,8 @@
     "reviewCount": 34,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000001160"
+    "barcode": "6260000001160",
+    "supplierId": "s4"
   },
   {
     "id": "p117",
@@ -5601,7 +5717,8 @@
     "reviewCount": 12,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000001177"
+    "barcode": "6260000001177",
+    "supplierId": "s5"
   },
   {
     "id": "p118",
@@ -5653,7 +5770,8 @@
     "reviewCount": 47,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
-    "barcode": "6260000001184"
+    "barcode": "6260000001184",
+    "supplierId": "s6"
   },
   {
     "id": "p119",
@@ -5705,7 +5823,8 @@
     "reviewCount": 47,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-23T02:36:04.265Z",
-    "barcode": "6260000001191"
+    "barcode": "6260000001191",
+    "supplierId": "s7"
   },
   {
     "id": "p120",
@@ -5757,6 +5876,7 @@
     "reviewCount": 90,
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-23T02:36:04.265Z",
-    "barcode": "6260000001207"
+    "barcode": "6260000001207",
+    "supplierId": "s8"
   }
 ]

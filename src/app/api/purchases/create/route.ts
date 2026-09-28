@@ -3,8 +3,9 @@ import { ok, fail } from "@/lib/http";
 
 export async function POST(req: Request) {
   try {
-    return ok(await createPurchase(await req.json()), 201);
-  } catch (e) {
-    return fail(e);
+    const payload = await req.json();
+    return ok(await createPurchase(payload), 201);
+  } catch (error) {
+    return fail(error);
   }
 }
