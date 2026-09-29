@@ -4774,7 +4774,7 @@
     "category": "برق و روشنایی",
     "price": 1148000,
     "discount": 18,
-    "stock": 4,
+    "stock": 15,
     "image": "/placeholders/cat-12-a.svg",
     "images": [
       {
@@ -4815,7 +4815,7 @@
     "rating": 4.1,
     "reviewCount": 25,
     "createdAt": "2026-09-16T09:12:03.000000Z",
-    "updatedAt": "2026-09-16T09:12:03.000000Z",
+    "updatedAt": "2026-09-29T06:24:41.777Z",
     "barcode": "6260000001009",
     "supplierId": "s4"
   },

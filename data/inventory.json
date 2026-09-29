@@ -238,5 +238,11 @@
     "productId": "p105",
     "quantity": -1,
     "updatedAt": "2026-09-26T23:47:57.100Z"
+  },
+  {
+    "id": "724ab4df-1eb0-4c1b-be4b-7b995e4ca0a3",
+    "productId": "p100",
+    "quantity": 11,
+    "updatedAt": "2026-09-29T06:24:41.778Z"
   }
 ]
