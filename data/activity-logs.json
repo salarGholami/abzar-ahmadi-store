@@ -244,5 +244,14 @@
     "action": "PURCHASE_CREATED",
     "entityId": "c4cd2a85-24ce-4982-95c8-2b6a667f2189",
     "createdAt": "2026-09-28T10:09:45.336Z"
+  },
+  {
+    "id": "b26872b3-cc48-4eb2-8dad-34b69f0f6bb2",
+    "action": "ADMIN_ENTITY_DELETED",
+    "entityType": "customers",
+    "entityId": "c1",
+    "actorId": "u-admin",
+    "actorRole": "ADMIN",
+    "createdAt": "2026-09-29T04:45:45.286Z"
   }
 ]
