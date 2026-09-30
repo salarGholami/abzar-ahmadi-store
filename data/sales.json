@@ -861,14 +861,14 @@
       "uploadedAt": "2026-09-30T04:07:38.032Z"
     },
     "channel": "ONLINE",
-    "shippingStatus": "PENDING",
-    "trackingCode": null,
-    "shippingMethod": null,
-    "shippingCompany": null,
+    "shippingStatus": "PROCESSING",
+    "trackingCode": "3243453543655464",
+    "shippingMethod": "POST",
+    "shippingCompany": "اداره پست",
     "shippedAt": null,
-    "trackingUrl": null,
+    "trackingUrl": "https://tracking.post.ir/?id=3243453543655464",
     "createdAt": "2026-09-30T04:07:38.032Z",
-    "updatedAt": "2026-09-30T04:07:38.032Z",
+    "updatedAt": "2026-09-30T04:14:21.511Z",
     "idempotencyKey": "7822b34f-b153-45fb-9523-b56469a84db5"
   }
 ]

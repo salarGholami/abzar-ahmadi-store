@@ -273,5 +273,11 @@
     "action": "SALE_CREATED",
     "entityId": "7822b34f-b153-45fb-9523-b56469a84db5",
     "createdAt": "2026-09-30T04:07:38.032Z"
+  },
+  {
+    "id": "44fb50c0-7777-4624-9d5c-bc0e008faa9c",
+    "action": "SALE_SHIPPING_UPDATED",
+    "entityId": "7822b34f-b153-45fb-9523-b56469a84db5",
+    "createdAt": "2026-09-30T04:14:22.260Z"
   }
 ]
