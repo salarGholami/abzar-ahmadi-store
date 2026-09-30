@@ -285,5 +285,17 @@
     "action": "SALE_PAYMENT_PENDING_TRANSFER_TO_PAID",
     "entityId": "7822b34f-b153-45fb-9523-b56469a84db5",
     "createdAt": "2026-09-30T04:14:43.977Z"
+  },
+  {
+    "id": "7f198d15-89c7-459f-b034-03e754f11406",
+    "action": "SALE_PAYMENT_STATUS_UPDATED",
+    "entityType": "sales",
+    "entityId": "7822b34f-b153-45fb-9523-b56469a84db5",
+    "actorId": "u-admin",
+    "actorRole": "ADMIN",
+    "metadata": {
+      "status": "PAID"
+    },
+    "createdAt": "2026-09-30T04:14:57.149Z"
   }
 ]
