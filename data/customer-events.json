@@ -88,5 +88,16 @@
     "name": "CHECKOUT_STARTED",
     "path": "/cart",
     "createdAt": "2026-09-30T04:02:22.265Z"
+  },
+  {
+    "id": "f7f418ae-8a04-4190-a1ad-d860d9373cc2",
+    "actorType": "USER",
+    "actorId": "256d6164-bc8e-49cc-817a-fd5a8ee1a9ea",
+    "name": "CART_ITEM_ADDED",
+    "entityId": "p77",
+    "metadata": {
+      "quantity": 1
+    },
+    "createdAt": "2026-09-30T04:02:21.486Z"
   }
 ]
