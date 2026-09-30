@@ -3,26 +3,7 @@
     "id": "b6fd6209-c737-48db-ab0f-806a1772996a",
     "ownerType": "USER",
     "ownerId": "256d6164-bc8e-49cc-817a-fd5a8ee1a9ea",
-    "lines": [
-      {
-        "productId": "p42",
-        "quantity": 2,
-        "createdAt": "2026-09-30T04:01:28.850Z",
-        "updatedAt": "2026-09-30T04:02:02.902Z"
-      },
-      {
-        "productId": "p56",
-        "quantity": 2,
-        "createdAt": "2026-09-30T04:01:30.449Z",
-        "updatedAt": "2026-09-30T04:01:50.481Z"
-      },
-      {
-        "productId": "p77",
-        "quantity": 1,
-        "createdAt": "2026-09-30T04:02:16.633Z",
-        "updatedAt": "2026-09-30T04:02:16.633Z"
-      }
-    ],
-    "updatedAt": "2026-09-30T04:02:16.633Z"
+    "lines": [],
+    "updatedAt": "2026-09-30T04:08:01.590Z"
   }
 ]
