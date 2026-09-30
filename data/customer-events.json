@@ -178,5 +178,12 @@
     "actorId": "eda8dffe-dd82-42e2-92b4-abdeada1adbb",
     "name": "REGISTER",
     "createdAt": "2026-09-30T05:02:03.998Z"
+  },
+  {
+    "id": "6feaff2c-1aa9-45e2-a1a5-a302e2f71e27",
+    "actorType": "USER",
+    "actorId": "eda8dffe-dd82-42e2-92b4-abdeada1adbb",
+    "name": "LOGOUT",
+    "createdAt": "2026-09-30T06:18:49.541Z"
   }
 ]
