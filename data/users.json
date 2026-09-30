@@ -26,20 +26,5 @@
     "passwordHash": "scrypt:84b2696e7e77d7047e63c1f3aa75d604:40fe9ceaa367f4bf95339df156d6dd6637912de544a8bfd7a672530ffcbc8b01186c3fb216e9bc182881a9a174f3cd606eccd67836b2012c2554264f40d09202",
     "createdAt": "2026-09-18T04:47:45.995Z",
     "updatedAt": "2026-09-18T04:47:45.995Z"
-  },
-  {
-    "id": "d9c2a66d-9dd0-4760-9a32-8951da600902",
-    "name": "سالارخحسلخلسخح",
-    "phone": "09121111111",
-    "email": "salargholami021@gmail.com",
-    "emailVerified": false,
-    "avatarUrl": null,
-    "role": "ADMIN",
-    "permissions": [
-      "*"
-    ],
-    "passwordHash": "scrypt:6f19c1145914c136e822deaf03b01784:912286688ebb2a70c51d418790bc3d14b49d243ba744a891c502f6a3760df9918b09883c3d3c4ee8ac131e2d6c8c11c9ad56eeff5bacd4dcf9981dfed88d2e83",
-    "createdAt": "2026-09-26T07:39:32.860Z",
-    "updatedAt": "2026-09-26T07:48:27.299Z"
   }
 ]
