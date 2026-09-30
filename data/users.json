@@ -38,5 +38,20 @@
     "passwordHash": "scrypt:3f0a9404cdfead54282da1a180ac9ad2:6b06a06afe3cce0dc64dec1d6e4ad37c29a64dc5c854ccf338a5318d0adca1b8129ae0f20eadb605e7735540ee29b47202c0c28598b77d2a3e3474a426718439",
     "createdAt": "2026-09-30T05:01:56.069Z",
     "updatedAt": "2026-09-30T05:01:56.069Z"
+  },
+  {
+    "id": "bd24c8ef-59f9-4cd0-8476-c7a944d1b3a1",
+    "name": "جواد احمدی نژاد پاشاکی ",
+    "phone": "09120824229",
+    "role": "CUSTOMER",
+    "permissions": [
+      "products.read",
+      "sales.read",
+      "sales.create",
+      "quotations.create"
+    ],
+    "passwordHash": "scrypt:54152cd88c785d0dc8f318c89e6ba18b:c798a48e5cedb72552863557a98b64eb883c7d94ca110bff69c38ffdaaf2a834d4295f72f5186712ec9293dd592cce4cef1f24695320760eee068a7014119398",
+    "createdAt": "2026-09-30T16:48:47.310Z",
+    "updatedAt": "2026-09-30T16:48:47.310Z"
   }
 ]
