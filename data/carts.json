@@ -6,9 +6,9 @@
     "lines": [
       {
         "productId": "p42",
-        "quantity": 1,
+        "quantity": 2,
         "createdAt": "2026-09-30T04:01:28.850Z",
-        "updatedAt": "2026-09-30T04:01:28.850Z"
+        "updatedAt": "2026-09-30T04:02:02.902Z"
       },
       {
         "productId": "p56",
@@ -17,6 +17,6 @@
         "updatedAt": "2026-09-30T04:01:50.481Z"
       }
     ],
-    "updatedAt": "2026-09-30T04:01:50.481Z"
+    "updatedAt": "2026-09-30T04:02:02.902Z"
   }
 ]
