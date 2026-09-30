@@ -131,5 +131,17 @@
     "name": "CHECKOUT_STARTED",
     "path": "/cart",
     "createdAt": "2026-09-30T04:03:27.365Z"
+  },
+  {
+    "id": "3ab3d281-2dc7-4568-bdf6-e2489d4efa12",
+    "actorType": "USER",
+    "actorId": "256d6164-bc8e-49cc-817a-fd5a8ee1a9ea",
+    "name": "ORDER_CREATED",
+    "entityId": "7822b34f-b153-45fb-9523-b56469a84db5",
+    "metadata": {
+      "amount": 18924500,
+      "channel": "ONLINE"
+    },
+    "createdAt": "2026-09-30T04:07:52.392Z"
   }
 ]
