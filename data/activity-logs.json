@@ -297,5 +297,11 @@
       "status": "PAID"
     },
     "createdAt": "2026-09-30T04:14:57.149Z"
+  },
+  {
+    "id": "ee7007c5-9800-44a9-a6a6-0135ec1b3615",
+    "action": "SALE_SHIPPING_UPDATED",
+    "entityId": "7822b34f-b153-45fb-9523-b56469a84db5",
+    "createdAt": "2026-09-30T04:31:36.600Z"
   }
 ]
