@@ -244,5 +244,26 @@
     "productId": "p100",
     "quantity": 11,
     "updatedAt": "2026-09-29T06:24:41.778Z"
+  },
+  {
+    "id": "f6b099ef-07bd-484e-b3ab-95b0257a204c",
+    "productId": "p42",
+    "quantity": -2,
+    "reason": "SALE:7822b34f-b153-45fb-9523-b56469a84db5",
+    "updatedAt": "2026-09-30T04:07:38.032Z"
+  },
+  {
+    "id": "232e8472-c50a-4307-8e50-4db7bf141ff0",
+    "productId": "p56",
+    "quantity": -2,
+    "reason": "SALE:7822b34f-b153-45fb-9523-b56469a84db5",
+    "updatedAt": "2026-09-30T04:07:38.032Z"
+  },
+  {
+    "id": "8841b990-e7c0-49f6-b118-fc8082f4d898",
+    "productId": "p77",
+    "quantity": -1,
+    "reason": "SALE:7822b34f-b153-45fb-9523-b56469a84db5",
+    "updatedAt": "2026-09-30T04:07:38.032Z"
   }
 ]

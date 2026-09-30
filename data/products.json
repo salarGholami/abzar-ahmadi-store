@@ -1700,7 +1700,7 @@
     "category": "برش و سایش",
     "price": 1525000,
     "discount": 30,
-    "stock": 30,
+    "stock": 28,
     "image": "/placeholders/cat-3-a.svg",
     "images": [
       {
@@ -1741,7 +1741,7 @@
     "rating": 4.9,
     "reviewCount": 47,
     "createdAt": "2026-09-16T09:12:03.000000Z",
-    "updatedAt": "2026-09-16T09:12:03.000000Z",
+    "updatedAt": "2026-09-30T04:07:38.032Z",
     "barcode": "6260000000422",
     "supplierId": "s2"
   },
@@ -2442,7 +2442,7 @@
     "category": "جوشکاری",
     "price": 11983000,
     "discount": 30,
-    "stock": 10,
+    "stock": 8,
     "image": "/placeholders/cat-5-a.svg",
     "images": [
       {
@@ -2483,7 +2483,7 @@
     "rating": 3.7,
     "reviewCount": 5,
     "createdAt": "2026-09-16T09:12:03.000000Z",
-    "updatedAt": "2026-09-16T09:12:03.000000Z",
+    "updatedAt": "2026-09-30T04:07:38.032Z",
     "barcode": "6260000000569",
     "supplierId": "s8"
   },
@@ -3555,7 +3555,7 @@
     "category": "پیچ و مهره و اتصالات",
     "price": 19000,
     "discount": 30,
-    "stock": 6,
+    "stock": 5,
     "image": "/placeholders/cat-9-a.svg",
     "images": [
       {
@@ -3596,7 +3596,7 @@
     "rating": 4.7,
     "reviewCount": 25,
     "createdAt": "2026-09-16T09:12:03.000000Z",
-    "updatedAt": "2026-09-16T09:12:03.000000Z",
+    "updatedAt": "2026-09-30T04:07:38.032Z",
     "barcode": "6260000000774",
     "supplierId": "s5"
   },

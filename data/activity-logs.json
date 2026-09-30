@@ -267,5 +267,11 @@
     "quantity": 11,
     "reason": "نمیدونم",
     "createdAt": "2026-09-29T06:24:41.778Z"
+  },
+  {
+    "id": "8b81f125-867b-41dc-b19f-93eea55839d7",
+    "action": "SALE_CREATED",
+    "entityId": "7822b34f-b153-45fb-9523-b56469a84db5",
+    "createdAt": "2026-09-30T04:07:38.032Z"
   }
 ]
