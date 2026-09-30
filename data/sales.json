@@ -842,7 +842,7 @@
     "netAmount": 18924500,
     "cogs": 18481000,
     "grossProfit": 443500,
-    "paymentStatus": "PENDING_TRANSFER",
+    "paymentStatus": "PAID",
     "paymentProvider": "MANUAL_TRANSFER",
     "paymentTransactionId": "0e1c8ef6-df03-4bb2-bb78-69772cf62440",
     "shippingAddress": {
@@ -868,7 +868,7 @@
     "shippedAt": null,
     "trackingUrl": "https://tracking.post.ir/?id=3243453543655464",
     "createdAt": "2026-09-30T04:07:38.032Z",
-    "updatedAt": "2026-09-30T04:14:21.511Z",
+    "updatedAt": "2026-09-30T04:14:43.977Z",
     "idempotencyKey": "7822b34f-b153-45fb-9523-b56469a84db5"
   }
 ]
