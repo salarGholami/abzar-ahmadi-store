@@ -26,5 +26,17 @@
     "passwordHash": "scrypt:84b2696e7e77d7047e63c1f3aa75d604:40fe9ceaa367f4bf95339df156d6dd6637912de544a8bfd7a672530ffcbc8b01186c3fb216e9bc182881a9a174f3cd606eccd67836b2012c2554264f40d09202",
     "createdAt": "2026-09-18T04:47:45.995Z",
     "updatedAt": "2026-09-18T04:47:45.995Z"
+  },
+  {
+    "id": "eda8dffe-dd82-42e2-92b4-abdeada1adbb",
+    "name": "سالارملاغلا",
+    "phone": "09214782769",
+    "role": "CUSTOMER",
+    "permissions": [
+      "sales.create"
+    ],
+    "passwordHash": "scrypt:3f0a9404cdfead54282da1a180ac9ad2:6b06a06afe3cce0dc64dec1d6e4ad37c29a64dc5c854ccf338a5318d0adca1b8129ae0f20eadb605e7735540ee29b47202c0c28598b77d2a3e3474a426718439",
+    "createdAt": "2026-09-30T05:01:56.069Z",
+    "updatedAt": "2026-09-30T05:01:56.069Z"
   }
 ]
