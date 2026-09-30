@@ -1,0 +1,16 @@
+[
+  {
+    "id": "d05ec00e-c070-45d7-bab2-9631798d5002",
+    "userId": "256d6164-bc8e-49cc-817a-fd5a8ee1a9ea",
+    "title": "آدرس من",
+    "recipientName": "سالار",
+    "phone": "09389525194",
+    "province": "تهران",
+    "city": "باغستان",
+    "address": "باغستان درب اول پلاک 1 واحد 7",
+    "postalCode": "1234567891",
+    "isDefault": true,
+    "createdAt": "2026-09-30T04:07:58.459Z",
+    "updatedAt": "2026-09-30T04:07:58.459Z"
+  }
+]
