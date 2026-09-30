@@ -150,5 +150,12 @@
     "actorId": "256d6164-bc8e-49cc-817a-fd5a8ee1a9ea",
     "name": "CART_CLEARED",
     "createdAt": "2026-09-30T04:08:12.072Z"
+  },
+  {
+    "id": "1df37f19-7e84-4ad6-887f-debf51c62e86",
+    "actorType": "USER",
+    "actorId": "u-admin",
+    "name": "LOGIN",
+    "createdAt": "2026-09-30T04:12:40.766Z"
   }
 ]
