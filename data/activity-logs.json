@@ -309,5 +309,11 @@
     "action": "SALE_CREATED",
     "entityId": "dd662bbc-01e2-4eb3-8ae4-ab5ace376614",
     "createdAt": "2026-09-30T16:51:30.810Z"
+  },
+  {
+    "id": "09ec99f3-3420-4d2c-9cdb-fa33db3c70cf",
+    "action": "SALE_SHIPPING_UPDATED",
+    "entityId": "dd662bbc-01e2-4eb3-8ae4-ab5ace376614",
+    "createdAt": "2026-09-30T16:53:47.036Z"
   }
 ]

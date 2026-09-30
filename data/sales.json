@@ -891,14 +891,14 @@
       "uploadedAt": "2026-09-30T16:51:28.335Z"
     },
     "channel": "ONLINE",
-    "shippingStatus": "PENDING",
-    "trackingCode": null,
-    "shippingMethod": null,
-    "shippingCompany": null,
+    "shippingStatus": "PROCESSING",
+    "trackingCode": "121212121212121212",
+    "shippingMethod": "TIPAX",
+    "shippingCompany": "تیپاکس",
     "shippedAt": null,
     "trackingUrl": null,
     "createdAt": "2026-09-30T16:51:30.810Z",
-    "updatedAt": "2026-09-30T16:51:30.810Z",
+    "updatedAt": "2026-09-30T16:53:46.894Z",
     "idempotencyKey": "dd662bbc-01e2-4eb3-8ae4-ab5ace376614"
   }
 ]
