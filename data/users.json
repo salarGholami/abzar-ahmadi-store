@@ -26,5 +26,17 @@
     "passwordHash": "scrypt:54152cd88c785d0dc8f318c89e6ba18b:c798a48e5cedb72552863557a98b64eb883c7d94ca110bff69c38ffdaaf2a834d4295f72f5186712ec9293dd592cce4cef1f24695320760eee068a7014119398",
     "createdAt": "2026-09-30T16:48:47.310Z",
     "updatedAt": "2026-09-30T16:48:47.310Z"
+  },
+  {
+    "id": "e6943202-bf08-4a33-af27-f18db91f63bc",
+    "name": "نیکی کریمی",
+    "phone": "09121234567",
+    "role": "CUSTOMER",
+    "permissions": [
+      "sales.create"
+    ],
+    "passwordHash": "scrypt:c8b6d30f0b357f7bb402f95277040ba0:50a6c2cd7803021f86385629a78a8f13b8e51ffe9807fc65a54ca2c1d91e61fb65708f4410cf34eea00187e79c2a4039f65203611200f855dea7b9f2c8b53f48",
+    "createdAt": "2026-10-01T05:21:17.317Z",
+    "updatedAt": "2026-10-01T05:21:17.317Z"
   }
 ]
