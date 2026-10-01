@@ -12,7 +12,9 @@
     "paymentStatus": "PAID",
     "channel": "POS",
     "createdAt": "2026-09-15T03:42:28.451629Z",
-    "idempotencyKey": "sale-001"
+    "idempotencyKey": "sale-001",
+    "customerUserId": "6bf1eb21-01fb-4ccc-b6ab-6ea8765e6450",
+    "shippingStatus": "PENDING"
   },
   {
     "id": "sale-002",
@@ -27,7 +29,9 @@
     "paymentStatus": "PAID",
     "channel": "POS",
     "createdAt": "2026-09-14T03:42:28.451629Z",
-    "idempotencyKey": "sale-002"
+    "idempotencyKey": "sale-002",
+    "customerUserId": "6bf1eb21-01fb-4ccc-b6ab-6ea8765e6450",
+    "shippingStatus": "PROCESSING"
   },
   {
     "id": "sale-003",
@@ -42,7 +46,9 @@
     "paymentStatus": "PARTIAL",
     "channel": "ONLINE",
     "createdAt": "2026-09-13T03:42:28.451629Z",
-    "idempotencyKey": "sale-003"
+    "idempotencyKey": "sale-003",
+    "customerUserId": "6bf1eb21-01fb-4ccc-b6ab-6ea8765e6450",
+    "shippingStatus": "SHIPPED"
   },
   {
     "id": "sale-004",
@@ -57,7 +63,9 @@
     "paymentStatus": "PENDING_TRANSFER",
     "channel": "POS",
     "createdAt": "2026-09-12T03:42:28.451629Z",
-    "idempotencyKey": "sale-004"
+    "idempotencyKey": "sale-004",
+    "customerUserId": "6bf1eb21-01fb-4ccc-b6ab-6ea8765e6450",
+    "shippingStatus": "DELIVERED"
   },
   {
     "id": "sale-005",
@@ -72,7 +80,9 @@
     "paymentStatus": "PAID",
     "channel": "POS",
     "createdAt": "2026-09-11T03:42:28.451629Z",
-    "idempotencyKey": "sale-005"
+    "idempotencyKey": "sale-005",
+    "customerUserId": "6bf1eb21-01fb-4ccc-b6ab-6ea8765e6450",
+    "shippingStatus": "PENDING"
   },
   {
     "id": "sale-006",
@@ -87,7 +97,9 @@
     "paymentStatus": "PAID",
     "channel": "ONLINE",
     "createdAt": "2026-09-10T03:42:28.451629Z",
-    "idempotencyKey": "sale-006"
+    "idempotencyKey": "sale-006",
+    "customerUserId": "6bf1eb21-01fb-4ccc-b6ab-6ea8765e6450",
+    "shippingStatus": "PROCESSING"
   },
   {
     "id": "sale-007",
@@ -102,7 +114,9 @@
     "paymentStatus": "PAID",
     "channel": "POS",
     "createdAt": "2026-09-09T03:42:28.451629Z",
-    "idempotencyKey": "sale-007"
+    "idempotencyKey": "sale-007",
+    "customerUserId": "6bf1eb21-01fb-4ccc-b6ab-6ea8765e6450",
+    "shippingStatus": "SHIPPED"
   },
   {
     "id": "sale-008",
@@ -117,7 +131,9 @@
     "paymentStatus": "PARTIAL",
     "channel": "POS",
     "createdAt": "2026-09-08T03:42:28.451629Z",
-    "idempotencyKey": "sale-008"
+    "idempotencyKey": "sale-008",
+    "customerUserId": "6bf1eb21-01fb-4ccc-b6ab-6ea8765e6450",
+    "shippingStatus": "DELIVERED"
   },
   {
     "id": "sale-009",

@@ -1,5 +1,5 @@
 "use client";
-import CrudTable from "@/components/dashboard/CrudTable";
+import CrudTable from "@/features/admin/ui/CrudTable";
 import type { Customer } from "@/lib/types";
 
 export default function CustomersPage() {

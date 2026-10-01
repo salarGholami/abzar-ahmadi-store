@@ -1,6 +1,6 @@
 import { getJson } from "@/lib/github";
 import type { Purchase, Supplier } from "@/lib/types";
-import PurchasesBrowser from "@/components/dashboard/purchases/PurchasesBrowser";
+import PurchasesBrowser from "@/features/admin/ui/purchases/PurchasesBrowser";
 
 export const dynamic = "force-dynamic";
 

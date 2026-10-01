@@ -27,8 +27,8 @@ import {
   Zap,
 } from "lucide-react";
 
-import Modal from "@/components/ui/Modal";
-import Pagination from "@/components/ui/Pagination";
+import Modal from "@/shared/ui/Modal";
+import Pagination from "@/shared/ui/Pagination";
 import type { Category, Product } from "@/lib/types";
 
 const PAGE_SIZE = 8;

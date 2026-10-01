@@ -3,6 +3,7 @@ import { requirePermission } from "@/lib/permissions";
 import { getJson, writeJson } from "@/lib/github";
 import { normalizeProduct } from "@/lib/data";
 import type { Product } from "@/lib/types";
+import { audit } from "@/lib/audit";
 
 const allowed = new Set([
   "products",
@@ -22,6 +23,7 @@ const allowed = new Set([
   "categories",
   "settings",
   "activity-logs",
+  "coupons", "reviews", "questions", "returns", "shipping-methods", "banners", "articles", "notifications",
 ]);
 
 const perms: Record<string, string> = {
@@ -42,6 +44,7 @@ const perms: Record<string, string> = {
   categories: "products",
   settings: "settings",
   "activity-logs": "settings",
+  coupons: "sales", reviews: "products", questions: "products", returns: "sales", "shipping-methods": "settings", banners: "settings", articles: "settings", notifications: "settings",
 };
 
 export async function GET(
@@ -63,7 +66,7 @@ export async function GET(
 
     await requirePermission(`${perms[collection]}.read`);
 
-    const file = await getJson<any[]>(`${collection}.json`, []);
+    const file = await getJson<Record<string, unknown>[]>(`${collection}.json`, []);
 
     const data =
       collection === "products"
@@ -101,7 +104,7 @@ export async function POST(
       throw new Error("VALIDATION_ERROR");
     }
 
-    const file = await getJson<any[]>(`${collection}.json`, []);
+    const file = await getJson<Record<string, unknown>[]>(`${collection}.json`, []);
 
     const now = new Date().toISOString();
 
@@ -121,6 +124,11 @@ export async function POST(
       `Create ${collection}/${item.id}`,
       file.sha || undefined,
     );
+
+    await audit("ADMIN_ENTITY_CREATED", {
+      entityType: collection,
+      entityId: item.id,
+    });
 
     return ok(normalized, 201);
   } catch (error) {

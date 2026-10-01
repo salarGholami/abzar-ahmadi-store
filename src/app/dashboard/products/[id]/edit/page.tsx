@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { AlertCircle, LoaderCircle } from "lucide-react";
 import { useParams } from "next/navigation";
 
-import ProductForm from "@/components/dashboard/products/ProductForm";
+import ProductForm from "@/features/admin/ui/products/ProductForm";
 import type { Category, Product } from "@/lib/types";
 
 type ApiResponse<T> = {

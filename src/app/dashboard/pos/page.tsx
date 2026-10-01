@@ -951,16 +951,20 @@ export default function POSPage() {
           items: cart.map((item) => ({
             productId: String(item.id),
             quantity: item.q,
-            price: getPrice(item),
+            unitPrice: getPrice(item),
           })),
 
-          total,
           discount: 0,
+          channel: "POS",
+          paymentStatus: "PAID",
+          idempotencyKey: crypto.randomUUID(),
         }),
       });
 
-      if (!response.ok) {
-        throw new Error();
+      const result = await response.json().catch(() => null);
+
+      if (!response.ok || !result?.success) {
+        throw new Error(result?.error?.message || "ثبت فروش انجام نشد.");
       }
 
       setCart([]);
@@ -969,8 +973,8 @@ export default function POSPage() {
       await loadProducts();
 
       alert("فروش با موفقیت ثبت شد.");
-    } catch {
-      alert("ثبت فروش انجام نشد.");
+    } catch (error) {
+      alert(error instanceof Error ? error.message : "ثبت فروش انجام نشد.");
     } finally {
       setSubmitting(false);
     }

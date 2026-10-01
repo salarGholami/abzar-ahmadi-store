@@ -99,7 +99,21 @@ function loadReadIds(): string[] {
   }
 }
 
+let syncTimer: number | undefined;
+
+function syncReadIds(ids: string[]) {
+  window.clearTimeout(syncTimer);
+  syncTimer = window.setTimeout(() => {
+    void fetch("/api/account/preferences", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ readNotificationIds: ids.slice(-500) }),
+    }).catch(() => {});
+  }, 800);
+}
+
 function saveReadIds(ids: string[]) {
+  syncReadIds(ids);
   try {
     window.localStorage.setItem(READ_STORAGE_KEY, JSON.stringify(ids));
   } catch {
@@ -141,8 +155,19 @@ export default function NotificationCenter() {
    */
 
   useEffect(() => {
-    setReadIds(loadReadIds());
+    const localIds = loadReadIds();
+    setReadIds(localIds);
     setHydrated(true);
+
+    // Merge with the read-state saved in the backend (shared across devices).
+    fetch("/api/account/preferences", { cache: "no-store" })
+      .then((response) => (response.ok ? response.json() : null))
+      .then((json) => {
+        const serverIds: unknown = json?.success ? json.data?.readNotificationIds : null;
+        if (!Array.isArray(serverIds)) return;
+        setReadIds((current) => Array.from(new Set([...serverIds.filter((id): id is string => typeof id === "string"), ...current])));
+      })
+      .catch(() => {});
   }, []);
 
   useEffect(() => {

@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Plus, RefreshCw } from "lucide-react";
-import Modal from "@/components/ui/Modal";
+import Modal from "@/shared/ui/Modal";
 import type { Product, InventoryMovement } from "@/lib/types";
 
 export default function InventoryPage() {

@@ -1,0 +1,16 @@
+[
+  {
+    "id": "addr-demo-1",
+    "userId": "6bf1eb21-01fb-4ccc-b6ab-6ea8765e6450",
+    "title": "منزل",
+    "recipientName": "سالار غلامی",
+    "phone": "09389525193",
+    "province": "تهران",
+    "city": "تهران",
+    "address": "خیابان نمونه، پلاک ۱۲",
+    "postalCode": "1234567890",
+    "isDefault": true,
+    "createdAt": "2026-09-20T10:00:00.000Z",
+    "updatedAt": "2026-09-20T10:00:00.000Z"
+  }
+]

@@ -1,4 +1,6 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import {
   ArrowLeft,
   CheckCircle2,
@@ -10,14 +12,76 @@ import {
   Truck,
 } from "lucide-react";
 
-import ProductActions from "@/components/commerce/ProductActions";
-import ProductGallery from "@/components/commerce/ProductGallery";
-import ProductTabs from "@/components/commerce/ProductTabs";
-import RatingStars from "@/components/commerce/RatingStars";
-import ProductRow from "@/components/commerce/ProductRow";
+import ProductActions from "@/features/storefront/ui/ProductActions";
+import ProductGallery from "@/features/storefront/ui/ProductGallery";
+import ProductTabs from "@/features/storefront/ui/ProductTabs";
+import RatingStars from "@/features/storefront/ui/RatingStars";
+import ProductRow from "@/features/storefront/ui/ProductRow";
+import ProductTools from "@/features/storefront/ui/ProductTools";
+import ProductReviews from "@/features/storefront/ui/ProductReviews";
 
-import { getProduct, getProducts } from "@/lib/data";
-import type { Product, ProductImage } from "@/lib/types";
+import { getPublicProduct, listPublicProducts } from "@/domains/catalog/server";
+import type { Category, Product, ProductImage } from "@/lib/types";
+import { getJson } from "@/lib/github";
+import JsonLd from "@/shared/seo/JsonLd";
+import { SITE_NAME, absoluteUrl, breadcrumbLd, tomanToRial, truncate } from "@/lib/seo";
+
+export async function generateStaticParams() {
+  const products = await listPublicProducts();
+  return products.map((product) => ({ id: product.id }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const { id } = await params;
+  const product = await getPublicProduct(id);
+  if (!product) {
+    return {
+      title: "محصول پیدا نشد",
+      robots: { index: false, follow: false },
+    };
+  }
+
+  const finalPrice = Math.round(
+    product.price * (1 - Number(product.discount || 0) / 100),
+  );
+  const image = product.images?.[0]?.url || product.image || undefined;
+  const description =
+    truncate(product.description, 155) ||
+    `خرید ${product.title}${product.brand ? ` ${product.brand}` : ""} از فروشگاه ${SITE_NAME} با مشخصات کامل، قیمت ${finalPrice.toLocaleString("fa-IR")} تومان و ارسال به سراسر کشور.`;
+  const title = product.brand && !product.title.includes(product.brand)
+    ? `${product.title} ${product.brand}`
+    : product.title;
+
+  return {
+    title,
+    description,
+    keywords: [product.title, product.brand, product.category, product.sku].filter(Boolean),
+    alternates: { canonical: `/products/${product.id}` },
+    openGraph: {
+      type: "website",
+      title,
+      description,
+      url: `/products/${product.id}`,
+      images: image ? [{ url: image, alt: product.title }] : undefined,
+    },
+    twitter: {
+      card: image ? "summary_large_image" : "summary",
+      title,
+      description,
+      images: image ? [image] : undefined,
+    },
+    robots: { index: true, follow: true },
+    other: {
+      "product:price:amount": String(tomanToRial(finalPrice)),
+      "product:price:currency": "IRR",
+      "product:availability": product.stock > 0 ? "in stock" : "out of stock",
+    },
+  };
+}
 
 export default async function ProductDetail({
   params,
@@ -26,40 +90,17 @@ export default async function ProductDetail({
 }) {
   const { id } = await params;
 
-  const [product, products] = await Promise.all([
-    getProduct(id),
-    getProducts(),
+  const [product, products, categoryFile] = await Promise.all([
+    getPublicProduct(id),
+    listPublicProducts(),
+    getJson<Category[]>("categories.json", []),
   ]);
 
   /* =========================================================
      NOT FOUND
   ========================================================= */
 
-  if (!product) {
-    return (
-      <main dir="rtl" className="min-h-[70vh] bg-[var(--bg)] px-4 py-16">
-        <div className="mx-auto max-w-lg text-center">
-          <div className="mx-auto grid size-16 place-items-center rounded-2xl bg-[var(--surface)] shadow-lg">
-            <PackageCheck size={28} className="text-[var(--muted)]" />
-          </div>
-
-          <h1 className="mt-5 text-2xl font-black">محصول پیدا نشد</h1>
-
-          <p className="mt-2 text-sm leading-7 text-[var(--muted)]">
-            محصول موردنظر دیگر در فروشگاه موجود نیست یا آدرس آن تغییر کرده است.
-          </p>
-
-          <Link
-            href="/products"
-            className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[var(--primary)] px-5 py-3 text-sm font-black text-white shadow-lg shadow-[var(--primary)]/20 transition hover:-translate-y-0.5"
-          >
-            بازگشت به فروشگاه
-            <ArrowLeft size={16} />
-          </Link>
-        </div>
-      </main>
-    );
-  }
+  if (!product) notFound();
 
   const currentProduct: Product = product;
 
@@ -108,12 +149,61 @@ export default async function ProductDetail({
           ]
         : [];
 
-  const categoryHref = `/products?category=${encodeURIComponent(
-    currentProduct.category,
-  )}`;
+  const category = categoryFile.data.find((item) => item.name === currentProduct.category);
+  const categoryHref = category
+    ? `/categories/${category.slug}`
+    : `/products?category=${encodeURIComponent(currentProduct.category)}`;
+
+  const productUrl = absoluteUrl(`/products/${currentProduct.id}`);
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Product",
+        "@id": `${productUrl}#product`,
+        name: currentProduct.title,
+        url: productUrl,
+        sku: currentProduct.sku || undefined,
+        mpn: currentProduct.sku || undefined,
+        category: currentProduct.category || undefined,
+        brand: currentProduct.brand
+          ? { "@type": "Brand", name: currentProduct.brand }
+          : undefined,
+        description: truncate(currentProduct.description, 500) || undefined,
+        image: images.map((item) => absoluteUrl(item.url)),
+        aggregateRating:
+          currentProduct.rating && currentProduct.reviewCount
+            ? {
+                "@type": "AggregateRating",
+                ratingValue: currentProduct.rating,
+                reviewCount: currentProduct.reviewCount,
+              }
+            : undefined,
+        offers: {
+          "@type": "Offer",
+          url: productUrl,
+          priceCurrency: "IRR",
+          price: tomanToRial(finalPrice),
+          itemCondition: "https://schema.org/NewCondition",
+          availability:
+            currentProduct.stock > 0
+              ? "https://schema.org/InStock"
+              : "https://schema.org/OutOfStock",
+          seller: { "@type": "Organization", name: SITE_NAME },
+        },
+      },
+      breadcrumbLd([
+        { name: "خانه", path: "/" },
+        { name: "فروشگاه", path: "/products" },
+        { name: currentProduct.category, path: categoryHref },
+        { name: currentProduct.title, path: `/products/${currentProduct.id}` },
+      ]),
+    ],
+  };
 
   return (
     <main dir="rtl" className="min-h-screen overflow-hidden bg-[var(--bg)]">
+      <JsonLd data={productJsonLd} />
       {/* =====================================================
           BREADCRUMB
       ====================================================== */}
@@ -284,6 +374,7 @@ export default async function ProductDetail({
 
                 <div className="mt-5">
                   <ProductActions product={currentProduct} />
+              <ProductTools productId={currentProduct.id} />
                 </div>
 
                 {/* BENEFITS */}
@@ -365,6 +456,7 @@ export default async function ProductDetail({
           />
         </section>
       ) : null}
-    </main>
+          <ProductReviews productId={currentProduct.id} />
+</main>
   );
 }

@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 
-import PrintButton from "@/components/dashboard/PrintButton";
+import PrintButton from "@/features/admin/ui/PrintButton";
 import { getJson } from "@/lib/github";
 import { requirePermission } from "@/lib/permissions";
 import type { Product, Sale, SaleItem, ShippingStatus } from "@/lib/types";
@@ -16,6 +16,7 @@ const shippingLabels: Record<ShippingStatus, string> = {
 const paymentLabels: Record<string, string> = {
   PAID: "پرداخت شده",
   PENDING_TRANSFER: "در انتظار انتقال",
+  PENDING_PAYMENT: "در انتظار پرداخت آنلاین",
   PARTIAL: "پرداخت ناقص",
   CANCELED: "لغو شده",
 };

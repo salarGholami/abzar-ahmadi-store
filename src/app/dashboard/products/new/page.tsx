@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { AlertCircle, LoaderCircle } from "lucide-react";
 
-import ProductForm from "@/components/dashboard/products/ProductForm";
+import ProductForm from "@/features/admin/ui/products/ProductForm";
 import type { Category } from "@/lib/types";
 
 type ApiResponse<T> = {

@@ -46,6 +46,7 @@ type Summary = {
 const paymentLabels: Record<string, string> = {
   PAID: "تسویه شده",
   PENDING_TRANSFER: "در انتظار تأیید",
+  PENDING_PAYMENT: "در انتظار پرداخت آنلاین",
   PARTIAL: "پرداخت جزئی",
   CANCELED: "لغو شده",
 };

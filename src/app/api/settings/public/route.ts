@@ -1,16 +1,26 @@
 import { NextResponse } from "next/server";
 import { getJson } from "@/lib/github";
+import { getActivePaymentProvider } from "@/lib/payments";
 import type { StoreSettings } from "@/lib/types";
 
-const fallback: StoreSettings[] = [{ id: "store", storeName: "ابزارینو", storePhone: "021-00000000", cardNumber: "", cardHolderName: "", lowStockThreshold: 5 }];
+const fallback: StoreSettings[] = [{ id: "store", storeName: "ابزار احمدی", storePhone: "021-00000000", cardNumber: "", cardHolderName: "", lowStockThreshold: 5 }];
 
 export async function GET() {
+  let s = fallback[0];
   try {
     const { data } = await getJson<StoreSettings[]>("settings.json", fallback);
-    const s = data[0] || fallback[0];
-    return NextResponse.json({ success: true, data: { storeName: s.storeName, storePhone: s.storePhone, cardNumber: s.cardNumber, cardHolderName: s.cardHolderName } });
+    s = data[0] || fallback[0];
   } catch {
-    const s = fallback[0];
-    return NextResponse.json({ success: true, data: { storeName: s.storeName, storePhone: s.storePhone, cardNumber: s.cardNumber, cardHolderName: s.cardHolderName } });
+    s = fallback[0];
   }
+  return NextResponse.json({
+    success: true,
+    data: {
+      storeName: s.storeName,
+      storePhone: s.storePhone,
+      cardNumber: s.cardNumber,
+      cardHolderName: s.cardHolderName,
+      paymentProvider: getActivePaymentProvider(),
+    },
+  });
 }

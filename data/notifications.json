@@ -1,0 +1,39 @@
+[
+  {
+    "id": "n1",
+    "userId": "6bf1eb21-01fb-4ccc-b6ab-6ea8765e6450",
+    "title": "سفارش شما ثبت شد",
+    "message": "سفارش شما با موفقیت ثبت شد و در انتظار تأیید واریز است.",
+    "type": "ORDER",
+    "read": false,
+    "createdAt": "2026-09-22T08:00:00.000Z"
+  },
+  {
+    "id": "n2",
+    "userId": "6bf1eb21-01fb-4ccc-b6ab-6ea8765e6450",
+    "title": "ارسال شد",
+    "message": "سفارش شما تحویل پست داده شد.",
+    "type": "ORDER",
+    "read": false,
+    "createdAt": "2026-09-24T12:00:00.000Z"
+  },
+  {
+    "id": "n3",
+    "userId": null,
+    "title": "پیشنهاد ویژه ابزار",
+    "message": "تخفیف روی دریل و فرز تا پایان هفته.",
+    "type": "PROMOTION",
+    "read": false,
+    "readBy": [],
+    "createdAt": "2026-09-25T09:00:00.000Z"
+  },
+  {
+    "id": "n4",
+    "userId": "u-supplier-s1",
+    "title": "خرید جدید ثبت شد",
+    "message": "مدیر یک سفارش خرید جدید برای شما ثبت کرد.",
+    "type": "ORDER",
+    "read": false,
+    "createdAt": "2026-09-26T10:00:00.000Z"
+  }
+]

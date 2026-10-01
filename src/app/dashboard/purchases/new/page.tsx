@@ -40,7 +40,7 @@ import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 
 
-import Pagination from "@/components/ui/Pagination";
+import Pagination from "@/shared/ui/Pagination";
 import { Product, PurchasePaymentMethod, Supplier } from "@/lib/types";
 
 /* =========================================================

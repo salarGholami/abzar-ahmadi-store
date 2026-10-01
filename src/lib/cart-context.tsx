@@ -8,8 +8,8 @@ import {
   useState,
   type ReactNode,
 } from "react";
-
 import type { Product } from "./types";
+import { trackEvent } from "./analytics";
 
 export type CartLine = {
   productId: string;
@@ -23,133 +23,76 @@ export type CartLine = {
 
 type CartContextValue = {
   lines: CartLine[];
-  add: (product: Product, qty?: number) => void;
-  setQty: (productId: string, qty: number) => void;
-  remove: (productId: string) => void;
-  clear: () => void;
+  add: (product: Product, qty?: number) => Promise<void>;
+  setQty: (productId: string, qty: number) => Promise<void>;
+  remove: (productId: string) => Promise<void>;
+  clear: () => Promise<void>;
+  refresh: () => Promise<void>;
+  loading: boolean;
   count: number;
   subtotal: number;
 };
 
 const CartContext = createContext<CartContextValue | null>(null);
 
-const STORAGE_KEY = "abzarino_cart_v1";
+async function requestCart(action?: string, productId?: string, quantity?: number) {
+  const response = await fetch("/api/cart", {
+    method: action ? "POST" : "GET",
+    headers: action ? { "Content-Type": "application/json" } : undefined,
+    body: action ? JSON.stringify({ action, productId, quantity }) : undefined,
+    cache: "no-store",
+  });
+  const json = await response.json();
+  if (!response.ok || !json.success) {
+    throw new Error(json.error?.message || "سبد خرید بروزرسانی نشد.");
+  }
+  return json.data;
+}
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [lines, setLines] = useState<CartLine[]>([]);
-  const [hydrated, setHydrated] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  const refresh = async () => {
+    try {
+      const data = await requestCart();
+      setLines(Array.isArray(data?.lines) ? data.lines : []);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-
-      if (raw) {
-        const parsed = JSON.parse(raw);
-
-        if (Array.isArray(parsed)) {
-          setLines(parsed);
-        }
-      }
-    } catch {
-      // localStorage خراب یا نامعتبر است
-    } finally {
-      setHydrated(true);
-    }
+    void refresh();
   }, []);
 
-  useEffect(() => {
-    if (!hydrated) return;
-
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(lines));
-    } catch {
-      // ignore storage errors
-    }
-  }, [lines, hydrated]);
-
-  function add(product: Product, qty = 1) {
-    const unitPrice = Math.round(product.price * (1 - product.discount / 100));
-
-    setLines((prev) => {
-      const existing = prev.find((line) => line.productId === product.id);
-
-      if (existing) {
-        const nextQty = Math.min(product.stock, existing.qty + qty);
-
-        return prev.map((line) =>
-          line.productId === product.id
-            ? {
-                ...line,
-                qty: nextQty,
-                stock: product.stock,
-                unitPrice,
-              }
-            : line,
-        );
-      }
-
-      return [
-        ...prev,
-        {
-          productId: product.id,
-          title: product.title,
-          sku: product.sku,
-          image: product.image,
-          unitPrice,
-          stock: product.stock,
-          qty: Math.min(product.stock, qty),
-        },
-      ];
-    });
+  async function mutate(action: "ADD" | "SET" | "REMOVE" | "CLEAR", productId?: string, qty?: number) {
+    const data = await requestCart(action, productId, qty);
+    setLines(Array.isArray(data?.lines) ? data.lines : []);
   }
 
-  function setQty(productId: string, qty: number) {
-    setLines((prev) =>
-      prev.flatMap((line) => {
-        if (line.productId !== productId) {
-          return [line];
-        }
-
-        if (qty <= 0) {
-          return [];
-        }
-
-        return [
-          {
-            ...line,
-            qty: Math.min(line.stock, qty),
-          },
-        ];
-      }),
-    );
+  async function add(product: Product, qty = 1) {
+    await mutate("ADD", product.id, qty);
   }
 
-  function remove(productId: string) {
-    setLines((prev) => prev.filter((line) => line.productId !== productId));
+  async function setQty(productId: string, qty: number) {
+    await mutate("SET", productId, qty);
   }
 
-  function clear() {
-    setLines([]);
+  async function remove(productId: string) {
+    await mutate("REMOVE", productId);
+  }
+
+  async function clear() {
+    await mutate("CLEAR");
   }
 
   const count = lines.reduce((sum, line) => sum + line.qty, 0);
-
-  const subtotal = lines.reduce(
-    (sum, line) => sum + line.unitPrice * line.qty,
-    0,
-  );
+  const subtotal = lines.reduce((sum, line) => sum + line.unitPrice * line.qty, 0);
 
   const value = useMemo<CartContextValue>(
-    () => ({
-      lines,
-      add,
-      setQty,
-      remove,
-      clear,
-      count,
-      subtotal,
-    }),
-    [lines, count, subtotal],
+    () => ({ lines, add, setQty, remove, clear, refresh, loading, count, subtotal }),
+    [lines, loading, count, subtotal],
   );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
@@ -157,10 +100,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
 export function useCart() {
   const context = useContext(CartContext);
-
-  if (!context) {
-    throw new Error("useCart must be used within CartProvider");
-  }
-
+  if (!context) throw new Error("useCart must be used within CartProvider");
   return context;
 }

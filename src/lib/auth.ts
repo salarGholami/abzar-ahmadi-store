@@ -2,17 +2,25 @@ import "server-only";
 import { createHmac, randomBytes, scryptSync, timingSafeEqual } from "node:crypto";
 import { cookies } from "next/headers";
 
-export type Role = "ADMIN" | "CUSTOMER";
+export type Role = "ADMIN" | "SUPPLIER" | "CUSTOMER";
 export type Session = {
   id: string;
   phone: string;
   name: string;
   role: Role;
   permissions: string[];
+  supplierId?: string;
   exp: number;
 };
 
-const secret = () => process.env.AUTH_SECRET || "development-secret-change-me";
+const secret = () => {
+  const value = process.env.AUTH_SECRET;
+  if (value && value.length >= 16) return value;
+  if (process.env.NODE_ENV === "production") {
+    throw new Error("AUTH_SECRET must be set (min 16 chars) in production");
+  }
+  return "development-secret-change-me";
+};
 const b64 = (s: string) => Buffer.from(s).toString("base64url");
 const unb64 = (s: string) => Buffer.from(s, "base64url").toString();
 
@@ -26,6 +34,7 @@ export function createSession(s: Omit<Session, "exp">) {
 }
 
 export function verifySession(token: string): Session | null {
+  if (!token) return null;
   try {
     const [body, sig] = token.split(".");
     if (!body || !sig) return null;

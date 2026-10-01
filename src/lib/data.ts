@@ -9,12 +9,22 @@ export function normalizeProduct(product: Product): Product {
   return { ...product, image: images[0]?.url || product.image || "", images };
 }
 
+/**
+ * Storefront-safe product: internal cost/supplier data must NEVER reach the browser
+ * (this object is serialized into HTML/RSC payloads and the public /api/products response).
+ */
+export function toPublicProduct(product: Product): Product {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { purchaseCost: _purchaseCost, supplierIds: _supplierIds, ...rest } = normalizeProduct(product);
+  return rest;
+}
+
 export async function getProducts(): Promise<Product[]> {
   try {
     const items = await productRepo.all();
-    return (items.length ? items : (seed as Product[])).map(normalizeProduct);
+    return (items.length ? items : (seed as Product[])).map(toPublicProduct);
   } catch {
-    return (seed as Product[]).map(normalizeProduct);
+    return (seed as Product[]).map(toPublicProduct);
   }
 }
 

@@ -1,4 +1,17 @@
-# ابزارینو — Construction Tools Store / ERP
+# ابزار احمدی
+
+> معماری فعلی: `docs/ARCHITECTURE-V3.md`
+
+```bash
+npm ci
+cp .env.example .env.local
+npm run check   # lint + typecheck + build
+npm run dev
+```
+
+---
+
+# ابزار احمدی — Construction Tools Store / ERP
 
 نسخه‌ی Full-stack Next.js با Backend داخل Route Handlerهای Next.js و persistence روی JSONهای GitHub.
 
@@ -111,3 +124,13 @@ Next.js 16 note: authentication proxy is implemented in src/proxy.ts; do not rec
 - ثبت خرید دارای Product Picker واقعی با تصویر، نام، برند، SKU، دسته‌بندی و موجودی است
 - هنگام ثبت خرید، نام و تصویر هر محصول قبل از ثبت نهایی قابل مشاهده است
 - داشبورد شامل فروش‌های اخیر، خریدهای اخیر، هشدار موجودی و عملیات سریع است
+
+
+## Product Requirements
+
+- [PRD کامل MVP](./docs/PRD.md)
+- [API Contract](./docs/API.md)
+
+
+## Commerce MVP Upgrade
+این نسخه لایه Commerce را تکمیل می‌کند: سفارش‌های حساب کاربری، جزئیات و Timeline سفارش، علاقه‌مندی، مقایسه، پیگیری سفارش، Reviews/Returns/Coupons/Shipping/Banners/Articles/Notifications در داشبورد، endpointهای عمومی review/shipping/coupon و ساختار repository برای داده‌های جدید. درگاه پرداخت عمداً به Provider abstraction فعلی سپرده شده و Manual Transfer همچنان فعال است.

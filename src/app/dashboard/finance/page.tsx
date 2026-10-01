@@ -1,5 +1,5 @@
 "use client";
-import CrudTable from "@/components/dashboard/CrudTable";
+import CrudTable from "@/features/admin/ui/CrudTable";
 import type { FinanceEntry } from "@/lib/types";
 
 const typeLabel: Record<string, string> = { SALE: "فروش", PURCHASE: "خرید", OTHER_INCOME: "درآمد متفرقه", OTHER_EXPENSE: "هزینه متفرقه" };

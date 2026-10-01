@@ -1,21 +1,89 @@
 import "server-only";
-import { getJson, writeJson, deleteJson } from "./github";
+import { getJson, mutateJson } from "./github";
 
-export type Entity={id:string;createdAt?:string;updatedAt?:string;[key:string]:any};
-export class JsonRepository<T extends Entity>{
- constructor(private file:string, private fallback:T[]=[]){}
- async all(){return (await getJson<T[]>(this.file,this.fallback)).data}
- async find(id:string){return (await this.all()).find(x=>x.id===id)||null}
- async create(input:Omit<T,"id">){
-  const all=await this.all(); const item={...input,id:crypto.randomUUID(),createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()} as T;
-  all.push(item); const f=await getJson<T[]>(this.file,[]); await writeJson(this.file,all,`Create ${item.id}`,f.sha||undefined); return item;
- }
- async update(id:string,input:Partial<T>){
-  const f=await getJson<T[]>(this.file,this.fallback); const i=f.data.findIndex(x=>x.id===id); if(i<0)throw new Error("NOT_FOUND");
-  f.data[i]={...f.data[i],...input,id,updatedAt:new Date().toISOString()}; await writeJson(this.file,f.data,`Update ${id}`,f.sha||undefined); return f.data[i];
- }
- async remove(id:string){
-  const f=await getJson<T[]>(this.file,this.fallback); const next=f.data.filter(x=>x.id!==id); if(next.length===f.data.length)throw new Error("NOT_FOUND");
-  await writeJson(this.file,next,`Delete ${id}`,f.sha||undefined);
- }
+export type Entity = {
+  id: string;
+  createdAt?: string;
+  updatedAt?: string;
+};
+
+export class NotFoundError extends Error {
+  constructor(id: string) {
+    super("NOT_FOUND");
+    this.name = "NotFoundError";
+    this.cause = id;
+  }
+}
+
+/**
+ * JSON-file backed repository.
+ * Reads may be served from the short-lived read cache; every write goes through
+ * `mutateJson`, which re-reads fresh data and retries on concurrent-write conflicts,
+ * so a stale cached read can never overwrite newer data.
+ */
+export class JsonRepository<T extends Entity> {
+  constructor(
+    private readonly file: string,
+    private readonly fallback: T[] = [],
+  ) {}
+
+  async all(): Promise<T[]> {
+    return (await getJson<T[]>(this.file, this.fallback)).data;
+  }
+
+  async find(id: string): Promise<T | null> {
+    return (await this.all()).find((item) => item.id === id) ?? null;
+  }
+
+  async create(input: Omit<T, "id">): Promise<T> {
+    const now = new Date().toISOString();
+    const item = {
+      ...input,
+      id: crypto.randomUUID(),
+      createdAt: now,
+      updatedAt: now,
+    } as T;
+
+    await mutateJson<T[], void>(
+      this.file,
+      this.fallback,
+      (current) => ({ next: [...current, item], result: undefined }),
+      `Create ${item.id}`,
+    );
+    return item;
+  }
+
+  async update(id: string, input: Partial<T>): Promise<T> {
+    return mutateJson<T[], T>(
+      this.file,
+      this.fallback,
+      (current) => {
+        const index = current.findIndex((item) => item.id === id);
+        if (index < 0) throw new NotFoundError(id);
+        const updated = {
+          ...current[index],
+          ...input,
+          id,
+          updatedAt: new Date().toISOString(),
+        } as T;
+        const next = current.slice();
+        next[index] = updated;
+        return { next, result: updated };
+      },
+      `Update ${id}`,
+    );
+  }
+
+  async remove(id: string): Promise<void> {
+    await mutateJson<T[], void>(
+      this.file,
+      this.fallback,
+      (current) => {
+        const next = current.filter((item) => item.id !== id);
+        if (next.length === current.length) throw new NotFoundError(id);
+        return { next, result: undefined };
+      },
+      `Delete ${id}`,
+    );
+  }
 }

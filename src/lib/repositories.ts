@@ -1,7 +1,7 @@
 import { JsonRepository } from "./repository";
 import type {
   Product, Customer, Supplier, Sale, SaleItem, Purchase, PurchaseItem,
-  FinanceEntry, CheckRecord, InventoryMovement, AppUser, Category
+  FinanceEntry, CheckRecord, InventoryMovement, AppUser, Category, Coupon, Review, ProductQuestion, ReturnRequest, ShippingOption, StoreBanner, StoreArticle, StoreNotification
 } from "./types";
 import seedProducts from "@/data/seed/products.json";
 
@@ -18,3 +18,14 @@ export const financeRepo = new JsonRepository<FinanceEntry>("finance.json");
 export const checkRepo = new JsonRepository<CheckRecord>("checks.json");
 export const userRepo = new JsonRepository<AppUser>("users.json");
 export const activityRepo = new JsonRepository<{ id: string; action: string; entityId?: string; createdAt: string; [k: string]: unknown }>("activity-logs.json");
+
+
+
+export const couponRepo = new JsonRepository<Coupon>("coupons.json");
+export const reviewRepo = new JsonRepository<Review>("reviews.json");
+export const questionRepo = new JsonRepository<ProductQuestion>("questions.json");
+export const returnRepo = new JsonRepository<ReturnRequest>("returns.json");
+export const shippingOptionRepo = new JsonRepository<ShippingOption>("shipping-methods.json");
+export const bannerRepo = new JsonRepository<StoreBanner>("banners.json");
+export const articleRepo = new JsonRepository<StoreArticle>("articles.json");
+export const notificationRepo = new JsonRepository<StoreNotification>("notifications.json");

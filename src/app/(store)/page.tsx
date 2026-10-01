@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowLeft,
@@ -14,28 +15,31 @@ import {
   Zap,
 } from "lucide-react";
 
-import ProductHeroSlider from "@/components/commerce/ProductHeroSlider";
-import CategoryStrip from "@/components/commerce/CategoryStrip";
-import FlashSale from "@/components/commerce/FlashSale";
-import ProductRow from "@/components/commerce/ProductRow";
+import ProductHeroSlider from "@/features/storefront/ui/ProductHeroSlider";
+import CategoryStrip from "@/features/storefront/ui/CategoryStrip";
+import FlashSale from "@/features/storefront/ui/FlashSale";
+import ProductRow from "@/features/storefront/ui/ProductRow";
 import BrandStrip, {
   topBrandsFromProducts,
-} from "@/components/commerce/BrandStrip";
+} from "@/features/storefront/ui/BrandStrip";
 
-import { getBestsellers, getProducts } from "@/lib/data";
-import { getJson } from "@/lib/github";
-import type { Category } from "@/lib/types";
+import { listActiveCategories, listBestsellers, listPublicProducts } from "@/domains/catalog/server";
+import { SITE_NAME, SITE_TAGLINE } from "@/lib/seo";
+import RecentlyViewed from "@/features/storefront/ui/RecentlyViewed";
+
+export const metadata: Metadata = {
+  title: { absolute: `${SITE_NAME} | ${SITE_TAGLINE}` },
+  alternates: { canonical: "/" },
+};
 
 export default async function Home() {
   const [products, categoryFile, bestsellers] = await Promise.all([
-    getProducts(),
-    getJson<Category[]>("categories.json", []),
-    getBestsellers(8),
+    listPublicProducts(),
+    listActiveCategories(),
+    listBestsellers(8),
   ]);
 
-  const categories = categoryFile.data.filter(
-    (category) => category.active !== false,
-  );
+  const categories = categoryFile;
 
   const inStock = products.filter((product) => product.stock > 0);
 
@@ -112,6 +116,9 @@ export default async function Home() {
 
   return (
     <main dir="rtl" className="w-full overflow-hidden bg-[var(--bg)]">
+      <h1 className="sr-only">
+        {SITE_NAME} | {SITE_TAGLINE}
+      </h1>
       {/* ========================================================
           TRUST BAR
       ======================================================== */}
@@ -488,6 +495,7 @@ export default async function Home() {
           </div>
         </div>
       </section>
-    </main>
+          <RecentlyViewed />
+</main>
   );
 }

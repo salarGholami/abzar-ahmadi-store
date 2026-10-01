@@ -1,5 +1,5 @@
 "use client";
-import CrudTable from "@/components/dashboard/CrudTable";
+import CrudTable from "@/features/admin/ui/CrudTable";
 import type { CheckRecord } from "@/lib/types";
 import { isoToJalali, normalizeJalali } from "@/lib/dates";
 

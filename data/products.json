@@ -34,7 +34,10 @@
     "rating": 3.9,
     "reviewCount": 47,
     "barcode": "6260000000019",
-    "supplierId": "s1"
+    "supplierId": "s1",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p2",
@@ -71,7 +74,10 @@
     "rating": 4.5,
     "reviewCount": 12,
     "barcode": "6260000000026",
-    "supplierId": "s2"
+    "supplierId": "s2",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p3",
@@ -108,7 +114,11 @@
     "rating": 4.2,
     "reviewCount": 18,
     "barcode": "6260000000033",
-    "supplierId": "s3"
+    "supplierId": "s3",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p4",
@@ -145,7 +155,10 @@
     "rating": 4.5,
     "reviewCount": 12,
     "barcode": "6260000000040",
-    "supplierId": "s4"
+    "supplierId": "s4",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p5",
@@ -182,7 +195,10 @@
     "rating": 4.1,
     "reviewCount": 8,
     "barcode": "6260000000057",
-    "supplierId": "s5"
+    "supplierId": "s5",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p6",
@@ -219,7 +235,11 @@
     "rating": 4.3,
     "reviewCount": 5,
     "barcode": "6260000000064",
-    "supplierId": "s6"
+    "supplierId": "s6",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p7",
@@ -256,7 +276,10 @@
     "rating": 4,
     "reviewCount": 5,
     "barcode": "6260000000071",
-    "supplierId": "s7"
+    "supplierId": "s7",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p8",
@@ -293,7 +316,10 @@
     "rating": 4.5,
     "reviewCount": 120,
     "barcode": "6260000000088",
-    "supplierId": "s8"
+    "supplierId": "s8",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p9",
@@ -330,7 +356,11 @@
     "rating": 4.9,
     "reviewCount": 90,
     "barcode": "6260000000095",
-    "supplierId": "s1"
+    "supplierId": "s1",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p10",
@@ -367,7 +397,10 @@
     "rating": 4.6,
     "reviewCount": 90,
     "barcode": "6260000000101",
-    "supplierId": "s2"
+    "supplierId": "s2",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p11",
@@ -404,7 +437,10 @@
     "rating": 4.6,
     "reviewCount": 34,
     "barcode": "6260000000118",
-    "supplierId": "s3"
+    "supplierId": "s3",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p12",
@@ -441,7 +477,11 @@
     "rating": 3.9,
     "reviewCount": 47,
     "barcode": "6260000000125",
-    "supplierId": "s4"
+    "supplierId": "s4",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p13",
@@ -478,7 +518,10 @@
     "rating": 4.5,
     "reviewCount": 25,
     "barcode": "6260000000132",
-    "supplierId": "s5"
+    "supplierId": "s5",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p14",
@@ -515,7 +558,10 @@
     "rating": 4.3,
     "reviewCount": 18,
     "barcode": "6260000000149",
-    "supplierId": "s6"
+    "supplierId": "s6",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p15",
@@ -552,7 +598,11 @@
     "rating": 4.3,
     "reviewCount": 25,
     "barcode": "6260000000156",
-    "supplierId": "s7"
+    "supplierId": "s7",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p16",
@@ -589,7 +639,10 @@
     "rating": 4.4,
     "reviewCount": 90,
     "barcode": "6260000000163",
-    "supplierId": "s8"
+    "supplierId": "s8",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p17",
@@ -626,7 +679,10 @@
     "rating": 4.6,
     "reviewCount": 47,
     "barcode": "6260000000170",
-    "supplierId": "s1"
+    "supplierId": "s1",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p18",
@@ -663,7 +719,11 @@
     "rating": 3.8,
     "reviewCount": 25,
     "barcode": "6260000000187",
-    "supplierId": "s2"
+    "supplierId": "s2",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p19",
@@ -700,7 +760,10 @@
     "rating": 4,
     "reviewCount": 90,
     "barcode": "6260000000194",
-    "supplierId": "s3"
+    "supplierId": "s3",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p20",
@@ -737,7 +800,10 @@
     "rating": 4.8,
     "reviewCount": 8,
     "barcode": "6260000000200",
-    "supplierId": "s4"
+    "supplierId": "s4",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p21",
@@ -774,7 +840,11 @@
     "rating": 3.9,
     "reviewCount": 90,
     "barcode": "6260000000217",
-    "supplierId": "s5"
+    "supplierId": "s5",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p22",
@@ -811,7 +881,10 @@
     "rating": 4,
     "reviewCount": 5,
     "barcode": "6260000000224",
-    "supplierId": "s6"
+    "supplierId": "s6",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p23",
@@ -848,7 +921,10 @@
     "rating": 4.1,
     "reviewCount": 90,
     "barcode": "6260000000231",
-    "supplierId": "s7"
+    "supplierId": "s7",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p24",
@@ -885,7 +961,11 @@
     "rating": 4.6,
     "reviewCount": 25,
     "barcode": "6260000000248",
-    "supplierId": "s8"
+    "supplierId": "s8",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p25",
@@ -922,7 +1002,10 @@
     "rating": 4.3,
     "reviewCount": 62,
     "barcode": "6260000000255",
-    "supplierId": "s1"
+    "supplierId": "s1",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p26",
@@ -959,7 +1042,10 @@
     "rating": 3.8,
     "reviewCount": 120,
     "barcode": "6260000000262",
-    "supplierId": "s2"
+    "supplierId": "s2",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p27",
@@ -996,7 +1082,11 @@
     "rating": 4.8,
     "reviewCount": 90,
     "barcode": "6260000000279",
-    "supplierId": "s3"
+    "supplierId": "s3",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p28",
@@ -1033,7 +1123,10 @@
     "rating": 4.8,
     "reviewCount": 62,
     "barcode": "6260000000286",
-    "supplierId": "s4"
+    "supplierId": "s4",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p29",
@@ -1070,7 +1163,10 @@
     "rating": 4.8,
     "reviewCount": 5,
     "barcode": "6260000000293",
-    "supplierId": "s5"
+    "supplierId": "s5",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p30",
@@ -1107,7 +1203,11 @@
     "rating": 4.1,
     "reviewCount": 47,
     "barcode": "6260000000309",
-    "supplierId": "s6"
+    "supplierId": "s6",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p31",
@@ -1160,7 +1260,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000316",
-    "supplierId": "s7"
+    "supplierId": "s7",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p32",
@@ -1213,7 +1316,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-20T17:47:57.325Z",
     "barcode": "6260000000323",
-    "supplierId": "s8"
+    "supplierId": "s8",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p33",
@@ -1266,7 +1372,11 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000330",
-    "supplierId": "s1"
+    "supplierId": "s1",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p34",
@@ -1319,7 +1429,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000347",
-    "supplierId": "s2"
+    "supplierId": "s2",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p35",
@@ -1372,7 +1485,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000354",
-    "supplierId": "s3"
+    "supplierId": "s3",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p36",
@@ -1425,7 +1541,11 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000361",
-    "supplierId": "s4"
+    "supplierId": "s4",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p37",
@@ -1478,7 +1598,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000378",
-    "supplierId": "s5"
+    "supplierId": "s5",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p38",
@@ -1531,7 +1654,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000385",
-    "supplierId": "s6"
+    "supplierId": "s6",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p39",
@@ -1584,7 +1710,11 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000392",
-    "supplierId": "s7"
+    "supplierId": "s7",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p40",
@@ -1637,7 +1767,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000408",
-    "supplierId": "s8"
+    "supplierId": "s8",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p41",
@@ -1690,7 +1823,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000415",
-    "supplierId": "s1"
+    "supplierId": "s1",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p42",
@@ -1743,7 +1879,11 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000422",
-    "supplierId": "s2"
+    "supplierId": "s2",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p43",
@@ -1796,7 +1936,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000439",
-    "supplierId": "s3"
+    "supplierId": "s3",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p44",
@@ -1849,7 +1992,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000446",
-    "supplierId": "s4"
+    "supplierId": "s4",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p45",
@@ -1902,7 +2048,11 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000453",
-    "supplierId": "s5"
+    "supplierId": "s5",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p46",
@@ -1955,7 +2105,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000460",
-    "supplierId": "s6"
+    "supplierId": "s6",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p47",
@@ -2008,7 +2161,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000477",
-    "supplierId": "s7"
+    "supplierId": "s7",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p48",
@@ -2061,7 +2217,11 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000484",
-    "supplierId": "s8"
+    "supplierId": "s8",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p49",
@@ -2114,7 +2274,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000491",
-    "supplierId": "s1"
+    "supplierId": "s1",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p50",
@@ -2167,7 +2330,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000507",
-    "supplierId": "s2"
+    "supplierId": "s2",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p51",
@@ -2220,7 +2386,11 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000514",
-    "supplierId": "s3"
+    "supplierId": "s3",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p52",
@@ -2273,7 +2443,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000521",
-    "supplierId": "s4"
+    "supplierId": "s4",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p53",
@@ -2326,7 +2499,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000538",
-    "supplierId": "s5"
+    "supplierId": "s5",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p54",
@@ -2379,7 +2555,11 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000545",
-    "supplierId": "s6"
+    "supplierId": "s6",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p55",
@@ -2432,7 +2612,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000552",
-    "supplierId": "s7"
+    "supplierId": "s7",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p56",
@@ -2485,7 +2668,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000569",
-    "supplierId": "s8"
+    "supplierId": "s8",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p57",
@@ -2538,7 +2724,11 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000576",
-    "supplierId": "s1"
+    "supplierId": "s1",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p58",
@@ -2591,7 +2781,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000583",
-    "supplierId": "s2"
+    "supplierId": "s2",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p59",
@@ -2644,7 +2837,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000590",
-    "supplierId": "s3"
+    "supplierId": "s3",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p60",
@@ -2697,7 +2893,11 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000606",
-    "supplierId": "s4"
+    "supplierId": "s4",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p61",
@@ -2750,7 +2950,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000613",
-    "supplierId": "s5"
+    "supplierId": "s5",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p62",
@@ -2803,7 +3006,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000620",
-    "supplierId": "s6"
+    "supplierId": "s6",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p63",
@@ -2856,7 +3062,11 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000637",
-    "supplierId": "s7"
+    "supplierId": "s7",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p64",
@@ -2909,7 +3119,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000644",
-    "supplierId": "s8"
+    "supplierId": "s8",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p65",
@@ -2962,7 +3175,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000651",
-    "supplierId": "s1"
+    "supplierId": "s1",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p66",
@@ -3015,7 +3231,11 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000668",
-    "supplierId": "s2"
+    "supplierId": "s2",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p67",
@@ -3068,7 +3288,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000675",
-    "supplierId": "s3"
+    "supplierId": "s3",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p68",
@@ -3121,7 +3344,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000682",
-    "supplierId": "s4"
+    "supplierId": "s4",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p69",
@@ -3174,7 +3400,11 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000699",
-    "supplierId": "s5"
+    "supplierId": "s5",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p70",
@@ -3227,7 +3457,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000705",
-    "supplierId": "s6"
+    "supplierId": "s6",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p71",
@@ -3280,7 +3513,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000712",
-    "supplierId": "s7"
+    "supplierId": "s7",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p72",
@@ -3333,7 +3569,11 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-18T04:55:56.654Z",
     "barcode": "6260000000729",
-    "supplierId": "s8"
+    "supplierId": "s8",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p73",
@@ -3386,7 +3626,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000736",
-    "supplierId": "s1"
+    "supplierId": "s1",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p74",
@@ -3439,7 +3682,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000743",
-    "supplierId": "s2"
+    "supplierId": "s2",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p75",
@@ -3492,7 +3738,11 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000750",
-    "supplierId": "s3"
+    "supplierId": "s3",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p76",
@@ -3545,7 +3795,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000767",
-    "supplierId": "s4"
+    "supplierId": "s4",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p77",
@@ -3598,7 +3851,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000774",
-    "supplierId": "s5"
+    "supplierId": "s5",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p78",
@@ -3651,7 +3907,11 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000781",
-    "supplierId": "s6"
+    "supplierId": "s6",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p79",
@@ -3704,7 +3964,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000798",
-    "supplierId": "s7"
+    "supplierId": "s7",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p80",
@@ -3757,7 +4020,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000804",
-    "supplierId": "s8"
+    "supplierId": "s8",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p81",
@@ -3810,7 +4076,11 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000811",
-    "supplierId": "s1"
+    "supplierId": "s1",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p82",
@@ -3863,7 +4133,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000828",
-    "supplierId": "s2"
+    "supplierId": "s2",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p83",
@@ -3916,7 +4189,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000835",
-    "supplierId": "s3"
+    "supplierId": "s3",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p84",
@@ -3969,7 +4245,11 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000842",
-    "supplierId": "s4"
+    "supplierId": "s4",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p85",
@@ -4022,7 +4302,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000859",
-    "supplierId": "s5"
+    "supplierId": "s5",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p86",
@@ -4075,7 +4358,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000866",
-    "supplierId": "s6"
+    "supplierId": "s6",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p87",
@@ -4128,7 +4414,11 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000873",
-    "supplierId": "s7"
+    "supplierId": "s7",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p88",
@@ -4181,7 +4471,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000880",
-    "supplierId": "s8"
+    "supplierId": "s8",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p89",
@@ -4234,7 +4527,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000897",
-    "supplierId": "s1"
+    "supplierId": "s1",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p90",
@@ -4287,7 +4583,11 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000903",
-    "supplierId": "s2"
+    "supplierId": "s2",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p91",
@@ -4340,7 +4640,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000910",
-    "supplierId": "s3"
+    "supplierId": "s3",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p92",
@@ -4393,7 +4696,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000927",
-    "supplierId": "s4"
+    "supplierId": "s4",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p93",
@@ -4446,7 +4752,11 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000934",
-    "supplierId": "s5"
+    "supplierId": "s5",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p94",
@@ -4499,7 +4809,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000941",
-    "supplierId": "s6"
+    "supplierId": "s6",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p95",
@@ -4552,7 +4865,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000958",
-    "supplierId": "s7"
+    "supplierId": "s7",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p96",
@@ -4605,7 +4921,11 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000965",
-    "supplierId": "s8"
+    "supplierId": "s8",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p97",
@@ -4658,7 +4978,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000972",
-    "supplierId": "s1"
+    "supplierId": "s1",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p98",
@@ -4711,7 +5034,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000989",
-    "supplierId": "s2"
+    "supplierId": "s2",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p99",
@@ -4764,7 +5090,11 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000000996",
-    "supplierId": "s3"
+    "supplierId": "s3",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p100",
@@ -4817,7 +5147,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000001009",
-    "supplierId": "s4"
+    "supplierId": "s4",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p101",
@@ -4870,7 +5203,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000001016",
-    "supplierId": "s5"
+    "supplierId": "s5",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p102",
@@ -4923,7 +5259,11 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000001023",
-    "supplierId": "s6"
+    "supplierId": "s6",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p103",
@@ -4976,7 +5316,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000001030",
-    "supplierId": "s7"
+    "supplierId": "s7",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p104",
@@ -5029,7 +5372,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000001047",
-    "supplierId": "s8"
+    "supplierId": "s8",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p105",
@@ -5082,7 +5428,11 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000001054",
-    "supplierId": "s1"
+    "supplierId": "s1",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p106",
@@ -5135,7 +5485,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000001061",
-    "supplierId": "s2"
+    "supplierId": "s2",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p107",
@@ -5188,7 +5541,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000001078",
-    "supplierId": "s3"
+    "supplierId": "s3",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p108",
@@ -5241,7 +5597,11 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000001085",
-    "supplierId": "s4"
+    "supplierId": "s4",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p109",
@@ -5294,7 +5654,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000001092",
-    "supplierId": "s5"
+    "supplierId": "s5",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p110",
@@ -5347,7 +5710,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000001108",
-    "supplierId": "s6"
+    "supplierId": "s6",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p111",
@@ -5400,7 +5766,11 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000001115",
-    "supplierId": "s7"
+    "supplierId": "s7",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p112",
@@ -5453,7 +5823,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000001122",
-    "supplierId": "s8"
+    "supplierId": "s8",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p113",
@@ -5506,7 +5879,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000001139",
-    "supplierId": "s1"
+    "supplierId": "s1",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p114",
@@ -5559,7 +5935,11 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000001146",
-    "supplierId": "s2"
+    "supplierId": "s2",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p115",
@@ -5612,7 +5992,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000001153",
-    "supplierId": "s3"
+    "supplierId": "s3",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p116",
@@ -5665,7 +6048,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000001160",
-    "supplierId": "s4"
+    "supplierId": "s4",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p117",
@@ -5718,7 +6104,11 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000001177",
-    "supplierId": "s5"
+    "supplierId": "s5",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   },
   {
     "id": "p118",
@@ -5771,7 +6161,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-16T09:12:03.000000Z",
     "barcode": "6260000001184",
-    "supplierId": "s6"
+    "supplierId": "s6",
+    "supplierIds": [
+      "s1"
+    ]
   },
   {
     "id": "p119",
@@ -5824,7 +6217,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-23T02:36:04.265Z",
     "barcode": "6260000001191",
-    "supplierId": "s7"
+    "supplierId": "s7",
+    "supplierIds": [
+      "s2"
+    ]
   },
   {
     "id": "p120",
@@ -5877,6 +6273,10 @@
     "createdAt": "2026-09-16T09:12:03.000000Z",
     "updatedAt": "2026-09-23T02:36:04.265Z",
     "barcode": "6260000001207",
-    "supplierId": "s8"
+    "supplierId": "s8",
+    "supplierIds": [
+      "s1",
+      "s2"
+    ]
   }
 ]

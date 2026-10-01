@@ -5,6 +5,6 @@ import type { Category } from "@/lib/types";
 export async function GET() {
   const file = await getJson<Category[]>("categories.json", []);
   return NextResponse.json({ success: true, data: file.data.filter((category) => category.active !== false) }, {
-    headers: { "Cache-Control": "no-store" }
+    headers: { "Cache-Control": "private, max-age=60, stale-while-revalidate=300" }
   });
 }

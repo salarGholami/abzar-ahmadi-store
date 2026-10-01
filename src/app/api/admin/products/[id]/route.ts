@@ -3,6 +3,7 @@ import { requirePermission } from "@/lib/permissions";
 import { getJson, writeJson } from "@/lib/github";
 import { deleteMedia } from "@/lib/media";
 import type { Product } from "@/lib/types";
+import { audit } from "@/lib/audit";
 
 type RouteContext = {
   params: Promise<{ id: string }>;
@@ -152,6 +153,11 @@ export async function PATCH(req: Request, { params }: RouteContext) {
       result.sha || undefined,
     );
 
+    await audit("ADMIN_PRODUCT_UPDATED", {
+      entityType: "products",
+      entityId: id,
+    });
+
     return ok(updated);
   } catch (error) {
     console.error("[PATCH /api/admin/products/:id]", error);
@@ -186,6 +192,11 @@ export async function DELETE(_req: Request, { params }: RouteContext) {
       .filter((path): path is string => Boolean(path));
 
     await Promise.allSettled(mediaPaths.map((path) => deleteMedia(path)));
+
+    await audit("ADMIN_PRODUCT_DELETED", {
+      entityType: "products",
+      entityId: id,
+    });
 
     return ok({ id, deleted: true });
   } catch (error) {

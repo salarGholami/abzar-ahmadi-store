@@ -1,0 +1,5 @@
+[
+  {"id":"ship-post","name":"پست پیشتاز","code":"POST","price":65000,"freeThreshold":2500000,"estimatedDays":"۲ تا ۴ روز کاری","active":true,"createdAt":"2026-01-01T00:00:00.000Z"},
+  {"id":"ship-tipax","name":"تیپاکس","code":"TIPAX","price":95000,"freeThreshold":4000000,"estimatedDays":"۱ تا ۳ روز کاری","active":true,"createdAt":"2026-01-01T00:00:00.000Z"},
+  {"id":"ship-pickup","name":"تحویل حضوری","code":"PICKUP","price":0,"estimatedDays":"همان روز","active":true,"createdAt":"2026-01-01T00:00:00.000Z"}
+]

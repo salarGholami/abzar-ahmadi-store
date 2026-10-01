@@ -1,6 +1,7 @@
 import "server-only";
 import { promises as fs } from "node:fs";
 import path from "node:path";
+import { revalidateTag } from "next/cache";
 
 type GithubFile = { sha: string; content: string; encoding?: string; size?: number; download_url?: string | null };
 type GithubRef = { object: { sha: string } };
@@ -8,6 +9,39 @@ type GithubCommit = { tree: { sha: string } };
 type GithubBlob = { sha: string };
 type GithubTree = { sha: string };
 type GithubCreatedCommit = { sha: string };
+type GithubWriteResult = { content?: { sha: string } | null; commit?: { sha: string } };
+
+type ReadCacheEntry = {
+  expiresAt: number;
+  value: { data: unknown; sha: string; path: string };
+};
+
+const READ_CACHE_TTL_MS = 30_000;
+const readCache = new Map<string, ReadCacheEntry>();
+
+const cacheKey = (relative: string) => {
+  const e = env();
+  return `${e.owner}/${e.repo}/${e.branch}/${remotePath(relative)}`;
+};
+
+const invalidateReadCache = (relative: string) => {
+  readCache.delete(cacheKey(relative));
+};
+
+/** Data files whose content feeds the cached public catalog. */
+const CATALOG_FILES = new Set(["products.json", "categories.json", "brands.json", "sale-items.json"]);
+export const CATALOG_CACHE_TAG = "catalog";
+
+/** Called after every successful write: drops the in-process cache and expires the Next data cache for catalog files. */
+const notifyWrite = (relative: string) => {
+  invalidateReadCache(relative);
+  if (!CATALOG_FILES.has(relative)) return;
+  try {
+    revalidateTag(CATALOG_CACHE_TAG, { expire: 0 });
+  } catch {
+    // Outside a Next request scope (scripts/tests): the short TTL still bounds staleness.
+  }
+};
 
 type GithubEnv = {
   owner: string;
@@ -69,15 +103,28 @@ const remotePath = (relative: string) => {
   return `${e.base}/${clean}`.replace(/^\/+/, "");
 };
 
-export async function getJsonFile<T>(relative: string): Promise<{ data: T; sha: string; path: string }> {
+export async function getJsonFile<T>(relative: string, options: { cache?: boolean } = {}): Promise<{ data: T; sha: string; path: string }> {
+  const useCache = options.cache !== false;
+  const key = cacheKey(relative);
+
+  if (useCache) {
+    const cached = readCache.get(key);
+    if (cached && cached.expiresAt > Date.now()) {
+      return cached.value as { data: T; sha: string; path: string };
+    }
+    if (cached) readCache.delete(key);
+  }
+
   if (!hasGithub()) {
     const p = localPath(relative);
     try {
-      return {
+      const value = {
         data: JSON.parse(await fs.readFile(p, "utf8")) as T,
         sha: "local",
         path: p,
       };
+      if (useCache) readCache.set(key, { expiresAt: Date.now() + READ_CACHE_TTL_MS, value });
+      return value;
     } catch {
       throw new Error(`DATA_NOT_FOUND:${p}`);
     }
@@ -94,25 +141,30 @@ export async function getJsonFile<T>(relative: string): Promise<{ data: T; sha: 
     if (!raw.download_url) throw new Error(`GITHUB_CONTENT_TOO_LARGE:${p}`);
     const res = await fetch(raw.download_url, { cache: "no-store" });
     if (!res.ok) throw new Error(`GitHub raw fetch ${res.status}: ${p}`);
-    return {
+    const value = {
       data: JSON.parse(await res.text()) as T,
       sha: raw.sha,
       path: p,
     };
+    if (useCache) readCache.set(key, { expiresAt: Date.now() + READ_CACHE_TTL_MS, value });
+    return value;
   }
 
-  return {
+  const value = {
     data: JSON.parse(decode(raw.content)) as T,
     sha: raw.sha,
     path: p,
   };
+  if (useCache) readCache.set(key, { expiresAt: Date.now() + READ_CACHE_TTL_MS, value });
+  return value;
 }
 
-export async function getJson<T>(relative: string, fallback: T) {
+export async function getJson<T>(relative: string, fallback: T, options: { cache?: boolean } = {}) {
   try {
-    return await getJsonFile<T>(relative);
-  } catch (e: any) {
-    if (String(e.message).startsWith("DATA_NOT_FOUND:")) {
+    return await getJsonFile<T>(relative, options);
+  } catch (e: unknown) {
+    const message = e instanceof Error ? e.message : String(e);
+    if (message.startsWith("DATA_NOT_FOUND:") || message.startsWith("GitHub 404")) {
       return { data: fallback, sha: null as string | null, path: relative };
     }
     throw e;
@@ -124,6 +176,7 @@ export async function writeJson<T>(relative: string, data: T, message: string, e
     const p = localPath(relative);
     await fs.mkdir(path.dirname(p), { recursive: true });
     await fs.writeFile(p, JSON.stringify(data, null, 2) + "\n", "utf8");
+    notifyWrite(relative);
     return { local: true, path: p };
   }
 
@@ -133,7 +186,7 @@ export async function writeJson<T>(relative: string, data: T, message: string, e
 
   if (!sha) {
     try {
-      sha = (await getJsonFile<T>(relative)).sha;
+      sha = (await getJsonFile<T>(relative, { cache: false })).sha;
     } catch {
       sha = undefined;
     }
@@ -147,10 +200,12 @@ export async function writeJson<T>(relative: string, data: T, message: string, e
 
   if (sha && sha !== "local") body.sha = sha;
 
-  return request<any>(api(`contents/${p}`), {
+  const result = await request<GithubWriteResult>(api(`contents/${p}`), {
     method: "PUT",
     body: JSON.stringify(body),
   });
+  notifyWrite(relative);
+  return result;
 }
 
 export type JsonCommit<T = unknown> = {
@@ -231,6 +286,8 @@ export async function batchCommit(commits: JsonCommit[]): Promise<void> {
   } catch (error) {
     throw new Error(`GitHub branch update failed after commit creation. ${String((error as Error).message || error)}`);
   }
+
+  for (const commit of commits) notifyWrite(commit.path);
 }
 
 export async function deleteJson(relative: string, message: string) {
@@ -240,13 +297,14 @@ export async function deleteJson(relative: string, message: string) {
     } catch {
       // File is already absent.
     }
+    notifyWrite(relative);
     return;
   }
 
-  const f = await getJsonFile<unknown>(relative);
+  const f = await getJsonFile<unknown>(relative, { cache: false });
   const e = env();
 
-  return request<any>(api(`contents/${f.path}`), {
+  const result = await request<GithubWriteResult>(api(`contents/${f.path}`), {
     method: "DELETE",
     body: JSON.stringify({
       message,
@@ -254,4 +312,59 @@ export async function deleteJson(relative: string, message: string) {
       branch: e.branch,
     }),
   });
+  notifyWrite(relative);
+  return result;
+}
+
+
+function isConflictError(error: unknown) {
+  const message = String((error as Error)?.message || error);
+  return (
+    message.includes("GitHub branch update failed") ||
+    message.includes("GitHub 409") ||
+    message.includes("GitHub 422") ||
+    message.includes("does not match")
+  );
+}
+
+/**
+ * Read-modify-write with automatic retry on concurrent-write conflicts.
+ * The mutator is re-run against fresh data on every attempt, so no update is lost.
+ */
+export async function mutateJson<T, R = void>(
+  relative: string,
+  fallback: T,
+  mutator: (current: T) => { next: T; result: R },
+  message: string,
+  retries = 4,
+): Promise<R> {
+  let lastError: unknown;
+  for (let attempt = 0; attempt <= retries; attempt += 1) {
+    try {
+      const file = await getJson<T>(relative, fallback, { cache: false });
+      const { next, result } = mutator(file.data);
+      await batchCommit([{ path: relative, data: next, message, expectedSha: file.sha || undefined }]);
+      return result;
+    } catch (error) {
+      lastError = error;
+      if (!isConflictError(error) || attempt === retries) throw error;
+      await new Promise((resolve) => setTimeout(resolve, 150 * (attempt + 1) + Math.random() * 200));
+    }
+  }
+  throw lastError;
+}
+
+/** Runs an atomic multi-file operation again from scratch when a concurrent commit wins the race. */
+export async function withConflictRetry<R>(operation: () => Promise<R>, retries = 4): Promise<R> {
+  let lastError: unknown;
+  for (let attempt = 0; attempt <= retries; attempt += 1) {
+    try {
+      return await operation();
+    } catch (error) {
+      lastError = error;
+      if (!isConflictError(error) || attempt === retries) throw error;
+      await new Promise((resolve) => setTimeout(resolve, 200 * (attempt + 1) + Math.random() * 300));
+    }
+  }
+  throw lastError;
 }

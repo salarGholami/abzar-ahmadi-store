@@ -6,9 +6,21 @@ import { NextRequest, NextResponse } from "next/server";
  * because auth.ts uses node:crypto.
  */
 export function proxy(req: NextRequest) {
-  if (!req.nextUrl.pathname.startsWith("/dashboard")) return NextResponse.next();
+  const path = req.nextUrl.pathname;
+  const needsAuth =
+    path.startsWith("/dashboard") ||
+    path.startsWith("/supplier") ||
+    path.startsWith("/customer");
+  if (!needsAuth) return NextResponse.next();
   if (req.cookies.get("session")?.value) return NextResponse.next();
-  return NextResponse.redirect(new URL("/account?next=/dashboard", req.url));
+  const next = path.startsWith("/supplier")
+    ? "/supplier"
+    : path.startsWith("/customer")
+      ? "/customer"
+      : "/dashboard";
+  return NextResponse.redirect(new URL(`/account?next=${next}`, req.url));
 }
 
-export const config = { matcher: ["/dashboard/:path*"] };
+export const config = {
+  matcher: ["/dashboard/:path*", "/supplier/:path*", "/customer/:path*"],
+};

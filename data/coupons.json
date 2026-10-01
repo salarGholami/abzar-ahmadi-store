@@ -1,0 +1,14 @@
+[
+  {
+    "id": "coupon-welcome10",
+    "code": "WELCOME10",
+    "type": "PERCENT",
+    "value": 10,
+    "maxDiscount": 500000,
+    "minOrderAmount": 1000000,
+    "usageLimit": 1000,
+    "usedCount": 0,
+    "active": true,
+    "createdAt": "2026-01-01T00:00:00.000Z"
+  }
+]

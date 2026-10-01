@@ -23,7 +23,7 @@ import {
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
-import Pagination from "@/components/ui/Pagination";
+import Pagination from "@/shared/ui/Pagination";
 import type {
   ApiFailure,
   ApiSuccess,
@@ -41,6 +41,7 @@ type StatusFilter =
   | "ALL"
   | "PAID"
   | "PENDING_TRANSFER"
+  | "PENDING_PAYMENT"
   | "PARTIAL"
   | "CANCELED";
 
@@ -57,6 +58,7 @@ const shippingLabels: Record<ShippingStatus, string> = {
 const paymentLabels: Record<string, string> = {
   PAID: "پرداخت شده",
   PENDING_TRANSFER: "در انتظار انتقال",
+  PENDING_PAYMENT: "در انتظار پرداخت آنلاین",
   PARTIAL: "پرداخت ناقص",
   CANCELED: "لغو شده",
 };
@@ -121,6 +123,7 @@ function getPaymentStyle(status: string) {
         icon: CheckCircle2,
       };
 
+    case "PENDING_PAYMENT":
     case "PENDING_TRANSFER":
       return {
         wrapper:

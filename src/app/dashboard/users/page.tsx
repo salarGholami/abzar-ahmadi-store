@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Plus, Pencil, Trash2, RefreshCw } from "lucide-react";
-import Modal from "@/components/ui/Modal";
+import Modal from "@/shared/ui/Modal";
 type User={id:string;name:string;phone:string;role:string;createdAt?:string};
 const empty={name:"",phone:"",password:""};
 export default function UsersPage(){

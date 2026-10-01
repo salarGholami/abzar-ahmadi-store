@@ -1,8 +1,8 @@
 [
   {
     "id": "pur-001",
-    "supplierId": "s2",
-    "supplierName": "پخش ابزار البرز",
+    "supplierId": "s1",
+    "supplierName": "بازرگانی ابزار ایران",
     "subtotal": 5610000,
     "paymentMethod": "CASH",
     "checkId": null,
@@ -10,8 +10,8 @@
   },
   {
     "id": "pur-002",
-    "supplierId": "s3",
-    "supplierName": "نمایندگی رونیکس",
+    "supplierId": "s1",
+    "supplierName": "بازرگانی ابزار ایران",
     "subtotal": 8575000,
     "paymentMethod": "CASH",
     "checkId": null,
@@ -19,8 +19,8 @@
   },
   {
     "id": "pur-003",
-    "supplierId": "s4",
-    "supplierName": "بازرگانی پارس صنعت",
+    "supplierId": "s1",
+    "supplierName": "بازرگانی ابزار ایران",
     "subtotal": 12120000,
     "paymentMethod": "CHECK",
     "checkId": null,

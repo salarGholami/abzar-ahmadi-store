@@ -1,61 +1,109 @@
-import "swiper/css";
 import "./globals.css";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 
 import Providers from "./providers";
-import StoreChrome from "@/components/layout/StoreChrome";
+import JsonLd from "@/shared/seo/JsonLd";
+import { SITE_NAME, SITE_TAGLINE, getSiteUrl } from "@/lib/seo";
 
 const vazirmatn = localFont({
-  src: [
-    {
-      path: "../../public/fonts/Vazirmatn-Thin.woff2",
-      weight: "100",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/Vazirmatn-ExtraLight.woff2",
-      weight: "200",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/Vazirmatn-Light.woff2",
-      weight: "300",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/Vazirmatn-Regular.woff2",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/Vazirmatn-Medium.woff2",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/Vazirmatn-SemiBold.woff2",
-      weight: "600",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/Vazirmatn-Bold.woff2",
-      weight: "700",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/Vazirmatn-Black.woff2",
-      weight: "900",
-      style: "normal",
-    },
-  ],
+  src: "../../public/fonts/Vazirmatn[wght].woff2",
+  weight: "100 900",
+  style: "normal",
   variable: "--font-vazirmatn",
   display: "swap",
+  preload: true,
 });
 
+const siteUrl = getSiteUrl();
+
+const siteStructuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      name: SITE_NAME,
+      url: siteUrl,
+      logo: `${siteUrl}/images/logo/abzar-ahmadi-logo-light.png`,
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer service",
+        availableLanguage: ["fa"],
+        url: `${siteUrl}/contact`,
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      name: SITE_NAME,
+      url: siteUrl,
+      inLanguage: "fa-IR",
+      publisher: { "@id": `${siteUrl}/#organization` },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: `${siteUrl}/products?q={search_term_string}`,
+        },
+        "query-input": "required name=search_term_string",
+      },
+    },
+  ],
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0b1114" },
+  ],
+};
+
 export const metadata: Metadata = {
-  title: "ابزار احمدی | فروشگاه ابزار آلات ساختمانی",
-  description: "فروشگاه تخصصی ابزار آلات ساختمانی ابزار احمدی",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: `${SITE_NAME} | ${SITE_TAGLINE}`,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description:
+    "خرید ابزار و تجهیزات ساختمانی با مشخصات کامل، قیمت شفاف و امکان پیگیری سفارش از ابزار احمدی.",
+  applicationName: SITE_NAME,
+  keywords: ["ابزار ساختمانی", "خرید ابزار", "ابزار احمدی", "ابزارآلات", "تجهیزات ساختمانی"],
+  authors: [{ name: SITE_NAME }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  formatDetection: { telephone: false, email: false, address: false },
+  openGraph: {
+    type: "website",
+    locale: "fa_IR",
+    siteName: SITE_NAME,
+    title: `${SITE_NAME} | ${SITE_TAGLINE}`,
+    description: "فروشگاه تخصصی ابزار و تجهیزات ساختمانی ابزار احمدی.",
+    url: "/",
+    images: [{ url: "/images/logo/abzar-ahmadi-logo-light.png", width: 1000, height: 1000, alt: SITE_NAME }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE_NAME} | ${SITE_TAGLINE}`,
+    description: "فروشگاه تخصصی ابزار و تجهیزات ساختمانی ابزار احمدی.",
+    images: ["/images/logo/abzar-ahmadi-logo-light.png"],
+  },
+  verification: process.env.GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+    : undefined,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -72,9 +120,9 @@ export default function RootLayout({
       className={vazirmatn.variable}
     >
       <body className="font-vazirmatn antialiased">
+        <JsonLd data={siteStructuredData} />
         <Providers>
           {children}
-          <StoreChrome />
         </Providers>
 
         <noscript>

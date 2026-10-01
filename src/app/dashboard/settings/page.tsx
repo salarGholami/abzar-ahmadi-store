@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import CrudTable from "@/components/dashboard/CrudTable";
+import CrudTable from "@/features/admin/ui/CrudTable";
 import type { AppUser, StoreSettings } from "@/lib/types";
 
 function StoreSettingsForm() {

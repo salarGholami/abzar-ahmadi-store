@@ -1,16 +1,6 @@
-import StoreHeader from "@/components/layout/StoreHeader";
-import StoreFooter from "@/components/layout/StoreFooter";
+import type { ReactNode } from "react";
+import StoreShell from "../_shell/StoreShell";
 
-export default function StoreLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <div className="flex min-h-screen flex-col bg-[var(--bg)] text-[var(--text)]">
-      <StoreHeader />
-      <main className="flex-1">{children}</main>
-      <StoreFooter />
-    </div>
-  );
+export default function StoreLayout({ children }: { children: ReactNode }) {
+  return <StoreShell>{children}</StoreShell>;
 }

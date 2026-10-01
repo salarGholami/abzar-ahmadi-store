@@ -28,7 +28,7 @@ import {
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
-import ShippingManager from "@/components/dashboard/ShippingManager";
+import ShippingManager from "@/features/admin/ui/ShippingManager";
 import type {
   ApiFailure,
   ApiSuccess,
@@ -49,6 +49,7 @@ type CustomersResponse = ApiResult<Customer[]>;
 const paymentLabels: Record<string, string> = {
   PAID: "پرداخت شده",
   PENDING_TRANSFER: "در انتظار انتقال",
+  PENDING_PAYMENT: "در انتظار پرداخت آنلاین",
   PARTIAL: "پرداخت ناقص",
   CANCELED: "لغو شده",
 };
@@ -92,6 +93,7 @@ function getPaymentClass(status: string) {
     case "PAID":
       return "border-emerald-200 bg-emerald-50 text-emerald-700 dark:border-emerald-900/60 dark:bg-emerald-950/30 dark:text-emerald-300";
 
+    case "PENDING_PAYMENT":
     case "PENDING_TRANSFER":
       return "border-amber-200 bg-amber-50 text-amber-700 dark:border-amber-900/60 dark:bg-amber-950/30 dark:text-amber-300";
 
@@ -1035,6 +1037,7 @@ export default function SaleDetailsPage({
                 >
                   <option value="PAID">پرداخت شده</option>
                   <option value="PENDING_TRANSFER">در انتظار انتقال</option>
+                  <option value="PENDING_PAYMENT">در انتظار پرداخت آنلاین</option>
                   <option value="PARTIAL">پرداخت ناقص</option>
                   <option value="CANCELED">لغو شده</option>
                 </select>

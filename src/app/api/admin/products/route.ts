@@ -2,6 +2,7 @@ import { ok, fail } from "@/lib/http";
 import { requirePermission } from "@/lib/permissions";
 import { getJson, writeJson } from "@/lib/github";
 import type { Product } from "@/lib/types";
+import { audit } from "@/lib/audit";
 
 function toNumber(value: unknown, fallback = 0): number {
   const number = Number(value);
@@ -94,6 +95,11 @@ export async function POST(req: Request) {
       `Create product ${product.id}`,
       result.sha || undefined,
     );
+
+    await audit("ADMIN_PRODUCT_CREATED", {
+      entityType: "products",
+      entityId: product.id,
+    });
 
     return ok(product, 201);
   } catch (error) {
