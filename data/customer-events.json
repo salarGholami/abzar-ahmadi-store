@@ -113,5 +113,16 @@
       "quantity": 1
     },
     "createdAt": "2026-10-01T09:52:02.409Z"
+  },
+  {
+    "id": "de2584bb-a488-4aaa-ad97-ac1dbf7be7e9",
+    "actorType": "GUEST",
+    "actorId": "bc8461c9-6a9e-451b-88da-95815951a9dd",
+    "name": "CART_ITEM_ADDED",
+    "entityId": "p38",
+    "metadata": {
+      "quantity": 1
+    },
+    "createdAt": "2026-10-01T09:52:14.562Z"
   }
 ]
