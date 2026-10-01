@@ -137,11 +137,11 @@
     "createdAt": "2026-10-01T09:52:11.136Z"
   },
   {
-    "id": "b3e7cfec-3645-4400-8d4d-be0444e94a56",
+    "id": "a0468c6c-757a-4a52-88e5-9adbd4a7a5b5",
     "actorType": "GUEST",
     "actorId": "bc8461c9-6a9e-451b-88da-95815951a9dd",
     "name": "CHECKOUT_STARTED",
     "path": "/cart",
-    "createdAt": "2026-10-01T09:59:18.746Z"
+    "createdAt": "2026-10-01T09:59:18.742Z"
   }
 ]
