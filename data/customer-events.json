@@ -194,5 +194,13 @@
       "quantity": 0
     },
     "createdAt": "2026-10-01T10:05:45.357Z"
+  },
+  {
+    "id": "6eadc4b2-4c97-4b24-8039-7ce469755c70",
+    "actorType": "USER",
+    "actorId": "u-admin",
+    "name": "CART_ITEM_REMOVED",
+    "entityId": "p95",
+    "createdAt": "2026-10-01T10:06:01.027Z"
   }
 ]
