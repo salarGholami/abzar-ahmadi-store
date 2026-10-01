@@ -1,8 +1,8 @@
 [
   {
-    "id": "95fdd4e1-d912-44e3-8c36-50eabb23a4c4",
-    "ownerType": "GUEST",
-    "ownerId": "bc8461c9-6a9e-451b-88da-95815951a9dd",
+    "id": "5d4339eb-13eb-428b-af19-22e568b5999a",
+    "ownerType": "USER",
+    "ownerId": "76b8b23f-9bb9-4e2e-b338-d330743c8653",
     "lines": [
       {
         "productId": "p28",
@@ -29,6 +29,6 @@
         "updatedAt": "2026-10-01T09:59:12.837Z"
       }
     ],
-    "updatedAt": "2026-10-01T09:59:12.837Z"
+    "updatedAt": "2026-10-01T10:01:35.697Z"
   }
 ]
