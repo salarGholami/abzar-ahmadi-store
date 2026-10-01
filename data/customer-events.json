@@ -175,5 +175,13 @@
       "quantity": 1
     },
     "createdAt": "2026-10-01T10:04:38.648Z"
+  },
+  {
+    "id": "793a3170-457a-429b-8138-1304f36c2cc4",
+    "actorType": "USER",
+    "actorId": "u-admin",
+    "name": "CHECKOUT_STARTED",
+    "path": "/cart",
+    "createdAt": "2026-10-01T10:05:00.502Z"
   }
 ]
