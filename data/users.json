@@ -5,7 +5,9 @@
     "phone": "09120000000",
     "role": "ADMIN",
     "passwordHash": "scrypt:71a3335ba361af6f97397bd50285e97f:fd622a0448a0057b13bd7f13aeed12bc1cc2947fe3365ffd24bee5e491d921429e0e4d548d7b65c32b3d901458de40f1a4f60b1c09f13dd4078c94c0445dc55a",
-    "permissions": ["*"],
+    "permissions": [
+      "*"
+    ],
     "updatedAt": "2026-09-23T02:08:26.099Z",
     "twoFactorSecret": "Z5FNJLT5PQ2TASWILSDRJECKJLCRKLE4",
     "twoFactorEnabled": false
@@ -78,7 +80,9 @@
     "emailVerified": false,
     "avatarUrl": null,
     "role": "ADMIN",
-    "permissions": ["*"],
+    "permissions": [
+      "*"
+    ],
     "passwordHash": "scrypt:6f19c1145914c136e822deaf03b01784:912286688ebb2a70c51d418790bc3d14b49d243ba744a891c502f6a3760df9918b09883c3d3c4ee8ac131e2d6c8c11c9ad56eeff5bacd4dcf9981dfed88d2e83",
     "createdAt": "2026-09-26T07:39:32.860Z",
     "updatedAt": "2026-09-26T07:48:27.299Z"
@@ -89,7 +93,9 @@
     "phone": "09123334444",
     "role": "SUPPLIER",
     "supplierId": "s1",
-    "permissions": ["supplier.portal"],
+    "permissions": [
+      "supplier.portal"
+    ],
     "passwordHash": "scrypt:fae286d4706866fbea9c03fecab0f856:a7a2ca220bab7174c10a742239bc65edb9606b06ec899b7b5fb4d4947c12db1fbd812d7b6b6ce7472bcc6ee7e1216973add0f81492d6200240103e28e3afeb95",
     "createdAt": "2026-09-20T10:00:00.000Z",
     "updatedAt": "2026-09-20T10:00:00.000Z"
