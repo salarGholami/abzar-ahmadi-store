@@ -183,5 +183,16 @@
     "name": "CHECKOUT_STARTED",
     "path": "/cart",
     "createdAt": "2026-10-01T10:05:00.453Z"
+  },
+  {
+    "id": "6063f13e-04fc-4ddf-ba2b-ef56835ee45b",
+    "actorType": "USER",
+    "actorId": "u-admin",
+    "name": "CART_ITEM_UPDATED",
+    "entityId": "p95",
+    "metadata": {
+      "quantity": 0
+    },
+    "createdAt": "2026-10-01T10:05:48.749Z"
   }
 ]
