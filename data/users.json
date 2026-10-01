@@ -53,5 +53,17 @@
     "passwordHash": "scrypt:3eae4016176bb028ceecfd6f4f586dea:00b150aa5cd9a20bae8fab5140ae6a796e6a552b71a0b4b0c3aa0ce468640f68e082e49be13caf510de0c85ec250dc2d61afa205b7ba17c9f7b94927d3c5c6ae",
     "createdAt": "2026-10-01T09:28:42.399Z",
     "updatedAt": "2026-10-01T09:28:42.399Z"
+  },
+  {
+    "id": "76b8b23f-9bb9-4e2e-b338-d330743c8653",
+    "name": "سالار غلامی",
+    "phone": "09389525194",
+    "role": "CUSTOMER",
+    "permissions": [
+      "sales.create"
+    ],
+    "passwordHash": "scrypt:d8a4fce0f7d414a4fc40569d920e4522:32024bc3a8f566521670527b597afda0f076634a009f72dc8a93ce32efd4a2998300260c0a6b532619c3e21f49351a59fdcc9d04ba35ecf473f86c1a4f28a29a",
+    "createdAt": "2026-10-01T10:01:26.541Z",
+    "updatedAt": "2026-10-01T10:01:26.541Z"
   }
 ]
