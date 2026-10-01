@@ -28,21 +28,6 @@
     "updatedAt": "2026-09-17T21:01:56.666Z"
   },
   {
-    "id": "cf272585-2f77-4a1e-9fc2-ec3fde9b92c6",
-    "name": "حسن محمدی ",
-    "phone": "09123223223",
-    "role": "CUSTOMER",
-    "permissions": [
-      "products.read",
-      "sales.read",
-      "sales.create",
-      "quotations.create"
-    ],
-    "passwordHash": "scrypt:ccadeedb72533c9be6c112d1b20d9c1a:495d66634fb5fe2fbd616bf251fb767a41086b9af2e2176608b5b6d65cc045ac058de8c47cf4cb64c26cccbbd6263e00c4ea96f79fc57c83db2029586556698a",
-    "createdAt": "2026-09-26T06:46:38.564Z",
-    "updatedAt": "2026-09-26T06:46:38.564Z"
-  },
-  {
     "id": "d9c2a66d-9dd0-4760-9a32-8951da600902",
     "name": "سالارخحسلخلسخح",
     "phone": "09121111111",
