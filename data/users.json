@@ -99,5 +99,17 @@
     "passwordHash": "scrypt:fae286d4706866fbea9c03fecab0f856:a7a2ca220bab7174c10a742239bc65edb9606b06ec899b7b5fb4d4947c12db1fbd812d7b6b6ce7472bcc6ee7e1216973add0f81492d6200240103e28e3afeb95",
     "createdAt": "2026-09-20T10:00:00.000Z",
     "updatedAt": "2026-09-20T10:00:00.000Z"
+  },
+  {
+    "id": "5060eba0-aa71-4362-a768-b68ee1ed0e86",
+    "name": "محمد کریمی",
+    "phone": "09120000003",
+    "role": "CUSTOMER",
+    "permissions": [
+      "sales.create"
+    ],
+    "passwordHash": "scrypt:f50f47ce57f884e8bd6f7dceb688eb99:4d0dc49e66ecbef6286fea4fafeb9a8e3a794a38d3a79a5ae4490009b700fd5bba74d377bf36345d5918a64e920a3bc8df773b290c4c3ed217bfea32ce30ff1c",
+    "createdAt": "2026-10-01T07:23:07.354Z",
+    "updatedAt": "2026-10-01T07:23:07.354Z"
   }
 ]
