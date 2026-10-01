@@ -28,21 +28,6 @@
     "updatedAt": "2026-09-17T21:01:56.666Z"
   },
   {
-    "id": "256d6164-bc8e-49cc-817a-fd5a8ee1a9ea",
-    "name": "سالار غلامی",
-    "phone": "09389525194",
-    "role": "CUSTOMER",
-    "permissions": [
-      "products.read",
-      "sales.read",
-      "sales.create",
-      "quotations.create"
-    ],
-    "passwordHash": "scrypt:84b2696e7e77d7047e63c1f3aa75d604:40fe9ceaa367f4bf95339df156d6dd6637912de544a8bfd7a672530ffcbc8b01186c3fb216e9bc182881a9a174f3cd606eccd67836b2012c2554264f40d09202",
-    "createdAt": "2026-09-18T04:47:45.995Z",
-    "updatedAt": "2026-09-18T04:47:45.995Z"
-  },
-  {
     "id": "9f9d3861-c4cc-48f6-b28a-94aade5ada6d",
     "name": "مصی احمدی",
     "phone": "09121234567",
