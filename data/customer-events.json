@@ -124,5 +124,16 @@
       "quantity": 1
     },
     "createdAt": "2026-10-01T09:52:14.562Z"
+  },
+  {
+    "id": "c38a6334-cf9f-44c1-9ea2-bede4e4acee4",
+    "actorType": "GUEST",
+    "actorId": "bc8461c9-6a9e-451b-88da-95815951a9dd",
+    "name": "CART_ITEM_UPDATED",
+    "entityId": "p38",
+    "metadata": {
+      "quantity": 0
+    },
+    "createdAt": "2026-10-01T09:52:11.136Z"
   }
 ]
