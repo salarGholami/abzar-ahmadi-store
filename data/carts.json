@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "id": "95fdd4e1-d912-44e3-8c36-50eabb23a4c4",
+    "ownerType": "GUEST",
+    "ownerId": "bc8461c9-6a9e-451b-88da-95815951a9dd",
+    "lines": [
+      {
+        "productId": "p28",
+        "quantity": 1,
+        "createdAt": "2026-10-01T09:47:03.629Z",
+        "updatedAt": "2026-10-01T09:47:03.629Z"
+      }
+    ],
+    "updatedAt": "2026-10-01T09:47:03.629Z"
+  }
+]
