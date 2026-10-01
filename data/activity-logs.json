@@ -315,5 +315,11 @@
     "action": "SALE_SHIPPING_UPDATED",
     "entityId": "dd662bbc-01e2-4eb3-8ae4-ab5ace376614",
     "createdAt": "2026-09-30T16:53:47.036Z"
+  },
+  {
+    "id": "6e9f89d7-ae7c-4fe3-b935-a9d1f5b7b91e",
+    "action": "SALE_PAYMENT_PENDING_TRANSFER_TO_PAID",
+    "entityId": "dd662bbc-01e2-4eb3-8ae4-ab5ace376614",
+    "createdAt": "2026-10-01T05:17:58.855Z"
   }
 ]
