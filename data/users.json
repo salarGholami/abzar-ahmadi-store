@@ -28,18 +28,6 @@
     "updatedAt": "2026-09-18T04:47:45.995Z"
   },
   {
-    "id": "eda8dffe-dd82-42e2-92b4-abdeada1adbb",
-    "name": "سالارملاغلا",
-    "phone": "09214782769",
-    "role": "CUSTOMER",
-    "permissions": [
-      "sales.create"
-    ],
-    "passwordHash": "scrypt:3f0a9404cdfead54282da1a180ac9ad2:6b06a06afe3cce0dc64dec1d6e4ad37c29a64dc5c854ccf338a5318d0adca1b8129ae0f20eadb605e7735540ee29b47202c0c28598b77d2a3e3474a426718439",
-    "createdAt": "2026-09-30T05:01:56.069Z",
-    "updatedAt": "2026-09-30T05:01:56.069Z"
-  },
-  {
     "id": "bd24c8ef-59f9-4cd0-8476-c7a944d1b3a1",
     "name": "جواد احمدی نژاد پاشاکی ",
     "phone": "09120824229",
