@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "id": "aedd4226-0881-4456-9b3a-d6bcc2410721",
+    "actorType": "USER",
+    "actorId": "u-admin",
+    "name": "LOGOUT",
+    "createdAt": "2026-10-01T06:34:43.284Z"
+  }
+]
