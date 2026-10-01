@@ -164,5 +164,16 @@
     "actorId": "u-admin",
     "name": "LOGIN",
     "createdAt": "2026-10-01T10:02:30.454Z"
+  },
+  {
+    "id": "addbf9b0-bfcb-4fc9-942c-ee951f89e831",
+    "actorType": "USER",
+    "actorId": "u-admin",
+    "name": "CART_ITEM_ADDED",
+    "entityId": "p95",
+    "metadata": {
+      "quantity": 1
+    },
+    "createdAt": "2026-10-01T10:04:38.648Z"
   }
 ]
