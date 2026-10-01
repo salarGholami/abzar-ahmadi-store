@@ -12,5 +12,19 @@
     "isDefault": true,
     "createdAt": "2026-09-20T10:00:00.000Z",
     "updatedAt": "2026-09-20T10:00:00.000Z"
+  },
+  {
+    "id": "2c46d7e3-60e6-4209-8c23-5ff047aaf53e",
+    "userId": "256d6164-bc8e-49cc-817a-fd5a8ee1a9ea",
+    "title": "آدرس من",
+    "recipientName": "سالی",
+    "phone": "09214782769",
+    "province": "تهران",
+    "city": "باغستان ( خادم آباد )",
+    "address": "باغستان ( خادم آباد ) ، خیابان هفتم اصلی",
+    "postalCode": "1234567891",
+    "isDefault": true,
+    "createdAt": "2026-10-01T06:37:21.421Z",
+    "updatedAt": "2026-10-01T06:37:21.421Z"
   }
 ]
