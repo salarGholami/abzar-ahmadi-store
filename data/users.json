@@ -99,5 +99,17 @@
     "passwordHash": "scrypt:fae286d4706866fbea9c03fecab0f856:a7a2ca220bab7174c10a742239bc65edb9606b06ec899b7b5fb4d4947c12db1fbd812d7b6b6ce7472bcc6ee7e1216973add0f81492d6200240103e28e3afeb95",
     "createdAt": "2026-09-20T10:00:00.000Z",
     "updatedAt": "2026-09-20T10:00:00.000Z"
+  },
+  {
+    "id": "32dbd94e-0cac-4794-a04a-26075a94e787",
+    "name": "علی رضایی",
+    "phone": "09120000002",
+    "role": "CUSTOMER",
+    "permissions": [
+      "sales.create"
+    ],
+    "passwordHash": "scrypt:9008846829243f1b828e488870223cfc:1424c4b4e89213d178930edb3cbe1533b2686c40887d971c3fe0b724b006289b5a1be7fc3248f844a88616253b2bfc26475cfc4294ca4083864e22ceed449b19",
+    "createdAt": "2026-10-01T07:22:21.698Z",
+    "updatedAt": "2026-10-01T07:22:21.698Z"
   }
 ]
