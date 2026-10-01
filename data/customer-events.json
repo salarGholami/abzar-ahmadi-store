@@ -146,5 +146,13 @@
       "quantity": 1
     },
     "createdAt": "2026-10-01T09:59:17.144Z"
+  },
+  {
+    "id": "bfb56971-9fe6-495a-90d3-3cece67c1188",
+    "actorType": "GUEST",
+    "actorId": "bc8461c9-6a9e-451b-88da-95815951a9dd",
+    "name": "CHECKOUT_STARTED",
+    "path": "/cart",
+    "createdAt": "2026-10-01T09:59:21.144Z"
   }
 ]
