@@ -5,5 +5,12 @@
     "actorId": "u-admin",
     "name": "LOGOUT",
     "createdAt": "2026-10-01T06:34:43.284Z"
+  },
+  {
+    "id": "865f9817-774f-422a-b31b-a075b7d4a0c2",
+    "actorType": "USER",
+    "actorId": "256d6164-bc8e-49cc-817a-fd5a8ee1a9ea",
+    "name": "LOGIN",
+    "createdAt": "2026-10-01T06:35:19.975Z"
   }
 ]
