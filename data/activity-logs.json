@@ -333,5 +333,14 @@
       "status": "PAID"
     },
     "createdAt": "2026-10-01T05:18:10.195Z"
+  },
+  {
+    "id": "17cc9a73-928f-4274-80e9-f7ab725a1f41",
+    "action": "ADMIN_ENTITY_DELETED",
+    "entityType": "customers",
+    "entityId": "f87e1f59-dfea-439f-9229-4a5e20a4e87a",
+    "actorId": "u-admin",
+    "actorRole": "ADMIN",
+    "createdAt": "2026-10-01T06:01:50.550Z"
   }
 ]
