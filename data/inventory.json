@@ -2,23 +2,23 @@
   {
     "id": "inv-001",
     "productId": "p1",
-    "quantity": 0,
+    "quantity": -1,
     "reason": "ورود اولیه/اصلاح موجودی",
-    "updatedAt": "2026-09-18T04:48:47.596Z"
+    "updatedAt": "2026-09-30T16:51:30.810Z"
   },
   {
     "id": "inv-002",
     "productId": "p2",
-    "quantity": 4,
+    "quantity": 5,
     "reason": "ورود اولیه/اصلاح موجودی",
-    "updatedAt": "2026-09-28T10:09:45.335Z"
+    "updatedAt": "2026-09-29T05:13:24.468Z"
   },
   {
     "id": "inv-003",
     "productId": "p3",
-    "quantity": 4,
+    "quantity": 5,
     "reason": "ورود اولیه/اصلاح موجودی",
-    "updatedAt": "2026-09-28T10:09:45.335Z"
+    "updatedAt": "2026-09-29T05:13:24.468Z"
   },
   {
     "id": "inv-004",
@@ -238,5 +238,32 @@
     "productId": "p105",
     "quantity": -1,
     "updatedAt": "2026-09-26T23:47:57.100Z"
+  },
+  {
+    "id": "724ab4df-1eb0-4c1b-be4b-7b995e4ca0a3",
+    "productId": "p100",
+    "quantity": 11,
+    "updatedAt": "2026-09-29T06:24:41.778Z"
+  },
+  {
+    "id": "f6b099ef-07bd-484e-b3ab-95b0257a204c",
+    "productId": "p42",
+    "quantity": -2,
+    "reason": "SALE:7822b34f-b153-45fb-9523-b56469a84db5",
+    "updatedAt": "2026-09-30T04:07:38.032Z"
+  },
+  {
+    "id": "232e8472-c50a-4307-8e50-4db7bf141ff0",
+    "productId": "p56",
+    "quantity": -2,
+    "reason": "SALE:7822b34f-b153-45fb-9523-b56469a84db5",
+    "updatedAt": "2026-09-30T04:07:38.032Z"
+  },
+  {
+    "id": "8841b990-e7c0-49f6-b118-fc8082f4d898",
+    "productId": "p77",
+    "quantity": -1,
+    "reason": "SALE:7822b34f-b153-45fb-9523-b56469a84db5",
+    "updatedAt": "2026-09-30T04:07:38.032Z"
   }
 ]

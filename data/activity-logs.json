@@ -244,5 +244,103 @@
     "action": "PURCHASE_CREATED",
     "entityId": "c4cd2a85-24ce-4982-95c8-2b6a667f2189",
     "createdAt": "2026-09-28T10:09:45.336Z"
+  },
+  {
+    "id": "b26872b3-cc48-4eb2-8dad-34b69f0f6bb2",
+    "action": "ADMIN_ENTITY_DELETED",
+    "entityType": "customers",
+    "entityId": "c1",
+    "actorId": "u-admin",
+    "actorRole": "ADMIN",
+    "createdAt": "2026-09-29T04:45:45.286Z"
+  },
+  {
+    "id": "5192200f-fda6-4b2f-a12d-07e3b9372e48",
+    "action": "SALE_DELETED",
+    "entityId": "1e46e4a9-5c77-4b51-8625-ed672f5c64b9",
+    "createdAt": "2026-09-29T05:13:24.468Z"
+  },
+  {
+    "id": "53bef4bb-083e-4566-a528-d1cc538dc1ce",
+    "action": "INVENTORY_ADJUSTED",
+    "entityId": "p100",
+    "quantity": 11,
+    "reason": "نمیدونم",
+    "createdAt": "2026-09-29T06:24:41.778Z"
+  },
+  {
+    "id": "8b81f125-867b-41dc-b19f-93eea55839d7",
+    "action": "SALE_CREATED",
+    "entityId": "7822b34f-b153-45fb-9523-b56469a84db5",
+    "createdAt": "2026-09-30T04:07:38.032Z"
+  },
+  {
+    "id": "44fb50c0-7777-4624-9d5c-bc0e008faa9c",
+    "action": "SALE_SHIPPING_UPDATED",
+    "entityId": "7822b34f-b153-45fb-9523-b56469a84db5",
+    "createdAt": "2026-09-30T04:14:22.260Z"
+  },
+  {
+    "id": "42c3e426-6fa6-4d72-8142-136269e531a9",
+    "action": "SALE_PAYMENT_PENDING_TRANSFER_TO_PAID",
+    "entityId": "7822b34f-b153-45fb-9523-b56469a84db5",
+    "createdAt": "2026-09-30T04:14:43.977Z"
+  },
+  {
+    "id": "7f198d15-89c7-459f-b034-03e754f11406",
+    "action": "SALE_PAYMENT_STATUS_UPDATED",
+    "entityType": "sales",
+    "entityId": "7822b34f-b153-45fb-9523-b56469a84db5",
+    "actorId": "u-admin",
+    "actorRole": "ADMIN",
+    "metadata": {
+      "status": "PAID"
+    },
+    "createdAt": "2026-09-30T04:14:57.149Z"
+  },
+  {
+    "id": "ee7007c5-9800-44a9-a6a6-0135ec1b3615",
+    "action": "SALE_SHIPPING_UPDATED",
+    "entityId": "7822b34f-b153-45fb-9523-b56469a84db5",
+    "createdAt": "2026-09-30T04:31:36.600Z"
+  },
+  {
+    "id": "564a94ed-3af5-4513-ba14-acce6ab3c454",
+    "action": "SALE_CREATED",
+    "entityId": "dd662bbc-01e2-4eb3-8ae4-ab5ace376614",
+    "createdAt": "2026-09-30T16:51:30.810Z"
+  },
+  {
+    "id": "09ec99f3-3420-4d2c-9cdb-fa33db3c70cf",
+    "action": "SALE_SHIPPING_UPDATED",
+    "entityId": "dd662bbc-01e2-4eb3-8ae4-ab5ace376614",
+    "createdAt": "2026-09-30T16:53:47.036Z"
+  },
+  {
+    "id": "6e9f89d7-ae7c-4fe3-b935-a9d1f5b7b91e",
+    "action": "SALE_PAYMENT_PENDING_TRANSFER_TO_PAID",
+    "entityId": "dd662bbc-01e2-4eb3-8ae4-ab5ace376614",
+    "createdAt": "2026-10-01T05:17:58.855Z"
+  },
+  {
+    "id": "fbb97249-21a4-4396-a9a0-3d41113387a7",
+    "action": "SALE_PAYMENT_STATUS_UPDATED",
+    "entityType": "sales",
+    "entityId": "dd662bbc-01e2-4eb3-8ae4-ab5ace376614",
+    "actorId": "u-admin",
+    "actorRole": "ADMIN",
+    "metadata": {
+      "status": "PAID"
+    },
+    "createdAt": "2026-10-01T05:18:10.195Z"
+  },
+  {
+    "id": "17cc9a73-928f-4274-80e9-f7ab725a1f41",
+    "action": "ADMIN_ENTITY_DELETED",
+    "entityType": "customers",
+    "entityId": "f87e1f59-dfea-439f-9229-4a5e20a4e87a",
+    "actorId": "u-admin",
+    "actorRole": "ADMIN",
+    "createdAt": "2026-10-01T06:01:50.550Z"
   }
 ]

@@ -672,13 +672,6 @@
     "createdAt": "2026-09-26T08:15:48.257Z"
   },
   {
-    "id": "8f44fece-f7a1-4691-b5c4-dacd672878bf",
-    "type": "SALE",
-    "referenceId": "1e46e4a9-5c77-4b51-8625-ed672f5c64b9",
-    "amount": 2116520,
-    "createdAt": "2026-09-26T16:54:54.418Z"
-  },
-  {
     "id": "e0155436-982c-47fc-b537-bfb9e6e10c97",
     "type": "SALE",
     "referenceId": "a9738a11-f33d-4f44-870c-1cb59561a829",
@@ -691,5 +684,19 @@
     "referenceId": "c4cd2a85-24ce-4982-95c8-2b6a667f2189",
     "amount": 17375000,
     "createdAt": "2026-09-28T10:09:45.336Z"
+  },
+  {
+    "id": "69b7fc0b-0e65-4cb9-8226-37e8128ee0b4",
+    "type": "SALE",
+    "referenceId": "7822b34f-b153-45fb-9523-b56469a84db5",
+    "amount": 18924500,
+    "createdAt": "2026-09-30T04:14:43.977Z"
+  },
+  {
+    "id": "bf785e16-3457-4f22-9aee-090b2a54463d",
+    "type": "SALE",
+    "referenceId": "dd662bbc-01e2-4eb3-8ae4-ab5ace376614",
+    "amount": 827450,
+    "createdAt": "2026-10-01T05:17:58.855Z"
   }
 ]

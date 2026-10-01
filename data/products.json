@@ -7,11 +7,11 @@
     "category": "دریل و پیچ‌گوشتی",
     "price": 871000,
     "discount": 5,
-    "stock": 5,
+    "stock": 4,
     "image": "https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=900&q=80",
     "purchaseCost": 645000,
     "createdAt": "2026-09-15T03:42:28.451629Z",
-    "updatedAt": "2026-09-18T04:48:47.596Z",
+    "updatedAt": "2026-09-30T16:51:30.810Z",
     "description": "ساخته‌شده با استانداردهای صنعتی، مقاومت بالا و عملکرد پایدار را برای کاربرد حرفه‌ای تضمین می‌کند. این کالا یکی از پرکاربردترین محصولات دسته‌ی دریل و پیچ‌گوشتی به‌شمار می‌رود.",
     "specs": [
       {
@@ -47,11 +47,11 @@
     "category": "فرز و پولیش",
     "price": 1066000,
     "discount": 8,
-    "stock": 13,
+    "stock": 14,
     "image": "https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=900&q=80",
     "purchaseCost": 790000,
     "createdAt": "2026-09-14T03:42:28.451629Z",
-    "updatedAt": "2026-09-28T10:09:45.335Z",
+    "updatedAt": "2026-09-29T05:13:24.468Z",
     "description": "این محصول با کیفیت ساخت بالا و طراحی ارگونومیک، برای کار مستمر در پروژه‌های ساختمانی و کارگاهی مناسب است. این کالا یکی از پرکاربردترین محصولات دسته‌ی فرز و پولیش به‌شمار می‌رود.",
     "specs": [
       {
@@ -87,11 +87,11 @@
     "category": "اندازه‌گیری",
     "price": 1262000,
     "discount": 10,
-    "stock": 18,
+    "stock": 19,
     "image": "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=900&q=80",
     "purchaseCost": 935000,
     "createdAt": "2026-09-13T03:42:28.451629Z",
-    "updatedAt": "2026-09-28T10:09:45.335Z",
+    "updatedAt": "2026-09-29T05:13:24.468Z",
     "description": "طراحی سبک و کاربرپسند این محصول، کار طولانی‌مدت را برای تکنسین‌ها و متخصصان ساده‌تر می‌کند. این کالا یکی از پرکاربردترین محصولات دسته‌ی اندازه‌گیری به‌شمار می‌رود.",
     "specs": [
       {
@@ -1836,7 +1836,7 @@
     "category": "برش و سایش",
     "price": 1525000,
     "discount": 30,
-    "stock": 30,
+    "stock": 28,
     "image": "/placeholders/cat-3-a.svg",
     "images": [
       {
@@ -1877,7 +1877,7 @@
     "rating": 4.9,
     "reviewCount": 47,
     "createdAt": "2026-09-16T09:12:03.000000Z",
-    "updatedAt": "2026-09-16T09:12:03.000000Z",
+    "updatedAt": "2026-09-30T04:07:38.032Z",
     "barcode": "6260000000422",
     "supplierId": "s2",
     "supplierIds": [
@@ -2625,7 +2625,7 @@
     "category": "جوشکاری",
     "price": 11983000,
     "discount": 30,
-    "stock": 10,
+    "stock": 8,
     "image": "/placeholders/cat-5-a.svg",
     "images": [
       {
@@ -2666,7 +2666,7 @@
     "rating": 3.7,
     "reviewCount": 5,
     "createdAt": "2026-09-16T09:12:03.000000Z",
-    "updatedAt": "2026-09-16T09:12:03.000000Z",
+    "updatedAt": "2026-09-30T04:07:38.032Z",
     "barcode": "6260000000569",
     "supplierId": "s8",
     "supplierIds": [
@@ -3808,7 +3808,7 @@
     "category": "پیچ و مهره و اتصالات",
     "price": 19000,
     "discount": 30,
-    "stock": 6,
+    "stock": 5,
     "image": "/placeholders/cat-9-a.svg",
     "images": [
       {
@@ -3849,7 +3849,7 @@
     "rating": 4.7,
     "reviewCount": 25,
     "createdAt": "2026-09-16T09:12:03.000000Z",
-    "updatedAt": "2026-09-16T09:12:03.000000Z",
+    "updatedAt": "2026-09-30T04:07:38.032Z",
     "barcode": "6260000000774",
     "supplierId": "s5",
     "supplierIds": [
@@ -5104,7 +5104,7 @@
     "category": "برق و روشنایی",
     "price": 1148000,
     "discount": 18,
-    "stock": 4,
+    "stock": 15,
     "image": "/placeholders/cat-12-a.svg",
     "images": [
       {
@@ -5145,7 +5145,7 @@
     "rating": 4.1,
     "reviewCount": 25,
     "createdAt": "2026-09-16T09:12:03.000000Z",
-    "updatedAt": "2026-09-16T09:12:03.000000Z",
+    "updatedAt": "2026-09-29T06:24:41.777Z",
     "barcode": "6260000001009",
     "supplierId": "s4",
     "supplierIds": [

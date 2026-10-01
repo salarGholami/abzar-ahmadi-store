@@ -522,24 +522,6 @@
     "total": 34285640
   },
   {
-    "id": "4e3bccae-22de-4343-8fc1-dcd99071e658",
-    "saleId": "1e46e4a9-5c77-4b51-8625-ed672f5c64b9",
-    "productId": "p2",
-    "quantity": 1,
-    "unitPrice": 980720,
-    "purchaseCost": 790000,
-    "total": 980720
-  },
-  {
-    "id": "40a6957b-2163-4bd4-b274-b3b909d8fa0b",
-    "saleId": "1e46e4a9-5c77-4b51-8625-ed672f5c64b9",
-    "productId": "p3",
-    "quantity": 1,
-    "unitPrice": 1135800,
-    "purchaseCost": 935000,
-    "total": 1135800
-  },
-  {
     "id": "7af2574c-d1cc-4c65-bede-ff038b98103f",
     "saleId": "a9738a11-f33d-4f44-870c-1cb59561a829",
     "productId": "p105",
@@ -547,5 +529,41 @@
     "unitPrice": 1944000,
     "purchaseCost": 1387000,
     "total": 1944000
+  },
+  {
+    "id": "53c139d2-5d87-40c8-b79c-680899f6482a",
+    "saleId": "7822b34f-b153-45fb-9523-b56469a84db5",
+    "productId": "p42",
+    "quantity": 2,
+    "unitPrice": 1067500,
+    "purchaseCost": 845000,
+    "total": 2135000
+  },
+  {
+    "id": "c074892e-4757-41ca-8a19-256215a028e0",
+    "saleId": "7822b34f-b153-45fb-9523-b56469a84db5",
+    "productId": "p56",
+    "quantity": 2,
+    "unitPrice": 8388100,
+    "purchaseCost": 8390000,
+    "total": 16776200
+  },
+  {
+    "id": "fe2e76c4-9b6d-46a1-933a-28bb0594878f",
+    "saleId": "7822b34f-b153-45fb-9523-b56469a84db5",
+    "productId": "p77",
+    "quantity": 1,
+    "unitPrice": 13300,
+    "purchaseCost": 11000,
+    "total": 13300
+  },
+  {
+    "id": "8b63e7a0-1e42-47be-8a05-75f7fa91ce3a",
+    "saleId": "dd662bbc-01e2-4eb3-8ae4-ab5ace376614",
+    "productId": "p1",
+    "quantity": 1,
+    "unitPrice": 827450,
+    "purchaseCost": 645000,
+    "total": 827450
   }
 ]

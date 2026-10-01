@@ -832,22 +832,6 @@
     "idempotencyKey": "6c49b239-0bd7-4da9-99f1-3be698775b35"
   },
   {
-    "id": "1e46e4a9-5c77-4b51-8625-ed672f5c64b9",
-    "customerId": null,
-    "customerUserId": null,
-    "subtotal": 2116520,
-    "discount": 0,
-    "netAmount": 2116520,
-    "cogs": 1725000,
-    "grossProfit": 391520,
-    "paymentStatus": "PAID",
-    "receiptImage": null,
-    "receipt": null,
-    "channel": "POS",
-    "createdAt": "2026-09-26T16:54:54.418Z",
-    "idempotencyKey": "1e46e4a9-5c77-4b51-8625-ed672f5c64b9"
-  },
-  {
     "id": "a9738a11-f33d-4f44-870c-1cb59561a829",
     "customerId": null,
     "customerUserId": null,
@@ -862,5 +846,75 @@
     "channel": "POS",
     "createdAt": "2026-09-26T23:47:57.100Z",
     "idempotencyKey": "a9738a11-f33d-4f44-870c-1cb59561a829"
+  },
+  {
+    "id": "7822b34f-b153-45fb-9523-b56469a84db5",
+    "customerId": null,
+    "customerUserId": "256d6164-bc8e-49cc-817a-fd5a8ee1a9ea",
+    "buyerName": "سالار غلامی",
+    "buyerPhone": "09389525194",
+    "subtotal": 18924500,
+    "discount": 0,
+    "netAmount": 18924500,
+    "cogs": 18481000,
+    "grossProfit": 443500,
+    "paymentStatus": "PAID",
+    "paymentProvider": "MANUAL_TRANSFER",
+    "paymentTransactionId": "0e1c8ef6-df03-4bb2-bb78-69772cf62440",
+    "shippingAddress": {
+      "recipientName": "سالار",
+      "phone": "09389525194",
+      "province": "تهران",
+      "city": "باغستان",
+      "address": "باغستان درب اول پلاک 1 واحد 7",
+      "postalCode": "1234567891"
+    },
+    "receiptImage": "https://raw.githubusercontent.com/salarGholami/abzar-ahmadi-store/main/data/media/receipts/256d6164-bc8e-49cc-817a-fd5a8ee1a9ea/cd6c77af-6ff1-4291-b658-3abb47839ea4.jpg",
+    "receipt": {
+      "id": "a9564541-99bb-411d-a6de-c9c674a1f7ed",
+      "url": "https://raw.githubusercontent.com/salarGholami/abzar-ahmadi-store/main/data/media/receipts/256d6164-bc8e-49cc-817a-fd5a8ee1a9ea/cd6c77af-6ff1-4291-b658-3abb47839ea4.jpg",
+      "fileName": "-2147483648_-212795.jpg",
+      "uploadedAt": "2026-09-30T04:07:38.032Z"
+    },
+    "channel": "ONLINE",
+    "shippingStatus": "PROCESSING",
+    "trackingCode": "3243453543655464",
+    "shippingMethod": "POST",
+    "shippingCompany": "اداره پست",
+    "shippedAt": null,
+    "trackingUrl": "https://tracking.post.ir/?id=3243453543655464",
+    "createdAt": "2026-09-30T04:07:38.032Z",
+    "updatedAt": "2026-09-30T04:31:36.007Z",
+    "idempotencyKey": "7822b34f-b153-45fb-9523-b56469a84db5"
+  },
+  {
+    "id": "dd662bbc-01e2-4eb3-8ae4-ab5ace376614",
+    "customerId": null,
+    "customerUserId": "bd24c8ef-59f9-4cd0-8476-c7a944d1b3a1",
+    "buyerName": "جواد احمدی نژاد پاشاکی ",
+    "buyerPhone": "09120824229",
+    "subtotal": 827450,
+    "discount": 0,
+    "netAmount": 827450,
+    "cogs": 645000,
+    "grossProfit": 182450,
+    "paymentStatus": "PAID",
+    "receiptImage": "https://raw.githubusercontent.com/salarGholami/abzar-ahmadi-store/main/data/media/receipts/bd24c8ef-59f9-4cd0-8476-c7a944d1b3a1/a1229a39-1b61-48bc-9c59-2f1aa21343bd.jpg",
+    "receipt": {
+      "id": "5ad73629-55ba-4e83-b504-62c54a50872a",
+      "url": "https://raw.githubusercontent.com/salarGholami/abzar-ahmadi-store/main/data/media/receipts/bd24c8ef-59f9-4cd0-8476-c7a944d1b3a1/a1229a39-1b61-48bc-9c59-2f1aa21343bd.jpg",
+      "fileName": "1001087337.jpg",
+      "uploadedAt": "2026-09-30T16:51:28.335Z"
+    },
+    "channel": "ONLINE",
+    "shippingStatus": "PROCESSING",
+    "trackingCode": "121212121212121212",
+    "shippingMethod": "TIPAX",
+    "shippingCompany": "تیپاکس",
+    "shippedAt": null,
+    "trackingUrl": null,
+    "createdAt": "2026-09-30T16:51:30.810Z",
+    "updatedAt": "2026-10-01T05:17:58.855Z",
+    "idempotencyKey": "dd662bbc-01e2-4eb3-8ae4-ab5ace376614"
   }
 ]

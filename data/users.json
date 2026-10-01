@@ -11,9 +11,9 @@
     "twoFactorEnabled": false
   },
   {
-    "id": "6bf1eb21-01fb-4ccc-b6ab-6ea8765e6450",
-    "name": "سالار غلامی",
-    "phone": "09389525193",
+    "id": "bd24c8ef-59f9-4cd0-8476-c7a944d1b3a1",
+    "name": "جواد احمدی نژاد پاشاکی ",
+    "phone": "09120824229",
     "role": "CUSTOMER",
     "permissions": [
       "products.read",
