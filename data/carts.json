@@ -15,8 +15,14 @@
         "quantity": 1,
         "createdAt": "2026-10-01T09:47:11.681Z",
         "updatedAt": "2026-10-01T09:47:11.681Z"
+      },
+      {
+        "productId": "p95",
+        "quantity": 1,
+        "createdAt": "2026-10-01T09:47:26.185Z",
+        "updatedAt": "2026-10-01T09:47:26.185Z"
       }
     ],
-    "updatedAt": "2026-10-01T09:47:07.812Z"
+    "updatedAt": "2026-10-01T09:47:26.185Z"
   }
 ]
