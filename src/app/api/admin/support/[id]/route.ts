@@ -1,0 +1,4 @@
+import { ok, fail } from "@/lib/http";
+import { supportTicketRepo } from "@/lib/repositories";
+import { requirePermission } from "@/lib/permissions";
+export async function PATCH(req: Request, { params }: { params: Promise<{ id: string }> }) { try { await requirePermission("support.update"); const id=(await params).id; const ticket=await supportTicketRepo.find(id); if(!ticket) throw new Error("NOT_FOUND"); const body=await req.json() as Record<string, unknown>; const patch: Partial<typeof ticket>={}; if(typeof body.status === "string") patch.status=body.status as never; if(typeof body.priority === "string") patch.priority=body.priority as never; if(typeof body.assignedTo === "string" || body.assignedTo === null) patch.assignedTo=body.assignedTo as string|null; return ok(await supportTicketRepo.update(id, patch)); } catch(e){ return fail(e); } }
