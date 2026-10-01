@@ -41,5 +41,17 @@
     "passwordHash": "scrypt:6f19c1145914c136e822deaf03b01784:912286688ebb2a70c51d418790bc3d14b49d243ba744a891c502f6a3760df9918b09883c3d3c4ee8ac131e2d6c8c11c9ad56eeff5bacd4dcf9981dfed88d2e83",
     "createdAt": "2026-09-26T07:39:32.860Z",
     "updatedAt": "2026-09-26T07:48:27.299Z"
+  },
+  {
+    "id": "f516c8cc-612c-4593-b62e-b4ebbc4286a9",
+    "name": "پروژه مسکن نوین",
+    "phone": "09120000004",
+    "role": "CUSTOMER",
+    "permissions": [
+      "sales.create"
+    ],
+    "passwordHash": "scrypt:3eae4016176bb028ceecfd6f4f586dea:00b150aa5cd9a20bae8fab5140ae6a796e6a552b71a0b4b0c3aa0ce468640f68e082e49be13caf510de0c85ec250dc2d61afa205b7ba17c9f7b94927d3c5c6ae",
+    "createdAt": "2026-10-01T09:28:42.399Z",
+    "updatedAt": "2026-10-01T09:28:42.399Z"
   }
 ]
