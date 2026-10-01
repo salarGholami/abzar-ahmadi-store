@@ -13,21 +13,6 @@
     "twoFactorEnabled": false
   },
   {
-    "id": "256d6164-bc8e-49cc-817a-fd5a8ee1a9ea",
-    "name": "سالار غلامی",
-    "phone": "09389525194",
-    "role": "CUSTOMER",
-    "permissions": [
-      "products.read",
-      "sales.read",
-      "sales.create",
-      "quotations.create"
-    ],
-    "passwordHash": "scrypt:84b2696e7e77d7047e63c1f3aa75d604:40fe9ceaa367f4bf95339df156d6dd6637912de544a8bfd7a672530ffcbc8b01186c3fb216e9bc182881a9a174f3cd606eccd67836b2012c2554264f40d09202",
-    "createdAt": "2026-09-18T04:47:45.995Z",
-    "updatedAt": "2026-09-18T04:47:45.995Z"
-  },
-  {
     "id": "bd24c8ef-59f9-4cd0-8476-c7a944d1b3a1",
     "name": "جواد احمدی نژاد پاشاکی ",
     "phone": "09120824229",
