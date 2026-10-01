@@ -30,5 +30,19 @@
       }
     ],
     "updatedAt": "2026-10-01T10:01:35.697Z"
+  },
+  {
+    "id": "321b72cd-ca42-43eb-82d9-052c849a524e",
+    "ownerType": "USER",
+    "ownerId": "u-admin",
+    "lines": [
+      {
+        "productId": "p95",
+        "quantity": 1,
+        "createdAt": "2026-10-01T10:04:34.842Z",
+        "updatedAt": "2026-10-01T10:04:34.842Z"
+      }
+    ],
+    "updatedAt": "2026-10-01T10:04:34.842Z"
   }
 ]
