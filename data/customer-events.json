@@ -209,5 +209,12 @@
     "actorId": "u-admin",
     "name": "LOGOUT",
     "createdAt": "2026-10-02T11:02:51.421Z"
+  },
+  {
+    "id": "b74b4158-9753-4991-a909-14bd614f4494",
+    "actorType": "USER",
+    "actorId": "33915acb-01bb-4844-8dd4-9ea67fc6a80a",
+    "name": "REGISTER",
+    "createdAt": "2026-10-02T11:03:33.627Z"
   }
 ]
