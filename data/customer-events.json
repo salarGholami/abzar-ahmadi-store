@@ -202,5 +202,12 @@
     "name": "CART_ITEM_REMOVED",
     "entityId": "p95",
     "createdAt": "2026-10-01T10:06:01.027Z"
+  },
+  {
+    "id": "ceddc0be-d81d-4399-9b56-cd3a0a7d4275",
+    "actorType": "USER",
+    "actorId": "u-admin",
+    "name": "LOGOUT",
+    "createdAt": "2026-10-02T11:02:51.421Z"
   }
 ]
