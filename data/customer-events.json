@@ -223,5 +223,12 @@
     "actorId": "33915acb-01bb-4844-8dd4-9ea67fc6a80a",
     "name": "LOGOUT",
     "createdAt": "2026-10-02T11:04:38.925Z"
+  },
+  {
+    "id": "3d18f111-a2d1-481c-aeec-659faccde333",
+    "actorType": "USER",
+    "actorId": "u-admin",
+    "name": "LOGIN",
+    "createdAt": "2026-10-02T11:04:59.396Z"
   }
 ]
