@@ -378,5 +378,14 @@
     "actorId": "u-admin",
     "actorRole": "ADMIN",
     "createdAt": "2026-10-02T12:08:25.247Z"
+  },
+  {
+    "id": "1b73acf2-d6a6-488c-9ea5-1aac51fa040a",
+    "action": "ADMIN_ENTITY_DELETED",
+    "entityType": "suppliers",
+    "entityId": "33915acb-01bb-4844-8dd4-9ea67fc6a80a",
+    "actorId": "u-admin",
+    "actorRole": "ADMIN",
+    "createdAt": "2026-10-02T12:17:39.224Z"
   }
 ]
