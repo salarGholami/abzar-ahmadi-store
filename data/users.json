@@ -50,18 +50,5 @@
     "passwordHash": "scrypt:d8a4fce0f7d414a4fc40569d920e4522:32024bc3a8f566521670527b597afda0f076634a009f72dc8a93ce32efd4a2998300260c0a6b532619c3e21f49351a59fdcc9d04ba35ecf473f86c1a4f28a29a",
     "createdAt": "2026-10-01T10:01:26.541Z",
     "updatedAt": "2026-10-01T10:01:26.541Z"
-  },
-  {
-    "id": "33915acb-01bb-4844-8dd4-9ea67fc6a80a",
-    "name": "حسین یاری",
-    "phone": "09214782769",
-    "role": "SUPPLIER",
-    "permissions": [
-      "supplier.portal"
-    ],
-    "passwordHash": "scrypt:42ee7a4f39b7ba8d568de88a0325028e:0a2e0374f74904504286b6df8e916762d34f90ed4fd09a2073025fcfc054cd93ae5a07c96bf23ab8f931e5386efc01a024fc5c7c3f43b386edf90f6ce34667fe",
-    "createdAt": "2026-10-02T11:03:21.238Z",
-    "updatedAt": "2026-10-02T11:03:21.238Z",
-    "supplierId": "33915acb-01bb-4844-8dd4-9ea67fc6a80a"
   }
 ]
