@@ -369,5 +369,14 @@
     "actorId": "u-admin",
     "actorRole": "ADMIN",
     "createdAt": "2026-10-01T07:24:08.001Z"
+  },
+  {
+    "id": "0be86c7d-4d8a-498b-bcee-b8e529b6a7cb",
+    "action": "ADMIN_ENTITY_CREATED",
+    "entityType": "banners",
+    "entityId": "911a4344-822e-4695-8eaa-def68157f63b",
+    "actorId": "u-admin",
+    "actorRole": "ADMIN",
+    "createdAt": "2026-10-02T12:08:25.247Z"
   }
 ]
