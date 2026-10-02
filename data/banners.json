@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "title": "خرید ابزار",
+    "subtitle": "بخر ببر ",
+    "image": "https://abzarmarket.com/image-generator/blocks/slides/17851497347563175.jpg?format=webp",
+    "buttonText": "مشاهده",
+    "buttonUrl": "",
+    "position": 3,
+    "active": true,
+    "id": "911a4344-822e-4695-8eaa-def68157f63b",
+    "createdAt": "2026-10-02T12:08:24.050Z",
+    "updatedAt": "2026-10-02T12:08:24.050Z"
+  }
+]
