@@ -40,5 +40,19 @@
     "isDefault": true,
     "createdAt": "2026-10-03T10:41:09.285Z",
     "updatedAt": "2026-10-03T10:41:09.285Z"
+  },
+  {
+    "id": "6feab390-d67a-42ea-955b-577618bb58e1",
+    "userId": "c0f49aca-3da9-41b8-871c-5602b35c47ea",
+    "title": "آدرس من",
+    "recipientName": "خودم",
+    "phone": "09214782769",
+    "province": "تهران",
+    "city": "خائم اباد",
+    "address": "درب اول",
+    "postalCode": "1234554321",
+    "isDefault": true,
+    "createdAt": "2026-10-03T11:17:53.996Z",
+    "updatedAt": "2026-10-03T11:17:53.996Z"
   }
 ]
