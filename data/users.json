@@ -11,20 +11,5 @@
     "updatedAt": "2026-09-23T02:08:26.099Z",
     "twoFactorSecret": "Z5FNJLT5PQ2TASWILSDRJECKJLCRKLE4",
     "twoFactorEnabled": false
-  },
-  {
-    "id": "bd24c8ef-59f9-4cd0-8476-c7a944d1b3a1",
-    "name": "جواد احمدی نژاد پاشاکی ",
-    "phone": "09120824229",
-    "role": "CUSTOMER",
-    "permissions": [
-      "products.read",
-      "sales.read",
-      "sales.create",
-      "quotations.create"
-    ],
-    "passwordHash": "scrypt:b2bc1e3cda806198b462910e568fd842:309bf1f873a7f46d2f019c9431be02d068e24d4cc13366539b0ce54634e0d07243aac40e3477d4bf851a256a0247f29b7de0aa3fd510b55fae8040b8b96f3513",
-    "createdAt": "2026-09-17T21:01:56.666Z",
-    "updatedAt": "2026-09-17T21:01:56.666Z"
   }
 ]
