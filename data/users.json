@@ -11,5 +11,18 @@
     "updatedAt": "2026-09-23T02:08:26.099Z",
     "twoFactorSecret": "Z5FNJLT5PQ2TASWILSDRJECKJLCRKLE4",
     "twoFactorEnabled": false
+  },
+  {
+    "id": "c0f49aca-3da9-41b8-871c-5602b35c47ea",
+    "name": "سارا اسدی",
+    "phone": "09214782769",
+    "role": "CUSTOMER",
+    "isOwner": false,
+    "permissions": [
+      "sales.create"
+    ],
+    "passwordHash": "scrypt:627d24dc9ed38b135a430d012f376279:25a9effd01c9217771def95634430e993188d9dc4c081067bedc05a4da636d0f0914c149363ac74785c108246991403d0e76fe006b544f8ba2f03b8aa9b5ef3a",
+    "createdAt": "2026-10-03T11:16:23.634Z",
+    "updatedAt": "2026-10-03T11:16:23.634Z"
   }
 ]
