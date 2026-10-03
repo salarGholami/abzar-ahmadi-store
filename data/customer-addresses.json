@@ -26,5 +26,19 @@
     "isDefault": true,
     "createdAt": "2026-10-01T06:37:21.421Z",
     "updatedAt": "2026-10-01T06:37:21.421Z"
+  },
+  {
+    "id": "d1f04371-61c7-476d-bf94-fa5afdbb8c4d",
+    "userId": "e6943202-bf08-4a33-af27-f18db91f63bc",
+    "title": "آدرس من",
+    "recipientName": "نیکی",
+    "phone": "09129876532",
+    "province": "تهران",
+    "city": "تهران",
+    "address": "میو میو برو خونتون",
+    "postalCode": "1234554321",
+    "isDefault": true,
+    "createdAt": "2026-10-03T10:41:09.285Z",
+    "updatedAt": "2026-10-03T10:41:09.285Z"
   }
 ]
