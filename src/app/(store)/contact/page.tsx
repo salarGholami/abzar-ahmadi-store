@@ -1,27 +1,72 @@
 import type { Metadata } from "next";
-import StaticPage from "@/shared/layout/StaticPage";
-import { getJson } from "@/lib/github";
-import type { StoreSettings } from "@/lib/types";
+import { ContactPage } from "@/features/contact/ContactPage";
 
 export const metadata: Metadata = {
-  title: "تماس با ما",
-  description: "راه‌های ارتباط با پشتیبانی و تیم فروش فروشگاه ابزار احمدی.",
-  alternates: { canonical: "/contact" },
+  title: "تماس با ابزار احمدی | ارتباط با فروشگاه ابزار",
+  description:
+    "برای دریافت مشاوره، پیگیری سفارش و کسب اطلاعات بیشتر درباره محصولات با ابزار احمدی در ارتباط باشید.",
+  keywords: [
+    "تماس با ابزار احمدی",
+    "تماس با ابزار",
+    "پشتیبانی ابزار احمدی",
+    "مشاوره خرید ابزار",
+    "آدرس ابزار احمدی",
+    "شماره تماس ابزار احمدی",
+    "فروشگاه ابزار",
+    "ابزار ساختمانی",
+  ],
+
+  alternates: {
+    canonical: "/contact",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+
+  openGraph: {
+    type: "website",
+    locale: "fa_IR",
+
+    title: "تماس با ابزار احمدی | ارتباط با فروشگاه ابزار",
+
+    description:
+      "برای دریافت مشاوره، پیگیری سفارش و کسب اطلاعات بیشتر با ابزار احمدی در ارتباط باشید.",
+
+    url: "/contact",
+
+    siteName: "ابزار احمدی",
+
+    images: [
+      {
+        url: "/images/banners/contact/2.webp",
+        width: 1200,
+        height: 900,
+        alt: "تماس با ابزار احمدی",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+
+    title: "تماس با ابزار احمدی | ارتباط با فروشگاه ابزار",
+
+    description:
+      "برای دریافت مشاوره، پیگیری سفارش و کسب اطلاعات بیشتر با ابزار احمدی در ارتباط باشید.",
+
+    images: ["/images/banners/contact/2.webp"],
+  },
 };
 
-export default async function ContactPage() {
-  const settings = await getJson<StoreSettings[]>("settings.json", []).then((file) => file.data[0]).catch(() => undefined);
-  return (
-    <StaticPage title="تماس با ما" intro="برای پیگیری سفارش، خرید عمده یا مشاوره‌ی انتخاب ابزار با ما در ارتباط باشید.">
-      <p>
-        <b>{settings?.storeName || "ابزار احمدی"}</b>
-      </p>
-      {settings?.storePhone && (
-        <p>
-          تلفن پشتیبانی: <a className="font-black text-[var(--primary)]" href={`tel:${settings.storePhone}`}>{settings.storePhone}</a>
-        </p>
-      )}
-      <p>ساعت پاسخ‌گویی: شنبه تا پنجشنبه، ۹ صبح تا ۶ عصر.</p>
-    </StaticPage>
-  );
+export default function ContactRoute() {
+  return <ContactPage />;
 }
