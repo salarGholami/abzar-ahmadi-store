@@ -68,5 +68,12 @@
     "actorId": "8ad1e4b6-e64c-4e91-9c24-552d3fabbfeb",
     "name": "CART_CLEARED",
     "createdAt": "2026-10-05T17:31:08.986Z"
+  },
+  {
+    "id": "63d40040-5f18-4fab-8f68-c50e3aaf75b6",
+    "actorType": "USER",
+    "actorId": "8ad1e4b6-e64c-4e91-9c24-552d3fabbfeb",
+    "name": "LOGOUT",
+    "createdAt": "2026-10-05T17:33:00.327Z"
   }
 ]
