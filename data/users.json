@@ -12,5 +12,18 @@
     "createdAt": "2026-10-05T16:59:40.135Z",
     "updatedAt": "2026-10-05T16:59:40.135Z",
     "supplierId": "6e3fb2b0-c26b-457e-8c98-f560f6b7879e"
+  },
+  {
+    "id": "8ad1e4b6-e64c-4e91-9c24-552d3fabbfeb",
+    "name": "سالار غلامی",
+    "phone": "09389525194",
+    "role": "CUSTOMER",
+    "isOwner": false,
+    "permissions": [
+      "sales.create"
+    ],
+    "passwordHash": "scrypt:9c598d47b41a6da02016d68baba8a76a:5dcb3712973698b39688cc6c9ef5a91a799db3dcb01a21c9dea79ff8a04c75cdb3011bda1d0c5905919f43126073258f9608d6b44abe6681b85778a8a171fba3",
+    "createdAt": "2026-10-05T17:27:32.393Z",
+    "updatedAt": "2026-10-05T17:27:32.393Z"
   }
 ]
