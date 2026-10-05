@@ -1,0 +1,16 @@
+[
+  {
+    "id": "ca46dfe8-0d8a-4590-99b4-1d8d69b30ee3",
+    "productId": "p8",
+    "quantity": -1,
+    "reason": "SALE:df7d7290-d3af-4497-8765-85d9306a3ae6",
+    "updatedAt": "2026-10-05T17:31:02.024Z"
+  },
+  {
+    "id": "39fe7f96-3464-4546-9e63-dd8088deb0a6",
+    "productId": "p9",
+    "quantity": -1,
+    "reason": "SALE:df7d7290-d3af-4497-8765-85d9306a3ae6",
+    "updatedAt": "2026-10-05T17:31:02.024Z"
+  }
+]

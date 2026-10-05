@@ -1,0 +1,14 @@
+[
+  {
+    "id": "0ab745fb-785f-4c3d-8748-3928cb4ae067",
+    "orderId": "df7d7290-d3af-4497-8765-85d9306a3ae6",
+    "provider": "MANUAL_TRANSFER",
+    "status": "PENDING",
+    "amount": 4256460,
+    "authority": null,
+    "referenceId": null,
+    "callbackPayload": null,
+    "createdAt": "2026-10-05T17:31:02.024Z",
+    "updatedAt": "2026-10-05T17:31:02.024Z"
+  }
+]
