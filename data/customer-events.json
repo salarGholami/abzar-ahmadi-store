@@ -61,5 +61,12 @@
       "channel": "ONLINE"
     },
     "createdAt": "2026-10-05T17:31:04.190Z"
+  },
+  {
+    "id": "0398dabd-90dc-4eef-86d9-7d1395de2776",
+    "actorType": "USER",
+    "actorId": "8ad1e4b6-e64c-4e91-9c24-552d3fabbfeb",
+    "name": "CART_CLEARED",
+    "createdAt": "2026-10-05T17:31:08.986Z"
   }
 ]
