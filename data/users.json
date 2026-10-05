@@ -1,0 +1,16 @@
+[
+  {
+    "id": "6e3fb2b0-c26b-457e-8c98-f560f6b7879e",
+    "name": "ایران پتک",
+    "phone": "09129876543",
+    "role": "SUPPLIER",
+    "isOwner": false,
+    "permissions": [
+      "supplier.portal"
+    ],
+    "passwordHash": "scrypt:e1ab431f21d99b548cd7dafd2dc9864e:69b796ffdbbc43a25c17145416bd0ac756bfccbf6ab20743ad88595335c4e0f8400547d73ba80c67b45fbfc9a8614175d99039b930b12e8e7e6cd11f067837e8",
+    "createdAt": "2026-10-05T16:59:40.135Z",
+    "updatedAt": "2026-10-05T16:59:40.135Z",
+    "supplierId": "6e3fb2b0-c26b-457e-8c98-f560f6b7879e"
+  }
+]
