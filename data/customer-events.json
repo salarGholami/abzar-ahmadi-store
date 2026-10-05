@@ -12,5 +12,12 @@
     "actorId": "6e3fb2b0-c26b-457e-8c98-f560f6b7879e",
     "name": "LOGOUT",
     "createdAt": "2026-10-05T17:00:33.936Z"
+  },
+  {
+    "id": "71915dcb-597f-4927-a59f-7cd72eeeecf2",
+    "actorType": "USER",
+    "actorId": "8ad1e4b6-e64c-4e91-9c24-552d3fabbfeb",
+    "name": "REGISTER",
+    "createdAt": "2026-10-05T17:27:37.419Z"
   }
 ]
