@@ -4,5 +4,11 @@
     "action": "SALE_CREATED",
     "entityId": "df7d7290-d3af-4497-8765-85d9306a3ae6",
     "createdAt": "2026-10-05T17:31:02.024Z"
+  },
+  {
+    "id": "488a4db6-5e94-4e4d-a0f8-5189e8b5899a",
+    "action": "SALE_DELETED",
+    "entityId": "df7d7290-d3af-4497-8765-85d9306a3ae6",
+    "createdAt": "2026-10-06T10:33:16.508Z"
   }
 ]
