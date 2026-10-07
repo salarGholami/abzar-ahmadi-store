@@ -143,5 +143,12 @@
       "channel": "ONLINE"
     },
     "createdAt": "2026-10-07T09:34:58.556Z"
+  },
+  {
+    "id": "7ce00dbb-15e6-4f4a-92ec-4c8b8961e14d",
+    "actorType": "USER",
+    "actorId": "c0f49aca-3da9-41b8-871c-5602b35c47ea",
+    "name": "LOGOUT",
+    "createdAt": "2026-10-07T09:35:36.528Z"
   }
 ]
