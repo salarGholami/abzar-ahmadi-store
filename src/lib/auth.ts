@@ -16,7 +16,7 @@ export type Session = {
   exp: number;
 };
 
-const OWNER_PHONE = "09120000000";
+const OWNER_PHONE = "09129999999";
 
 export function isOwnerPhone(phone: string) {
   return phone === OWNER_PHONE;
