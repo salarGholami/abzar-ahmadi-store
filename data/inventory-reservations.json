@@ -18,5 +18,15 @@
     "expiresAt": "2026-10-07T10:04:36.605Z",
     "createdAt": "2026-10-07T09:34:36.605Z",
     "updatedAt": "2026-10-07T09:34:36.605Z"
+  },
+  {
+    "id": "671a65d2-f971-476c-bef3-eac90bb9e8ca",
+    "orderId": "90aff309-3816-4189-8281-a6eb93be0bb6",
+    "productId": "p42",
+    "quantity": 1,
+    "status": "ACTIVE",
+    "expiresAt": "2026-10-07T10:04:54.899Z",
+    "createdAt": "2026-10-07T09:34:54.899Z",
+    "updatedAt": "2026-10-07T09:34:54.899Z"
   }
 ]

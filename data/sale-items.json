@@ -16,5 +16,14 @@
     "unitPrice": 1067500,
     "purchaseCost": 845000,
     "total": 1067500
+  },
+  {
+    "id": "3b3fffd8-d047-4c69-963c-a146abbc5ab7",
+    "saleId": "90aff309-3816-4189-8281-a6eb93be0bb6",
+    "productId": "p42",
+    "quantity": 1,
+    "unitPrice": 1067500,
+    "purchaseCost": 845000,
+    "total": 1067500
   }
 ]
