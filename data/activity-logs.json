@@ -64,5 +64,11 @@
     "action": "SALE_SHIPPING_UPDATED",
     "entityId": "90aff309-3816-4189-8281-a6eb93be0bb6",
     "createdAt": "2026-10-07T12:43:47.725Z"
+  },
+  {
+    "id": "c1f966d5-4ccc-4a68-935f-d2ef0992440e",
+    "action": "SALE_SHIPPING_UPDATED",
+    "entityId": "90aff309-3816-4189-8281-a6eb93be0bb6",
+    "createdAt": "2026-10-07T15:57:27.180Z"
   }
 ]
