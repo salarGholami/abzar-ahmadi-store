@@ -150,5 +150,12 @@
     "actorId": "c0f49aca-3da9-41b8-871c-5602b35c47ea",
     "name": "LOGOUT",
     "createdAt": "2026-10-07T09:35:36.528Z"
+  },
+  {
+    "id": "c895f7f8-aad4-4dd6-b673-392a4e7b7a45",
+    "actorType": "USER",
+    "actorId": "8ad1e4b6-e64c-4e91-9c24-552d3fabbfeb",
+    "name": "LOGOUT",
+    "createdAt": "2026-10-07T09:55:27.895Z"
   }
 ]
