@@ -100,5 +100,17 @@
       "quantity": 1
     },
     "createdAt": "2026-10-07T09:19:46.024Z"
+  },
+  {
+    "id": "c620997e-8d54-48e2-ad0b-cdcfca22182b",
+    "actorType": "USER",
+    "actorId": "8ad1e4b6-e64c-4e91-9c24-552d3fabbfeb",
+    "name": "ORDER_CREATED",
+    "entityId": "cf19861f-37aa-4de9-a793-fb416c3406aa",
+    "metadata": {
+      "amount": 1132500,
+      "channel": "ONLINE"
+    },
+    "createdAt": "2026-10-07T09:33:55.436Z"
   }
 ]
