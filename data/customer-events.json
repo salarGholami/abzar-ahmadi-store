@@ -119,5 +119,17 @@
     "actorId": "8ad1e4b6-e64c-4e91-9c24-552d3fabbfeb",
     "name": "CART_CLEARED",
     "createdAt": "2026-10-07T09:34:29.420Z"
+  },
+  {
+    "id": "c5bee4b6-48f6-4692-84fe-1e2ded4703d5",
+    "actorType": "USER",
+    "actorId": "8ad1e4b6-e64c-4e91-9c24-552d3fabbfeb",
+    "name": "ORDER_CREATED",
+    "entityId": "ab56f47c-bbfe-4aad-bb8c-a10f71bf5254",
+    "metadata": {
+      "amount": 1132500,
+      "channel": "ONLINE"
+    },
+    "createdAt": "2026-10-07T09:34:40.416Z"
   }
 ]
