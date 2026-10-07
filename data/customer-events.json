@@ -171,5 +171,13 @@
     "actorId": "8ad1e4b6-e64c-4e91-9c24-552d3fabbfeb",
     "name": "LOGIN",
     "createdAt": "2026-10-07T12:46:44.102Z"
+  },
+  {
+    "id": "2d923990-b4cb-4a38-9fd8-a7403bd3615e",
+    "actorType": "USER",
+    "actorId": "8ad1e4b6-e64c-4e91-9c24-552d3fabbfeb",
+    "name": "WISHLIST_ADDED",
+    "entityId": "p9",
+    "createdAt": "2026-10-07T15:18:10.643Z"
   }
 ]
