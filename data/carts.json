@@ -7,9 +7,9 @@
     "updatedAt": "2026-10-07T09:34:06.330Z"
   },
   {
-    "id": "5da8205f-fba0-479f-ba89-c499f5b18489",
-    "ownerType": "GUEST",
-    "ownerId": "9f228258-a8e0-44d1-9b84-84b9bb806c0c",
+    "id": "254e1817-20ab-45cd-84ca-cc9005e525f5",
+    "ownerType": "USER",
+    "ownerId": "ec24cd8b-077a-43f7-a129-9778cbdac531",
     "lines": [
       {
         "productId": "p21",
@@ -24,6 +24,6 @@
         "updatedAt": "2026-10-07T17:43:20.475Z"
       }
     ],
-    "updatedAt": "2026-10-07T17:43:20.475Z"
+    "updatedAt": "2026-10-07T17:49:16.498Z"
   }
 ]
