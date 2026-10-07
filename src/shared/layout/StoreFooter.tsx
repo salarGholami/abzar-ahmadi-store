@@ -140,11 +140,11 @@ export default function StoreFooter() {
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
               <a
-                href="tel:02100000000"
+                href="tel:09120824229"
                 className="inline-flex items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--surface-2)] px-3 py-2 text-xs font-bold text-[var(--text)] transition hover:border-[var(--primary)] hover:text-[var(--primary)]"
               >
                 <Phone size={14} />
-                <span dir="ltr">021-00000000</span>
+                <span dir="ltr">0912-0824229</span>
               </a>
             </div>
           </div>
@@ -185,13 +185,13 @@ export default function StoreFooter() {
           <FooterSection title="ارتباط با ما">
             <div className="space-y-3 text-sm text-[var(--muted)]">
               <a
-                href="tel:02100000000"
+                href="tel:09120824229"
                 className="flex items-center gap-2 transition hover:text-[var(--primary)]"
               >
                 <span className="flex size-8 items-center justify-center rounded-lg bg-[var(--surface-2)] text-[var(--primary)]">
                   <Phone size={14} />
                 </span>
-                <span dir="ltr">021-00000000</span>
+                <span dir="ltr">0912-0824229</span>
               </a>
               <a
                 href="mailto:info@abzarahmadi.ir"

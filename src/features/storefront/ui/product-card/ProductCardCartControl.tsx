@@ -3,6 +3,7 @@
 import { Check, Minus, Plus, ShoppingCart } from "lucide-react";
 import type { Product } from "@/domains/catalog";
 import { useCart } from "@/features/cart/model/CartProvider";
+import { useToast } from "@/shared/ui/Toast";
 
 type ProductCardCartControlProps = {
   product: Product;
@@ -12,6 +13,7 @@ export default function ProductCardCartControl({
   product,
 }: ProductCardCartControlProps) {
   const { add, setQty, lines } = useCart();
+  const toast = useToast();
 
   const line = lines.find((item) => item.productId === product.id);
   const quantity = line?.qty ?? 0;
@@ -19,21 +21,27 @@ export default function ProductCardCartControl({
   const outOfStock = product.stock <= 0;
   const stockLimitReached = quantity >= product.stock;
 
-  const handleAdd = () => {
+  const handleAdd = async () => {
     if (outOfStock) return;
-
-    add(product, 1);
+    try {
+      await add(product, 1);
+      toast.success("به سبد خرید اضافه شد");
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "افزودن به سبد انجام نشد");
+    }
   };
 
-  const handleIncrease = () => {
+  const handleIncrease = async () => {
     if (stockLimitReached) return;
-
-    add(product, 1);
+    try {
+      await add(product, 1);
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "به‌روزرسانی سبد انجام نشد");
+    }
   };
 
   const handleDecrease = () => {
     if (!line) return;
-
     setQty(product.id, Math.max(0, line.qty - 1));
   };
 
@@ -82,7 +90,7 @@ export default function ProductCardCartControl({
 
         <button
           type="button"
-          onClick={handleIncrease}
+          onClick={() => void handleIncrease()}
           disabled={stockLimitReached}
           className="
             grid size-7 place-items-center
@@ -104,7 +112,7 @@ export default function ProductCardCartControl({
   return (
     <button
       type="button"
-      onClick={handleAdd}
+      onClick={() => void handleAdd()}
       disabled={outOfStock}
       className="
         group/cart

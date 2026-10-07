@@ -3,7 +3,16 @@ import { getJson } from "@/lib/github";
 import { getActivePaymentProvider } from "@/lib/payments";
 import type { StoreSettings } from "@/lib/types";
 
-const fallback: StoreSettings[] = [{ id: "store", storeName: "ابزار احمدی", storePhone: "021-00000000", cardNumber: "", cardHolderName: "", lowStockThreshold: 5 }];
+const fallback: StoreSettings[] = [
+  {
+    id: "store",
+    storeName: "ابزار احمدی",
+    storePhone: "0912-0824229",
+    cardNumber: "",
+    cardHolderName: "",
+    lowStockThreshold: 5,
+  },
+];
 
 export async function GET() {
   let s = fallback[0];

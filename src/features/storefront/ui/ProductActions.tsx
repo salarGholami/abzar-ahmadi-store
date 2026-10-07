@@ -7,10 +7,12 @@ import { useRouter } from "next/navigation";
 import type { Product } from "@/lib/types";
 import { useCart } from "@/features/cart/model/CartProvider";
 import WishlistButton from "./WishlistButton";
+import { useToast } from "@/shared/ui/Toast";
 
 export default function ProductActions({ product }: { product: Product }) {
   const { add } = useCart();
   const router = useRouter();
+  const toast = useToast();
 
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
@@ -34,11 +36,18 @@ export default function ProductActions({ product }: { product: Product }) {
     try {
       await add(product, quantity);
       setAdded(true);
+      toast.success(
+        quantity > 1
+          ? `${quantity.toLocaleString("fa-IR")} عدد به سبد اضافه شد`
+          : "به سبد خرید اضافه شد",
+      );
       window.setTimeout(() => {
         setAdded(false);
       }, 1800);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "افزودن به سبد خرید انجام نشد.");
+      const message = err instanceof Error ? err.message : "افزودن به سبد خرید انجام نشد.";
+      setError(message);
+      toast.error(message);
     } finally {
       setBusy(false);
     }
@@ -52,7 +61,9 @@ export default function ProductActions({ product }: { product: Product }) {
       await add(product, quantity);
       router.push("/cart");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "افزودن به سبد خرید انجام نشد.");
+      const message = err instanceof Error ? err.message : "افزودن به سبد خرید انجام نشد.";
+      setError(message);
+      toast.error(message);
     } finally {
       setBusy(false);
     }
@@ -107,7 +118,7 @@ export default function ProductActions({ product }: { product: Product }) {
       <div className="mt-4 grid gap-3 sm:grid-cols-[1.4fr_1fr_auto]">
         <button
           type="button"
-          onClick={handleAdd}
+          onClick={() => void handleAdd()}
           disabled={outOfStock || busy}
           className="group relative flex min-h-14 items-center justify-center gap-2.5 overflow-hidden rounded-2xl bg-[var(--primary)] px-5 text-sm font-black text-white shadow-[0_12px_30px_rgba(0,173,181,0.22)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_35px_rgba(0,173,181,0.3)] active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-40"
         >
@@ -128,7 +139,7 @@ export default function ProductActions({ product }: { product: Product }) {
 
         <button
           type="button"
-          onClick={handleBuyNow}
+          onClick={() => void handleBuyNow()}
           disabled={outOfStock || busy}
           className="flex min-h-14 items-center justify-center gap-2 rounded-2xl border border-[var(--border)] bg-[var(--surface)] px-5 text-sm font-black transition hover:border-[var(--primary)] hover:bg-[var(--primary)]/5 disabled:cursor-not-allowed disabled:opacity-40"
         >
