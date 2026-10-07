@@ -9,8 +9,22 @@
     "city": "باغستان",
     "address": "درب اول",
     "postalCode": "1234567891",
-    "isDefault": true,
+    "isDefault": false,
     "createdAt": "2026-10-05T17:31:11.638Z",
     "updatedAt": "2026-10-05T17:31:11.638Z"
+  },
+  {
+    "id": "734ad9c9-db5a-4e69-87e3-b286b8501c47",
+    "userId": "8ad1e4b6-e64c-4e91-9c24-552d3fabbfeb",
+    "title": "آدرس خرید اخیر",
+    "recipientName": "حسین اسدی",
+    "phone": "09123344789",
+    "province": "تهران",
+    "city": "باغستان",
+    "address": "هنیابسهلخکایسهبادذسبذ",
+    "postalCode": "7834167681",
+    "isDefault": true,
+    "createdAt": "2026-10-07T09:33:59.519Z",
+    "updatedAt": "2026-10-07T09:33:59.519Z"
   }
 ]
