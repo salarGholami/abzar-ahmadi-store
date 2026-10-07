@@ -187,5 +187,12 @@
     "name": "WISHLIST_ADDED",
     "entityId": "p42",
     "createdAt": "2026-10-07T15:18:06.899Z"
+  },
+  {
+    "id": "e0aad5f1-9203-46f9-999e-2150f816cb69",
+    "actorType": "USER",
+    "actorId": "ec24cd8b-077a-43f7-a129-9778cbdac531",
+    "name": "LOGIN",
+    "createdAt": "2026-10-07T15:56:24.659Z"
   }
 ]
