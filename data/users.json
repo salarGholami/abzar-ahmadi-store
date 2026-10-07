@@ -8,10 +8,11 @@
     "permissions": [
       "supplier.portal"
     ],
-    "passwordHash": "scrypt:e1ab431f21d99b548cd7dafd2dc9864e:69b796ffdbbc43a25c17145416bd0ac756bfccbf6ab20743ad88595335c4e0f8400547d73ba80c67b45fbfc9a8614175d99039b930b12e8e7e6cd11f067837e8",
+    "passwordHash": "scrypt:d79428fd33f99ef7ad20da899f083279:371da26edee0b641c12fff447bfda7cef149ea9cfb996a151863cd7fc159aaa3af4449badecf7514293ce001bbe7da643cc8df52c5b306d862bef7656944580a",
     "createdAt": "2026-10-05T16:59:40.135Z",
-    "updatedAt": "2026-10-05T16:59:40.135Z",
-    "supplierId": "6e3fb2b0-c26b-457e-8c98-f560f6b7879e"
+    "updatedAt": "2026-10-07T12:12:03.356Z",
+    "supplierId": "6e3fb2b0-c26b-457e-8c98-f560f6b7879e",
+    "email": "supplier@abzar-ahmadi.ir"
   },
   {
     "id": "8ad1e4b6-e64c-4e91-9c24-552d3fabbfeb",
@@ -22,8 +23,9 @@
     "permissions": [
       "sales.create"
     ],
-    "passwordHash": "scrypt:9c598d47b41a6da02016d68baba8a76a:5dcb3712973698b39688cc6c9ef5a91a799db3dcb01a21c9dea79ff8a04c75cdb3011bda1d0c5905919f43126073258f9608d6b44abe6681b85778a8a171fba3",
+    "passwordHash": "scrypt:029282b0dd0f5f7512da8b7e92ff4614:9ea3dd4188f8455dad2ab50d23c2c28c628b7b5063725903562eb38cab20052c1045d5392df13ace6d229868afb4ededbc1cf92fcd0e398c854397359386a802",
     "createdAt": "2026-10-05T17:27:32.393Z",
-    "updatedAt": "2026-10-05T17:28:11.105Z"
+    "updatedAt": "2026-10-07T12:12:03.356Z",
+    "email": "customer@abzar-ahmadi.ir"
   }
 ]
