@@ -3,14 +3,7 @@
     "id": "3ef72b66-6293-4f97-9c64-031aa3e42737",
     "ownerType": "USER",
     "ownerId": "8ad1e4b6-e64c-4e91-9c24-552d3fabbfeb",
-    "lines": [
-      {
-        "productId": "p42",
-        "quantity": 1,
-        "createdAt": "2026-10-07T09:19:42.124Z",
-        "updatedAt": "2026-10-07T09:19:42.124Z"
-      }
-    ],
-    "updatedAt": "2026-10-07T09:19:42.124Z"
+    "lines": [],
+    "updatedAt": "2026-10-07T09:34:06.330Z"
   }
 ]
