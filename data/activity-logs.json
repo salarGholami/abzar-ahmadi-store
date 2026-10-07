@@ -28,5 +28,41 @@
     "action": "SALE_CREATED",
     "entityId": "90aff309-3816-4189-8281-a6eb93be0bb6",
     "createdAt": "2026-10-07T09:34:54.899Z"
+  },
+  {
+    "id": "4c4728f1-3073-4680-b792-2c7a7fcfc6c5",
+    "action": "SALE_PAYMENT_PENDING_TRANSFER_TO_PAID",
+    "entityId": "90aff309-3816-4189-8281-a6eb93be0bb6",
+    "createdAt": "2026-10-07T12:37:48.948Z"
+  },
+  {
+    "id": "aae8337f-ce75-4da1-9a54-9be5cffed575",
+    "action": "SALE_PAYMENT_STATUS_UPDATED",
+    "entityType": "sales",
+    "entityId": "90aff309-3816-4189-8281-a6eb93be0bb6",
+    "actorId": "ec24cd8b-077a-43f7-a129-9778cbdac531",
+    "actorRole": "ADMIN",
+    "metadata": {
+      "status": "PAID"
+    },
+    "createdAt": "2026-10-07T12:37:55.936Z"
+  },
+  {
+    "id": "dbd4ee0d-661d-4a18-9c3d-1428a411bec7",
+    "action": "SALE_SHIPPING_UPDATED",
+    "entityId": "90aff309-3816-4189-8281-a6eb93be0bb6",
+    "createdAt": "2026-10-07T12:38:34.316Z"
+  },
+  {
+    "id": "5614ad06-8ebd-4853-8288-bc6e9b776329",
+    "action": "SALE_SHIPPING_UPDATED",
+    "entityId": "90aff309-3816-4189-8281-a6eb93be0bb6",
+    "createdAt": "2026-10-07T12:39:07.545Z"
+  },
+  {
+    "id": "8ce4beab-d6d8-41e6-873c-51fab3b33f6d",
+    "action": "SALE_SHIPPING_UPDATED",
+    "entityId": "90aff309-3816-4189-8281-a6eb93be0bb6",
+    "createdAt": "2026-10-07T12:43:47.725Z"
   }
 ]

@@ -51,7 +51,7 @@
     "id": "5fe0332c-935f-412a-955b-9d3e8c72a498",
     "orderId": "90aff309-3816-4189-8281-a6eb93be0bb6",
     "provider": "MANUAL_TRANSFER",
-    "status": "PENDING",
+    "status": "PAID",
     "amount": 1132500,
     "authority": null,
     "referenceId": null,
@@ -63,6 +63,6 @@
     },
     "callbackPayload": null,
     "createdAt": "2026-10-07T09:34:54.899Z",
-    "updatedAt": "2026-10-07T09:34:54.899Z"
+    "updatedAt": "2026-10-07T12:37:48.948Z"
   }
 ]

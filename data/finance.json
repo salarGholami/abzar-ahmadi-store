@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "id": "93cc3e63-2f79-4153-b6b4-37dbe868ce46",
+    "type": "SALE",
+    "referenceId": "90aff309-3816-4189-8281-a6eb93be0bb6",
+    "amount": 1132500,
+    "createdAt": "2026-10-07T12:37:48.948Z"
+  }
+]

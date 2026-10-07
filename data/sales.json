@@ -95,7 +95,7 @@
     "shippingCost": 65000,
     "cogs": 845000,
     "grossProfit": 287500,
-    "paymentStatus": "PENDING_TRANSFER",
+    "paymentStatus": "PAID",
     "paymentProvider": "MANUAL_TRANSFER",
     "paymentTransactionId": "5fe0332c-935f-412a-955b-9d3e8c72a498",
     "shippingAddress": {
@@ -115,14 +115,14 @@
     },
     "channel": "ONLINE",
     "orderStatus": "PAYMENT_REVIEW",
-    "shippingStatus": "PENDING",
-    "trackingCode": null,
+    "shippingStatus": "SHIPPED",
+    "trackingCode": "23987589437298",
     "shippingMethod": "POST",
-    "shippingCompany": null,
-    "shippedAt": null,
-    "trackingUrl": null,
+    "shippingCompany": "اداره پست",
+    "shippedAt": "2026-10-07T12:43:47.725Z",
+    "trackingUrl": "https://tracking.post.ir/?id=23987589437298",
     "createdAt": "2026-10-07T09:34:54.899Z",
-    "updatedAt": "2026-10-07T09:34:54.899Z",
+    "updatedAt": "2026-10-07T12:43:47.725Z",
     "idempotencyKey": "c583e730-9e83-464a-918e-04721613f5d9"
   }
 ]
