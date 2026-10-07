@@ -89,5 +89,16 @@
     "actorId": "8ad1e4b6-e64c-4e91-9c24-552d3fabbfeb",
     "name": "LOGIN",
     "createdAt": "2026-10-07T09:18:45.300Z"
+  },
+  {
+    "id": "186a1df5-3856-4ae1-a583-14f2a85ff130",
+    "actorType": "USER",
+    "actorId": "8ad1e4b6-e64c-4e91-9c24-552d3fabbfeb",
+    "name": "CART_ITEM_ADDED",
+    "entityId": "p42",
+    "metadata": {
+      "quantity": 1
+    },
+    "createdAt": "2026-10-07T09:19:46.024Z"
   }
 ]
