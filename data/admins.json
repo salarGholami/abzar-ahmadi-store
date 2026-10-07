@@ -8,9 +8,9 @@
     ],
     "isOwner": true,
     "id": "ec24cd8b-077a-43f7-a129-9778cbdac531",
-    "passwordHash": "scrypt:c585de9260fba01b91e601eecbb31b3e:b12870054d390811ddbb68fb89078c08bf15ea1922da924b73f2dd9bc9945ed80c9f598cf707f46f0858b0bd45350830b5bee098681e855558ba147e37e46c6a",
+    "passwordHash": "scrypt:9dabe816d909ef165647fdbbede3185a:e33dc8e790428a581693f1c15c5135927d19fab340c6e6bb4ab0a69afffab9c695a531543978cc6b390c45117a1d8aeaaf6cdd023e081759fa71be3129721c07",
     "createdAt": "2026-10-07T09:37:20.096Z",
-    "updatedAt": "2026-10-07T12:12:03.356Z",
+    "updatedAt": "2026-10-07T12:58:57.741Z",
     "email": "admin@abzar-ahmadi.ir"
   }
 ]
