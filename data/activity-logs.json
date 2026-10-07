@@ -10,5 +10,11 @@
     "action": "SALE_DELETED",
     "entityId": "df7d7290-d3af-4497-8765-85d9306a3ae6",
     "createdAt": "2026-10-06T10:33:16.508Z"
+  },
+  {
+    "id": "cacdd715-cf2b-4b6a-9680-2b49c6f6fa0c",
+    "action": "SALE_CREATED",
+    "entityId": "cf19861f-37aa-4de9-a793-fb416c3406aa",
+    "createdAt": "2026-10-07T09:33:52.126Z"
   }
 ]

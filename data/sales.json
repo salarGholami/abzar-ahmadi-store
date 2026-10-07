@@ -1,1 +1,44 @@
-[]
+[
+  {
+    "id": "cf19861f-37aa-4de9-a793-fb416c3406aa",
+    "customerId": null,
+    "customerUserId": "8ad1e4b6-e64c-4e91-9c24-552d3fabbfeb",
+    "buyerName": "سالار غلامی",
+    "buyerPhone": "09389525194",
+    "subtotal": 1067500,
+    "discount": 0,
+    "netAmount": 1132500,
+    "shippingCost": 65000,
+    "cogs": 845000,
+    "grossProfit": 287500,
+    "paymentStatus": "PENDING_TRANSFER",
+    "paymentProvider": "MANUAL_TRANSFER",
+    "paymentTransactionId": "080402c0-3271-4ff2-9bce-2bba777d9f12",
+    "shippingAddress": {
+      "recipientName": "حسین اسدی",
+      "phone": "09123344789",
+      "province": "تهران",
+      "city": "باغستان",
+      "address": "هنیابسهلخکایسهبادذسبذ",
+      "postalCode": "7834167681"
+    },
+    "receiptImage": "https://raw.githubusercontent.com/salarGholami/abzar-ahmadi-store/main/data/media/receipts/8ad1e4b6-e64c-4e91-9c24-552d3fabbfeb/e4094c54-a1a7-47ae-bc4e-9558df1e8486.webp",
+    "receipt": {
+      "id": "0e7df99b-4c27-41c0-b99a-622e331071d7",
+      "url": "https://raw.githubusercontent.com/salarGholami/abzar-ahmadi-store/main/data/media/receipts/8ad1e4b6-e64c-4e91-9c24-552d3fabbfeb/e4094c54-a1a7-47ae-bc4e-9558df1e8486.webp",
+      "fileName": "2.webp",
+      "uploadedAt": "2026-10-07T09:33:52.126Z"
+    },
+    "channel": "ONLINE",
+    "orderStatus": "PAYMENT_REVIEW",
+    "shippingStatus": "PENDING",
+    "trackingCode": null,
+    "shippingMethod": "POST",
+    "shippingCompany": null,
+    "shippedAt": null,
+    "trackingUrl": null,
+    "createdAt": "2026-10-07T09:33:52.126Z",
+    "updatedAt": "2026-10-07T09:33:52.126Z",
+    "idempotencyKey": "d7868d7f-53f4-431c-a6c9-59e5608167aa"
+  }
+]

@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "id": "6e8a8550-c261-4b11-a577-154b40b7fdbd",
+    "saleId": "cf19861f-37aa-4de9-a793-fb416c3406aa",
+    "productId": "p42",
+    "quantity": 1,
+    "unitPrice": 1067500,
+    "purchaseCost": 845000,
+    "total": 1067500
+  }
+]

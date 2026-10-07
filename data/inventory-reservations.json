@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "id": "30a12512-e2f5-4e2f-bcc7-1ef93157f5f8",
+    "orderId": "cf19861f-37aa-4de9-a793-fb416c3406aa",
+    "productId": "p42",
+    "quantity": 1,
+    "status": "ACTIVE",
+    "expiresAt": "2026-10-07T10:03:52.127Z",
+    "createdAt": "2026-10-07T09:33:52.126Z",
+    "updatedAt": "2026-10-07T09:33:52.126Z"
+  }
+]
