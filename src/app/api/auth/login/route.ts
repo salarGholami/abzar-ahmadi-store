@@ -8,8 +8,25 @@ import { normalizePhone } from "@/lib/phone";
 import { clientIp, rateLimit } from "@/lib/rate-limit";
 import type { AppUser } from "@/lib/types";
 
+/** Canonical owner phone for the store. */
+const OWNER_PHONE = "09129999999";
+
 function failure(code: string, message: string, status: number, headers?: Record<string, string>) {
   return NextResponse.json({ success: false, error: { code, message } }, { status, headers });
+}
+
+async function findLoginUser(phone: string): Promise<AppUser | undefined> {
+  // Auth identities may live in users.json (CUSTOMER/SUPPLIER/legacy ADMIN)
+  // or admins.json (separated ADMIN accounts). Search both.
+  const [usersFile, adminsFile] = await Promise.all([
+    getJson<AppUser[]>("users.json", []),
+    getJson<AppUser[]>("admins.json", []).catch(() => ({ data: [] as AppUser[], sha: "missing", path: "admins.json" })),
+  ]);
+
+  const fromAdmins = adminsFile.data.find((item) => item.phone === phone);
+  if (fromAdmins) return fromAdmins;
+
+  return usersFile.data.find((item) => item.phone === phone);
 }
 
 export async function POST(req: Request) {
@@ -29,8 +46,7 @@ export async function POST(req: Request) {
       });
     }
 
-    const { data } = await getJson<AppUser[]>("users.json", []);
-    const user = data.find((item) => item.phone === phone);
+    const user = await findLoginUser(phone);
 
     if (!user || !user.passwordHash || !verifyPassword(password, user.passwordHash)) {
       return failure("INVALID_CREDENTIALS", "شماره موبایل یا رمز عبور اشتباه است", 401);
@@ -42,7 +58,7 @@ export async function POST(req: Request) {
       return failure("INVALID_ROLE", "حساب کاربری نقش معتبر ندارد؛ با مدیر سامانه تماس بگیرید.", 403);
     }
     const role = user.role;
-    const isOwner = role === "ADMIN" && user.phone === "09120000000";
+    const isOwner = role === "ADMIN" && (user.isOwner === true || user.phone === OWNER_PHONE);
     const userPermissions =
       role === "ADMIN"
         ? isOwner
@@ -73,7 +89,20 @@ export async function POST(req: Request) {
     }
     await trackServerEvent("LOGIN");
 
-    return NextResponse.json({ success: true, data: { id: user.id, name: user.name, role, supplierId: user.supplierId || null } });
+    return NextResponse.json({
+      success: true,
+      data: {
+        user: {
+          id: user.id,
+          phone: user.phone,
+          name: user.name,
+          role,
+          permissions: userPermissions,
+          supplierId: user.supplierId || null,
+          isOwner,
+        },
+      },
+    });
   } catch (error) {
     console.error("POST /api/auth/login", error);
     return failure("LOGIN_ERROR", "خطای ورود. لطفاً دوباره تلاش کنید.", 500);
