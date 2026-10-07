@@ -115,14 +115,14 @@
     },
     "channel": "ONLINE",
     "orderStatus": "PAYMENT_REVIEW",
-    "shippingStatus": "PENDING",
-    "trackingCode": null,
+    "shippingStatus": "PROCESSING",
+    "trackingCode": "23987589437298",
     "shippingMethod": "POST",
-    "shippingCompany": null,
+    "shippingCompany": "اداره پست",
     "shippedAt": null,
-    "trackingUrl": null,
+    "trackingUrl": "https://tracking.post.ir/?id=23987589437298",
     "createdAt": "2026-10-07T09:34:54.899Z",
-    "updatedAt": "2026-10-07T12:37:48.948Z",
+    "updatedAt": "2026-10-07T12:38:34.316Z",
     "idempotencyKey": "c583e730-9e83-464a-918e-04721613f5d9"
   }
 ]
