@@ -28,5 +28,11 @@
     "action": "SALE_CREATED",
     "entityId": "90aff309-3816-4189-8281-a6eb93be0bb6",
     "createdAt": "2026-10-07T09:34:54.899Z"
+  },
+  {
+    "id": "4c4728f1-3073-4680-b792-2c7a7fcfc6c5",
+    "action": "SALE_PAYMENT_PENDING_TRANSFER_TO_PAID",
+    "entityId": "90aff309-3816-4189-8281-a6eb93be0bb6",
+    "createdAt": "2026-10-07T12:37:48.948Z"
   }
 ]
