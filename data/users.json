@@ -37,9 +37,9 @@
     "permissions": [
       "sales.create"
     ],
-    "passwordHash": "scrypt:029282b0dd0f5f7512da8b7e92ff4614:9ea3dd4188f8455dad2ab50d23c2c28c628b7b5063725903562eb38cab20052c1045d5392df13ace6d229868afb4ededbc1cf92fcd0e398c854397359386a802",
+    "passwordHash": "scrypt:4f6a210d0343918ae8d45c3c5301e546:91dbe7dbb76c956a853eeaed7ba9b5ed8ef5128242415b6acff801e7b6c23525c94c2eab08e7a04e8af36fe1a1dff8c9333f3792a5af36002307e9f61264a36f",
     "createdAt": "2026-10-05T17:27:32.393Z",
-    "updatedAt": "2026-10-07T12:12:03.356Z",
+    "updatedAt": "2026-10-07T12:57:49.761Z",
     "email": "customer@abzar-ahmadi.ir"
   }
 ]
