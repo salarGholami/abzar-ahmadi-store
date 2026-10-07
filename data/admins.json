@@ -1,0 +1,16 @@
+[
+  {
+    "phone": "09129999999",
+    "name": "مدیر ابزار احمدی",
+    "role": "ADMIN",
+    "permissions": [
+      "*"
+    ],
+    "isOwner": true,
+    "id": "ec24cd8b-077a-43f7-a129-9778cbdac531",
+    "passwordHash": "scrypt:c585de9260fba01b91e601eecbb31b3e:b12870054d390811ddbb68fb89078c08bf15ea1922da924b73f2dd9bc9945ed80c9f598cf707f46f0858b0bd45350830b5bee098681e855558ba147e37e46c6a",
+    "createdAt": "2026-10-07T09:37:20.096Z",
+    "updatedAt": "2026-10-07T12:12:03.356Z",
+    "email": "admin@abzar-ahmadi.ir"
+  }
+]
