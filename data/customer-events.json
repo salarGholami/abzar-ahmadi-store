@@ -131,5 +131,17 @@
       "channel": "ONLINE"
     },
     "createdAt": "2026-10-07T09:34:40.416Z"
+  },
+  {
+    "id": "8ac579bb-283c-4aea-9245-ccbbd240fb74",
+    "actorType": "USER",
+    "actorId": "8ad1e4b6-e64c-4e91-9c24-552d3fabbfeb",
+    "name": "ORDER_CREATED",
+    "entityId": "90aff309-3816-4189-8281-a6eb93be0bb6",
+    "metadata": {
+      "amount": 1132500,
+      "channel": "ONLINE"
+    },
+    "createdAt": "2026-10-07T09:34:58.556Z"
   }
 ]
