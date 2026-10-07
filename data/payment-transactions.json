@@ -28,5 +28,23 @@
     "callbackPayload": null,
     "createdAt": "2026-10-07T09:33:52.127Z",
     "updatedAt": "2026-10-07T09:33:52.127Z"
+  },
+  {
+    "id": "d418c70d-8d2a-45ed-9eb4-6f9f8cbc2c81",
+    "orderId": "ab56f47c-bbfe-4aad-bb8c-a10f71bf5254",
+    "provider": "MANUAL_TRANSFER",
+    "status": "PENDING",
+    "amount": 1132500,
+    "authority": null,
+    "referenceId": null,
+    "receipt": {
+      "id": "defb3fae-f737-4a34-a845-8fa818ebdd27",
+      "url": "https://raw.githubusercontent.com/salarGholami/abzar-ahmadi-store/main/data/media/receipts/8ad1e4b6-e64c-4e91-9c24-552d3fabbfeb/e4094c54-a1a7-47ae-bc4e-9558df1e8486.webp",
+      "fileName": "2.webp",
+      "uploadedAt": "2026-10-07T09:34:36.605Z"
+    },
+    "callbackPayload": null,
+    "createdAt": "2026-10-07T09:34:36.605Z",
+    "updatedAt": "2026-10-07T09:34:36.605Z"
   }
 ]

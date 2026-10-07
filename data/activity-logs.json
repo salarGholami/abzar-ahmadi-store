@@ -16,5 +16,11 @@
     "action": "SALE_CREATED",
     "entityId": "cf19861f-37aa-4de9-a793-fb416c3406aa",
     "createdAt": "2026-10-07T09:33:52.126Z"
+  },
+  {
+    "id": "6d57bf45-3416-4e61-82dd-d044fcf3bcb2",
+    "action": "SALE_CREATED",
+    "entityId": "ab56f47c-bbfe-4aad-bb8c-a10f71bf5254",
+    "createdAt": "2026-10-07T09:34:36.605Z"
   }
 ]
