@@ -5,5 +5,19 @@
     "ownerId": "8ad1e4b6-e64c-4e91-9c24-552d3fabbfeb",
     "lines": [],
     "updatedAt": "2026-10-07T09:34:06.330Z"
+  },
+  {
+    "id": "5da8205f-fba0-479f-ba89-c499f5b18489",
+    "ownerType": "GUEST",
+    "ownerId": "9f228258-a8e0-44d1-9b84-84b9bb806c0c",
+    "lines": [
+      {
+        "productId": "p21",
+        "quantity": 1,
+        "createdAt": "2026-10-07T17:43:18.038Z",
+        "updatedAt": "2026-10-07T17:43:18.038Z"
+      }
+    ],
+    "updatedAt": "2026-10-07T17:43:18.038Z"
   }
 ]
