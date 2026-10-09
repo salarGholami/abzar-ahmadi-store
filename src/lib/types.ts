@@ -46,7 +46,19 @@ export type Category = {
   name: string;
   slug: string;
   description?: string;
+  /** Optional category image URL (public path or remote). Safe to omit. */
+  image?: string | null;
   active?: boolean;
+  createdAt?: string;
+  updatedAt?: string;
+};
+
+export type Brand = {
+  id: string;
+  name: string;
+  /** Optional brand logo URL. Safe to omit — UI must not crash. */
+  image?: string | null;
+  productsCount?: number;
   createdAt?: string;
   updatedAt?: string;
 };
@@ -415,7 +427,9 @@ export type MediaPurpose =
   | "RECEIPT"
   | "BANNER"
   | "ARTICLE"
-  | "SUPPORT";
+  | "SUPPORT"
+  | "CATEGORY"
+  | "BRAND";
 
 export type MediaAsset = {
   id: string;

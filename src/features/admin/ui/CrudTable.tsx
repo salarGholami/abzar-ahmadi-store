@@ -7,6 +7,7 @@ import { useAdminCollection, useAdminCrud } from "@/features/admin/hooks";
 import type { AdminCollection } from "@/features/admin/api";
 import { DashboardBreadcrumb, DashboardHero } from "./DashboardUI";
 import Pagination from "@/shared/ui/Pagination";
+import AdminImageField from "@/features/admin/ui/AdminImageField";
 
 export type FieldConfig = {
   key: string;
@@ -19,7 +20,10 @@ export type FieldConfig = {
     | "select"
     | "textarea"
     | "password"
-    | "boolean";
+    | "boolean"
+    | "image";
+  /** For type=image: media purpose (CATEGORY, BRAND, ...) */
+  imagePurpose?: "CATEGORY" | "BRAND" | "BANNER" | "PRODUCT" | "ARTICLE" | "SUPPORT";
   options?: { value: string; label: string }[];
   required?: boolean;
   placeholder?: string;
@@ -86,13 +90,19 @@ export default function CrudTable<T extends Row>({
   function openEdit(row: T) {
     setForm(
       Object.fromEntries(
-        fields.map((f) => [
-          f.key,
-          f.type === "jalali-date"
-            ? normalizeJalali(String(row[f.key] || "")) ||
-              isoToJalali(String(row[f.key] || ""))
-            : row[f.key],
-        ]),
+        fields.map((f) => {
+          if (f.type === "jalali-date") {
+            return [
+              f.key,
+              normalizeJalali(String(row[f.key] || "")) ||
+                isoToJalali(String(row[f.key] || "")),
+            ];
+          }
+          if (f.type === "image") {
+            return [f.key, (row[f.key] as string) || ""];
+          }
+          return [f.key, row[f.key]];
+        }),
       ) as Record<string, FormValue>,
     );
     setEditing(row);
@@ -108,7 +118,10 @@ export default function CrudTable<T extends Row>({
         else if (f.type === "boolean") payload[f.key] = Boolean(form[f.key]);
         else if (f.type === "jalali-date")
           payload[f.key] = normalizeJalali(String(form[f.key] || "")) || "";
-        else payload[f.key] = form[f.key] ?? "";
+        else if (f.type === "image") {
+          const v = String(form[f.key] ?? "").trim();
+          payload[f.key] = v || null;
+        } else payload[f.key] = form[f.key] ?? "";
       });
       await crud.mutateAsync({
         collection: collectionName,
@@ -280,6 +293,18 @@ export default function CrudTable<T extends Row>({
             )}
             {fields.map((f) => (
               <div key={f.key}>
+                {f.type === "image" ? (
+                  <AdminImageField
+                    value={String(form[f.key] ?? "")}
+                    onChange={(url) =>
+                      setForm({ ...form, [f.key]: url || "" })
+                    }
+                    disabled={saving}
+                    purpose={f.imagePurpose || "CATEGORY"}
+                    label={f.label}
+                  />
+                ) : (
+                  <>
                 <label className="mb-1 block text-xs font-bold text-[var(--muted)]">
                   {f.label}
                 </label>
@@ -344,6 +369,8 @@ export default function CrudTable<T extends Row>({
                     }
                     required={f.required}
                   />
+                )}
+                  </>
                 )}
               </div>
             ))}

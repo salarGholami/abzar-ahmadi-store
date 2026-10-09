@@ -31,6 +31,7 @@ import {
 import Modal from "@/shared/ui/Modal";
 import Pagination from "@/shared/ui/Pagination";
 import type { Category, Product } from "@/lib/types";
+import CategoryImageField from "@/features/admin/ui/CategoryImageField";
 
 const PAGE_SIZE = 8;
 
@@ -48,6 +49,7 @@ type CategoryForm = {
   name: string;
   slug: string;
   description: string;
+  image: string;
   active: boolean;
 };
 
@@ -55,6 +57,7 @@ const EMPTY_FORM: CategoryForm = {
   name: "",
   slug: "",
   description: "",
+  image: "",
   active: true,
 };
 
@@ -427,6 +430,7 @@ export default function CategoriesPage() {
       name: category.name || "",
       slug: category.slug || "",
       description: category.description || "",
+      image: category.image || "",
       active: category.active !== false,
     });
 
@@ -478,6 +482,7 @@ export default function CategoriesPage() {
           name: form.name.trim(),
           slug: form.slug.trim() || makeSlug(form.name),
           description: form.description.trim(),
+          image: form.image.trim() || null,
           active: form.active,
         }),
       });
@@ -692,6 +697,22 @@ export default function CategoriesPage() {
                       <div className="flex min-w-0 items-center gap-2">
                         <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[var(--bg-secondary)] text-xs font-black text-[var(--muted)]">
                           {formatNumber(index + 1)}
+                        </span>
+
+                        <span className="relative flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--surface-2)]">
+                          {category.image ? (
+                            // eslint-disable-next-line @next/next/no-img-element
+                            <img
+                              src={category.image}
+                              alt=""
+                              className="h-full w-full object-cover"
+                              onError={(e) => {
+                                (e.currentTarget as HTMLImageElement).style.display = "none";
+                              }}
+                            />
+                          ) : (
+                            <span className="text-[10px] font-black text-[var(--muted)]">—</span>
+                          )}
                         </span>
 
                         <span className="truncate text-sm font-bold text-[var(--text)]">
@@ -1057,6 +1078,25 @@ export default function CategoriesPage() {
                         </div>
 
                         <div className="mt-5">
+                          <div className="mb-3 overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--surface-2)]">
+                            <div className="aspect-[16/9] w-full">
+                              {category.image ? (
+                                // eslint-disable-next-line @next/next/no-img-element
+                                <img
+                                  src={category.image}
+                                  alt={category.name}
+                                  className="h-full w-full object-cover"
+                                  onError={(e) => {
+                                    (e.currentTarget as HTMLImageElement).style.display = "none";
+                                  }}
+                                />
+                              ) : (
+                                <div className="grid h-full place-items-center text-xs font-bold text-[var(--muted)]">
+                                  بدون تصویر
+                                </div>
+                              )}
+                            </div>
+                          </div>
                           <div className="flex items-center gap-2">
                             <h3 className="truncate text-lg font-black text-[var(--text)]">
                               {category.name}
@@ -1214,7 +1254,19 @@ export default function CategoriesPage() {
             </div>
 
             <div className="flex items-center justify-between rounded-2xl border border-[var(--border)] bg-[var(--bg)] p-4">
-              <div>
+              
+              <CategoryImageField
+                value={form.image}
+                onChange={(url) =>
+                  setForm((current) => ({
+                    ...current,
+                    image: url || "",
+                  }))
+                }
+                disabled={saving}
+              />
+
+<div>
                 <p className="text-sm font-black text-[var(--text)]">
                   وضعیت دسته
                 </p>

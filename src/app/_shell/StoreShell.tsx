@@ -8,7 +8,12 @@ import StoreHeader from "@/shared/layout/StoreHeader";
 /** Single public shell (header, footer, bottom nav, cart runtime) shared by every storefront route group. */
 export default async function StoreShell({ children }: { children: ReactNode }) {
   const categories = await listActiveCategories().catch(() => []);
-  const navCategories = categories.map(({ id, name, slug }) => ({ id, name, slug }));
+  const navCategories = categories.map(({ id, name, slug, image }) => ({
+    id,
+    name,
+    slug,
+    image: image || null,
+  }));
 
   return (
       <div className="flex min-h-screen flex-col bg-[var(--bg)] text-[var(--text)]">

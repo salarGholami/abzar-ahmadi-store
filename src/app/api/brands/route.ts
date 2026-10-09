@@ -2,7 +2,12 @@ import { NextResponse } from "next/server";
 
 import { getJson } from "@/lib/github";
 
-type Brand = { id: string; name: string; productsCount?: number };
+type Brand = {
+  id: string;
+  name: string;
+  image?: string | null;
+  productsCount?: number;
+};
 
 export async function GET() {
   const file = await getJson<Brand[]>("brands.json", []);

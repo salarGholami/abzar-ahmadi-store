@@ -30,6 +30,7 @@ import {
 import Modal from "@/shared/ui/Modal";
 import Pagination from "@/shared/ui/Pagination";
 import type { Category, Product } from "@/lib/types";
+import CategoryImageField from "@/features/admin/ui/CategoryImageField";
 
 const PAGE_SIZE = 8;
 
@@ -37,6 +38,7 @@ type CategoryForm = {
   name: string;
   slug: string;
   description: string;
+  image: string;
   active: boolean;
 };
 
@@ -44,6 +46,7 @@ const EMPTY_FORM: CategoryForm = {
   name: "",
   slug: "",
   description: "",
+  image: "",
   active: true,
 };
 
@@ -330,6 +333,7 @@ export default function CategoryManagementPage() {
       name: category.name || "",
       slug: category.slug || "",
       description: category.description || "",
+      image: category.image || "",
       active: category.active !== false,
     });
 
@@ -370,6 +374,7 @@ export default function CategoryManagementPage() {
           name: form.name.trim(),
           slug: form.slug.trim() || makeSlug(form.name),
           description: form.description.trim(),
+          image: form.image.trim() || null,
           active: form.active,
         }),
       });
@@ -1102,7 +1107,19 @@ export default function CategoryManagementPage() {
             </div>
 
             <div className="flex items-center justify-between rounded-2xl border border-[var(--border)] bg-[var(--bg)] p-4">
-              <div>
+              
+              <CategoryImageField
+                value={form.image}
+                onChange={(url) =>
+                  setForm((current) => ({
+                    ...current,
+                    image: url || "",
+                  }))
+                }
+                disabled={saving}
+              />
+
+<div>
                 <p className="text-sm font-black text-[var(--text)]">
                   وضعیت دسته
                 </p>

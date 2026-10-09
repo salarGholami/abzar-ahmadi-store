@@ -23,7 +23,9 @@ export type MediaFolder =
   | "receipts"
   | "banners"
   | "articles"
-  | "support";
+  | "support"
+  | "categories"
+  | "brands";
 
 /* -------------------------------------------------------------------------- */
 /* GitHub                                                                      */
