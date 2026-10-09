@@ -4,7 +4,6 @@ import Link from "next/link";
 import {
   ArrowUp,
   ChevronDown,
-  Instagram,
   Mail,
   MapPin,
   Phone,
@@ -18,7 +17,9 @@ import { useState } from "react";
 const footerLinks = {
   quick: [
     { label: "فروشگاه", href: "/products" },
-    { label: "دسته‌بندی محصولات", href: "/products" },
+    { label: "دریل و پیچ‌گوشتی", href: "/products?category=%D8%AF%D8%B1%DB%8C%D9%84%20%D9%88%20%D9%BE%DB%8C%DA%86%E2%80%8C%DA%AF%D9%88%D8%B4%D8%AA%DB%8C" },
+    { label: "ابزار دستی", href: "/products?category=%D8%A7%D8%A8%D8%B2%D8%A7%D8%B1%20%D8%AF%D8%B3%D8%AA%DB%8C" },
+    { label: "جوشکاری", href: "/products?category=%D8%AC%D9%88%D8%B4%DA%A9%D8%A7%D8%B1%DB%8C" },
     { label: "قوانین و مقررات", href: "/terms" },
     { label: "حریم خصوصی", href: "/privacy" },
     { label: "پرفروش‌ترین‌ها", href: "/products?sort=popular" },
@@ -216,15 +217,8 @@ export default function StoreFooter() {
         <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-[var(--border)] pt-6 sm:flex-row">
           <div className="flex items-center gap-3">
             <span className="text-xs font-bold text-[var(--muted)]">
-              ما را دنبال کنید
+              ارتباط با ما
             </span>
-            <a
-              href="#"
-              aria-label="اینستاگرام"
-              className="flex size-10 items-center justify-center rounded-xl border border-[var(--border)] bg-[var(--surface-2)] text-[var(--muted)] transition hover:border-[var(--primary)] hover:text-[var(--primary)] active:scale-95"
-            >
-              <Instagram size={18} />
-            </a>
             <a
               href="mailto:info@abzarahmadi.ir"
               aria-label="ایمیل"

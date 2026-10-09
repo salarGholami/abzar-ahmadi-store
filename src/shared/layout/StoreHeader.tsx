@@ -9,7 +9,8 @@ import type { NavCategory } from "./header/types";
 import Link from "next/link";
 
 const primaryLinks = [
-  { href: "/products", label: "محصولات" },
+  { href: "/products", label: "فروشگاه" },
+  { href: "/categories", label: "دسته‌بندی‌ها" },
   { href: "/brands", label: "برندها" },
   { href: "/magazine", label: "مجله" },
   { href: "/order-tracking", label: "پیگیری سفارش" },

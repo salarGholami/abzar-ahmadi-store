@@ -1,8 +1,17 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { CATALOG_PAGE_SIZE, isFilteredQuery, parseCatalogQuery, type RawSearchParams } from "@/domains/catalog/model/catalog-query";
-import { listActiveCategories, normalizeSearchText, searchCatalog } from "@/domains/catalog/server";
+import {
+  CATALOG_PAGE_SIZE,
+  isFilteredQuery,
+  parseCatalogQuery,
+  type RawSearchParams,
+} from "@/domains/catalog/model/catalog-query";
+import {
+  listActiveCategories,
+  normalizeSearchText,
+  searchCatalog,
+} from "@/domains/catalog/server";
 import CatalogView from "@/features/storefront/ui/catalog/CatalogView";
 import JsonLd from "@/shared/seo/JsonLd";
 import { SITE_NAME, absoluteUrl, breadcrumbLd } from "@/lib/seo";
@@ -26,32 +35,54 @@ async function findCategory(rawSlug: string) {
   const categories = await listActiveCategories();
   return (
     categories.find(
-      (item) => normalizeSearchText(item.slug ?? "") === slug || normalizeSearchText(item.id) === slug,
+      (item) =>
+        normalizeSearchText(item.slug ?? "") === slug ||
+        normalizeSearchText(item.id) === slug,
     ) ?? null
   );
 }
 
-export async function generateMetadata({ params, searchParams }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+  searchParams,
+}: PageProps): Promise<Metadata> {
   const [{ slug }, raw] = await Promise.all([params, searchParams]);
   const category = await findCategory(slug);
-  if (!category) return { title: "دسته‌بندی پیدا نشد", robots: { index: false, follow: false } };
+  if (!category)
+    return {
+      title: "دسته‌بندی پیدا نشد",
+      robots: { index: false, follow: false },
+    };
 
   const query = parseCatalogQuery(raw);
   const filtered = isFilteredQuery(query);
   const path = `/categories/${category.slug}`;
   const description =
-    category.description || `خرید انواع ${category.name} با مشخصات، قیمت و موجودی به‌روز از ${SITE_NAME}.`;
+    category.description ||
+    `خرید انواع ${category.name} با مشخصات، قیمت و موجودی به‌روز از ${SITE_NAME}.`;
 
   return {
     title: `خرید ${category.name}${query.page > 1 ? ` - صفحه ${query.page.toLocaleString("fa-IR")}` : ""}`,
     description,
-    alternates: { canonical: query.page > 1 && !filtered ? `${path}?page=${query.page}` : path },
-    robots: filtered ? { index: false, follow: true } : { index: true, follow: true },
-    openGraph: { type: "website", title: `خرید ${category.name} | ${SITE_NAME}`, description },
+    alternates: {
+      canonical:
+        query.page > 1 && !filtered ? `${path}?page=${query.page}` : path,
+    },
+    robots: filtered
+      ? { index: false, follow: true }
+      : { index: true, follow: true },
+    openGraph: {
+      type: "website",
+      title: `خرید ${category.name} | ${SITE_NAME}`,
+      description,
+    },
   };
 }
 
-export default async function CategoryPage({ params, searchParams }: PageProps) {
+export default async function CategoryPage({
+  params,
+  searchParams,
+}: PageProps) {
   const [{ slug }, raw] = await Promise.all([params, searchParams]);
   const category = await findCategory(slug);
   if (!category) notFound();
@@ -92,13 +123,22 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
     <div className="mx-auto max-w-[1500px] px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
       <JsonLd data={categoryLd} />
       <header className="mb-6">
-        <p className="text-xs font-black text-[var(--primary)]">دسته‌بندی محصولات</p>
-        <h1 className="mt-2 text-2xl font-black sm:text-3xl">{category.name}</h1>
+        <p className="text-xs font-black text-[var(--primary)]">
+          دسته‌بندی محصولات
+        </p>
+        <h1 className="mt-2 text-2xl font-black sm:text-3xl">
+          {category.name}
+        </h1>
         <p className="mt-2 max-w-3xl text-sm leading-7 text-[var(--muted)]">
           {category.description || `مشاهده محصولات دسته ${category.name}`}
         </p>
       </header>
-      <CatalogView basePath={path} query={query} result={result} fixedCategory={category.name} />
+      <CatalogView
+        basePath={path}
+        query={query}
+        result={result}
+        fixedCategory={category.name}
+      />
     </div>
   );
 }

@@ -10,8 +10,10 @@ import {
   Plus,
   Trash2,
   Upload,
+  ShoppingCart,
 } from "lucide-react";
 import { useCart } from "@/features/cart/model/CartProvider";
+import EmptyState from "@/shared/ui/EmptyState";
 
 type Session = { id: string; name: string; phone: string; role: string } | null;
 type Settings = {
@@ -226,20 +228,47 @@ export default function Cart() {
   return (
     <>
       <main className="mx-auto max-w-[1100px] px-4 py-14 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-black">سبد خرید</h1>
+        <h1 className="text-2xl font-extrabold sm:text-3xl">سبد خرید و ثبت سفارش</h1>
+        <p className="mt-1.5 text-sm text-[var(--muted)]">
+          محصولات، آدرس ارسال و پرداخت را در چند مرحله ساده تکمیل کنید
+        </p>
+
+        {lines.length > 0 && !result ? (
+          <nav aria-label="مراحل ثبت سفارش" className="mt-6 flex items-center gap-2 overflow-x-auto pb-1">
+            {[
+              { n: 1, label: "سبد" },
+              { n: 2, label: "آدرس و ارسال" },
+              { n: 3, label: "پرداخت" },
+            ].map((step, i) => (
+              <div key={step.n} className="flex shrink-0 items-center gap-2">
+                {i > 0 ? (
+                  <span className="mx-1 h-px w-6 bg-[var(--border)]" aria-hidden />
+                ) : null}
+                <span className="flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-3 py-1.5 text-xs font-extrabold text-[var(--text)]">
+                  <span className="grid size-6 place-items-center rounded-full bg-[var(--primary)] text-[10px] font-extrabold text-white">
+                    {step.n}
+                  </span>
+                  {step.label}
+                </span>
+              </div>
+            ))}
+          </nav>
+        ) : null}
 
         {lines.length === 0 && !result ? (
-          <div className="mt-8 card p-10 text-center">
-            <div className="text-5xl">🛒</div>
-            <h2 className="mt-4 text-xl font-black">سبد خرید شما خالی است</h2>
-            <Link href="/products" className="btn btn-primary mt-6">
-              مشاهده محصولات
-            </Link>
+          <div className="mt-8">
+            <EmptyState
+              icon={<ShoppingCart size={28} aria-hidden />}
+              title="سبد خرید شما خالی است"
+              description="محصولات مورد نظرتان را به سبد اضافه کنید و سفارش خود را ثبت کنید."
+              actionHref="/products"
+              actionLabel="مشاهده محصولات"
+            />
           </div>
         ) : result && lines.length === 0 ? (
           <div className="mt-8 card p-10 text-center">
             <div className="text-5xl">{result.ok ? "✅" : "⚠️"}</div>
-            <h2 className="mt-4 text-xl font-black">
+            <h2 className="mt-4 text-xl font-extrabold">
               {result.ok ? "سفارش ثبت شد" : "ثبت سفارش ناموفق بود"}
             </h2>
             <p className="mt-2 text-sm text-[var(--muted)]">{result.message}</p>
@@ -264,17 +293,19 @@ export default function Cart() {
                     <button
                       type="button"
                       onClick={() => setQty(l.productId, l.qty - 1)}
-                      className="grid size-7 place-items-center rounded-lg border border-[var(--border)]"
+                      className="grid size-9 place-items-center rounded-lg border border-[var(--border)]"
+                      aria-label={`کاهش تعداد ${l.title}`}
                     >
-                      <Minus size={13} />
+                      <Minus size={13} aria-hidden />
                     </button>
                     <b className="w-7 text-center">{l.qty}</b>
                     <button
                       type="button"
                       onClick={() => setQty(l.productId, l.qty + 1)}
-                      className="grid size-7 place-items-center rounded-lg border border-[var(--border)]"
+                      className="grid size-9 place-items-center rounded-lg border border-[var(--border)]"
+                      aria-label={`افزایش تعداد ${l.title}`}
                     >
-                      <Plus size={13} />
+                      <Plus size={13} aria-hidden />
                     </button>
                   </div>
 
@@ -294,8 +325,8 @@ export default function Cart() {
             </div>
 
             {/* خلاصه و ثبت سفارش */}
-            <div className="card h-fit p-5">
-              <h3 className="font-black">تکمیل خرید</h3>
+            <div className="card h-fit p-5 lg:sticky lg:top-32">
+              <h3 className="font-extrabold">تکمیل خرید</h3>
 
               <div className="mt-5 space-y-2 text-sm">
                 <div className="flex justify-between"><span>جمع کالا</span><b>{subtotal.toLocaleString("fa-IR")} تومان</b></div>
@@ -304,7 +335,7 @@ export default function Cart() {
                 <div className="flex justify-between border-t border-[var(--border)] pt-3 text-base"><span>قابل پرداخت</span><b>{Math.max(0, subtotal-couponDiscount+Number(shipping.find((x) => x.id === shippingId)?.price || 0)).toLocaleString("fa-IR")} تومان</b></div>
               </div>
               {session && <div className="mt-4 space-y-2"><div className="flex gap-2"><input className="input" value={coupon} onChange={(e)=>setCoupon(e.target.value)} placeholder="کد تخفیف"/><button type="button" onClick={()=>void applyCoupon()} className="btn btn-secondary shrink-0">اعمال</button></div></div>}
-              {session && shipping.length > 0 && <div className="mt-4 rounded-2xl border border-[var(--border)] p-4"><div className="font-black">روش ارسال</div><div className="mt-3 space-y-2">{shipping.map((x)=><label key={x.id} className="flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-[var(--border)] p-3"><span className="flex items-center gap-2"><input type="radio" name="shipping" checked={shippingId===x.id} onChange={()=>setShippingId(x.id)}/><span><b className="block text-sm">{x.name}</b><small className="text-[var(--muted)]">{x.estimatedDays}</small></span></span><b>{Number(x.price).toLocaleString("fa-IR")} تومان</b></label>)}</div></div>}
+              {session && shipping.length > 0 && <div className="mt-4 rounded-2xl border border-[var(--border)] p-4"><div className="font-extrabold">روش ارسال</div><div className="mt-3 space-y-2">{shipping.map((x)=><label key={x.id} className="flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-[var(--border)] p-3"><span className="flex items-center gap-2"><input type="radio" name="shipping" checked={shippingId===x.id} onChange={()=>setShippingId(x.id)}/><span><b className="block text-sm">{x.name}</b><small className="text-[var(--muted)]">{x.estimatedDays}</small></span></span><b>{Number(x.price).toLocaleString("fa-IR")} تومان</b></label>)}</div></div>}
 
               {!checked ? null : !session ? (
                 <div className="mt-5 rounded-xl bg-[var(--surface-2)] p-3 text-sm">
@@ -319,7 +350,7 @@ export default function Cart() {
               ) : (
                 <div className="mt-5 space-y-3">
                   <div className="rounded-2xl border border-[var(--border)] p-4">
-                    <div className="font-black">آدرس ارسال</div>
+                    <div className="font-extrabold">آدرس ارسال</div>
                     <div className="mt-3 grid gap-3 sm:grid-cols-2">
                       {[
                         ["recipientName", "نام گیرنده"],
@@ -351,14 +382,14 @@ export default function Cart() {
                       <div>
                         مبلغ را واریز کرده و تصویر فیش را بارگذاری کنید.
                       </div>
-                      <div className="mt-1 font-black">
+                      <div className="mt-1 font-extrabold">
                         {settings.cardNumber} — {settings.cardHolderName}
                       </div>
                     </div>
                   )}
 
                   <label className={`${needsReceipt ? "block" : "hidden"} cursor-pointer rounded-2xl border border-dashed border-[var(--border)] p-4`}>
-                    <div className="flex items-center gap-2 font-black">
+                    <div className="flex items-center gap-2 font-extrabold">
                       <Upload size={17} />
                       {uploading
                         ? "در حال آپلود..."

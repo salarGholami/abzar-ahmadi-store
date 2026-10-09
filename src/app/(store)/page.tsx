@@ -4,14 +4,10 @@ import {
   ArrowLeft,
   BadgePercent,
   Boxes,
-  Flame,
-  Package,
-  Search,
   ShieldCheck,
   ShoppingBag,
   Sparkles,
   Star,
-  Trophy,
   Zap,
 } from "lucide-react";
 
@@ -26,6 +22,7 @@ import BrandStrip, {
 import { listActiveCategories, listBestsellers, listPublicProducts } from "@/domains/catalog/server";
 import { SITE_NAME, SITE_TAGLINE } from "@/lib/seo";
 import RecentlyViewed from "@/features/storefront/ui/RecentlyViewed";
+import ToolFinder from "@/features/storefront/ui/ToolFinder";
 
 export const metadata: Metadata = {
   title: { absolute: `${SITE_NAME} | ${SITE_TAGLINE}` },
@@ -129,23 +126,23 @@ export default async function Home() {
               <ShieldCheck size={15} />
             </span>
 
-            <p className="truncate text-[10px] font-bold text-[var(--text)] sm:text-xs">
+            <p className="truncate text-xs font-bold text-[var(--text)] sm:text-xs">
               خرید مطمئن ابزار حرفه‌ای
             </p>
           </div>
 
           <div className="hidden items-center gap-6 sm:flex">
-            <span className="flex items-center gap-1.5 text-[10px] font-bold text-[var(--muted)]">
+            <span className="flex items-center gap-1.5 text-xs font-bold text-[var(--muted)]">
               <Boxes size={14} />
               تنوع بالای محصولات
             </span>
 
-            <span className="flex items-center gap-1.5 text-[10px] font-bold text-[var(--muted)]">
+            <span className="flex items-center gap-1.5 text-xs font-bold text-[var(--muted)]">
               <BadgePercent size={14} />
               قیمت رقابتی
             </span>
 
-            <span className="flex items-center gap-1.5 text-[10px] font-bold text-[var(--muted)]">
+            <span className="flex items-center gap-1.5 text-xs font-bold text-[var(--muted)]">
               <Zap size={14} />
               ارسال سریع
             </span>
@@ -187,7 +184,7 @@ export default async function Home() {
               <ShoppingBag size={16} />
             </span>
 
-            <span className="text-[9px] font-black text-[var(--text)]">
+            <span className="text-[11px] font-black text-[var(--text)]">
               همه محصولات
             </span>
           </Link>
@@ -205,7 +202,7 @@ export default async function Home() {
               <BadgePercent size={16} />
             </span>
 
-            <span className="text-[9px] font-black text-[var(--text)]">
+            <span className="text-[11px] font-black text-[var(--text)]">
               تخفیف‌ها
             </span>
           </Link>
@@ -223,7 +220,7 @@ export default async function Home() {
               <Sparkles size={16} />
             </span>
 
-            <span className="text-[9px] font-black text-[var(--text)]">
+            <span className="text-[11px] font-black text-[var(--text)]">
               جدیدترین‌ها
             </span>
           </Link>
@@ -259,8 +256,7 @@ export default async function Home() {
             <ProductRow
               title="پرفروش‌ترین‌ها"
               subtitle="انتخاب‌های محبوب مشتری‌ها"
-              // icon={Trophy}
-              products={bestsellers}
+                          products={bestsellers}
               viewAllHref="/products"
             />
           </div>
@@ -268,68 +264,9 @@ export default async function Home() {
       )}
 
       {/* ========================================================
-          DISCOVERY SECTION
+          TOOL FINDER
       ======================================================== */}
-      <section className="mx-auto max-w-[1500px] px-4 py-9 sm:px-6 sm:py-12 lg:px-8">
-        <div className="relative overflow-hidden rounded-[30px] border border-[var(--border)] bg-[var(--surface)]">
-          {/* Grid */}
-          <div
-            className="
-              pointer-events-none absolute inset-0 opacity-[0.035]
-              [background-image:linear-gradient(var(--text)_1px,transparent_1px),linear-gradient(90deg,var(--text)_1px,transparent_1px)]
-              [background-size:32px_32px]
-            "
-          />
-
-          {/* Glow */}
-          <div className="pointer-events-none absolute -right-24 -top-24 size-80 rounded-full bg-[var(--primary)]/[0.08] blur-3xl" />
-
-          <div className="relative flex flex-col gap-6 p-5 sm:p-8 lg:flex-row lg:items-center lg:justify-between lg:p-10">
-            <div className="max-w-2xl">
-              <div className="mb-3 flex items-center gap-2">
-                <span className="grid size-8 place-items-center rounded-xl bg-[var(--primary)]/[0.1] text-[var(--primary)]">
-                  <Search size={15} />
-                </span>
-
-                <span className="text-[9px] font-black tracking-[0.18em] text-[var(--primary)]">
-                  FIND YOUR TOOL
-                </span>
-              </div>
-
-              <h2 className="text-[21px] font-black leading-8 text-[var(--text)] sm:text-3xl sm:leading-[1.4]">
-                ابزار مناسب پروژه‌ات رو پیدا کن
-              </h2>
-
-              <p className="mt-2 max-w-xl text-[10px] leading-6 text-[var(--muted)] sm:text-sm">
-                بین محصولات ابزار احمدی جستجو کن و ابزار مناسب کارت را سریع‌تر
-                پیدا کن.
-              </p>
-            </div>
-
-            <Link
-              href="/products"
-              className="
-                group inline-flex h-12 w-full shrink-0
-                items-center justify-center gap-2
-                rounded-2xl bg-[var(--primary)]
-                px-6 text-[11px] font-black !text-white
-                shadow-[0_12px_35px_rgba(0,173,181,0.22)]
-                transition-all duration-300
-                active:scale-[0.98]
-                sm:h-13 sm:w-auto sm:px-7 sm:text-xs
-                sm:hover:-translate-y-1
-              "
-            >
-              <Search size={16} />
-              جستجوی محصولات
-              <ArrowLeft
-                size={15}
-                className="transition-transform group-hover:-translate-x-1"
-              />
-            </Link>
-          </div>
-        </div>
-      </section>
+      <ToolFinder />
 
       {/* ========================================================
           NEW PRODUCTS
@@ -342,8 +279,7 @@ export default async function Home() {
             <ProductRow
               title="جدیدترین محصولات"
               subtitle="تازه‌واردهای فروشگاه"
-              // icon={Package}
-              products={newest}
+                          products={newest}
               viewAllHref="/products"
             />
           </div>
@@ -361,7 +297,7 @@ export default async function Home() {
               className="fill-[var(--primary)] text-[var(--primary)]"
             />
 
-            <span className="text-[9px] font-black tracking-[0.2em] text-[var(--primary)]">
+            <span className="text-[11px] font-black tracking-[0.2em] text-[var(--primary)]">
               WHY AHMADI
             </span>
 
@@ -375,7 +311,7 @@ export default async function Home() {
             چرا ابزار احمدی؟
           </h2>
 
-          <p className="mx-auto mt-2 max-w-lg text-[10px] leading-6 text-[var(--muted)] sm:text-xs">
+          <p className="mx-auto mt-2 max-w-lg text-xs leading-6 text-[var(--muted)] sm:text-xs">
             تجربه خرید ابزار را ساده، سریع و حرفه‌ای طراحی کرده‌ایم.
           </p>
         </div>
@@ -391,7 +327,7 @@ export default async function Home() {
               خرید مطمئن
             </h3>
 
-            <p className="mt-1 text-[9px] leading-5 text-[var(--muted)] sm:text-[10px]">
+            <p className="mt-1 text-[11px] leading-5 text-[var(--muted)] sm:text-xs">
               تجربه خرید ساده و مطمئن
             </p>
           </div>
@@ -406,7 +342,7 @@ export default async function Home() {
               قیمت رقابتی
             </h3>
 
-            <p className="mt-1 text-[9px] leading-5 text-[var(--muted)] sm:text-[10px]">
+            <p className="mt-1 text-[11px] leading-5 text-[var(--muted)] sm:text-xs">
               انتخاب‌های متنوع با قیمت مناسب
             </p>
           </div>
@@ -421,7 +357,7 @@ export default async function Home() {
               تنوع محصولات
             </h3>
 
-            <p className="mt-1 text-[9px] leading-5 text-[var(--muted)] sm:text-[10px]">
+            <p className="mt-1 text-[11px] leading-5 text-[var(--muted)] sm:text-xs">
               ابزار برای نیازهای مختلف
             </p>
           </div>
@@ -436,7 +372,7 @@ export default async function Home() {
               تجربه سریع
             </h3>
 
-            <p className="mt-1 text-[9px] leading-5 text-[var(--muted)] sm:text-[10px]">
+            <p className="mt-1 text-[11px] leading-5 text-[var(--muted)] sm:text-xs">
               پیدا کردن ابزار در کمترین زمان
             </p>
           </div>
@@ -457,7 +393,7 @@ export default async function Home() {
               <div className="mb-3 flex items-center gap-2">
                 <ShoppingBag size={16} className="text-[var(--primary)]" />
 
-                <span className="text-[9px] font-black tracking-[0.18em] text-[var(--primary)]">
+                <span className="text-[11px] font-black tracking-[0.18em] text-[var(--primary)]">
                   AHMADI TOOLS
                 </span>
               </div>
@@ -466,7 +402,7 @@ export default async function Home() {
                 ابزار بعدی پروژه‌ات همین‌جاست.
               </h2>
 
-              <p className="mt-2 max-w-xl text-[10px] leading-6 text-white/50 sm:text-sm">
+              <p className="mt-2 max-w-xl text-xs leading-6 text-white/50 sm:text-sm">
                 محصولات را ببین، مقایسه کن و ابزار مناسب کارت را انتخاب کن.
               </p>
             </div>

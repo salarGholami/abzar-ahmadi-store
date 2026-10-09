@@ -96,7 +96,7 @@ export default function CategoryStrip({
               <span className="relative inline-flex size-2 rounded-full bg-[var(--primary)]" />
             </span>
 
-            <span className="text-[10px] font-black tracking-[0.16em] text-[var(--primary)]">
+            <span className="text-xs font-black tracking-[0.16em] text-[var(--primary)]">
               دسته بندی ابزارها
             </span>
           </div>
@@ -290,7 +290,7 @@ export default function CategoryStrip({
                   <div className="mt-1 flex items-center gap-1">
                     <span
                       className="
-                        text-[9px]
+                        text-[11px]
                         font-medium
                         text-[var(--muted)]
                       "
@@ -348,7 +348,7 @@ export default function CategoryStrip({
             bg-[var(--surface)]/90
             px-3
             py-1.5
-            text-[9px]
+            text-[11px]
             font-bold
             text-[var(--muted)]
             shadow-sm

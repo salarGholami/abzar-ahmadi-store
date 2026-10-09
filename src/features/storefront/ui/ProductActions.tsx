@@ -74,9 +74,9 @@ export default function ProductActions({ product }: { product: Product }) {
       {/* Quantity */}
       <div className="flex items-center justify-between gap-4">
         <div>
-          <div className="text-xs font-black">تعداد</div>
+          <div className="text-xs font-extrabold">تعداد</div>
 
-          <div className="mt-1 text-[10px] font-bold text-[var(--muted)]">
+          <div className="mt-1 text-xs font-bold text-[var(--muted)]">
             حداکثر {product.stock.toLocaleString("fa-IR")} عدد
           </div>
         </div>
@@ -92,7 +92,7 @@ export default function ProductActions({ product }: { product: Product }) {
             <Minus size={16} />
           </button>
 
-          <div className="grid min-w-12 place-items-center text-sm font-black">
+          <div className="grid min-w-12 place-items-center text-sm font-extrabold">
             {quantity.toLocaleString("fa-IR")}
           </div>
 
@@ -120,7 +120,7 @@ export default function ProductActions({ product }: { product: Product }) {
           type="button"
           onClick={() => void handleAdd()}
           disabled={outOfStock || busy}
-          className="group relative flex min-h-14 items-center justify-center gap-2.5 overflow-hidden rounded-2xl bg-[var(--primary)] px-5 text-sm font-black text-white shadow-[0_12px_30px_rgba(0,173,181,0.22)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_35px_rgba(0,173,181,0.3)] active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-40"
+          className="group relative flex min-h-14 items-center justify-center gap-2.5 overflow-hidden rounded-2xl bg-[var(--primary)] px-5 text-sm font-extrabold text-white shadow-[0_12px_30px_rgba(0,173,181,0.22)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_35px_rgba(0,173,181,0.3)] active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-40"
         >
           <span className="absolute inset-0 -translate-x-full bg-white/10 transition-transform duration-500 group-hover:translate-x-0" />
 
@@ -141,7 +141,7 @@ export default function ProductActions({ product }: { product: Product }) {
           type="button"
           onClick={() => void handleBuyNow()}
           disabled={outOfStock || busy}
-          className="flex min-h-14 items-center justify-center gap-2 rounded-2xl border border-[var(--border)] bg-[var(--surface)] px-5 text-sm font-black transition hover:border-[var(--primary)] hover:bg-[var(--primary)]/5 disabled:cursor-not-allowed disabled:opacity-40"
+          className="flex min-h-14 items-center justify-center gap-2 rounded-2xl border border-[var(--border)] bg-[var(--surface)] px-5 text-sm font-extrabold transition hover:border-[var(--primary)] hover:bg-[var(--primary)]/5 disabled:cursor-not-allowed disabled:opacity-40"
         >
           <Zap size={18} className="text-[var(--primary)]" />
           خرید سریع

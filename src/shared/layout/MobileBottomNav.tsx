@@ -19,11 +19,11 @@ const navItems = [
     match: (path: string) => path === "/",
   },
   {
-    href: "/products",
+    href: "/categories",
     label: "دسته‌بندی",
     icon: LayoutGrid,
     match: (path: string) =>
-      path.startsWith("/products") && !path.includes("/cart"),
+      path.startsWith("/categories"),
   },
   {
     href: "/cart",

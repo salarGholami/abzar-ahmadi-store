@@ -1,24 +1,60 @@
-import React, { InputHTMLAttributes } from "react";
+import React, { useId, type InputHTMLAttributes } from "react";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   error?: string;
+  hint?: string;
   wrapperClassName?: string;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ label, error, className = "", wrapperClassName = "", ...props }, ref) => {
+  (
+    {
+      label,
+      error,
+      hint,
+      className = "",
+      wrapperClassName = "",
+      id: idProp,
+      ...props
+    },
+    ref,
+  ) => {
+    const autoId = useId();
+    const id = idProp ?? autoId;
+    const errorId = `${id}-error`;
+    const hintId = `${id}-hint`;
+
+    const describedBy =
+      [error ? errorId : null, hint && !error ? hintId : null]
+        .filter(Boolean)
+        .join(" ") || undefined;
+
     return (
-      <div className={`flex flex-col gap-1 ${wrapperClassName}`}>
-        {label && (
-          <label className="text-sm font-medium text-gray-700">{label}</label>
-        )}
+      <div className={`flex flex-col gap-1.5 ${wrapperClassName}`}>
+        {label ? (
+          <label htmlFor={id} className="text-sm font-bold text-[var(--text)]">
+            {label}
+          </label>
+        ) : null}
         <input
           ref={ref}
-          className={`input ${error ? "border-red-500 focus:ring-red-500" : ""} ${className}`}
+          id={id}
+          aria-invalid={error ? true : undefined}
+          aria-describedby={describedBy}
+          className={`input ${error ? "border-[var(--danger)] focus:ring-[var(--danger)]" : ""} ${className}`.trim()}
           {...props}
         />
-        {error && <span className="text-sm text-red-500">{error}</span>}
+        {error ? (
+          <span id={errorId} role="alert" className="text-sm font-medium text-[var(--danger)]">
+            {error}
+          </span>
+        ) : null}
+        {hint && !error ? (
+          <span id={hintId} className="text-xs font-medium text-[var(--muted)]">
+            {hint}
+          </span>
+        ) : null}
       </div>
     );
   },

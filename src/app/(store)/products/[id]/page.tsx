@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 
 import ProductActions from "@/features/storefront/ui/ProductActions";
+import ProductStickyBar from "@/features/storefront/ui/ProductStickyBar";
 import ProductGallery from "@/features/storefront/ui/ProductGallery";
 import ProductTabs from "@/features/storefront/ui/ProductTabs";
 import RatingStars from "@/features/storefront/ui/RatingStars";
@@ -202,7 +203,7 @@ export default async function ProductDetail({
   };
 
   return (
-    <main dir="rtl" className="min-h-screen overflow-hidden bg-[var(--bg)]">
+    <main dir="rtl" className="min-h-screen overflow-hidden bg-[var(--bg)] pb-[calc(5.5rem+env(safe-area-inset-bottom,0px))] md:pb-0">
       <JsonLd data={productJsonLd} />
       {/* =====================================================
           BREADCRUMB
@@ -457,6 +458,9 @@ export default async function ProductDetail({
         </section>
       ) : null}
           <ProductReviews productId={currentProduct.id} />
+
+      {/* Mobile sticky add-to-cart — above bottom nav */}
+      <ProductStickyBar product={currentProduct} finalPrice={finalPrice} />
 </main>
   );
 }
