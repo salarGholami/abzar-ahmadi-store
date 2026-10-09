@@ -246,5 +246,13 @@
     "actorId": "ec24cd8b-077a-43f7-a129-9778cbdac531",
     "name": "LOGIN",
     "createdAt": "2026-10-07T22:05:30.269Z"
+  },
+  {
+    "id": "c6dcd78e-0adf-4bc4-84d2-7cd823ae25e9",
+    "actorType": "USER",
+    "actorId": "ec24cd8b-077a-43f7-a129-9778cbdac531",
+    "name": "CHECKOUT_STARTED",
+    "path": "/cart",
+    "createdAt": "2026-10-09T09:51:20.028Z"
   }
 ]
