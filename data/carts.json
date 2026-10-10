@@ -18,18 +18,12 @@
         "updatedAt": "2026-10-07T17:43:18.038Z"
       },
       {
-        "productId": "p27",
-        "quantity": 1,
-        "createdAt": "2026-10-07T17:43:20.475Z",
-        "updatedAt": "2026-10-07T17:43:20.475Z"
-      },
-      {
         "productId": "p38",
         "quantity": 1,
         "createdAt": "2026-10-09T17:47:39.937Z",
         "updatedAt": "2026-10-09T17:47:39.937Z"
       }
     ],
-    "updatedAt": "2026-10-09T17:47:39.937Z"
+    "updatedAt": "2026-10-10T17:20:03.051Z"
   }
 ]
