@@ -351,5 +351,13 @@
     "name": "CHECKOUT_STARTED",
     "path": "/cart",
     "createdAt": "2026-10-10T17:20:00.769Z"
+  },
+  {
+    "id": "4bff0847-1a78-4327-b51f-880c3c497cf9",
+    "actorType": "USER",
+    "actorId": "ec24cd8b-077a-43f7-a129-9778cbdac531",
+    "name": "CART_ITEM_REMOVED",
+    "entityId": "p38",
+    "createdAt": "2026-10-10T17:20:08.442Z"
   }
 ]
