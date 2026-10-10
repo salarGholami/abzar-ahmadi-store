@@ -701,7 +701,7 @@ export default function CategoriesPage() {
 
                         <span className="relative flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--surface-2)]">
                           {category.image ? (
-                            // eslint-disable-next-line @next/next/no-img-element
+                             
                             <img
                               src={category.image}
                               alt=""
@@ -1081,7 +1081,7 @@ export default function CategoriesPage() {
                           <div className="mb-3 overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--surface-2)]">
                             <div className="aspect-[16/9] w-full">
                               {category.image ? (
-                                // eslint-disable-next-line @next/next/no-img-element
+                                 
                                 <img
                                   src={category.image}
                                   alt={category.name}

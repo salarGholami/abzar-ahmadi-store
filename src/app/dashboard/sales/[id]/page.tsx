@@ -1,5 +1,7 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 import Link from "next/link";
 import {
   ArrowRight,
@@ -234,6 +236,7 @@ export default function SaleDetailsPage({
     id: string;
   }>;
 }) {
+  const router = useRouter();
   const [saleId, setSaleId] = useState("");
 
   const [sale, setSale] = useState<Sale | null>(null);
@@ -258,13 +261,9 @@ export default function SaleDetailsPage({
     });
   }, [params]);
 
-  useEffect(() => {
+  async function loadSale() {
     if (!saleId) return;
 
-    void loadSale();
-  }, [saleId]);
-
-  async function loadSale() {
     try {
       setLoading(true);
       setError("");
@@ -336,6 +335,12 @@ export default function SaleDetailsPage({
       setLoading(false);
     }
   }
+
+  useEffect(() => {
+    void loadSale();
+    // loadSale is intentionally tied to the route id.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [saleId]);
 
   const customer = useMemo(() => {
     if (!sale?.customerId) {
@@ -423,7 +428,7 @@ export default function SaleDetailsPage({
         throw new Error(result.error.message);
       }
 
-      window.location.href = "/dashboard/sales";
+      router.push("/dashboard/sales");
     } catch (err) {
       setError(err instanceof Error ? err.message : "حذف فروش انجام نشد.");
     } finally {

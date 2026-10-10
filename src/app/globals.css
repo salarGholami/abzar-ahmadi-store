@@ -166,7 +166,7 @@
 
   --radius: 16px;
 
-  --font-vazirmatn: "Vazirmatn", system-ui, sans-serif;
+  /* --font-vazirmatn is provided by next/font (layout.tsx) */
 }
 
 

@@ -59,6 +59,7 @@ export default function ProductGallery({
     window.addEventListener("keydown", handleKeyDown);
 
     return () => window.removeEventListener("keydown", handleKeyDown);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- next/previous stable enough via index setter
   }, [lightbox, safeImages.length]);
 
   return (

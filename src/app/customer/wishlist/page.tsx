@@ -57,7 +57,7 @@ export default function WishlistPage() {
               href={`/products/${p.id}`}
               className="overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--surface)] shadow-sm transition hover:border-[var(--primary)]"
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
+              { }
               <img src={p.image || "/placeholder-product.svg"} alt={p.title} className="aspect-square w-full bg-[var(--surface-2)] object-cover" />
               <div className="p-4">
                 <div className="text-xs text-[var(--muted)]">{p.brand}</div>

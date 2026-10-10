@@ -126,7 +126,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-vazirmatn antialiased">
+      <body className={`${vazirmatn.className} antialiased`}>
         <JsonLd data={siteStructuredData} />
         <Providers>
           {children}

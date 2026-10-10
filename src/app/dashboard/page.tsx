@@ -118,8 +118,11 @@ export default function Dashboard() {
   const purchasesQuery = useAdminCollection<Purchase>("purchases");
 
   const summary = (reportsQuery.data ?? null) as Summary | null;
-  const sales = salesQuery.data ?? [];
-  const purchases = purchasesQuery.data?.items ?? [];
+  const sales = useMemo(() => salesQuery.data ?? [], [salesQuery.data]);
+  const purchases = useMemo(
+    () => purchasesQuery.data?.items ?? [],
+    [purchasesQuery.data?.items],
+  );
   const loading =
     reportsQuery.isLoading || salesQuery.isLoading || purchasesQuery.isLoading;
 

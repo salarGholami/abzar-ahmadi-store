@@ -38,7 +38,7 @@ export default function BrandsPage() {
           >
             <div className="flex aspect-[4/3] items-center justify-center bg-[var(--surface-2)] p-4">
               {brand.image ? (
-                // eslint-disable-next-line @next/next/no-img-element
+                 
                 <img
                   src={brand.image}
                   alt={brand.name}

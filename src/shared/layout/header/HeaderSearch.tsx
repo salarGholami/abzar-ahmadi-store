@@ -156,7 +156,6 @@ export default function HeaderSearch({ className = "", inputId, autoFocus = fals
           autoComplete="off"
           placeholder="جستجو بین ابزارها، برندها و کد کالا..."
           className="min-w-0 flex-1 bg-transparent text-xs font-medium text-[var(--text)] outline-none placeholder:text-[var(--muted)]"
-          aria-expanded={showPanel}
           aria-controls={`${inputId}-suggestions`}
           aria-autocomplete="list"
         />

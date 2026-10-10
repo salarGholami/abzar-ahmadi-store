@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import * as XLSX from "xlsx";
@@ -529,10 +529,13 @@ export default function PurchasesBrowser({ purchases, suppliers }: Props) {
     [suppliers],
   );
 
-  const supplierOf = (purchase: Purchase) =>
-    getSupplierName(purchase) ||
-    supplierMap.get(getSupplierId(purchase)) ||
-    "تأمین‌کننده نامشخص";
+  const supplierOf = useCallback(
+    (purchase: Purchase) =>
+      getSupplierName(purchase) ||
+      supplierMap.get(getSupplierId(purchase)) ||
+      "تأمین‌کننده نامشخص",
+    [supplierMap],
+  );
 
   const allAmount = purchases.reduce(
     (sum, purchase) => sum + getAmount(purchase),
@@ -615,7 +618,7 @@ export default function PurchasesBrowser({ purchases, suppliers }: Props) {
     dateTo,
     minAmount,
     maxAmount,
-    supplierMap,
+    supplierOf,
   ]);
 
   const pageCount = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));

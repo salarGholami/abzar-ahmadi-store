@@ -31,7 +31,7 @@ export default async function CategoriesPage() {
               >
                 <div className="relative aspect-[4/3] w-full bg-[var(--surface-2)]">
                   {category.image ? (
-                    // eslint-disable-next-line @next/next/no-img-element
+                     
                     <img
                       src={category.image}
                       alt={category.name}

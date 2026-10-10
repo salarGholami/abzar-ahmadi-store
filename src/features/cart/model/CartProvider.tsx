@@ -45,6 +45,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       remove: (productId) => mutate("REMOVE", productId),
       clear: () => mutate("CLEAR"),
     }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- query.refetch is listed; full query churns
     [lines, mutation.isPending, query.isLoading, query.refetch, mutate],
   );
 

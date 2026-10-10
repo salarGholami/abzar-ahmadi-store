@@ -139,7 +139,7 @@ export default function AdminImageField({
         {hasImage ? (
           <div className="relative">
             <div className="aspect-[16/10] w-full bg-[var(--surface)]">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
+              { }
               <img
                 src={value!}
                 alt={label}

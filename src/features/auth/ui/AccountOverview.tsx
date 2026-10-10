@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FileImage, LogOut, ShieldCheck } from "lucide-react";
@@ -110,10 +111,10 @@ export default function AccountOverview({
         </section>
       )}
       <div className="mt-5 grid gap-3 sm:grid-cols-2">
-        <a href="/customer/addresses" className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-4 text-sm font-bold transition hover:border-[var(--primary)]">آدرس‌های من</a>
-        <a href="/customer/wishlist" className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-4 text-sm font-bold transition hover:border-[var(--primary)]">علاقه‌مندی‌ها</a>
-        <a href="/customer/orders" className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-4 text-sm font-bold transition hover:border-[var(--primary)]">سفارش‌های من</a>
-        <a href="/customer/notifications" className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-4 text-sm font-bold transition hover:border-[var(--primary)]">اعلان‌ها</a>
+        <Link href="/customer/addresses" className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-4 text-sm font-bold transition hover:border-[var(--primary)]">آدرس‌های من</Link>
+        <Link href="/customer/wishlist" className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-4 text-sm font-bold transition hover:border-[var(--primary)]">علاقه‌مندی‌ها</Link>
+        <Link href="/customer/orders" className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-4 text-sm font-bold transition hover:border-[var(--primary)]">سفارش‌های من</Link>
+        <Link href="/customer/notifications" className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-4 text-sm font-bold transition hover:border-[var(--primary)]">اعلان‌ها</Link>
       </div>
       <div className="mt-7 space-y-2">
         {session.role === "SUPPLIER" && (

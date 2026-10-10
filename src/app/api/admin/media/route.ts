@@ -5,7 +5,7 @@ import type { MediaAsset } from "@/lib/types";
 import { mediaAssetRepo } from "@/lib/repositories";
 
 const folders = new Set<MediaAsset["purpose"]>(["PRODUCT", "RECEIPT", "BANNER", "ARTICLE", "SUPPORT", "CATEGORY", "BRAND"]);
-const folderMap: Record<string, "products" | "receipts" | "banners" | "articles" | "support" | "categories"> = { PRODUCT: "products", RECEIPT: "receipts", BANNER: "banners", ARTICLE: "articles", SUPPORT: "support", CATEGORY: "categories", BRAND: "brands" };
+const folderMap: Record<string, "products" | "receipts" | "banners" | "articles" | "support" | "categories" | "brands"> = { PRODUCT: "products", RECEIPT: "receipts", BANNER: "banners", ARTICLE: "articles", SUPPORT: "support", CATEGORY: "categories", BRAND: "brands" };
 export async function POST(req: Request) {
   try {
     const form = await req.formData();

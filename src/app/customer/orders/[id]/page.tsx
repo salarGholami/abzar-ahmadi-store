@@ -488,7 +488,7 @@ export default function OrderDetailPage({
                   >
                     <div className="grid size-14 shrink-0 place-items-center overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--surface-2)] text-[var(--muted)]">
                       {item.product?.image ? (
-                        // eslint-disable-next-line @next/next/no-img-element
+                         
                         <img
                           src={item.product.image}
                           alt={item.product?.title || "محصول"}

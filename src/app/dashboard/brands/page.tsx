@@ -30,7 +30,7 @@ export default function BrandsPage() {
           label: "لوگو",
           render: (row) =>
             row.image ? (
-              // eslint-disable-next-line @next/next/no-img-element
+               
               <img
                 src={row.image}
                 alt={row.name}

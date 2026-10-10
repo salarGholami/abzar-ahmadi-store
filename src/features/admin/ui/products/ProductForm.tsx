@@ -1,5 +1,7 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 import { useState, type FormEvent } from "react";
 import Link from "next/link";
 import {
@@ -72,6 +74,7 @@ function getInitialImages(product?: Product): ProductImage[] {
 }
 
 export default function ProductForm({ mode, categories, product }: Props) {
+  const router = useRouter();
   const isEdit = mode === "edit";
 
   const [form, setForm] = useState<ProductFormValues>(() =>
@@ -179,7 +182,7 @@ export default function ProductForm({ mode, categories, product }: Props) {
         return;
       }
 
-      window.location.assign("/dashboard/products");
+      router.push("/dashboard/products");
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : "خطا در ذخیره محصول.");
     } finally {

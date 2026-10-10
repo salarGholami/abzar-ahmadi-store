@@ -14,7 +14,6 @@ export function normalizeProduct(product: Product): Product {
  * (this object is serialized into HTML/RSC payloads and the public /api/products response).
  */
 export function toPublicProduct(product: Product): Product {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { purchaseCost: _purchaseCost, supplierIds: _supplierIds, ...rest } = normalizeProduct(product);
   return rest;
 }

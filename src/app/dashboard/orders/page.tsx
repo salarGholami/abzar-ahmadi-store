@@ -271,7 +271,10 @@ function StatCard({
 
 export default function OrdersAdmin() {
   const salesQuery = useAdminSales();
-  const rows = (salesQuery.data ?? []) as Order[];
+  const rows = useMemo(
+    () => (salesQuery.data ?? []) as Order[],
+    [salesQuery.data],
+  );
   const loading = salesQuery.isLoading;
   const refreshing = salesQuery.isFetching && !salesQuery.isLoading;
   const error = salesQuery.error instanceof Error

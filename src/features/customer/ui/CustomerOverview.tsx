@@ -136,7 +136,7 @@ export default function CustomerOverview({ name }: { name: string }) {
   const { data: addresses = [], isLoading: addressesLoading } =
     useCustomerAddresses();
 
-  const orders = ordersPage?.items ?? [];
+  const orders = useMemo(() => ordersPage?.items ?? [], [ordersPage?.items]);
 
   const { data: wishlist } = useWishlist();
 

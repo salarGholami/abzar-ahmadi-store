@@ -1,5 +1,7 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 import Link from "next/link";
 import {
   AlertCircle,
@@ -117,6 +119,7 @@ type ApiResponse<T> = {
 ========================================================= */
 
 export default function NewPurchasePage() {
+  const router = useRouter();
   const [products, setProducts] = useState<Product[]>([]);
   const [suppliers, setSuppliers] = useState<Supplier[]>([]);
 
@@ -646,7 +649,7 @@ export default function NewPurchasePage() {
         throw new Error(data.error?.message || "ثبت خرید انجام نشد.");
       }
 
-      window.location.href = `/dashboard/purchases/${data.data.id}`;
+      router.push(`/dashboard/purchases/${data.data.id}`);
     } catch (err) {
       setError(err instanceof Error ? err.message : "خطا در ثبت خرید");
     } finally {

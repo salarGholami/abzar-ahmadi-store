@@ -258,6 +258,7 @@ export default function CategoryManagementPage() {
 
   useEffect(() => {
     loadData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- load on categoryId change only
   }, [categoryId]);
 
   useEffect(() => {
