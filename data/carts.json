@@ -12,12 +12,12 @@
     "ownerId": "ec24cd8b-077a-43f7-a129-9778cbdac531",
     "lines": [
       {
-        "productId": "p38",
+        "productId": "p21",
         "quantity": 1,
-        "createdAt": "2026-10-09T17:47:39.937Z",
-        "updatedAt": "2026-10-09T17:47:39.937Z"
+        "createdAt": "2026-10-07T17:43:18.038Z",
+        "updatedAt": "2026-10-07T17:43:18.038Z"
       }
     ],
-    "updatedAt": "2026-10-10T17:20:04.988Z"
+    "updatedAt": "2026-10-10T17:20:06.565Z"
   }
 ]
