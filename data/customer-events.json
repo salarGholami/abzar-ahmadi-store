@@ -327,5 +327,13 @@
     "name": "CHECKOUT_STARTED",
     "path": "/cart",
     "createdAt": "2026-10-10T15:34:15.064Z"
+  },
+  {
+    "id": "76e81937-6f23-4c92-9f66-c1e30395f9c9",
+    "actorType": "USER",
+    "actorId": "ec24cd8b-077a-43f7-a129-9778cbdac531",
+    "name": "CHECKOUT_STARTED",
+    "path": "/cart",
+    "createdAt": "2026-10-10T17:19:12.919Z"
   }
 ]
