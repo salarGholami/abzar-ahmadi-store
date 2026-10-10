@@ -1,0 +1,18 @@
+[
+  {
+    "id": "e6c51a7d-84c3-4a43-8fa1-e7a4ff07982b",
+    "purchaseId": "8b3ba7b3-fdde-40fd-b757-db62e196df22",
+    "productId": "p1",
+    "quantity": 1,
+    "unitCost": 645000,
+    "total": 645000
+  },
+  {
+    "id": "5e85476d-19ef-430e-bbaf-d32563541123",
+    "purchaseId": "8b3ba7b3-fdde-40fd-b757-db62e196df22",
+    "productId": "p2",
+    "quantity": 3,
+    "unitCost": 790000,
+    "total": 2370000
+  }
+]

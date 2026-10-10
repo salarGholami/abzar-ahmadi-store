@@ -12,5 +12,17 @@
     "quantity": 0,
     "reason": "SALE:df7d7290-d3af-4497-8765-85d9306a3ae6",
     "updatedAt": "2026-10-06T10:33:16.508Z"
+  },
+  {
+    "id": "89f0176e-2cb4-4f84-8b15-c25ba30b7f6e",
+    "productId": "p1",
+    "quantity": 1,
+    "updatedAt": "2026-10-10T09:25:09.884Z"
+  },
+  {
+    "id": "35ead69e-c3e2-406e-876d-5e3d2e86e5ff",
+    "productId": "p2",
+    "quantity": 3,
+    "updatedAt": "2026-10-10T09:25:09.884Z"
   }
 ]
