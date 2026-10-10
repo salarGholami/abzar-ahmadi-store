@@ -313,19 +313,11 @@
     "createdAt": "2026-10-09T21:51:15.277Z"
   },
   {
-<<<<<<< HEAD
     "id": "825ff0b5-4e5b-49cb-9e66-3a1eab2a7c2f",
-=======
-    "id": "7d17a6eb-5ea4-4691-910f-2123847f69e1",
->>>>>>> 19f82b5bb78ed552675e689571313d156a6a2b90
     "actorType": "USER",
     "actorId": "ec24cd8b-077a-43f7-a129-9778cbdac531",
     "name": "CHECKOUT_STARTED",
     "path": "/cart",
-<<<<<<< HEAD
     "createdAt": "2026-10-10T13:07:42.535Z"
-=======
-    "createdAt": "2026-10-10T13:14:43.277Z"
->>>>>>> 19f82b5bb78ed552675e689571313d156a6a2b90
   }
 ]
