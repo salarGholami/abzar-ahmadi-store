@@ -359,5 +359,13 @@
     "name": "CART_ITEM_REMOVED",
     "entityId": "p38",
     "createdAt": "2026-10-10T17:20:08.442Z"
+  },
+  {
+    "id": "9a8ef972-2602-4c80-b4ed-b7cabd62d2ef",
+    "actorType": "USER",
+    "actorId": "ec24cd8b-077a-43f7-a129-9778cbdac531",
+    "name": "CART_ITEM_REMOVED",
+    "entityId": "p21",
+    "createdAt": "2026-10-10T17:20:06.718Z"
   }
 ]
