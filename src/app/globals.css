@@ -897,3 +897,42 @@ textarea:focus:not(:focus-visible) {
     padding-bottom: 1rem;
   }
 }
+
+
+/* Magazine rich article typography */
+.article-content {
+  font-size: 1rem;
+  line-height: 2.15;
+  overflow-wrap: anywhere;
+}
+.article-content > * + * { margin-top: 1.15rem; }
+.article-content h1, .article-content h2, .article-content h3 {
+  color: var(--text);
+  font-weight: 900;
+  line-height: 1.8;
+  scroll-margin-top: 6rem;
+}
+.article-content h1 { font-size: clamp(1.65rem, 4vw, 2.15rem); }
+.article-content h2 { margin-top: 2.6rem; font-size: clamp(1.35rem, 3vw, 1.75rem); }
+.article-content h3 { margin-top: 2rem; font-size: 1.2rem; }
+.article-content p { color: var(--text); line-height: 2.2; }
+.article-content a { color: var(--primary); text-decoration: underline; text-underline-offset: 4px; }
+.article-content ul, .article-content ol { padding-right: 1.5rem; }
+.article-content ul { list-style: disc; }
+.article-content ol { list-style: decimal; }
+.article-content li { padding-right: .25rem; margin-top: .45rem; }
+.article-content blockquote { margin: 1.75rem 0; border-right: 4px solid var(--primary); border-radius: .75rem 0 0 .75rem; background: var(--surface-2); padding: 1rem 1.25rem; color: var(--muted); }
+.article-content img { max-width: 100%; height: auto; border-radius: 1rem; margin-inline: auto; }
+.article-content hr { margin-block: 2rem; border-color: var(--border); }
+.article-editor-content { min-height: 360px; padding: 1.25rem; font-size: .9rem; line-height: 2.1; }
+.article-editor-content > * + * { margin-top: .8rem; }
+.article-editor-content h1, .article-editor-content h2, .article-editor-content h3 { font-weight: 900; line-height: 1.8; }
+.article-editor-content h1 { font-size: 1.7rem; }
+.article-editor-content h2 { font-size: 1.4rem; }
+.article-editor-content h3 { font-size: 1.15rem; }
+.article-editor-content ul, .article-editor-content ol { padding-right: 1.5rem; }
+.article-editor-content ul { list-style: disc; }
+.article-editor-content ol { list-style: decimal; }
+.article-editor-content blockquote { border-right: 3px solid var(--primary); padding-right: 1rem; color: var(--muted); }
+.article-editor-content a { color: var(--primary); text-decoration: underline; }
+.article-editor-content p.is-editor-empty:first-child::before { color: var(--muted); content: attr(data-placeholder); float: right; height: 0; pointer-events: none; }

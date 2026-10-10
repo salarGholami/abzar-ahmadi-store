@@ -1,13 +1,16 @@
 import type { MetadataRoute } from "next";
 import { listActiveCategories, listPublicProducts } from "@/domains/catalog/server";
 import { absoluteUrl } from "@/lib/seo";
+import { getJson } from "@/lib/github";
+import type { StoreArticle } from "@/lib/types";
 
 const STATIC_PAGES = ["/about", "/contact", "/faq", "/terms", "/privacy"];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [products, categories] = await Promise.all([
+  const [products, categories, articleResult] = await Promise.all([
     listPublicProducts().catch(() => []),
     listActiveCategories().catch(() => []),
+    getJson<StoreArticle[]>("articles.json", [], { cache: false }).catch(() => ({ data: [] as StoreArticle[] })),
   ]);
 
   const newest = products
@@ -47,6 +50,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly",
       priority: 0.8,
       images: imageUrls.length ? imageUrls : undefined,
+    });
+  }
+
+  urls.push({
+    url: absoluteUrl("/magazine"),
+    changeFrequency: "weekly",
+    priority: 0.7,
+  });
+
+  for (const article of articleResult.data.filter((item) => item.active && !item.noIndex && item.slug)) {
+    urls.push({
+      url: absoluteUrl(`/magazine/${article.slug}`),
+      lastModified: article.updatedAt || article.publishedAt || article.createdAt
+        ? new Date(article.updatedAt || article.publishedAt || article.createdAt)
+        : undefined,
+      changeFrequency: "monthly",
+      priority: 0.65,
     });
   }
 

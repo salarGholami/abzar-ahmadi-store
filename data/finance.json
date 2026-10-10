@@ -5,5 +5,12 @@
     "referenceId": "90aff309-3816-4189-8281-a6eb93be0bb6",
     "amount": 1132500,
     "createdAt": "2026-10-07T12:37:48.948Z"
+  },
+  {
+    "id": "8624ff0d-a9b4-4adf-a07c-3584b4b6a686",
+    "type": "PURCHASE",
+    "referenceId": "8b3ba7b3-fdde-40fd-b757-db62e196df22",
+    "amount": 3015000,
+    "createdAt": "2026-10-10T09:25:09.884Z"
   }
 ]
